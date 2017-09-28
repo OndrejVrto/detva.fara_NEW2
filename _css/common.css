@@ -1,0 +1,249 @@
+/* Nové */
+body {
+background-color: #d5d5d5;
+}
+
+/* STARé */
+
+.kostolPage{
+	margin:20px;
+}
+.frantisekPage{
+	margin:20px;
+}
+.kontaktPage{
+	margin:20px;
+	text-align:center;
+}
+.headerText{
+	font-size:1.5em;
+	font-weight:bold;
+	text-align:center;
+	margin-bottom:10px;
+	margin-top:40px;
+}
+.mainPageTextCenter{
+	text-align:center;
+	padding-top:40px;
+	padding-bottom:40px;
+}
+.mainPageText{
+	padding-top:40px;
+	padding-bottom:40px;
+}
+div.textfrantisek{
+	text-indent:40px;
+	text-align:justify;
+	vertical-align:middle;
+	width:auto;
+/*margin:15px 15px 15px 15px;*/
+}
+div.normaltext{
+	font-family:sans-serif;
+	text-align:left;
+	padding-left:0px;
+	padding-bottom:2px;
+}
+ul.zarovnanie1{
+	text-align:left;
+}
+.textkostol{
+	text-align:justify;
+}
+.rightOznamy{
+	background-color: rgb(238, 238, 238); 
+	padding-top: 10px; 
+	padding-bottom: 10px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	text-align: center;
+	padding-left: 10px; 
+	padding-right: 10px;
+	border: 1px solid transparent;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+}
+.rightOznamy h2{
+	margin-top: 10px;
+	margin-bottom: 7px;
+}
+.rightOznamy>p:first-child{
+	margin-top:10px;
+	white-space:pre;
+}
+.rightOznamy .meniny{
+	margin-left:20px;
+	margin-right:20px;
+}
+
+@media (min-width: 992px) {
+	.navbar-brand {
+		font-size: 24px;
+	}
+	.nav {
+		font-size: 14px;
+	}
+}
+
+/*.breadcrumb > .active {
+  font-size: 120%;
+}*/
+
+.rightOznamy iframe {
+	border-style: none;
+	margin: auto;
+}
+iframe.noScrolling {
+	width: 300px;
+	height: 340px;
+	overflow: hidden;
+	margin-left: -30px;
+}
+.mapyGoogle{
+	width: 425px;
+	height: 350px;
+	overflow: hidden;
+	margin: 0px;
+	border-style: none;
+	margin: auto;
+}
+
+footer {
+  padding: 0px 15px 10px 15px;
+  background-color: #333333;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  color: #d9d9d9;
+  min-height: 215px;
+  font-size: 0.75rem;
+}
+
+footer .glyphicon{
+	margin-left: 35px;
+}
+footer address {
+    margin-bottom: 0px;
+}
+footer dd {
+	margin-left: 15px;
+}
+footer h1{
+	font-weight: 500;
+	font-size: 1.8rem;
+	margin-top: 0px;
+	padding-top: 15px;
+}
+
+/*.pocitadlo{
+	padding-top: 10px;
+	margin: 0px;
+}*/
+.myslienka{
+	min-height: 110px;
+	margin: 0px;
+}
+#copyright{
+	padding:0px;
+	margin:5px 0px 0px 0px;
+}
+/*
+.pagination{
+	display: table;
+	margin: 20px auto 0px auto;
+	word-wrap: initial;*/
+}
+.half-rule {
+    width: 100px;
+    margin: 40px auto;
+}
+.knazi{
+	padding-top: 5px;
+}
+.knaziS .row h3 {
+	margin-top: 5px;
+	padding-left: 15px;
+}
+.knaziS .row {
+	margin-top: 15px;
+}
+.knaziS ul {
+	margin-bottom: 0px;
+}
+.dekanat dd {
+	padding-bottom: 20px;
+}
+.thumbnail {
+    padding: 15px 5px 2px 5px;
+    margin-bottom: 25px;
+    background-color: #EEE;  /*FFF*/
+    border: 0px solid #000;
+	/* min-height: 350px;*/
+}
+.thumbnail img{
+	/*width: 95%;*/
+	border-radius:3px;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+}
+.well {
+    margin-top: 15px;
+	background-color: #f5f5f5;
+	border: 1px solid #e3e3e3;
+	border-radius: 4px;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
+	margin-bottom: 20px;
+	min-height: 20px;
+	padding: 19px;
+}
+.breadcrumb {
+	 margin-top: 15px;
+}
+
+.well h1{
+	font-size: 24px;
+	margin-top: 0px;
+}
+/*.panel{
+	margin-top: 15px;
+}*/
+
+mark {
+	background-color: #FF9;
+}
+
+
+@media print {
+	footer,
+	.breadcrumb,
+	.well,
+	.rightOznamy{
+		border: 1px solid #ddd !important;
+  }
+}
+
+.carousel {
+	position: relative;
+	max-width: 1300px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+@media (max-width: 768px) {
+	.carousel-control-prev,
+	.carousel-control-next,
+	.carousel-control-prev-icon,
+	.ccarousel-control-next-icon,
+	.carousel-indicators{
+	  display: none;
+	  /*top: 46%;*/
+	}
+	.navbar-nav .open .dropdown-menu > li > a {
+		padding-left: 50px;
+	}
+}
+
+.img-thumbnail + p {
+  margin-top:10px;
+}
+

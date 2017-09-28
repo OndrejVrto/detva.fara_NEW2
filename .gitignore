@@ -1,0 +1,22 @@
+# Ignore list
+# najskor som zakazal vsetko a potom som povolil len to co som potreboval
+
+*
+!*.php
+!_vlozene
+ConnectMyAdmin.php
+!_css
+!common.css
+!folio-gallery.css
+!dekanat
+!farnost
+!fotogaleria
+!liturgia
+!spolocenstva
+!dekanat/*.php
+!farnost/*.php
+!fotogaleria/**/*
+!liturgia/*.php
+!spolocenstva/*.php
+adminer.php
+!.gitignore
