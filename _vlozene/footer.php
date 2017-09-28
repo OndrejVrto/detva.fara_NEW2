@@ -4,13 +4,13 @@
 		<section class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4">
 				<h1>Kontakt</h1>
 			<address>
-				<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span><br>
+				<i class="fa fa-map-marker fa-lg" aria-hidden="true"></i><br>
 				<strong>Rímsko-katolícky farský úrad sv. Františka Assiského</strong><br>
 				Partizánska ul. 64<br>
 				962 12&nbsp;&nbsp;&nbsp;Detva<br>
-				<span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span><br>
+				<i class="fa fa-phone fa-lg" aria-hidden="true"></i><br>
 				(045) 54 55 243<br>
-				<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span><br>
+				<i class="fa fa-envelope fa-lg" aria-hidden="true"></i><br>
 				<a href="mailto:#">detva@fara.sk</a><br>
 				<a href="mailto:#">rkfudt@stonline.sk</a><br>
 			</address>
@@ -37,6 +37,7 @@
 			<div class="row pl-5 text-center">
 				<div class="pociadlo">
 					<!-- START PHP - Počítadlo -->
+					<i class="fa fa-line-chart fa-lg" aria-hidden="true">&nbsp;&nbsp;</i>
 					<?php include "pocitadlo.php"; ?><span title="Dnešný dátum: <?php echo $den; ?>"><strong>Návštevnosť dnes:&nbsp;&nbsp;</strong><?php echo $vysledokDnes; ?></span>
 					<br>
 					<span title="Počítadlo spustené 23.03.2016 o 12:00"><strong>Celková návštevnosť:&nbsp;&nbsp;</strong><?php echo $vysledok; ?></span>
