@@ -39,8 +39,8 @@
 		array('CestaSuboru' => "liturgicke-oznamy-detva-right.php", "Tlaciaren" => true, "PevnaVyska" => false, "Role" => false, "NazovPanelu" => 'PochodZaZivot'),
 		array('CestaSuboru' => "rightPanel-standard.php", "Tlaciaren" => true, "PevnaVyska" => 360, "Role" => false, "NazovPanelu" => 'CitanieNaDnes')
 	);*/
-	//$PravyPanelZlozenie = false;
-	$PravyPanelZlozenie = 'standard';
+	$PravyPanelZlozenie = false;
+	//$PravyPanelZlozenie = 'standard';
 ?>
 <?php include "../_vlozene/header.php"; echo "\n"; ?>
 <!-- Start HEAD special -->
@@ -50,23 +50,21 @@
 <?php include "../_vlozene/vrch-stranky.php"; echo "\n"; ?>
 
 
-
 <?php 
 	// error_reporting (E_ALL ^ E_NOTICE);
 	// photo gallery settings
 	$mainFolder    = '../_fotoalbumy/2008';		// folder where your albums are located - relative to root
 	$albumsPerPage = '10';						// number of albums per page
 	$itemsPerPage  = '10';						// number of images per page    
-	$thumb_width   = '135';						// width of thumbnails
-	$thumb_height  = '135';						// height of thumbnails
+	$thumb_width   = '250';						// width of thumbnails
+	$thumb_height  = '250';						// height of thumbnails
 	$extensions    = array(".jpg",".png",".gif",".JPG",".PNG",".GIF");		// allowed extensions in photo gallery
 ?>
+
 			<div class="gallery" role="img">
-<?php include "sablony/galeriaFunkcie.php"; ?>
+<?php include "sablony/galeriaFunkcie-2.php"; ?>
 			</div>
 
-			
-			
 <?php include "../_vlozene/spodok-stranky.php"; echo "\n";?>
 <!-- START - skripty na konci stranky -->
 	<script type="text/javascript" src="/_javascripty/jquery-1.9.1.min.js"></script>

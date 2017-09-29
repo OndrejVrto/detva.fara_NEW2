@@ -10,7 +10,7 @@
 		$pocitadlo++;
 		echo "\n\t\t\t\t<li class=\"breadcrumb-item";
 		if ($pocitadlo == $pocetBubliniek) {
-			echo " active\" ";
+			echo " active";
 		}
 		echo "\">";
 		if ($MYbublinkoveMenu['html'] !==''){

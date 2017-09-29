@@ -3,6 +3,29 @@ body {
 background-color: #d5d5d5;
 }
 
+html {
+  font-size: 14px;
+}
+
+@include media-breakpoint-up(sm) {
+  html {
+    font-size: 18px;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  html {
+    font-size: 20px;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  html {
+    font-size: 28px;
+  }
+}
+
+
 /* STARé */
 
 .kostolPage{
@@ -201,7 +224,7 @@ footer h1{
 }
 
 .well h1{
-	font-size: 24px;
+	/*font-size: 24px;*/
 	margin-top: 0px;
 }
 /*.panel{
@@ -229,7 +252,7 @@ mark {
 	margin-right: auto;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 720px) {
 	.carousel-control-prev,
 	.carousel-control-next,
 	.carousel-control-prev-icon,

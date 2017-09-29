@@ -5,11 +5,17 @@ position:relative;
 overflow:hidden;
 /* width:530px; */
 margin:15px auto;
-padding: 0px 20px 20px 20px;
+padding: 0px 5px;
 background:#ededed;
 border-radius:5px;
 -moz-border-radius:5px;
 -webkit-border-radius:5px;
+}
+
+@media (min-width: 540px) {
+  .gallery {
+    padding: 0px 20px;
+  }
 }
 
 .gallery a:link,
