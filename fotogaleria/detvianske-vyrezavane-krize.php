@@ -14,8 +14,8 @@
 
 	// určuje či sa na stránke zobrazí bublinkové menu a následne ho naplní
 	$bublinkoveMenu = array (
-		array("html" => "/fotogaléria", "nazov" => "Fotogaléria"),
-		array("html" => "/fotogaleria/2015/1/", "nazov" => "2015")
+		array("html" => "/fotogaleria", "nazov" => "Fotogaléria"),
+		array("html" => "/fotogaleria/detvianske-vyrezavane-krize/1/", "nazov" => "Detvianske vyrezávané kríže")
 	);
 	//$bublinkoveMenu = false;
 
@@ -54,7 +54,7 @@
 <?php 
 	// error_reporting (E_ALL ^ E_NOTICE);
 	// photo gallery settings
-	$mainFolder    = '../_fotoalbumy/2015';		// folder where your albums are located - relative to root
+	$mainFolder    = '../_fotoalbumy/detvianske-vyrezavane-krize';		// folder where your albums are located - relative to root
 	$albumsPerPage = '5';						// number of albums per page
 	$itemsPerPage  = '5';						// number of images per page    
 	$thumb_width   = '135';						// width of thumbnails

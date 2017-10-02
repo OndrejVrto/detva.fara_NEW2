@@ -12,8 +12,8 @@ function breadcrumbs3() {
 
     foreach ($path AS $x => $crumb) {
 
-        $title = str_replace(Array('%20'), Array(' '),ucwords(str_replace(Array('.php', '_'), Array('', ' '), $crumb)));
-		$title = str_replace(Array('Fotogaleria', 'Detvianske', 'vyrezavane', 'krize'), Array('Fotogaléria', 'Detvianske', 'vyrezávané', 'kríže'), $title);	
+        $title = str_replace(Array('%20', '-'), Array(' ', ' '),ucwords(str_replace(Array('.php', '_'), Array('', ' '), $crumb)));
+		$title = str_replace(Array('Fotogaleria', 'Detvianske', 'vyrezavane', 'krize', 'Dubravy'), Array('Fotogaléria', 'Detvianske', 'vyrezávané', 'kríže', 'Dúbravy'), $title);	
 		
 		$cesta = $cesta . '/' . $crumb;
 		

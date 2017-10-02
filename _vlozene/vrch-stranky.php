@@ -22,8 +22,8 @@
 		echo "\t\t<main class=\"col-12 col-sm-12 col-md-7 col-lg-8 col-xl-8\" role=\"main\">\n";
 	}
 	if (isset($bublinkoveMenu) and $bublinkoveMenu !== false) {	
-		include "menu-bublinkove.php"; echo "\n";
-		include "menu-bublinkove2.php"; echo "\n";
+		//include "menu-bublinkove.php"; echo "\n";
+		//include "menu-bublinkove2.php"; echo "\n";
 		include "menu-bublinkove-albumy.php"; echo "\n";		
 	}
 	if (isset($vedeliSteZeOFF) and $vedeliSteZeOFF == true) {
