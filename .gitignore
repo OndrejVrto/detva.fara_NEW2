@@ -21,3 +21,5 @@ ConnectMyAdmin.php
 adminer.php
 !.gitignore
 !.htaccess
+!css
+!*.css

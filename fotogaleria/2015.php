@@ -57,8 +57,8 @@
 	$mainFolder    = '../_fotoalbumy/2015';		// folder where your albums are located - relative to root
 	$albumsPerPage = '5';						// number of albums per page
 	$itemsPerPage  = '5';						// number of images per page    
-	$thumb_width   = '135';						// width of thumbnails
-	$thumb_height  = '135';						// height of thumbnails
+	$thumb_width   = '250';						// width of thumbnails
+	$thumb_height  = '250';						// height of thumbnails
 	$extensions    = array(".jpg",".png",".gif",".JPG",".PNG",".GIF");		// allowed extensions in photo gallery
 ?>
 			<div class="gallery" role="img">

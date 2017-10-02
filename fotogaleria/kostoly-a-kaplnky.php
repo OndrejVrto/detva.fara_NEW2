@@ -14,8 +14,8 @@
 
 	// určuje či sa na stránke zobrazí bublinkové menu a následne ho naplní
 	$bublinkoveMenu = array (
-		array("html" => "/fotogaléria", "nazov" => "Fotogaléria"),
-		array("html" => "/fotogaleria/2008/1/", "nazov" => "2008")
+		array("html" => "/fotogaleria", "nazov" => "Fotogaléria"),
+		array("html" => "/fotogaleria/kostoly-a-kaplnky/1/", "nazov" => "Kostoly a kaplnky")
 	);
 	//$bublinkoveMenu = false;
 
@@ -39,8 +39,8 @@
 		array('CestaSuboru' => "liturgicke-oznamy-detva-right.php", "Tlaciaren" => true, "PevnaVyska" => false, "Role" => false, "NazovPanelu" => 'PochodZaZivot'),
 		array('CestaSuboru' => "rightPanel-standard.php", "Tlaciaren" => true, "PevnaVyska" => 360, "Role" => false, "NazovPanelu" => 'CitanieNaDnes')
 	);*/
-	$PravyPanelZlozenie = false;
-	//$PravyPanelZlozenie = 'standard';
+	//$PravyPanelZlozenie = false;
+	$PravyPanelZlozenie = 'standard';
 ?>
 <?php include "../_vlozene/header.php"; echo "\n"; ?>
 <!-- Start HEAD special -->
@@ -50,30 +50,23 @@
 <?php include "../_vlozene/vrch-stranky.php"; echo "\n"; ?>
 
 
+
 <?php 
 	// error_reporting (E_ALL ^ E_NOTICE);
 	// photo gallery settings
-	$mainFolder    = '/_fotoalbumy/2008';		// folder where your albums are located - relative to root
-	$albumsPerPage = '10';						// number of albums per page
-	$itemsPerPage  = '10';						// number of images per page    
-	$thumb_width   = '250';						// width of thumbnails
-	$thumb_height  = '250';						// height of thumbnails
+	$mainFolder    = '../_fotoalbumy/kostoly-a-kaplnky';		// folder where your albums are located - relative to root
+	$albumsPerPage = '5';						// number of albums per page
+	$itemsPerPage  = '5';						// number of images per page    
+	$thumb_width   = '135';						// width of thumbnails
+	$thumb_height  = '135';						// height of thumbnails
 	$extensions    = array(".jpg",".png",".gif",".JPG",".PNG",".GIF");		// allowed extensions in photo gallery
 ?>
-
-<!-- Vyhľadávanie vo Svätom Písme<br><form action="http://www.svatepismo.sk/hladat.php" target="_blank" method="get"><input name="vstup" type="text"><input name="action" type="hidden" value="hladat"><br><input name="" type="submit" value="Hľadaj"></form>	
-<br>
-<br> -->
-<?php
-//$homepage = file_get_contents('http://www.zivotopisysvatych.sk/litcal.py?format=httag&dopredu=5&pamdni=1');
-//echo $homepage;
-?>
-
-
 			<div class="gallery" role="img">
-<?php include "sablony/galeriaFunkcie-3.php"; ?>
+<?php include "sablony/galeriaFunkcie.php"; ?>
 			</div>
 
+			
+			
 <?php include "../_vlozene/spodok-stranky.php"; echo "\n";?>
 <!-- START - skripty na konci stranky -->
 	<script type="text/javascript" src="/_javascripty/jquery-1.9.1.min.js"></script>

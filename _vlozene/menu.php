@@ -98,7 +98,7 @@
 							<a class="dropdown-item" href="/fotogaleria/somarina/1/" >2012</a>
 							<a class="dropdown-item" href="/cista" >Staršie</a>
 							<div class="dropdown-divider" role="separator"></div>
-							<a class="dropdown-item" href="/dekanat/schematizmus-dekanatu-detva-zoznam-farnosti-a-knazov" >Kostoly a kaplnky</a>
+							<a class="dropdown-item" href="/fotogaleria/kostoly-a-kaplnky/1/" >Kostoly a kaplnky</a>
 							<a class="dropdown-item" href="/fotogaleria/detvianske-vyrezavane-krize/1/" >Detvianske vyrezávané kríže</a>
 						</ul>
 					</li>

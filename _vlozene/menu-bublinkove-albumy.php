@@ -29,6 +29,7 @@ function breadcrumbs3() {
 		} else {
 			//echo " posledny ";
 			$breadcrumbs = $breadcrumbs . $cesta . "/\">" . $titlePred . "</a></li>\n";
+			$breadcrumbs = $breadcrumbs . "\t\t\t\t<li class=\"breadcrumb-item active\">List " . $title . "</li>\n";
 		}
     }
 	$breadcrumbs = $breadcrumbs . "\t\t\t</ol>\n";

@@ -1,37 +1,37 @@
 ﻿<?php 
-echo $_SERVER['PHP_SELF'];
-echo "<br>\n";
+//echo $_SERVER['PHP_SELF'];
+//echo "<br>\n";
 
 //echo $_SERVER['SERVER_NAME'];
 //echo "<br>\n";
 //echo $_SERVER['HTTP_HOST'];
 //echo "<br>\n";
-echo $_SERVER['HTTP_REFERER'];
-echo "<br>\n";
+//echo $_SERVER['HTTP_REFERER'];
+//echo "<br>\n";
 //echo $_SERVER['SCRIPT_NAME'];
 //echo "<br>\n";
 //echo $_SERVER['SCRIPT_FILENAME'];
 //echo "<br>\n";
 
-echo $_SERVER['QUERY_STRING'];
-echo "<br><br>\n";
+//echo $_SERVER['QUERY_STRING'];
+//echo "<br><br>\n";
 
 
-
-	echo "\n album > ";
+	echo "\n album -> ";
 	if (isset($_GET["album"])){
 		echo $_GET["album"];
 	} else {
 		echo 'neexistuje';
 	}
-	echo "<br>\n p > ";
+	echo "<br>\n p -> ";
 	if (isset($_GET["p"])){
 		echo $_GET["p"];
 	} else {
 		echo 'neexistuje';
 	}
 	echo "<br>\n---------------------------------------------------------\n";
-	
+
+
 	
 // create thumbnails from images - vytvorenie zmenšeniny obrázku - funguje aj na serveri
 function make_thumb($folder,$src,$dest,$thumb_width) {
@@ -155,7 +155,7 @@ if (!isset($_GET["album"])) {
 
 			$rand_dirs = glob($mainFolder.'/'.$album.'/thumbs/*.*', GLOB_NOSORT);
 			$rand_pic  = $rand_dirs[array_rand($rand_dirs)];
-			$rand_pic  = substr($rand_pic,2,500); // prerobiť tento riedok tak aby cesta k fotkám bola vždy relatívna h hlavnemu adresáru napr: /_fotoalbumy/xxx/ddss.jpg
+			$rand_pic  = substr($rand_pic,2,500); // prerobiť tento riedok tak aby cesta k fotkám bola vždy relatívna k hlavnemu adresáru napr: /_fotoalbumy/xxx/ddss.jpg
 			array_push( $random_pics, $rand_pic );
 		}
 	}
