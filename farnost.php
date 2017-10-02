@@ -1,0 +1,1 @@
+stranka Farnost - farnost.php v hlavnom adresari

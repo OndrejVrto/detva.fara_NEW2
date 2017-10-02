@@ -99,7 +99,7 @@
 							<a class="dropdown-item" href="/cista" >Staršie</a>
 							<div class="dropdown-divider" role="separator"></div>
 							<a class="dropdown-item" href="/dekanat/schematizmus-dekanatu-detva-zoznam-farnosti-a-knazov" >Kostoly a kaplnky</a>
-							<a class="dropdown-item" href="/cista" >Detvianske vyrezávané kríže</a>
+							<a class="dropdown-item" href="/fotogaleria/detvianske-vyrezavane-krize/1/" >Detvianske vyrezávané kríže</a>
 						</ul>
 					</li>
 					<li class="nav-item dropdown mr-lg-3">

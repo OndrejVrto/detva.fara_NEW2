@@ -20,3 +20,4 @@ ConnectMyAdmin.php
 !spolocenstva/*.php
 adminer.php
 !.gitignore
+!.htaccess

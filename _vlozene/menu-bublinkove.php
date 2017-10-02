@@ -5,7 +5,7 @@
 	$pocetBubliniek = count($bublinkoveMenu);
 	$pocitadlo = 0;
 	echo "\t\t\t<ol class=\"breadcrumb text-left\">";
-	echo "\n\t\t\t\t<li><a href=\"/\"><span class=\"glyphicon glyphicon-home\" aria-hidden=\"true\"></span></a></li>";
+	echo "\n\t\t\t\t<li class=\"breadcrumb-item\"><a href=\"/\"><i class=\"fa fa-home\" aria-hidden=\"true\"></i></a></li>";
 	foreach ($bublinkoveMenu as $MYbublinkoveMenu) {
 		$pocitadlo++;
 		echo "\n\t\t\t\t<li class=\"breadcrumb-item";

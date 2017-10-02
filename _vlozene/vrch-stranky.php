@@ -23,6 +23,8 @@
 	}
 	if (isset($bublinkoveMenu) and $bublinkoveMenu !== false) {	
 		include "menu-bublinkove.php"; echo "\n";
+		include "menu-bublinkove2.php"; echo "\n";
+		include "menu-bublinkove-albumy.php"; echo "\n";		
 	}
 	if (isset($vedeliSteZeOFF) and $vedeliSteZeOFF == true) {
 		include "vedeli-ste-ze.php"; echo "\n";
