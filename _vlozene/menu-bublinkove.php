@@ -1,7 +1,5 @@
 <!-- START Include - Bublinkové menu -->
 <?php
-// v adresári test je aj verzia kde sa bublinkové menu generuje automaticky z adresy URL
-// porozmýšľať či nedať radšej to -> závislosť na pekných adresách URL
 	$pocetBubliniek = count($bublinkoveMenu);
 	$pocitadlo = 0;
 	echo "\t\t\t<ol class=\"breadcrumb text-left\">";

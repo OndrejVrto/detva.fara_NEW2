@@ -1,23 +1,56 @@
-﻿<?php 
-	// Inicializačné konštanty stránky
+﻿<?php
+	// zapnutie vypisovania chýb
+	error_reporting (E_ALL ^ E_NOTICE);
 
+	// Inicializačné konštanty stránky
+	$nazovGalerie = $_GET["galeria"];
+	$cisloListu = $_GET["p"];
+	if (isset($_GET["album"])){
+		$nazovAlbumu = $_GET["album"];
+	}
+	$title = str_replace(Array('%20', '-'), Array(' ', ' '),ucwords(str_replace(Array('.php', '_'), Array('', ' '), $nazovGalerie)));
+	
+	//oprava gramatiky niektorých galérií - POZOR prvé písmeno daj veľkým
+	$title = str_replace(Array('Fotogaleria', 'Detvianske vyrezavane krize', 'Starsie'), 
+						 Array('Fotogaléria', 'Detvianske vyrezávané kríže', 'Staršie'), $title);
+	
+	if (isset($nazovAlbumu)){
+		$xml = new DOMDocument();
+		$suborXML = '../_fotoalbumy/' . $nazovGalerie . '/' . $nazovAlbumu . '/' . $nazovAlbumu  . '.xml';
+		if (!file_exists($suborXML)) {
+			include "sablony/vytvor-XML-albumu.php";
+			VytvorXML($suborXML);
+		}
+		$xml->load( $suborXML );
+		$titleALBUMx = $xml->getElementsByTagName( "NazovAlbumu" );
+		$titleALBUM = $titleALBUMx->item(0)->nodeValue;
+	}
+?>
+<?php
 	// Meta značky stránky - ! musia byť vyplnené !
-	$titulokStranky = 'Farnosť Detva - oficiálna stránka farnosti aj dekanátu, aktuálne oznamy';
-	$nadpisStrankyPreTlac = 'Schematizmus dekanátu Detva';
+	$titulokStranky = 'Farnosť Detva, Fotogaléria: ' . $title;
+	if (isset($nazovAlbumu)){ $titulokStranky = $titulokStranky . ' - ' . $titleALBUM; }
+	
+	$nadpisStrankyPreTlac = 'Fotogaléria: ' . $title;
+	if (isset($nazovAlbumu)){ $nadpisStrankyPreTlac = $nadpisStrankyPreTlac . ' - ' . $titleALBUM; }
+	
 	$navsivitPo = '30 days';
-	$popisStranky = 'Farnosť Detva - hlavná stránka farnosti, hlavný obsah, kontakty, bohoslužby, aktuálne oznamy';
-	$klucoveslova = 'Detva, fara, kostol, farnosť, liturgické, oznamy, sväté, omše, rozpis, lektor, dekanát, aktuality, služby, božie, bohoslužby, nedeľa';
+	$popisStranky = 'Farnosť Detva - fotogaléria, albumy, obrázky kostolov a kaplniek';
+	$klucoveslova = 'Detva, fara, kostol, farnosť, fotky, obrázky, mládež, dychovka, slávnosť, výročie, deň rodín, oslava, dekanát';
 
 	// poradie a typy obrázkov v caruseli
 	$caruselPoradie = array('006', '002', '003', '004', '001', '009', '010');
+	//$caruselPoradie = rand(1,50); - dopnit kod na vyber nahodnuch 6 obrázkov
 	$aktivny = 1;
 
 	// určuje či sa na stránke zobrazí bublinkové menu a následne ho naplní
-	$bublinkoveMenu = array (
+	// v albumoch funguje špecialne bublinkové menu
+	/*$bublinkoveMenu = array (
 		array("html" => "/fotogaléria", "nazov" => "Fotogaléria"),
 		array("html" => "/fotogaleria/2008/1/", "nazov" => "2008")
-	);
+	);*/
 	//$bublinkoveMenu = false;
+	$bublinkoveMenu = true;
 
 	// určuje či sa na stránke zobrazí menu "vedeli ste že" do ktorého sa načítava obsah z MySQL
 	$vedeliSteZeOFF = false;
@@ -25,7 +58,6 @@
 	// určuje či sa zobrazia "často kladené otázky" - tie sa načítavajú z MySQL
 	//$otazkyOFF = true;
 	$otazkyOFF = false;
-	
 	//$otazkyTrvale = false;
 	$otazkyTrvale = array('01', '02', '03', '04');  // určuje id otázok v tabuľke SQL
 	// určuje či otázky rozšíriť o náhodné otázky
@@ -39,41 +71,52 @@
 		array('CestaSuboru' => "liturgicke-oznamy-detva-right.php", "Tlaciaren" => true, "PevnaVyska" => false, "Role" => false, "NazovPanelu" => 'PochodZaZivot'),
 		array('CestaSuboru' => "rightPanel-standard.php", "Tlaciaren" => true, "PevnaVyska" => 360, "Role" => false, "NazovPanelu" => 'CitanieNaDnes')
 	);*/
-	$PravyPanelZlozenie = false;
 	//$PravyPanelZlozenie = 'standard';
+	$PravyPanelZlozenie = false;
 ?>
 <?php include "../_vlozene/header.php"; echo "\n"; ?>
 <!-- Start HEAD special -->
-	<link rel="stylesheet" type="text/css" href="/_css/folio-gallery.css" />
+	<!--<link rel="stylesheet" type="text/css" href="/_css/folio-gallery.css" /> -->
 	<link rel="stylesheet" type="text/css" href="/_css/colorbox/colorbox.css" />
 <!-- End HEAD special -->
 <?php include "../_vlozene/vrch-stranky.php"; echo "\n"; ?>
-
-
-<?php 
-	// error_reporting (E_ALL ^ E_NOTICE);
-	// photo gallery settings
-	$mainFolder    = '/_fotoalbumy/2008';		// folder where your albums are located - relative to root
-	$albumsPerPage = '10';						// number of albums per page
-	$itemsPerPage  = '10';						// number of images per page    
-	$thumb_width   = '250';						// width of thumbnails
-	$thumb_height  = '250';						// height of thumbnails
-	$extensions    = array(".jpg",".png",".gif",".JPG",".PNG",".GIF");		// allowed extensions in photo gallery
-?>
-
-<!-- Vyhľadávanie vo Svätom Písme<br><form action="http://www.svatepismo.sk/hladat.php" target="_blank" method="get"><input name="vstup" type="text"><input name="action" type="hidden" value="hladat"><br><input name="" type="submit" value="Hľadaj"></form>	
-<br>
-<br> -->
-<?php
-//$homepage = file_get_contents('http://www.zivotopisysvatych.sk/litcal.py?format=httag&dopredu=5&pamdni=1');
-//echo $homepage;
-?>
-
-
 			<div class="gallery" role="img">
-<?php include "sablony/galeriaFunkcie-3.php"; ?>
-			</div>
+<?php
+	include "sablony/funkcie-fotogalerie.php";
 
+	if ($nazovGalerie=='zoznam-galerii'){
+		include "sablony/zoznam-galerii.php";
+	} else {
+		if (!isset($nazovAlbumu)){
+			include "sablony/zoznam-albumov-v-galerii.php";
+
+// potom zmaz tento docasny kod
+			echo "<br>\n\n";
+?>
+			</div>
+			<div class="gallery" role="img">
+<?php
+			include "galeria-VZOR.php";
+// potom zmaz tento docasny kod
+
+
+			} else {
+			include "sablony/jeden-album.php";
+			
+			
+// potom zmaz tento docasny kod
+			echo "<br>\n\n";
+?>
+			</div>
+			<div class="gallery" role="img">
+<?php
+			include "jeden-album-VZOR.php";
+// potom zmaz tento docasny kod
+
+		}
+	}
+?>
+			</div>
 <?php include "../_vlozene/spodok-stranky.php"; echo "\n";?>
 <!-- START - skripty na konci stranky -->
 	<script type="text/javascript" src="/_javascripty/jquery-1.9.1.min.js"></script>

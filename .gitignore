@@ -23,3 +23,9 @@ adminer.php
 !.htaccess
 !css
 !*.css
+#!_fotoalbumy
+#!_fotoalbumy/*/
+#!_fotoalbumy/*/*/
+#!_fotoalbumy/**/*.xml
+adminer.css
+
