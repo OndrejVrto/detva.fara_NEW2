@@ -1,7 +1,9 @@
 			<div class="btn-group btn-block mw-100" id="HlavickaAlbumu">
-				<button type="button" class="btn w-10 btn-success border-success"><i class="fa fa-backward" aria-hidden="true"></i></button>
+				
+					<button type="button" class="btn w-10 btn-success border-success"><i class="fa fa-backward" aria-hidden="true"></i></button>
+				
 				<div class="card w-80 border-success">
-					<h4 class="card-header text-white bg-success">Dychovka na sv. Štefana pred farským kostolom</h4>
+					<h4 class="card-header text-white bg-success text-center">Dychovka na sv. Štefana pred farským kostolom</h4>
 					<div class="card-body">
 						<p class="card-text">Na sv. Štefanna zahrala dychovka všetkým farnikom. Spev, slovo veselé bolo cítiť na každom kroku.</p>
 						<p class="card-text">
@@ -12,20 +14,15 @@
 				</div>
 				<button type="button" class="btn w-10 btn-success border-success"><i class="fa fa-forward" aria-hidden="true"></i></button>
 			</div>
-			<br>
-			
-		<!--	<div class="row">
-				<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-					<nav class="d-flex justify-content-center" aria-label="Page navigation example">
-						<ul class="pagination" id="prve">
-							<li class="page-item disabled"><a class="page-link" href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-							<li class="page-item active"><a class="page-link" href="/fotogaleria/2015/1/">1<span class="sr-only">(aktívna)</span></a></li>
-							<li class="page-item"><a class="page-link" href="/fotogaleria/2015/2/">2</a></li>
-							<li class="page-item"><a class="page-link" href="/fotogaleria/2015/2/" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
-						</ul>
-					</nav>
-				</div>
-			</div> -->
+
+			<nav aria-label="Page navigation">
+				<ul class="pagination justify-content-center" id="prve">
+					<li class="page-item disabled"><a class="page-link" href="#" aria-label="Previous"><i class="fa fa-chevron-left" aria-hidden="true"></i></a></li>
+					<li class="page-item active"><a class="page-link" href="/fotogaleria/2015/1/">1<span class="sr-only">(aktívna)</span></a></li>
+					<li class="page-item"><a class="page-link" href="/fotogaleria/2015/2/">2</a></li>
+					<li class="page-item"><a class="page-link" href="/fotogaleria/2015/2/" aria-label="Next"><i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
+				</ul>
+			</nav>
 			
 			<div class="card-columns">
 				<a href="/fotogaleria/2015/2015-12-xx_Zdobenie_stromceka/1/">
@@ -99,15 +96,11 @@
 			
 			</div>
 			
-			<div class="row">
-				<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-					<nav class="d-flex justify-content-center" aria-label="Page navigation example">
-						<ul class="pagination" id="druhe">
-							<li class="page-item disabled"><a class="page-link" href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-							<li class="page-item active"><a class="page-link" href="/fotogaleria/2015/1/">1<span class="sr-only">(aktívna)</span></a></li>
-							<li class="page-item"><a class="page-link" href="/fotogaleria/2015/2/">2</a></li>
-							<li class="page-item"><a class="page-link" href="/fotogaleria/2015/2/" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
-						</ul>
-					</nav>
-				</div>
-			</div>
+			<nav aria-label="Page navigation">
+				<ul class="pagination justify-content-center" id="druhe">
+					<li class="page-item disabled"><a class="page-link" href="#" aria-label="Previous"><i class="fa fa-chevron-left" aria-hidden="true"></i></a></li>
+					<li class="page-item active"><a class="page-link" href="/fotogaleria/2015/1/">1<span class="sr-only">(aktívna)</span></a></li>
+					<li class="page-item"><a class="page-link" href="/fotogaleria/2015/2/">2</a></li>
+					<li class="page-item"><a class="page-link" href="/fotogaleria/2015/2/" aria-label="Next"><i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
+				</ul>
+			</nav>

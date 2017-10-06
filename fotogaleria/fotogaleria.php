@@ -20,6 +20,7 @@
 		if (!file_exists($suborXML)) {
 			include "sablony/vytvor-XML-albumu.php";
 			VytvorXML($suborXML);
+			// doplnit kod-->  "oprav-XML-albumu.php  (v prípade že dôjde k presunu do iného adresára, prepíše cesty, doplní nové fotky, znefunkční chýbajúce fotky, .. a hlavne .. neprepíše ručne vypĺňané polia)
 		}
 		$xml->load( $suborXML );
 		$titleALBUMx = $xml->getElementsByTagName( "NazovAlbumu" );

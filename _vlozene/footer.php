@@ -42,7 +42,7 @@
 					<br>
 					<span title="Počítadlo spustené 23.03.2016 o 12:00"><strong>Celková návštevnosť:&nbsp;&nbsp;</strong><?php echo $vysledok; ?></span>
 					<!-- END PHP - Počítadlo -->
-					<p class="text-center" id="copyright">Copyright <sup>&copy;</sup> 2017 Farský úrad Detva</p>
+					<p class="text-center" id="copyright">Copyright <i class="fa fa-copyright" aria-hidden="true"></i> 2017 Farský úrad Detva</p>
 				</div>
 			</div>
 		</section>

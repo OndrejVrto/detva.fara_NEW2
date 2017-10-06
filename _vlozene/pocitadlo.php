@@ -25,10 +25,10 @@ if ($stranka!="/favicon.ico"){
 	$cas = date("H")*3600 + date("i")*60 + date("s");
 	$den = date("Y-m-d");
 	
-	$link = mysql_connect($prihlasenieSQL, $loginSQL, $passwordSQL);
+	$link = mysqli_connect($prihlasenieSQL, $loginSQL, $passwordSQL,$databazaSQL);
+	$link->set_charset("utf8");
+	
 	if ($link){
-		if (mysql_select_db($databazaSQL, $link)) {
-
 			if ($robot) {
 				// kontroluje či stránku neprezerá indexový robot napr. Google. Ak áno počítadlo = 0 alebo nezapíše nič
 				// $sql_ins = "INSERT INTO hostia SET ip ='".$ip."', pocet ='0', cas ='".$cas."', datum ='".$den."', prehliadac ='".$prehliadac."', stranka ='".$stranka."';";
@@ -36,14 +36,14 @@ if ($stranka!="/favicon.ico"){
 				// echo 'vraj true';
 			} else {
 				$sql1 = "SELECT * FROM hostia WHERE ip ='".$ip."' AND datum ='".$den."' AND prehliadac ='".$prehliadac."';";
-				$result = mysql_query($sql1, $link);
+				$result = mysqli_query($link, $sql1);
 				// echo '<br>1: '.$sql1;
-				if (mysql_num_rows($result)>0){
-					$row = mysql_fetch_assoc($result);
+				if (mysqli_num_rows($result)>0){
+					$row = mysqli_fetch_assoc($result);
 					$sql2 = "SELECT MAX(cas) AS posledny_cas FROM hostia WHERE ip ='".$ip."' AND datum ='".$den."' AND pocet ='1';";
 					// echo '<br>2: '.$sql2;
-					$result = mysql_query($sql2, $link);
-					$row = mysql_fetch_assoc($result);
+					$result = mysqli_query($link, $sql2);
+					$row = mysqli_fetch_assoc($result);
 					$rozdiel = ($row['posledny_cas']-$cas<0) ? ($cas - $row['posledny_cas']) : ($row['posledny_cas'] - $cas);
 					if ($rozdiel>1800){
 						// ak záznam existuje a prešlo 30min tak vytvorí nový záznam s počítadlom = 1
@@ -60,17 +60,16 @@ if ($stranka!="/favicon.ico"){
 					//echo '<br>5: '.$sql_ins. '<br><br>';
 				}
 			}
-			$result = mysql_query($sql_ins, $link);
-		}
+			$result = mysqli_query($link, $sql_ins);
 
 	$sql_vystup = "SELECT SUM(pocet) AS sumapristupov FROM hostia;";
-	$result = mysql_query($sql_vystup, $link);
-	$vysledok = MySQL_Fetch_Array($result)['sumapristupov'];
+	$result = mysqli_query($link, $sql_vystup);
+	$vysledok = MySQLi_Fetch_Array($result)['sumapristupov'];
 
 	$sql_vystup2 = "SELECT SUM(pocet) AS sumadnes FROM hostia WHERE datum ='".$den."';";
-	$result = mysql_query($sql_vystup2, $link);
-	$vysledokDnes = MySQL_Fetch_Array($result)['sumadnes'];
+	$result = mysqli_query($link, $sql_vystup2);
+	$vysledokDnes = MySQLi_Fetch_Array($result)['sumadnes'];
 	}
 }
-mysql_close($link);
+mysqli_close($link);
 ?>

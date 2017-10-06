@@ -42,9 +42,12 @@ a:hover .card {
 .gallery a:link,
 .gallery a:active,
 .gallery a:visited {
-color:#555;
+	color:#555;
 }
 
+.gallery .page-item {
+	font-weight: bolder;
+}
 
 .pagination#prve {
 	padding-top: 0rem;
@@ -63,7 +66,6 @@ div#HlavickaAlbumu .card{
 div#HlavickaAlbumu .card .card-header{
 	border-radius: 0;
 }
-
 
 
 /* STARé */
