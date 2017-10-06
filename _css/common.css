@@ -2,10 +2,17 @@
 body {
 background-color: #d5d5d5;
 }
-
+.card-text{
+	font-size: 0.9rem;
+}
+.card-body {
+	padding: 0.7rem;
+}
+/*
 html {
   font-size: 14px;
 }
+*/
 /*
 @include media-breakpoint-up(sm) {
   html {

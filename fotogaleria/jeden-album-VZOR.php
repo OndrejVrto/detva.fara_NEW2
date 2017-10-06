@@ -1,9 +1,7 @@
 			<div class="btn-group btn-block mw-100" id="HlavickaAlbumu">
-				
-					<button type="button" class="btn w-10 btn-success border-success"><i class="fa fa-backward" aria-hidden="true"></i></button>
-				
+				<button onclick="location.href = '/fotogaleria/2015';" type="button" class="btn w-10 btn-success border-success"><i class="fa fa-backward" aria-hidden="true"></i></button>
 				<div class="card w-80 border-success">
-					<h4 class="card-header text-white bg-success text-center">Dychovka na sv. Štefana pred farským kostolom</h4>
+					<h5 class="card-header text-white bg-success text-center">Dychovka na sv. Štefana pred farským kostolom</h5>
 					<div class="card-body">
 						<p class="card-text">Na sv. Štefanna zahrala dychovka všetkým farnikom. Spev, slovo veselé bolo cítiť na každom kroku.</p>
 						<p class="card-text">
@@ -12,7 +10,7 @@
 						</p>
 					</div>
 				</div>
-				<button type="button" class="btn w-10 btn-success border-success"><i class="fa fa-forward" aria-hidden="true"></i></button>
+				<button onclick="location.href = '/fotogaleria/2012';" type="button" class="btn w-10 btn-success border-success"><i class="fa fa-forward" aria-hidden="true"></i></button>
 			</div>
 
 			<nav aria-label="Page navigation">
