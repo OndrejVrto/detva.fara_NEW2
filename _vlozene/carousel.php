@@ -20,8 +20,8 @@
 		echo "\t\t";
 		echo "<li data-target=\"#myCarousel\" data-slide-to=\"". $pocitadlo ."\"";
 		if ($pocitadlo==$aktivny-1) { echo " class=\"active\""; }
-		echo "></li>\n";
 		$pocitadlo++;
+		echo "><span class=\"sr-only\">Carousel " . $pocitadlo . "</span></li>\n";
 	}
 ?>
 	</ol>

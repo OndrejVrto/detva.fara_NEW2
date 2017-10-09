@@ -13,11 +13,13 @@ ConnectMyAdmin.php
 !fotogaleria
 !liturgia
 !spolocenstva
+!ostatne
 !dekanat/*.php
 !farnost/*.php
 !fotogaleria/**/*
 !liturgia/*.php
 !spolocenstva/*.php
+!ostatne/*.php
 adminer.php
 !.gitignore
 !.htaccess

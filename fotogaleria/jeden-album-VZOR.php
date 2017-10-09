@@ -13,14 +13,14 @@
 				<button onclick="location.href = '/fotogaleria/2012';" type="button" class="btn w-10 btn-success border-success"><i class="fa fa-forward" aria-hidden="true"></i></button>
 			</div>
 
-			<nav aria-label="Page navigation">
+			<!--<nav aria-label="Page navigation">
 				<ul class="pagination justify-content-center" id="prve">
 					<li class="page-item disabled"><a class="page-link" href="#" aria-label="Previous"><i class="fa fa-chevron-left" aria-hidden="true"></i></a></li>
 					<li class="page-item active"><a class="page-link" href="/fotogaleria/2015/1/">1<span class="sr-only">(aktívna)</span></a></li>
 					<li class="page-item"><a class="page-link" href="/fotogaleria/2015/2/">2</a></li>
 					<li class="page-item"><a class="page-link" href="/fotogaleria/2015/2/" aria-label="Next"><i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
 				</ul>
-			</nav>
+			</nav>-->
 			
 			<div class="card-columns">
 				<a href="/fotogaleria/2015/2015-12-xx_Zdobenie_stromceka/1/">
@@ -96,9 +96,9 @@
 			
 			<nav aria-label="Page navigation">
 				<ul class="pagination justify-content-center" id="druhe">
-					<li class="page-item disabled"><a class="page-link" href="#" aria-label="Previous"><i class="fa fa-chevron-left" aria-hidden="true"></i></a></li>
+					<li class="page-item disabled"><a class="page-link" href="#" aria-label="Previous"><i class="fa fa-chevron-left" aria-hidden="true"></i><span class="sr-only">Naspäť</span></a></li>
 					<li class="page-item active"><a class="page-link" href="/fotogaleria/2015/1/">1<span class="sr-only">(aktívna)</span></a></li>
 					<li class="page-item"><a class="page-link" href="/fotogaleria/2015/2/">2</a></li>
-					<li class="page-item"><a class="page-link" href="/fotogaleria/2015/2/" aria-label="Next"><i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
+					<li class="page-item"><a class="page-link" href="/fotogaleria/2015/2/" aria-label="Next"><i class="fa fa-chevron-right" aria-hidden="true"></i><span class="sr-only">Ďalej</span></a></li>
 				</ul>
 			</nav>
