@@ -4,14 +4,20 @@
 	$link = mysqli_connect($prihlasenieSQL, $loginSQL, $passwordSQL, $databazaSQL) or die('Pripojenie k serveru zlyhalo!');
 	$link->set_charset("utf8");
 
-	$id = Date("z");
-	//$id = rand(1,366);  //pri kazdom nacitani stranky sa myslienka zmeni - dobre pre kontrolu pri testovanÌ.
-	//$id = 175;  // najdlhöÌ text myölienky so vöetk˝ch
+	/* check connection */
+	if (mysqli_connect_errno()) {
+		printf("Connect failed: %s\n", mysqli_connect_error());
+		exit();
+	}
 	
-	// treba rozdeliù autora od samotnej myölienky v datab·ze a potom prerobiù aj tento script a CSS ktomu.
-	$dotaz = "SELECT myslienka FROM myslienky WHERE id =" . $id;
+	$id = Date("z");
+	//$id = rand(1,366);  //pri kazdom nacitani stranky sa myslienka zmeni - dobre pre kontrolu pri testovan√≠.
+	//$id = 365;  // najdlh≈°√≠ text my≈°lienky so v≈°etk√Ωch
+	//$id = 143;  // najkrat≈°√≠ text my≈°lienky so v≈°etk√Ωch
+	
+	$dotaz = "SELECT autor, citat FROM citaty WHERE id =" . $id;
 
-	$vysledok = mysqli_query($link, $dotaz) or die("Nepodarilo sa vyhodnotiù dotaz!");
+	$vysledok = mysqli_query($link, $dotaz) or die("Nepodarilo sa vyhodnoti≈• dotaz!");
 	$udaje = MySQLi_Fetch_Array($vysledok);
 	
 	MySQLi_Close($link);

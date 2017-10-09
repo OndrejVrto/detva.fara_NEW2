@@ -27,14 +27,15 @@
 			</dl>
 			Viac nájdete v <a href="/farnost/liturgicke-oznamy-detva" >liturgických oznamoch</a> na daný týždeň.
 		</section>
-     	<section class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
-			<div class="row mx-0">
+     	<section class="footerHIGH col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 mx-0">
 			<h1>Myšlienka dňa</h1>
-				<!-- START PHP - Myslienka -->
-				<?php include "myslienka.php"; ?><p class="myslienka"><?php echo $udaje[0]; ?></p>
-				<!-- END PHP - Myslienka -->
-			</div>
-			<div class="row pl-5 text-center">
+			<!-- START PHP - Myslienka --><?php include "myslienka.php"; ?>
+			<blockquote class="lead myslienka">
+				<p class="mb-0"><?php echo $udaje["citat"]; ?></p>
+				<footer class="blockquote-footer"><strong><?php echo $udaje["autor"]; ?></strong></footer>
+			</blockquote>
+			<!-- END PHP - Myslienka -->
+			<div class="text-center">
 				<div class="pociadlo">
 					<!-- START PHP - Počítadlo -->
 					<i class="fa fa-line-chart fa-lg" aria-hidden="true">&nbsp;&nbsp;</i>

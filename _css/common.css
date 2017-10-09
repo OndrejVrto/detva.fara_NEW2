@@ -187,7 +187,7 @@ footer {
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
   color: #d9d9d9;
-  min-height: 215px;
+  /*min-height: 215px;*/
   font-size: 0.75rem;
 }
 
@@ -211,10 +211,16 @@ footer h1{
 	padding-top: 10px;
 	margin: 0px;
 }*/
+
 .myslienka{
-	min-height: 110px;
+	min-height: 107px;
+	font-size: 1.0rem;
 	margin: 0px;
 }
+.footerHIGH{
+	min-height: 220px;
+}
+
 #copyright{
 	padding:0px;
 	margin:5px 0px 0px 0px;

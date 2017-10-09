@@ -9,7 +9,7 @@
 	$klucoveslova = 'Detva, fara, kostol, farnosť, liturgické, oznamy, sväté, omše, rozpis, lektor, dekanát, aktuality, služby, božie, bohoslužby, nedeľa';
 
 	// poradie a typy obrázkov v caruseli
-	$caruselPoradie = array('06', '02', '03', '04', '01', '09', '10');
+	$caruselPoradie = array('038', '040', '030', '045', '018', '019', '020');
 	$aktivny = 1;
 
 	// určuje či sa na stránke zobrazí bublinkové menu a následne ho naplní
@@ -20,15 +20,14 @@
 	//$bublinkoveMenu = false;
 
 	// určuje či sa na stránke zobrazí menu "vedeli ste že" do ktorého sa načítava obsah z MySQL
-	$vedeliSteZeOFF = false;
+	$vedeliSteZeOFF = true;
 
 	// určuje či sa zobrazia "často kladené otázky" - tie sa načítavajú z MySQL
 	$otazkyOFF = true;
-	//$otazkyTrvale = false;
-	$otazkyTrvale = array('01', '02', '03', '04');  // určuje id otázok v tabuľke SQL
-	// určuje či otázky rozšíriť o náhodné otázky
-	$otazkyRandomOFF = true;  
-	$otazkyPočet = 7; // určuje celkový počet otázok na stránke Trvalé+Random
+	$otazkyTrvale = true;
+	$otazkyTrvaleZoznam = array(2, 3);  // určuje poradie trvalych otázok
+	$otazkyRandom = true;  	// určuje či otázky rozšíriť o náhodné otázky
+	$otazkyPocetCelkovy = 4; 		// určuje celkový počet otázok na stránke Trvalé+Random
 
 	// určuje skladbu Pravého panelu
 	// ak sa nezadá nič alebo sa zadá hodnota 'standard' bude na stránke štandardne zvolený panel nakonfigurovaný v súbore rightPanel-standard.php
