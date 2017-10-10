@@ -321,7 +321,6 @@ mark {
 	}
 }
 
-.img-thumbnail + p {
-  margin-top:10px;
+.card-body p:last-child {
+  margin-bottom: 0rem;
 }
-

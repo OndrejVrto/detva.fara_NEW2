@@ -14,9 +14,15 @@ AddType text/x-component .htc
  RewriteBase /
  
 # pravidla pre fotogaleriu 
-RewriteRule ^fotogaleria/(.+)/(.+)/([0-9]+)/ fotogaleria/fotogaleria.php?galeria=$1&album=$2&p=$3 [QSA,L]
-RewriteRule ^fotogaleria/([0-9a-zA-Z-]+)/([0-9]+)/ fotogaleria/fotogaleria.php?galeria=$1&p=$2 [QSA,L]
+RewriteRule ^fotogaleria/(.+)/(.+)/([0])/ fotogaleria/fotogaleria.php?galeria=$1&album=$2&p=1 [QSA,L]
+RewriteRule ^fotogaleria/(.+)/(.+)/([1-9]*[0-9]+)/ fotogaleria/fotogaleria.php?galeria=$1&album=$2&p=$3 [QSA,L]
+RewriteRule ^fotogaleria/([0-9a-zA-Z-]+)/([0])/ fotogaleria/fotogaleria.php?galeria=$1&p=1 [QSA,L]
+RewriteRule ^fotogaleria/([0-9a-zA-Z-]+)/([1-9]*[0-9]+)/ fotogaleria/fotogaleria.php?galeria=$1&p=$2 [QSA,L]
 RewriteRule ^fotogaleria/([0-9a-zA-Z-]+) fotogaleria/fotogaleria.php?galeria=$1&p=1 [QSA,L]
+
+# pravidlá presmerovania pre správy hlavnej stránky
+RewriteRule ^stranka\-([0]) index.php?&p=1 [QSA,L]
+RewriteRule ^stranka\-([1-9]*[0-9]+) index.php?&p=$1 [QSA,L]
  
  # remove .php; use THE_REQUEST to prevent infinite loops
  RewriteCond %{THE_REQUEST} ^GET\ (.*)\.php\ HTTP
