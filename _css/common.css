@@ -1,6 +1,6 @@
-/* Nové */
+/* NovÃ© */
 body {
-background-color: #d5d5d5;
+	background-color: #d5d5d5;
 }
 .card-text{
 	font-size: 0.9rem;
@@ -8,29 +8,70 @@ background-color: #d5d5d5;
 .card-body {
 	padding: 0.7rem;
 }
-/*
-html {
-  font-size: 14px;
-}
-*/
-/*
-@include media-breakpoint-up(sm) {
-  html {
-    font-size: 18px;
-  }
+
+.w-5 {
+  width: 5% !important;
 }
 
-@include media-breakpoint-up(md) {
-  html {
-    font-size: 20px;
-  }
+.w-10 {
+  width: 15% !important;
 }
 
-@include media-breakpoint-up(lg) {
-  html {
-    font-size: 28px;
-  }
-}*/
+.w-15 {
+  width: 15% !important;
+}
+
+.w-20 {
+  width: 20% !important;
+}
+
+.w-30 {
+  width: 30% !important;
+}
+
+.w-35 {
+  width: 35% !important;
+}
+
+.w-40 {
+  width: 40% !important;
+}
+
+.w-45 {
+  width: 45% !important;
+}
+
+.w-55 {
+  width: 55% !important;
+}
+
+.w-60 {
+  width: 60% !important;
+}
+
+.w-65 {
+  width: 65% !important;
+}
+
+.w-70 {
+  width: 70% !important;
+}
+
+.w-80 {
+  width: 80% !important;
+}
+
+.w-85 {
+  width: 85% !important;
+}
+
+.w-90 {
+  width: 90% !important;
+}
+
+.w-95 {
+  width: 95% !important;
+}
 
 .gallery {
 margin:15px auto;
@@ -74,8 +115,41 @@ div#HlavickaAlbumu .card .card-header{
 	border-radius: 0;
 }
 
+@media (min-width: 576px) {
+  .card-columns {
+    -moz-column-count: 2;
+  }
+}
 
-/* STARé */
+@media (min-width: 768px) {
+  .card-columns {
+    -moz-column-count: 3;
+	-webkit-column-count: 3;
+            column-count: 3;
+  }
+}
+
+@media (min-width: 992px) {
+  .card-columns {
+    -moz-column-count: 4;
+	-webkit-column-count: 4;
+            column-count: 4;
+  }
+}
+
+@media (min-width: 1200px) {
+  .card-columns {
+    -moz-column-count: 5;
+	-webkit-column-count: 5;
+            column-count: 5;
+  }
+}
+
+
+
+
+
+/* STARÃ© */
 
 .kostolPage{
 	margin:20px;
@@ -295,6 +369,7 @@ mark {
 	footer,
 	.breadcrumb,
 	.well,
+	.card,
 	.rightOznamy{
 		border: 1px solid #ddd !important;
   }
