@@ -8,11 +8,14 @@
 				aria-controls="navbarNavDropdown" 
 				aria-expanded="false" 
 				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
+				<span class="navbar-toggler-icon align-middle"></span><span class="h4 align-middle"> Menu</span>
 			</button>
 			<a class="navbar-brand mr-0 mx-lg-4 mr-lg-5 my-1" href="/">Farnosť Detva</a>
 			<div id="navbarNavDropdown" class="collapse navbar-collapse" >
 				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a class="nav-link" href="/test/vytvor-XML-albumu">Vytvor XML</a>
+					</li>
 					<li class="nav-item dropdown mx-lg-3">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" 
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" role="button">Farnosť</a>

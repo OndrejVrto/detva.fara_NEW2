@@ -1,3 +1,4 @@
+<!-- START Include - Right Panel -->
 <?php 
 if ($PravyPanelZlozenie == false) {
 	echo "\t<!-- Stránka neobsahuje - Right Panel -->\n";
@@ -30,6 +31,7 @@ if ($PravyPanelZlozenie == false) {
 		include $PanelID['CestaSuboru'];
 		echo "\t\t\t</div>";
 	}
-	echo "\n\t\t</aside>";
+	echo "\n\t\t</aside>\n";
 }
 ?>
+<!-- END Include - Right Panel -->

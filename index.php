@@ -4,15 +4,20 @@
 	// Meta značky stránky - ! musia byť vyplnené !
 	$titulokStranky = 'Farnosť Detva - oficiálna stránka farnosti aj dekanátu, aktuálne oznamy';
 	$nadpisStrankyPreTlac = 'Hlavná stránka';
-	$navsivitPo = '7 days';
 	$popisStranky = 'Farnosť Detva - hlavná stránka farnosti, hlavný obsah, kontakty, bohoslužby, aktuálne oznamy';
 	$klucoveslova = 'Detva, fara, kostol, farnosť, liturgické, oznamy, sväté, omše, rozpis, lektor, dekanát, aktuality, služby, božie, bohoslužby, nedeľa';
 
+	$navsivitPo = '7 days';
+	$nastavenieRobots = 'noindex, nofollow';
+	
 	// poradie a typy obrázkov v caruseli
-	//$caruselPoradie = array('16', '11', '12', '13', '14', '15', '10', '17', '18', '19', '20');
-	//$aktivny = 1;
+	$caruselOFF = true;
+	$caruselStabilny = true;
+	//$caruselPoradie = array('1', '11', '12', '13', '14', '15', '10', '17', '18', '19', '20');
+	//$caruselAktivny = 1;
 
 	// určuje či sa na stránke zobrazí bublinkové menu a následne ho naplní
+	//$bublinkoveMenu = array(array("html" => "/", "nazov" => "Home"),);
 	$bublinkoveMenu = false;
 
 	// určuje či sa na stránke zobrazí menu "vedeli ste že" do ktorého sa načítava obsah z MySQL
@@ -28,6 +33,10 @@
 	// určuje skladbu Pravého panelu
 	// ak sa nezadá nič alebo sa zadá hodnota 'standard' bude na stránke štandardne zvolený panel nakonfigurovaný v súbore rightPanel-standard.php
 	// ak sa zvolí hodnota false panel nebude žiadny a hlavný obsah sa roztiahne na celú šírku stránky
+	/*$PravyPanelZlozenie = array(
+		array('CestaSuboru' => "liturgicke-oznamy-detva-right.php", "Tlaciaren" => true, "PevnaVyska" => false, "Role" => false, "NazovPanelu" => 'PochodZaZivot'),
+		array('CestaSuboru' => "rightPanel-standard.php", "Tlaciaren" => true, "PevnaVyska" => 360, "Role" => false, "NazovPanelu" => 'CitanieNaDnes')
+	);*/
 	//$PravyPanelZlozenie = false;
 	$PravyPanelZlozenie = 'standard';
 ?>

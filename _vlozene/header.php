@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="language" content="Slovak">
 	<meta name="author" content="Ing. Ondrej VRŤO">
-	<meta name="robots" content="noindex, nofollow">
+	<meta name="robots" content="<?php echo $nastavenieRobots; ?>">
 	
 	<meta name="revisit-after" content="<?php echo $navsivitPo; ?>">
 	<meta name="description" content="<?php echo $popisStranky; ?>">
@@ -15,7 +15,7 @@
 	
 	<title><?php echo $titulokStranky; ?></title>
 	
-	<!--  ikony generované cez realfavicongenerator.net -->
+	<!--  Ikony stránky generované cez realfavicongenerator.net -->
 	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -25,9 +25,8 @@
 	<meta name="msapplication-TileImage" content="/mstile-144x144.png">
 	<meta name="theme-color" content="#ffffff">
 	
-	<!-- <link rel="stylesheet" type="text/css" href="/_css/bootstrap-upraveny.css"> -->
-	<link rel="stylesheet" type="text/css" href="/_css/bootstrap-ver2.css">
 	<link rel="stylesheet" type="text/css" href="/_fonty/FontAwesome/css/font-awesome.css">
+	<link rel="stylesheet" type="text/css" href="/_css/bootstrap-ver2.css">
 	<link rel="stylesheet" type="text/css" href="/_css/common.css">
 	
 	 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->

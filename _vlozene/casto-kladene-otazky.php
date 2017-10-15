@@ -1,4 +1,4 @@
-<!-- START Include - Často kladené otázky -->
+<!-- START Include - Často kladené otázky -->			
 			<hr>
 			<h2>Často kladené otázky</h2>
 			<div class="well text-left">
@@ -94,4 +94,4 @@ for ($x=0; $x<=$pocetPrvkov-1 ;$x++){
 ?>
 				<p class="text-secondary pt-0 pb-0 mb-0 text-right"><a href="/ostatne/casto-kladene-otazky-spolu"><small>Otázky zo všetkých kategórií</small></a></p>
 			</div>
-<!-- END Include - Často kladené otázky -->
+<!-- START Include - Často kladené otázky -->
