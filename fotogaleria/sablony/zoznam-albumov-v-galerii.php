@@ -1,5 +1,9 @@
 <?php
 
+
+
+
+/*
 // Zobrazí zoznam albumov
 
 	$folders = scandir($mainFolder, 0);
@@ -81,5 +85,5 @@
 		}
 		$urlVars = "";
 		print_pagination($numPages,$urlVars,$currentPage);
-	}
+	}*/
 ?>

@@ -17,7 +17,7 @@
 
 	//echo $_SERVER['QUERY_STRING'];
 	//echo "<br><br>\n";
-/*
+
 	echo "\n galeria -> ";
 	if (isset($_GET["galeria"])){
 		echo $_GET["galeria"];
@@ -37,7 +37,7 @@
 		echo 'neexistuje';
 	}
 	echo "<br>\n---------------------------------------------------------\n";
-*/
+
 
 // nastavenie gallerií
 	$mainFolder    = '/_fotoalbumy/2008';		// folder where your albums are located - relative to root

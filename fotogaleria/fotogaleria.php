@@ -1,6 +1,6 @@
 ﻿<?php
 	// zapnutie vypisovania chýb
-	error_reporting (E_ALL ^ E_NOTICE);
+	//error_reporting (E_ALL ^ E_NOTICE);
 
 	// Inicializačné konštanty stránky
 	$nazovGalerie = $_GET["galeria"];
@@ -13,16 +13,19 @@
 	//oprava gramatiky niektorých galérií - POZOR prvé písmeno daj veľkým
 	$title = str_replace(Array('Fotogaleria', 'Detvianske vyrezavane krize', 'Starsie'), 
 						 Array('Fotogaléria', 'Detvianske vyrezávané kríže', 'Staršie'), $title);
-	
+						 
+						 
 	if (isset($nazovAlbumu)){
 		$xml = new DOMDocument();
-		$suborXML = '../_fotoalbumy/' . $nazovGalerie . '/' . $nazovAlbumu . '/' . $nazovAlbumu  . '.xml';
+		$suborXML = '/_fotoalbumy/' . $nazovGalerie . '/' . $nazovAlbumu;
+		
 		if (!file_exists($suborXML)) {
+			$adresarVSTUP = $suborXML;
 			include "sablony/vytvor-XML-albumu.php";
-			VytvorXML($suborXML);
+			
 			// doplnit kod-->  "oprav-XML-albumu.php  (v prípade že dôjde k presunu do iného adresára, prepíše cesty, doplní nové fotky, znefunkční chýbajúce fotky, .. a hlavne .. neprepíše ručne vypĺňané polia)
 		}
-		$xml->load( $suborXML );
+		$xml->load( $XMLsuborABS );
 		$titleALBUMx = $xml->getElementsByTagName( "NazovAlbumu" );
 		$titleALBUM = $titleALBUMx->item(0)->nodeValue;
 	}
@@ -36,6 +39,7 @@
 	if (isset($nazovAlbumu)){ $nadpisStrankyPreTlac = $nadpisStrankyPreTlac . ' - ' . $titleALBUM; }
 	
 	$navsivitPo = '30 days';
+	$nastavenieRobots = 'noindex, nofollow';
 	$popisStranky = 'Farnosť Detva - fotogaléria, albumy, obrázky kostolov a kaplniek';
 	$klucoveslova = 'Detva, fara, kostol, farnosť, fotky, obrázky, mládež, dychovka, slávnosť, výročie, deň rodín, oslava, dekanát';
 
@@ -90,30 +94,14 @@
 	} else {
 		if (!isset($nazovAlbumu)){
 			include "sablony/zoznam-albumov-v-galerii.php";
-
-// potom zmaz tento docasny kod
-			echo "<br>\n\n";
-?>
-			</div>
-			<div class="gallery" role="img">
-<?php
-			include "galeria-VZOR.php";
-// potom zmaz tento docasny kod
-
-
-			} else {
+				// potom zmaz tento docasny kod - VZOR
+				echo "<br>\n\n\t\t\t</div>\n\n\n\t\t\t<h4><i class=\"fa fa-arrow-down\" aria-hidden=\"true\"></i> VZOR <i class=\"fa fa-arrow-down \" aria-hidden=\"true\"></i></h4>\n\n\t\t\t<div class=\"gallery\" role=\"img\">\n";
+				include "galeria-VZOR.php";
+		} else {
 			include "sablony/jeden-album.php";
-			
-			
-// potom zmaz tento docasny kod
-			echo "<br>\n\n";
-?>
-			</div>
-			<div class="gallery" role="img">
-<?php
-			include "jeden-album-VZOR.php";
-// potom zmaz tento docasny kod
-
+				// potom zmaz tento docasny kod - VZOR
+				echo "<br>\n\n\t\t\t</div>\n\n\n\t\t\t<h4><i class=\"fa fa-arrow-down\" aria-hidden=\"true\"></i> VZOR <i class=\"fa fa-arrow-down \" aria-hidden=\"true\"></i></h4>\n\n\t\t\t<div class=\"gallery\" role=\"img\">\n";
+				include "jeden-album-VZOR.php";
 		}
 	}
 ?>

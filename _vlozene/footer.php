@@ -10,8 +10,8 @@
 				<i class="fa fa-phone fa-lg" aria-hidden="true"></i><br>
 				(045) 54 55 243<br>
 				<i class="fa fa-envelope fa-lg" aria-hidden="true"></i><br>
-				<a href="mailto:#">detva@fara.sk</a><br>
-				<a href="mailto:#">rkfudt@stonline.sk</a><br>
+				<a href="mailto:">detva&#64;fara.sk</a><br>
+				<a href="mailto:">rkfudt&#64;stonline.sk</a><br>
 			</address>
 		</section>
 		<section class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-4">

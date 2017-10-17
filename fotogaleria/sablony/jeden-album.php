@@ -1,5 +1,9 @@
 <?php
 
+
+
+
+/*
 // zobrazí obrázky jedného albumu
 	
 	$src_folder = $mainFolder.'/'.$_GET['album'];
@@ -98,4 +102,5 @@
 	$urlVars = "album=".replace_whitespace($_GET['album'])."&amp;";
 	print_pagination($numPages,$urlVars,$currentPage);
 	}
+	*/
 ?>

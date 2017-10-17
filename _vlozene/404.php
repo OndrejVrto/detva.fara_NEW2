@@ -14,7 +14,7 @@
 
 		<h2 style="font-size: 32px;">Stránka nenájdená</h2>
 		<p>
-		Súbor, o ktorý ste požiadali, nebol na serveri nájdený. 
+		Súbor alebo stránka, o ktorú ste požiadali, nebola na serveri nájdená.
 		<br>
 		<br>
 		Skúste ho nájsť z <strong><a style="font-size: 24px;" href="/index.php">hlavnej stránky</a></strong>
@@ -22,9 +22,7 @@
 		<br>
 		Kód chyby: <strong>404</strong><br>
 		Požadovaná stránka: <strong><script type="text/javascript">document.write(document.location)</script></strong><br><br>
-		Kontakt na správcu: <strong>ondej.vrto(zavináč)google.com</strong>
+		Kontakt na správcu: <strong>ondej.vrto&#64;google.com</strong>
 		</p>
-
-		<?php $chybovka=true; include "pocitadlo.php"; echo "\n";?>
 	</body>
 </html>
