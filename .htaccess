@@ -1,9 +1,8 @@
 # stranka s chybovym hlasenim pre chybu 404 - not found
-#ErrorDocument 404 /_vlozene/404.php
-ErrorDocument 404 /chyba/
+ErrorDocument 404 /_vlozene/404.php
 
 # pravidlá presmerovania pre chybovku
-RewriteRule ^chyba/ _vlozene/chybovka.html [QSA,L]
+RewriteRule ^chyba/ _vlozene/404.php [QSA,L]
 
 # zabráni zobrazeniu stromovaj struktúry ak stránka neexistuje
 Options All -Indexes
@@ -14,8 +13,8 @@ Redirect //novaSP1/ /
 Redirect //novaSP1/index.php /
 
 AddType text/x-component .htc
- RewriteEngine On
- RewriteBase /
+RewriteEngine On
+RewriteBase /
  
 # pravidla pre fotogaleriu 
 RewriteRule ^fotogaleria/(.+)/(.+)/([0])/ fotogaleria/fotogaleria.php?galeria=$1&album=$2&p=1 [QSA,L]
@@ -50,13 +49,13 @@ RewriteRule ^stranka\-([1-9]*[0-9]+) index.php?&p=$1 [QSA,L]
  RewriteRule ^(.*)$ http://detva.fara.sk/$1 [R=301,L]
  RewriteCond %{HTTP_HOST} ^www.fara.sk/detva$ [NC]
  RewriteRule ^(.*)$ http://detva.fara.sk/$1 [R=301,L]
- 
-# presmerovanie všetkých neexistujúcich stránok na index.php pričom v prehliadači bude pôvodná neexistujúca stránka
-# Options +SymLinksIfOwnerMatch 
-# RewriteCond %{REQUEST_FILENAME} !-f
-# RewriteCond %{REQUEST_FILENAME} !-d
-# RewriteRule . /? [R=301]
 
+ # presmerovanie všetkých neexistujúcich stránok na index.php pričom v prehliadači bude pôvodná neexistujúca stránka
+ # Options +SymLinksIfOwnerMatch 
+ # RewriteCond %{REQUEST_FILENAME} !-f
+ # RewriteCond %{REQUEST_FILENAME} !-d
+ # RewriteRule . /? [R=301]
+ 
 #Block bad bots
 RewriteCond %{HTTP_USER_AGENT} ^BlackWidow [OR]
 RewriteCond %{HTTP_USER_AGENT} ^Bot\ mailto:craftbot@yahoo.com [OR]

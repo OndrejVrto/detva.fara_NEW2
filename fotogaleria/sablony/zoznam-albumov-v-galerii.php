@@ -1,5 +1,59 @@
 <?php
 
+$vystupHTML = 'Zoznam albumov - vystup kodu HTML';
+
+	//vlastný program
+/*
+	echo "Cesta ku skriptu Absolútne:                         " . __DIR__;
+	echo "\n\n\n<br><br>";
+	echo "Galéria: <- Relativne ku skriptu -> " . $adresarRELscript;
+	echo "\n<br>";
+	echo "Galéria: <- Absolutne na disku -> " . $adresarABS;
+	echo "\n<br>";
+	echo "Galéria: <- Absolutne k WWW -> " . $adresarVSTUP;
+	echo "\n\n\n<br><br>";
+	if (isset($_GET["album"])){
+		echo "Album: <- Relativne ku skriptu -> " . $adresarRELscriptAlbum;
+		echo "\n<br>";
+		echo "Album: <- Absolutne na disku -> " . $adresarABSalbum;
+		echo "\n<br>";
+		echo "Album: <- Absolutne k WWW -> " . $adresarVSTUPalbum;
+		echo "\n\n<br><br>";
+		echo "Súbor <- Relativne ku skriptu -> " . $XMLsuborRELscript;
+		echo "\n<br>";	
+		echo "Súbor <- Absolutne na disku -> " . $XMLsuborABS;
+		echo "\n<br>";
+		echo "Súbor <- Absolutne k WWW -> " . $XMLsuborVSTUP;
+		echo "\n\n\n<br><br>";
+	}
+	echo "Číslo Listu: " . $cisloListu;
+	echo "\n\n\n<br><br>";
+
+	echo "Zoznam adresárov:\n<br>";
+	echo "------------------";
+	echo "\n\n\n<br>";
+
+
+	foreach(glob($adresarABS . '*', GLOB_ONLYDIR) as $zoznam_adresarov_Galeria) {
+		 $zoznam_adresarov_Galeria = str_replace($adresarABS, '', $zoznam_adresarov_Galeria);
+		 echo $zoznam_adresarov_Galeria. "\n<br>";
+
+
+		 if (file_exists( $XMLsuborRELscript )){
+			//echo "Súbor existuje.\n";    // dorobit kod
+			//echo "Funkcia:  Oprav XML\n\n";    // dorobit kod
+			OpravXML($XMLsuborRELscript);
+		} else {
+			//echo "Súbor NEexistuje.\n";    // dorobit kod
+			//echo "Funkcia:  Vytvor XML\n\n";    // dorobit kod
+			VytvorXML($XMLsuborRELscript);
+		}
+		 
+	}
+	*/
+
+
+
 
 
 
@@ -86,4 +140,3 @@
 		$urlVars = "";
 		print_pagination($numPages,$urlVars,$currentPage);
 	}*/
-?>

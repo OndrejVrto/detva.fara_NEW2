@@ -1,0 +1,3 @@
+<ol>
+  VZOR dorobiť		
+</ol>

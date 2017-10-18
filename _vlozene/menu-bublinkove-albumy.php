@@ -9,7 +9,9 @@
 	if (isset($nazovAlbumu)){
 		echo "\t\t\t\t<li class=\"breadcrumb-item\"><a href=\"/fotogaleria/" . $nazovGalerie . "/" . $nazovAlbumu . "/1/\">" . $titleALBUM . "</a></li>\n";
 	}
-	echo "\t\t\t\t<li class=\"breadcrumb-item active\">List " . $cisloListu . "</li>\n";
+	if ($nazovGalerie!='zoznam-galerii'){
+		echo "\t\t\t\t<li class=\"breadcrumb-item active\">List " . $cisloListu . "</li>\n";
+	}
 	echo "\t\t\t</ol>\n";
 ?>
 <!-- END Include - Bublinkové menu - Automaticky generované pre FotoAlbumy -->

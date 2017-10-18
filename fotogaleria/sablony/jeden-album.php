@@ -1,7 +1,23 @@
 <?php
 
+	if (isset($nazovAlbumu)){
+		$xml = new DOMDocument();
+		$suborXML = '/_fotoalbumy/' . $nazovGalerie . '/' . $nazovAlbumu;
+		
+		if (!file_exists($suborXML)) {
+			$adresarVSTUP = $suborXML;
+			
+			//include "sablony/vytvor-XML-albumu.php";
+			
+			// doplnit kod-->  "oprav-XML-albumu.php  (v prípade že dôjde k presunu do iného adresára, prepíše cesty, doplní nové fotky, znefunkční chýbajúce fotky, .. a hlavne .. neprepíše ručne vypĺňané polia)
+		}
+		$xml->load( $XMLsuborABS );
+		$titleALBUMx = $xml->getElementsByTagName( "NazovAlbumu" );
+		$titleALBUM = $titleALBUMx->item(0)->nodeValue;
+	}
 
 
+$vystupHTML = 'Jeden album - vystup kodu HTML';
 
 /*
 // zobrazí obrázky jedného albumu
