@@ -1,59 +1,114 @@
 <?php
+/*
+	$vystupHTML .= "Jeden album - vystup kodu HTML \n<br><br>";
 
-	if (isset($nazovAlbumu)){
-		$xml = new DOMDocument();
-		$suborXML = '/_fotoalbumy/' . $nazovGalerie . '/' . $nazovAlbumu;
-		
-		if (!file_exists($suborXML)) {
-			$adresarVSTUP = $suborXML;
-			
-			//include "sablony/vytvor-XML-albumu.php";
-			
-			// doplnit kod-->  "oprav-XML-albumu.php  (v prípade že dôjde k presunu do iného adresára, prepíše cesty, doplní nové fotky, znefunkční chýbajúce fotky, .. a hlavne .. neprepíše ručne vypĺňané polia)
-		}
-		$xml->load( $XMLsuborABS );
-		$titleALBUMx = $xml->getElementsByTagName( "NazovAlbumu" );
-		$titleALBUM = $titleALBUMx->item(0)->nodeValue;
+	//vlastný program
+
+	$vystupHTML .=  "Cesta ku skriptu Absolútne: " . __DIR__;
+	$vystupHTML .=  "\n\n\n<br><br>";
+	$vystupHTML .=  "Galéria: <- Relativne ku skriptu -> " . $adresarRELscript;
+	$vystupHTML .=  "\n<br>";
+	$vystupHTML .=  "Galéria: <- Absolutne na disku -> " . $adresarABS;
+	$vystupHTML .=  "\n<br>";
+	$vystupHTML .=  "Galéria: <- Absolutne k WWW -> " . $adresarVSTUP;
+	$vystupHTML .=  "\n\n\n<br><br>";
+	if (isset($_GET["album"])){
+		$vystupHTML .=  "Album: <- Relativne ku skriptu -> " . $adresarRELscriptAlbum;
+		$vystupHTML .=  "\n<br>";
+		$vystupHTML .=  "Album: <- Absolutne na disku -> " . $adresarABSalbum;
+		$vystupHTML .=  "\n<br>";
+		$vystupHTML .=  "Album: <- Absolutne k WWW -> " . $adresarVSTUPalbum;
+		$vystupHTML .=  "\n\n<br><br>";
+		$vystupHTML .=  "Súbor <- Relativne ku skriptu -> " . $XMLsuborRELscript;
+		$vystupHTML .=  "\n<br>";	
+		$vystupHTML .=  "Súbor <- Absolutne na disku -> " . $XMLsuborABS;
+		$vystupHTML .=  "\n<br>";
+		$vystupHTML .=  "Súbor <- Absolutne k WWW -> " . $XMLsuborVSTUP;
+		$vystupHTML .=  "\n\n\n<br><br>";
+	}
+	$vystupHTML .=  "Číslo Listu: " . $cisloListu;
+	$vystupHTML .=  "\n\n\n<br><br>";
+*/
+
+	$vystupHTML .=  "Zoznam adresárov:\n<br>";
+	$vystupHTML .=  "------------------";
+	$vystupHTML .=  "\n\n\n<br>";
+
+
+	$zoznam_Adresarov = glob($adresarABS . '*', GLOB_ONLYDIR);
+	foreach($zoznam_Adresarov as $zoznam_adresarov_Galeria) {
+		$zoznam_adresarov_Galeria = str_replace($adresarABS, '', $zoznam_adresarov_Galeria);
+		$vystupHTML .= $zoznam_adresarov_Galeria. "\n<br>";
 	}
 
+	$vystupHTML .=  "Počet adresárov: " . count($zoznam_Adresarov) . "<br>";
+	
+	
+	$vystupHTML .=  "\n\n\n<br>";
+	$vystupHTML .=  "Zoznam súborov 1 :\n<br>";
+	$vystupHTML .=  "------------------";
+	$vystupHTML .=  "\n\n\n<br>";
+	
+	$xml = new DOMDocument();
+	if (!file_exists($XMLsuborABS)) {
+		VytvorXML($XMLsuborABS);
+	}
+	
+	$xml->load( $XMLsuborABS );
+	$titleALBUMx = $xml->getElementsByTagName( "NazovAlbumu" );
+	$titleALBUM = $titleALBUMx->item(0)->nodeValue;
+	
+	$zoznam_suborov_vsetkych  = scandir($adresarABSalbum);
+	$zoznam_suborov_album = array();
+	$adresarMiniatury = $adresarABSalbum . '/thumbs';
+	
+	foreach($zoznam_suborov_vsetkych as $file) {
+		$pripona = strrchr($file, '.');
+		if(in_array($pripona, $extensions)) {
+		
+			array_push($zoznam_suborov_album, $file );
+			
+			if (!is_dir($adresarMiniatury)) {
+				mkdir($adresarMiniatury);
+				chmod($adresarMiniatury, 0777);
+				chown($adresarMiniatury, 'apache');
+			}
 
-$vystupHTML = 'Jeden album - vystup kodu HTML';
+			$thumb = $adresarMiniatury . '/' . $file;
+			if (!file_exists($thumb)) {
+				make_thumb($pripona, $adresarABSalbum, $file, $thumb, $thumb_width); 
+			}
+		}
+	}
 
-/*
+	foreach($zoznam_suborov_album as $file) {
+		$vystupHTML .=  $file . "\n<br>";
+	}
+	$vystupHTML .=  "\n<br>\n<br>";
+/*	
+	foreach(glob($adresarABSalbum . '*.jpg') as $zoznam_suborov_album) {
+		$zoznam_suborov_album = str_replace($adresarABSalbum, '', $zoznam_suborov_album);
+		$vystupHTML .= $zoznam_suborov_album . "\n<br>";
+	}
+	
+	$vystupHTML .=  "\n<br>";	
+	$vystupHTML .=  "Zoznam súborov 2 :\n<br>";
+	$vystupHTML .=  "------------------";
+	$vystupHTML .=  "\n\n<br>";
+	*/
+	
+
 // zobrazí obrázky jedného albumu
 	
-	$src_folder = $mainFolder.'/'.$_GET['album'];
-	$src_files  = scandir($src_folder);
 
-	$files = array();
-	foreach($src_files as $file) {
 
-		$ext = strrchr($file, '.');
-		if(in_array($ext, $extensions)) {
-
-			array_push( $files, $file );
-			if (!is_dir($src_folder.'/thumbs')) {
-				mkdir($src_folder.'/thumbs');
-				chmod($src_folder.'/thumbs', 0777);
-				chown($src_folder.'/thumbs', 'apache');
-			}
-
-		   $thumb = $src_folder.'/thumbs/'.$file;
-			if (!file_exists($thumb)) {
-				make_thumb($src_folder,$file,$thumb,$thumb_width); 
-			}
-
-		}
-	}
- 
-
-	if ( count($files) == 0 ) {
-		echo "\t\t\t\t\t\t";
-		echo 'V albume nie sú pridané žiadne fotografie!';
+	if ( count($zoznam_suborov_album) == 0 ) {
+		$vystupHTML .=  "\t\t\t\t\t\t";
+		$vystupHTML .=  'V albume nie sú pridané žiadne fotografie!';
 
 	} else {
 
-		$numPages = ceil( count($files) / $itemsPerPage );
+		$numPages = ceil( count($zoznam_suborov_album) / $fotiek_na_stranke );
 
 		if(isset($_GET['p'])) {
 
@@ -66,57 +121,49 @@ $vystupHTML = 'Jeden album - vystup kodu HTML';
 			$currentPage=1;
 		} 
 
-	echo "\t\t\t\t\t\t\t";
-	echo '<div class="titlebar">';
-	echo "\n\t\t\t\t\t\t\t\t";
-	echo '<div class="text-left">';
-	echo "\n\t\t\t\t\t\t\t\t\t";
-	echo '<span class="title">'. $_GET['album'] .'</span>';
-	echo "\n\t\t\t\t\t\t\t\t\t";
-	echo '<a class="text-left float-right" href="'.$_SERVER['HTTP_REFERER'].'">';
-	echo "\n\t\t\t\t\t\t\t\t\t\t";
-	echo '<button type="button" class="btn btn-primary btn-sm">Všetky albumy</button>';
-	echo "\n\t\t\t\t\t\t\t\t\t";
-	echo '</a>';
-	echo "\n\t\t\t\t\t\t\t\t";
-	echo '</div>';
-	echo "\n\t\t\t\t\t\t\t\t";
-	echo '<div class="float-left">'. count($files).GramatikaObrazky(count($files)) .'</div>';
-	echo "\n\t\t\t\t\t\t\t";
-	echo '</div>';
-	echo "\n\t\t\t\t\t\t\t";
-	echo '<div class="clear"></div>';
-	echo "\n";
+	$vystupHTML .=  "\t\t\t\t\t\t\t";
+	$vystupHTML .=  '<div class="titlebar">';
+	$vystupHTML .=  "\n\t\t\t\t\t\t\t\t";
+	$vystupHTML .=  '<div class="text-left">';
+	$vystupHTML .=  "\n\t\t\t\t\t\t\t\t\t";
+	$vystupHTML .=  '<span class="title">'. $_GET['album'] .'</span>';
+	$vystupHTML .=  "\n\t\t\t\t\t\t\t\t\t";
+	$vystupHTML .=  '</div>';
+	$vystupHTML .=  "\n\t\t\t\t\t\t\t\t";
+	$vystupHTML .=  '<div class="float-left">'. count($zoznam_suborov_album).GramatikaObrazky(count($zoznam_suborov_album)) .'</div>';
+	$vystupHTML .=  "\n\t\t\t\t\t\t\t";
+	$vystupHTML .=  '</div>';
+	$vystupHTML .=  "\n\t\t\t\t\t\t\t";
+	$vystupHTML .=  '<div class="clear"></div>';
+	$vystupHTML .=  "\n<br>";
 	
-	$start = ( $currentPage * $itemsPerPage ) - $itemsPerPage;
-	for( $i=$start; $i<$start + $itemsPerPage; $i++ ) {
-		if( isset($files[$i]) && is_file( $src_folder .'/'. $files[$i] ) ) { 
-			echo "\n\n\t\t\t\t\t\t\t";
+	$start = ( $currentPage * $fotiek_na_stranke ) - $fotiek_na_stranke;
+	for( $i=$start; $i<$start + $fotiek_na_stranke; $i++ ) {
+		if( isset($zoznam_suborov_album[$i]) && is_file( $adresarABSalbum .'/'. $zoznam_suborov_album[$i] ) ) { 
+			$vystupHTML .=  "\n\n\t\t\t\t\t\t\t";
 			//  nasledujuca verzia zobrazuje v strede galerie nazov obrazka - treba naprogramovať so súboru
-			echo '<a rel=\'index\' class="albumpix" href="'. replace_whitespace($src_folder) .'/'. replace_whitespace($files[$i]) .'" >';
-			//echo '<a class="albumpix" href="/galeria/'. replace_whitespace($src_folder) .'/'. replace_whitespace($files[$i]) .'" title="'. $files[$i] .'" >';
-			echo "\n\t\t\t\t\t\t\t\t";
-			echo '<div class="thumb shadow">';
-			echo "\n\t\t\t\t\t\t\t\t\t";
-			echo '<div class="thumb-wrapper">';
-			echo "\n\t\t\t\t\t\t\t\t\t\t";
-			echo '<img rel=\'noindex\' src="'. replace_whitespace($src_folder) .'/thumbs/'. replace_whitespace($files[$i]) .'" width="'.$thumb_width.'" alt="'. $_GET['album'] .'-'. $i .'" />';
-			echo "\n\t\t\t\t\t\t\t\t\t";
-			echo '</div>';
-			echo "\n\t\t\t\t\t\t\t\t";
-			echo '</div>';
-			echo "\n\t\t\t\t\t\t\t";
-			echo '</a>';
+			$vystupHTML .=  '<a class="albumpix" href="'. replace_whitespace($adresarVSTUPalbum) .'/'. replace_whitespace($zoznam_suborov_album[$i]) .'" title="'. $zoznam_suborov_album[$i] .'" >';
+			$vystupHTML .=  "\n\t\t\t\t\t\t\t\t";
+			$vystupHTML .=  '<div class="thumb shadow">';
+			$vystupHTML .=  "\n\t\t\t\t\t\t\t\t\t";
+			$vystupHTML .=  '<div class="thumb-wrapper">';
+			$vystupHTML .=  "\n\t\t\t\t\t\t\t\t\t\t";
+			$vystupHTML .=  '<img rel=\'noindex\' src="'. replace_whitespace($adresarVSTUPalbum) .'/thumbs/'. replace_whitespace($zoznam_suborov_album[$i]) .'" width="'.$thumb_width.'" alt="'. $_GET['album'] .'-'. $i .'" />';
+			$vystupHTML .=  "\n\t\t\t\t\t\t\t\t\t";
+			$vystupHTML .=  '</div>';
+			$vystupHTML .=  "\n\t\t\t\t\t\t\t\t";
+			$vystupHTML .=  '</div>';
+			$vystupHTML .=  "\n\t\t\t\t\t\t\t";
+			$vystupHTML .=  '</a>';
 
 		} else {
 
-			if( isset($files[$i]) ) {
-				echo $files[$i];
+			if( isset($zoznam_suborov_album[$i]) ) {
+				$vystupHTML .=  $zoznam_suborov_album[$i];
 			}
 		}
 	}
 	$urlVars = "album=".replace_whitespace($_GET['album'])."&amp;";
 	print_pagination($numPages,$urlVars,$currentPage);
 	}
-	*/
 ?>

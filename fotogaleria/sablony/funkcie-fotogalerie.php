@@ -1,41 +1,44 @@
 <?php
-
 // nastavenie gallerií
 // Inicializačné konštanty stránky
 	//$mainFolder    = '/_fotoalbumy/2008';		// folder where your albums are located - relative to root	
 	$polohaSkriptu = "..";  // poloha skriptu voči koreňovému adresáru WWW
+	$vystupHTML = '';   // inicializácia premennej
+
 	$adresarFotogaleria = "/_fotoalbumy/";
-	$albumsPerPage = '12';						// number of albums per page
-	$itemsPerPage  = '12';						// number of images per page    
+	$adresaFotogalerieHTML = "/fotogaleria/";
+	
+	$albumov_na_stranke = '2';						// number of albums per page
+	$fotiek_na_stranke  = '2';						// number of images per page    
+	
 	$thumb_width   = '220';						// width of thumbnails
 	$thumb_height  = '220';						// height of thumbnails
-	$extensions    = array(".jpg",".png",".gif",".JPG",".PNG",".GIF");		// allowed extensions in photo gallery
+	$extensions    = array(".jpg",".png",".jpeg", ".JPG", ".PNG");		// allowed extensions in photo gallery
 	
-/*
+
 	// zapnutie vypisovania chýb
 	//error_reporting (E_ALL ^ E_NOTICE);
 
-	echo "\n galeria -> ";
+	$vystupHTML .=  "\n galeria -> ";
 	if (isset($_GET["galeria"])){
-		echo $_GET["galeria"];
+		$vystupHTML .=  $_GET["galeria"];
 	} else {
-		echo 'neexistuje';
+		$vystupHTML .=  'neexistuje';
 	}
-	echo "<br>\n album -> ";
+	$vystupHTML .=  "<br>\n album -> ";
 	if (isset($_GET["album"])){
-		echo $_GET["album"];
+		$vystupHTML .=  $_GET["album"];
 	} else {
-		echo 'neexistuje';
+		$vystupHTML .=  'neexistuje';
 	}
-	echo "<br>\n p -> ";
+	$vystupHTML .=  "<br>\n p -> ";
 	if (isset($_GET["p"])){
-		echo $_GET["p"];
+		$vystupHTML .=  $_GET["p"];
 	} else {
-		echo 'neexistuje';
+		$vystupHTML .=  'neexistuje';
 	}
-	echo "<br>\n---------------------------------------------------------\n<br>";
-*/	
-	
+	$vystupHTML .=  "<br>\n---------------------------------------------------------\n<br>";
+
 	//echo $_SERVER['PHP_SELF'];
 	//echo "<br>\n";
 
@@ -62,19 +65,20 @@
 		include "sablony/zoznam-galerii.php";
 	} else {
 		$adresarVSTUP = $adresarFotogaleria . $nazovGalerie . "/";
+		$adresarVSTUP_html = $adresaFotogalerieHTML . $nazovGalerie . "/";
 		$adresarRELscript = $polohaSkriptu . $adresarVSTUP;
 		$adresarABS = folder_exist($adresarRELscript);
 		
-		if (FALSE == $adresarABS) { redirect("/chyba/"); }
+		if (FALSE == $adresarABS) { redirect("/fotogaleria/zoznam-galerii"); }
 
 		$cisloListu = $_GET["p"];
 		if (isset($_GET["album"])){
 			$nazovAlbumu = $_GET["album"];	
-			$adresarVSTUPalbum = $adresarFotogaleria . $nazovGalerie . "/" . $nazovAlbumu . "/";
+			$adresarVSTUPalbum = $adresarFotogaleria . $nazovGalerie . "/" . $nazovAlbumu ;
 			$adresarRELscriptAlbum = $polohaSkriptu . $adresarVSTUPalbum;
 			$adresarABSalbum = folder_exist($adresarRELscriptAlbum);
 
-			if (FALSE == $adresarABSalbum) { redirect("/chyba/"); }
+			if (FALSE == $adresarABSalbum) { redirect("/fotogaleria/" . $nazovGalerie );}
 
 			$XMLsuborRELscript = nazov_suboru($adresarRELscriptAlbum);
 			$XMLsuborABS = nazov_suboru($adresarABSalbum);
@@ -85,12 +89,52 @@
 			include "sablony/zoznam-albumov-v-galerii.php";
 		}
 	}
-						 
+	
 // Koniec  Spoločný kód
 
 
 
 // ZACIATOK - Funkcie
+
+// display pagination2 - počet stránok
+function print_pagination2($poradie, $numPages, $urlVars, $currentPage) {
+
+	if ($numPages > 1) {
+		$pracovny = '';
+		$zalomenie = "\n\t\t\t\t";
+		$pracovny .= $zalomenie . '<nav aria-label="Page navigation">';
+		$pracovny .= $zalomenie . "\t" . '<ul class="pagination justify-content-center" id="' . $poradie . "\">";
+
+		if ($currentPage > 1) {
+			$prevPage = $currentPage - 1;
+			$pracovny .= $zalomenie . "\t\t" . '<li class="page-item"><a class="page-link" href="'. $urlVars .$prevPage.'/" aria-label="Previous"><i class="fa fa-chevron-left" aria-hidden="true"></i></a></li>';
+		} else {
+			$pracovny .= $zalomenie . "\t\t" . '<li class="page-item disabled"><a class="page-link" href="#" aria-label="Previous"><i class="fa fa-chevron-left" aria-hidden="true"></i></a></li>';
+		}
+		for( $e=0; $e < $numPages; $e++ ) {
+			$p = $e + 1;
+			if ($p == $currentPage) {
+				$pracovny .= $zalomenie . "\t\t" . '<li class="page-item active"><a class="page-link" href="'. $urlVars . $p .'/">'. $p .'<span class="sr-only">(aktívna)</span></a></li>';
+			} else {
+				$pracovny .= $zalomenie . "\t\t" . '<li class="page-item"><a class="page-link" href="'. $urlVars . $p .'/">'. $p .'</a></li>';
+			} 
+		}
+		if ($currentPage != $numPages) {
+			$nextPage = $currentPage + 1;
+			$pracovny .= $zalomenie . "\t\t" . '<li class="page-item"><a class="page-link" href="'. $urlVars .$nextPage.'/" aria-label="Next"><i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>';
+		} else {
+			$pracovny .= $zalomenie . "\t\t" . '<li class="page-item disabled"><a class="page-link" href="#" aria-label="Next"><i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>';
+		}
+		
+		$pracovny .= $zalomenie . "\t" . '</ul>';
+		$pracovny .= $zalomenie . '</nav>';
+		$pracovny .= "\n";
+		
+		return $pracovny;
+	} else {
+		return false;
+	}
+}
 
 /**
  * Checks if a folder exist and return canonicalized absolute pathname (long version)
@@ -136,13 +180,13 @@ function redirect($url) {
 
 
 // create thumbnails from images - vytvorenie zmenšeniny obrázku - funguje aj na serveri
-function make_thumb($folder,$src,$dest,$thumb_width) {
-
+function make_thumb($ext, $folder, $src, $dest, $thumb_width) {
+	
 	/* read the source image */
-    if ( $ext == 'jpg' || ext == 'jpeg' ) {
+    if ( $ext == '.jpg' || ext == '.jpeg' || ext == '.JPG' ) {
         $source_image = imagecreatefromjpeg($folder.'/'.$src);
     }
-    if ( $ext == 'png' ) {
+    if ( $ext == '.png' ) {
         $source_image = imagecreatefrompng($folder.'/'.$src);
     }
 	
@@ -154,10 +198,10 @@ function make_thumb($folder,$src,$dest,$thumb_width) {
 	imagecopyresampled($virtual_image,$source_image,0,0,0,0,$thumb_width,$thumb_height,$width,$height);
 	//imagecopyresized($virtual_image,$source_image,0,0,0,0,$thumb_width,$thumb_height,$width,$height);
 	
-	if ( $ext == 'jpg' || ext == 'jpeg' ) {
+	if ( $ext == '.jpg' || ext == '.jpeg' || ext == '.JPG' ) {
         imagejpeg($virtual_image,$dest,100);
     }
-    if ( $ext == 'png' ) {
+    if ( $ext == '.png' ) {
         imagepng($virtual_image,$dest,100);
     }
 }
@@ -180,61 +224,6 @@ function get_files($images_dir,$exts = array('jpg')) {
 /* function:  returns a file's extension */
 function get_file_extension($file_name) {
 	return substr(strrchr($file_name,'.'),1);
-}
-
-
-// display pagination - počet stránok
-function print_pagination($numPages,$urlVars,$currentPage) {
-	echo "\n\n";
-	if ($numPages > 1) {
-		echo "\t\t\t\t\t\t";
-		echo '<div class="clearfix"></div>';
-		echo "\n\t\t\t\t\t\t";
-		echo '<div class="row">';
-		echo "\n\t\t\t\t\t\t";
-		echo '<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">';
-		echo "\n\t\t\t\t\t\t";
-		echo '<nav class="d-flex justify-content-center" aria-label="Page navigation example">';
-		echo "\n\t\t\t\t\t\t\t";
-		echo '<ul class="pagination">';
-		echo "\n\t\t\t\t\t\t\t\t";
-
-		if ($currentPage > 1) {
-			$prevPage = $currentPage - 1;
-			echo '<li class="page-item"><a class="page-link" href="?'. replace_whitespace($urlVars) .'p='. $prevPage.'" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>';
-		} else {
-			echo '<li class="page-item disabled"><a class="page-link" href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>';
-		}
-
-		for( $e=0; $e < $numPages; $e++ ) {
-			$p = $e + 1;
-				echo "\n\t\t\t\t\t\t\t\t";
-			if ($p == $currentPage) {
-				echo '<li class="page-item active"><a class="page-link" href="?'. replace_whitespace($urlVars) .'p='. $p .'">'. $p .'<span class="sr-only">(aktívna)</span></a></li>';
-			} else {
-				echo '<li class="page-item"><a class="page-link" href="?'. $urlVars .'p='. $p .'">'. $p .'</a></li>';
-			} 
-		}
-
-		echo "\n\t\t\t\t\t\t\t\t";
-		if ($currentPage != $numPages) {
-			$nextPage = $currentPage + 1;
-			echo '<li class="page-item"><a class="page-link" href="?'. replace_whitespace($urlVars) .'p='. $nextPage.'" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>';
-		} else {
-			echo '<li class="page-item disabled"><a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>';
-		}
-
-		echo "\n\t\t\t\t\t\t\t";
-		echo '</ul>';
-		echo "\n\t\t\t\t\t\t";
-		echo '</nav>';
-		echo "\n\t\t\t\t\t\t";
-		echo '</div>';
-		echo "\n\t\t\t\t\t\t";
-		echo '</div>';
-		
-		echo "\n\n";
-	}
 }
 
 // Gramatika počtu obrázkov

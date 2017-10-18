@@ -13,4 +13,4 @@
 	$pracovny .= "</ol>";
 	
 
-$vystupHTML = $pracovny;
+$vystupHTML .= $pracovny;
