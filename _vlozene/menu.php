@@ -92,9 +92,11 @@
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" 
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" role="button">Fotogaléria</a>
 						<ul class="dropdown-menu" role="menu">
-							<a class="dropdown-item" href="/fotogaleria/2009" >2009</a>
-							<a class="dropdown-item" href="/fotogaleria/2010" >2010</a>
+							<a class="dropdown-item" href="/fotogaleria/2007" >2007</a>
+							<a class="dropdown-item" href="/fotogaleria/2008" >2008</a>
+							<div class="dropdown-divider" role="separator"></div>
 							<a class="dropdown-item" href="/fotogaleria/2015" >2015</a>
+							<a class="dropdown-item" href="/fotogaleria/2017" >2017</a>
 							<a class="dropdown-item" href="/fotogaleria/starsie" >Staršie</a>
 							<div class="dropdown-divider" role="separator"></div>
 							<a class="dropdown-item" href="/fotogaleria/kostoly" >Kostoly</a>

@@ -8,8 +8,8 @@
 	$adresarFotogaleria = "/_fotoalbumy/";
 	$adresaFotogalerieHTML = "/fotogaleria/";
 	
-	$albumov_na_stranke = 5;						// number of albums per page
-	$fotiek_na_stranke  = 2;						// number of images per page    
+	$albumov_na_stranke = 10;						// number of albums per page
+	$fotiek_na_stranke  = 20;						// number of images per page    
 	$radenie_albumov = "Z-A";						// radenie od A-Z alebo Z-A
 	
 	$nahodneFotky = false;
@@ -78,6 +78,8 @@
 		if (isset($_GET["album"])){
 			$nazovAlbumu = $_GET["album"];	
 			$adresarVSTUPalbum = $adresarFotogaleria . $nazovGalerie . "/" . $nazovAlbumu ;
+			$adresarVSTUPalbumHTML = $adresaFotogalerieHTML . $nazovGalerie . "/" . $nazovAlbumu . "/";
+			
 			$adresarRELscriptAlbum = $polohaSkriptu . $adresarVSTUPalbum;
 			$adresarABSalbum = folder_exist($adresarRELscriptAlbum);
 
@@ -266,14 +268,6 @@ function OpravXML($cesta){
 	
 function VytvorXML($suborXML, $adresar, $adresar_html, $album , $zoznamSuborov){
 	
-	// tento kod treba dokoncit - zatial sa vyplnaju len preddefinovane konstanty
-	echo $suborXML . "\n<br>";
-	echo $adresar . "\n<br>";
-	echo $album . "\n<br>";
-	foreach($zoznamSuborov as $e){
-		echo $e . "\n<br>";
-	}
-	
 	$xmlNEW = new DOMDocument('1.0', 'UTF-8');
 	
 	$xmlNEW->xmlStandalone = FALSE;
@@ -301,13 +295,13 @@ function VytvorXML($suborXML, $adresar, $adresar_html, $album , $zoznamSuborov){
 			$xmlNEW_popisalbumu->appendChild( $xmlNEW->createElement( "NazovAlbumu", $NazovALBUMU ) );
 			$xmlNEW_popisalbumu->appendChild( $xmlNEW->createElement( "TitulokAlbumu", "" ) );
 			$xmlNEW_popisalbumu->appendChild( $xmlNEW->createElement( "AutorFotiek", "" ) );
-			$xmlNEW_popisalbumu->appendChild( $xmlNEW->createElement( "PocetFotiek", $PocetFotiek ) );
 			$xmlNEW_popisalbumu->appendChild( $xmlNEW->createElement( "TitulnaFotka", rand( 1, $PocetFotiek ) ) );
 			$xmlNEW_popisalbumu->appendChild( $xmlNEW->createElement( "LinkRewrite", $adresar_html ) );
 			$xmlNEW_popisalbumu->appendChild( $xmlNEW->createElement( "LinkFotogaleria", $adresar . '/' ) );
 			$xmlNEW_popisalbumu->appendChild( $xmlNEW->createElement( "LinkFotogaleriaThumbs", $adresar . '/thumbs/' ) );			
 			$xmlNEW_popisalbumu->appendChild( $xmlNEW->createElement( "AlternativnyNazovAlbum", "Album - " . $NazovALBUMU . " - Náhodný obrázok" ) );
-		
+			$xmlNEW_popisalbumu->appendChild( $xmlNEW->createElement( "PocetFotiek", $PocetFotiek ) );
+			
 		//Zaciatok Zoznamu fotiek
 		//$xmlNEW_album->appendChild( $xmlNEW->createComment( "\n Komentár na začiatku zoznamu fotiek. \n" ) );
 		$xmlNEW_zoznamfotiek = $xmlNEW->createElement( "ZoznamFotiek" );
@@ -338,67 +332,4 @@ function VytvorXML($suborXML, $adresar, $adresar_html, $album , $zoznamSuborov){
 	//header( "Content-Type: text/plain; charset=utf-8" ); // XML hlavička
 	header('Content-type: text/html; charset=utf-8');    // HTML hlavička
 	$xmlNEW->save( $suborXML, LIBXML_NOEMPTYTAG);
-	
-	//return $xmlNEW;
-	
-	//echo "\n\n--------------------------------------------------------------------------------------------------------------\n\n";
-	//header("Content-Type: text/plain");
-	//echo $xmlNEW->saveXML();	
 }
-
-function print_album_card($XMLfiles, $nahodneFotky = false){
-
-	$pracovny = '';
-	$zalomenie = "\n\t\t\t\t";
-	
-	$xml = new DOMDocument();
-	$xml->load( $XMLfiles );
-	$titleALBUM = $xml->getElementsByTagName( "NazovAlbumu" )->item(0)->nodeValue;
-	
-	$pracovny .= $zalomenie . "\t" . '<a href="' . $xml->getElementsByTagName( "LinkRewrite" )->item(0)->nodeValue . '/1/">';
-	$pracovny .= $zalomenie . "\t\t" . '<div class="card mx-3 mx-sm-0 border-primary">';
-	
-	if ($nahodneFotky){
-		$pocetFotiek = $xml->getElementsByTagName( "PocetFotiek" )->item(0)->nodeValue;
-		$titulnaFotkaCislo = rand( 1, $pocetFotiek);
-	} else {
-		$titulnaFotkaCislo = $xml->getElementsByTagName( "TitulnaFotka" )->item(0)->nodeValue;
-	}
-	$titulnaFotkaCislo--;
-	
-	$titulnaFotkaSubor = $xml->getElementsByTagName( "Fotka" )->item($titulnaFotkaCislo)->getAttribute("subor");
-	$titulnaFotkaLink = $xml->getElementsByTagName( "LinkFotogaleriaThumbs" )->item(0)->nodeValue . $titulnaFotkaSubor;
-	$titulnaFotkaPopisok = $xml->getElementsByTagName( "AlternativnyNazovAlbum" )->item(0)->nodeValue;
-	
-	$pracovny .= $zalomenie . "\t\t\t" . '<img class="card-img-top" src="' . $titulnaFotkaLink . '" alt="' . $titulnaFotkaPopisok . '"/>';
-	$pracovny .= $zalomenie . "\t\t\t" . '<div class="card-body">';
-	$pracovny .= $zalomenie . "\t\t\t\t" . '<h5 class="card-title">' . $xml->getElementsByTagName( "NazovAlbumu" )->item(0)->nodeValue . '</h5>';
-	
-	$datumDEN = $xml->getElementsByTagName( "DenFotenia" )->item(0)->nodeValue . '. ';
-	$datumMES = $xml->getElementsByTagName( "MesFotenia" )->item(0)->nodeValue . '. ';
-	$datumROK = $xml->getElementsByTagName( "RokFotenia" )->item(0)->nodeValue;
-	if ($datumDEN=='. '){$datumDEN='';}
-	if ($datumMES=='. '){$datumMES='';}
-	$datumAlbumu = $datumDEN . $datumMES . $datumROK;
-	if ($datumAlbumu!=''){
-		$pracovny .= $zalomenie . "\t\t\t\t" . '<h6 class="card-subtitle mb-2 text-muted">' . $datumAlbumu . '</h6>';
-	}
-	
-	$titulokAlbumu = $xml->getElementsByTagName( "TitulokAlbumu" )->item(0)->nodeValue;
-	if ($titulokAlbumu!=''){
-		$pracovny .= $zalomenie . "\t\t\t\t" . '<p class="card-text">' . $titulokAlbumu . '</p>';	
-	}
-	
-	$fotil = $xml->getElementsByTagName( "AutorFotiek" )->item(0)->nodeValue;
-	if ($fotil!=''){
-		$pracovny .= $zalomenie . "\t\t\t\t" . '<p class="card-text"><small class="text-muted">' . $fotil . '</small></p>';		
-	}
-	
-	$pracovny .= $zalomenie . "\t\t\t" . '</div>';	
-	$pracovny .= $zalomenie . "\t\t" . '</div>';
-	$pracovny .= $zalomenie . "\t" . '</a>';
-	$pracovny .= "\n";
-	
-	return $pracovny;
-}
-

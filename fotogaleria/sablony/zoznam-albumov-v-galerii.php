@@ -59,7 +59,7 @@
 		}
 		
 	// vrchný pagination
-		$vystupHTML .=  print_pagination2('prve', $pocetStranok, $adresarVSTUP_html, $cisloListu);	
+		//$vystupHTML .=  print_pagination2('prve', $pocetStranok, $adresarVSTUP_html, $cisloListu);	
 		$vystupHTML .=	"\n\t\t\t\t" . '<div class="card-columns">';
 		
 	// samotny zoznam albumov
@@ -86,3 +86,62 @@
 	// spodný pagination
 		$vystupHTML .=  print_pagination2('druhe', $pocetStranok, $adresarVSTUP_html, $cisloListu);
 	}
+	
+	
+function print_album_card($XMLfiles, $nahodneFotky = false){
+
+	$pracovny = '';
+	$zalomenie = "\n\t\t\t\t";
+	
+	$xml = new DOMDocument();
+	$xml->load( $XMLfiles );
+	
+	
+	$pracovny .= $zalomenie . "\t" . '<a href="' . $xml->getElementsByTagName( "LinkRewrite" )->item(0)->nodeValue . '/1/">';
+	$pracovny .= $zalomenie . "\t\t" . '<div class="card mx-3 mx-sm-0 border-primary">';
+	
+	if ($nahodneFotky){
+		$pocetFotiek = $xml->getElementsByTagName( "PocetFotiek" )->item(0)->nodeValue;
+		$titulnaFotkaCislo = rand( 1, $pocetFotiek);
+	} else {
+		$titulnaFotkaCislo = $xml->getElementsByTagName( "TitulnaFotka" )->item(0)->nodeValue;
+	}
+	$titulnaFotkaCislo--;
+	
+	$titulnaFotkaSubor = $xml->getElementsByTagName( "Fotka" )->item($titulnaFotkaCislo)->getAttribute("subor");
+	$titulnaFotkaLink = $xml->getElementsByTagName( "LinkFotogaleriaThumbs" )->item(0)->nodeValue . $titulnaFotkaSubor;
+	$titulnaFotkaPopisok = $xml->getElementsByTagName( "AlternativnyNazovAlbum" )->item(0)->nodeValue;
+	
+	$pracovny .= $zalomenie . "\t\t\t" . '<img class="card-img-top" src="' . $titulnaFotkaLink . '" alt="' . $titulnaFotkaPopisok . '"/>';
+	$pracovny .= $zalomenie . "\t\t\t" . '<div class="card-body">';
+	
+	$titleALBUM = $xml->getElementsByTagName( "NazovAlbumu" )->item(0)->nodeValue;
+	$pracovny .= $zalomenie . "\t\t\t\t" . '<h5 class="card-title">' . $titleALBUM . '</h5>';
+	
+	$datumDEN = $xml->getElementsByTagName( "DenFotenia" )->item(0)->nodeValue . '. ';
+	$datumMES = $xml->getElementsByTagName( "MesFotenia" )->item(0)->nodeValue . '. ';
+	$datumROK = $xml->getElementsByTagName( "RokFotenia" )->item(0)->nodeValue;
+	if ($datumDEN=='. '){$datumDEN='';}
+	if ($datumMES=='. '){$datumMES='';}
+	$datumAlbumu = $datumDEN . $datumMES . $datumROK;
+	if ($datumAlbumu!=''){
+		$pracovny .= $zalomenie . "\t\t\t\t" . '<h6 class="card-subtitle mb-2 text-muted">' . $datumAlbumu . '</h6>';
+	}
+	
+	$titulokAlbumu = $xml->getElementsByTagName( "TitulokAlbumu" )->item(0)->nodeValue;
+	if ($titulokAlbumu!=''){
+		$pracovny .= $zalomenie . "\t\t\t\t" . '<p class="card-text">' . $titulokAlbumu . '</p>';	
+	}
+	
+	$fotil = $xml->getElementsByTagName( "AutorFotiek" )->item(0)->nodeValue;
+	if ($fotil!=''){
+		$pracovny .= $zalomenie . "\t\t\t\t" . '<p class="card-text"><small class="text-muted">' . $fotil . '</small></p>';		
+	}
+	
+	$pracovny .= $zalomenie . "\t\t\t" . '</div>';	
+	$pracovny .= $zalomenie . "\t\t" . '</div>';
+	$pracovny .= $zalomenie . "\t" . '</a>';
+	$pracovny .= "\n";
+	
+	return $pracovny;
+}

@@ -1,16 +1,21 @@
 				<div class="btn-group btn-block mw-100" id="HlavickaAlbumu">
-					<button onclick="location.href = '/fotogaleria/2015';" type="button" class="btn w-10 btn-success border-success"><i class="fa fa-backward" aria-hidden="true"></i></button>
+					<button onclick="location.href = '/fotogaleria/2015';" type="button" class="btn w-10 btn-success border-success" title="dozadu">
+						<i class="fa fa-backward" aria-hidden="true"></i>
+					</button>
 					<div class="card w-80 border-success">
 						<h5 class="card-header text-white bg-success text-center">Dychovka na sv. Štefana pred farským kostolom</h5>
 						<div class="card-body">
 							<p class="card-text">Na sv. Štefanna zahrala dychovka všetkým farnikom. Spev, slovo veselé bolo cítiť na každom kroku.</p>
-							<p class="card-text">
-								<small class="text-muted float-left">Fotila: Marka Ostrihoňová</small>
-								<small class="text-muted float-right">Dátum: 26.12.2015</small>
+							<p class="card-text d-flex justify-content-between flex-wrap">
+								<small class="text-muted mr-3">Marka Ostrihoňová</small>
+								<small class="text-muted mr-3">62 obrázkov</small>
+								<small class="text-muted">26.12.2015</small>
 							</p>
 						</div>
 					</div>
-					<button onclick="location.href = '/fotogaleria/2012';" type="button" class="btn w-10 btn-success border-success"><i class="fa fa-forward" aria-hidden="true"></i></button>
+					<button onclick="location.href = '/fotogaleria/2012';" type="button" class="btn w-10 btn-success border-success" title="dopredu">
+						<i class="fa fa-forward" aria-hidden="true"></i>
+					</button>
 				</div>
 
 				<!--<nav aria-label="Page navigation">
