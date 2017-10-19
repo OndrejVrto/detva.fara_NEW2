@@ -85,6 +85,8 @@
 		$vystupHTML .=  $file . "\n<br>";
 	}
 	$vystupHTML .=  "\n<br>\n<br>";
+	
+	
 /*	
 	foreach(glob($adresarABSalbum . '*.jpg') as $zoznam_suborov_album) {
 		$zoznam_suborov_album = str_replace($adresarABSalbum, '', $zoznam_suborov_album);
@@ -100,7 +102,7 @@
 
 // zobrazí obrázky jedného albumu
 	
-
+/*
 
 	if ( count($zoznam_suborov_album) == 0 ) {
 		$vystupHTML .=  "\t\t\t\t\t\t";
@@ -165,5 +167,6 @@
 	}
 	$urlVars = "album=".replace_whitespace($_GET['album'])."&amp;";
 	print_pagination($numPages,$urlVars,$currentPage);
-	}
+	}*/
+	
 ?>

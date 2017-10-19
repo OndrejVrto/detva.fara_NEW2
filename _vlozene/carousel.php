@@ -21,7 +21,7 @@
 
 	if($caruselStabilny==true) {
 		$nahodnyObrazok = str_pad(rand(1, $fileCount), $digits, '0', STR_PAD_LEFT);
-		echo "<div class=\"carousel slide d-print-none\" role=\"banner\">\n\t";
+		echo "<div class=\"carousel slide d-print-none pt-3\" role=\"banner\">\n\t";
 		echo "<div class=\"carousel-item active\">\n\t\t";
 		echo "<img class=\"d-block rounded w-100\" src=\"". $cesta . $NazovSuboru . $nahodnyObrazok . $pripona ."\" alt=\"Carousel - Náhodný obrázok\">\n\t";
 		echo "</div>\n";

@@ -1,21 +1,24 @@
 <?php
 // nastavenie gallerií
 // Inicializačné konštanty stránky
-	//$mainFolder    = '/_fotoalbumy/2008';		// folder where your albums are located - relative to root	
+
 	$polohaSkriptu = "..";  // poloha skriptu voči koreňovému adresáru WWW
 	$vystupHTML = '';   // inicializácia premennej
 
 	$adresarFotogaleria = "/_fotoalbumy/";
 	$adresaFotogalerieHTML = "/fotogaleria/";
 	
-	$albumov_na_stranke = '2';						// number of albums per page
-	$fotiek_na_stranke  = '2';						// number of images per page    
+	$albumov_na_stranke = 5;						// number of albums per page
+	$fotiek_na_stranke  = 2;						// number of images per page    
+	$radenie_albumov = "Z-A";						// radenie od A-Z alebo Z-A
 	
-	$thumb_width   = '220';						// width of thumbnails
-	$thumb_height  = '220';						// height of thumbnails
+	$nahodneFotky = false;
+	
+	$thumb_width   = '280';						// width of thumbnails
+	$thumb_height  = '280';						// height of thumbnails
 	$extensions    = array(".jpg",".png",".jpeg", ".JPG", ".PNG");		// allowed extensions in photo gallery
 	
-
+/*
 	// zapnutie vypisovania chýb
 	//error_reporting (E_ALL ^ E_NOTICE);
 
@@ -38,7 +41,7 @@
 		$vystupHTML .=  'neexistuje';
 	}
 	$vystupHTML .=  "<br>\n---------------------------------------------------------\n<br>";
-
+*/
 	//echo $_SERVER['PHP_SELF'];
 	//echo "<br>\n";
 
@@ -58,7 +61,7 @@
 
 //Spoločný kód
 
-	// skontroluje či existujú adresáre. Ak nie presmeruje na chybovú stránku
+	// skontroluje či existujú adresáre. Ak nie presmeruje na jednotlivé typy podstránok
 	// zároveň naplní základné premenné
 	$nazovGalerie = $_GET["galeria"];
 	if ($nazovGalerie=='zoznam-galerii'){
@@ -261,9 +264,15 @@ function OpravXML($cesta){
 	//VytvorXML($cesta);
 }
 	
-function VytvorXML($cestaVSTUP){
+function VytvorXML($suborXML, $adresar, $adresar_html, $album , $zoznamSuborov){
 	
 	// tento kod treba dokoncit - zatial sa vyplnaju len preddefinovane konstanty
+	echo $suborXML . "\n<br>";
+	echo $adresar . "\n<br>";
+	echo $album . "\n<br>";
+	foreach($zoznamSuborov as $e){
+		echo $e . "\n<br>";
+	}
 	
 	$xmlNEW = new DOMDocument('1.0', 'UTF-8');
 	
@@ -271,61 +280,64 @@ function VytvorXML($cestaVSTUP){
 	$xmlNEW->formatOutput = TRUE;
 	$xmlNEW->preserveWhiteSpace = TRUE;
 
-	$xmlNEW->appendChild( $xmlNEW->createComment( "\n Vzorový XML - vytvorený automaticky.\n Orientacia:  V = vertical, H = horizontal \n" ) );
+	//$xmlNEW->appendChild( $xmlNEW->createComment( "\n Vzorový XML - vytvorený automaticky.\n Orientacia:  V = vertical, H = horizontal \n" ) );
 	$xmlNEW_album = $xmlNEW->createElement( "Album" );
 	$xmlNEW_album->setAttribute( "vytvorene", date("Y-m-d H:i:s"));
 	$xmlNEW->appendChild( $xmlNEW_album );
 
 		// Popis albumu
 		$xmlNEW_popisalbumu = $xmlNEW->createElement( "PopisAlbumu" );
-		$xmlNEW_popisalbumu->setAttribute( "adresar", "2015-01-13-Omsa-sv-Terezka" );
+		$xmlNEW_popisalbumu->setAttribute( "adresar", $album );
 		$xmlNEW_album->appendChild( $xmlNEW_popisalbumu );
-			$xmlNEW_popisalbumu->appendChild( $xmlNEW->createElement( "VypnutAlbum", "FALSE" ) );
-			$xmlNEW_popisalbumu->appendChild( $xmlNEW->createElement( "VypnutTitulky", "FALSE" ) );
-			$xmlNEW_popisalbumu->appendChild( $xmlNEW->createElement( "DenFotenia", "" ) );
-			$xmlNEW_popisalbumu->appendChild( $xmlNEW->createElement( "MesFotenia", "01" ) );
-			$xmlNEW_popisalbumu->appendChild( $xmlNEW->createElement( "RokFotenia", "2015" ) );
+			//$xmlNEW_popisalbumu->appendChild( $xmlNEW->createElement( "VypnutAlbum", "FALSE" ) );
+			//$xmlNEW_popisalbumu->appendChild( $xmlNEW->createElement( "VypnutTitulky", "FALSE" ) );
+			$xmlNEW_popisalbumu->appendChild( $xmlNEW->createElement( "DenFotenia", "dd" ) );
+			$xmlNEW_popisalbumu->appendChild( $xmlNEW->createElement( "MesFotenia", "mm" ) );
+			$xmlNEW_popisalbumu->appendChild( $xmlNEW->createElement( "RokFotenia", date("Y")) );
 
-//z ineho kodu - automaticky vlozeny nazov
-//$NazovALBUMU = str_replace(Array('%20', '-'), Array(' ', ' '),ucwords(str_replace(Array('.php', '_'), Array('', ' '), $nazovADRESARA)));
+			$NazovALBUMU = str_replace(Array('%20', '-'), Array(' ', ' '), ucwords(str_replace(Array('.php', '_'), Array('', ' '), $album)));
+			$PocetFotiek = count($zoznamSuborov);
 			
-			$xmlNEW_popisalbumu->appendChild( $xmlNEW->createElement( "NazovAlbumu", "POKUS2  - Omša sv. Terezka" ) );
-			$xmlNEW_popisalbumu->appendChild( $xmlNEW->createElement( "TitulokAlbumu", "Aj do Detvy prišla relikvia sv. Terezky. Veriaci si ju uctili pri slávnostnej sv. omši." ) );
-			$xmlNEW_popisalbumu->appendChild( $xmlNEW->createElement( "AutorFotiek", "Zuzana Juhaniaková" ) );
-			$xmlNEW_popisalbumu->appendChild( $xmlNEW->createElement( "NacitanePripony", ".jpg, .png, .gif, .JPG, .PNG, .GIF" ) );
-			$xmlNEW_popisalbumu->appendChild( $xmlNEW->createElement( "PocetFotiek", "12" ) );
-			$xmlNEW_popisalbumu->appendChild( $xmlNEW->createElement( "TitulnaFotka", "3" ) );			
-			$xmlNEW_popisalbumu->appendChild( $xmlNEW->createElement( "LinkRewrite", "/fotogaleria/2015/2015-01-13-Omsa-sv-Terezka/1/" ) );
-			$xmlNEW_popisalbumu->appendChild( $xmlNEW->createElement( "LinkFotogaleria", "/_fotoalbumy/2015/2015-01-13-Omsa-sv-Terezka/" ) );
-			$xmlNEW_popisalbumu->appendChild( $xmlNEW->createElement( "AlternativnyNazovAlbum", "Album - Omša sv. Terezka - Náhodný obrázok" ) );
+			$xmlNEW_popisalbumu->appendChild( $xmlNEW->createElement( "NazovAlbumu", $NazovALBUMU ) );
+			$xmlNEW_popisalbumu->appendChild( $xmlNEW->createElement( "TitulokAlbumu", "" ) );
+			$xmlNEW_popisalbumu->appendChild( $xmlNEW->createElement( "AutorFotiek", "" ) );
+			$xmlNEW_popisalbumu->appendChild( $xmlNEW->createElement( "PocetFotiek", $PocetFotiek ) );
+			$xmlNEW_popisalbumu->appendChild( $xmlNEW->createElement( "TitulnaFotka", rand( 1, $PocetFotiek ) ) );
+			$xmlNEW_popisalbumu->appendChild( $xmlNEW->createElement( "LinkRewrite", $adresar_html ) );
+			$xmlNEW_popisalbumu->appendChild( $xmlNEW->createElement( "LinkFotogaleria", $adresar . '/' ) );
+			$xmlNEW_popisalbumu->appendChild( $xmlNEW->createElement( "LinkFotogaleriaThumbs", $adresar . '/thumbs/' ) );			
+			$xmlNEW_popisalbumu->appendChild( $xmlNEW->createElement( "AlternativnyNazovAlbum", "Album - " . $NazovALBUMU . " - Náhodný obrázok" ) );
 		
 		//Zaciatok Zoznamu fotiek
-		$xmlNEW_album->appendChild( $xmlNEW->createComment( "\n Komentár na začiatku zoznamu fotiek. \n" ) );
+		//$xmlNEW_album->appendChild( $xmlNEW->createComment( "\n Komentár na začiatku zoznamu fotiek. \n" ) );
 		$xmlNEW_zoznamfotiek = $xmlNEW->createElement( "ZoznamFotiek" );
-		$xmlNEW_zoznamfotiek->setAttribute( "adresar", "2015-01-13-Omsa-sv-Terezka" );
+		$xmlNEW_zoznamfotiek->setAttribute( "adresar", $album );
 		$xmlNEW_album->appendChild( $xmlNEW_zoznamfotiek );
 		
-		for ($i = 1; $i <= 2; $i++) {
+		$i=0;
+		foreach($zoznamSuborov as $e){
+			$i++;
 			// jednotlive fotky
-			$xmlNEW_zoznamfotiek->appendChild( $xmlNEW->createComment( " Fotka č. " . $i . " " ) );
+			//$xmlNEW_zoznamfotiek->appendChild( $xmlNEW->createComment( " Fotka č. " . $i . " " ) );
 			$xmlNEW_fotka = $xmlNEW->createElement( "Fotka" );
 			$xmlNEW_fotka->setAttribute( "poradoveCisloFotky", $i );
-			$xmlNEW_fotka->setAttribute( "subor", "omsa-terezka-fotka01.jpg" );
+			$xmlNEW_fotka->setAttribute( "subor", $e );
+			//$xmlNEW_fotka->setAttribute( "Vypnut", "FALSE" );
 			$xmlNEW_zoznamfotiek->appendChild( $xmlNEW_fotka );
-				$xmlNEW_fotka->appendChild( $xmlNEW->createElement( "Vypnut", $i . " FALSE" ) );
-				$xmlNEW_fotka->appendChild( $xmlNEW->createElement( "MenoSuboru", "omsa-terezka-fotka01.jpg" ) );
-				$xmlNEW_fotka->appendChild( $xmlNEW->createElement( "LinkFotka", "/_fotoalbumy/2015/2015-01-13-Omsa-sv-Terezka/omsa-terezka-fotka01.jpg" ) );
-				$xmlNEW_fotka->appendChild( $xmlNEW->createElement( "LinkFotkaThumbs", "/_fotoalbumy/2015/2015-01-13-Omsa-sv-Terezka/thumb/omsa-terezka-fotka01.jpg" ) );
-				$xmlNEW_fotka->appendChild( $xmlNEW->createElement( "Orientacia", "V" ) );
-				$xmlNEW_fotka->appendChild( $xmlNEW->createElement( "Vyska", "1000" ) );
-				$xmlNEW_fotka->appendChild( $xmlNEW->createElement( "Sirka", "1500" ) );
-				$xmlNEW_fotka->appendChild( $xmlNEW->createElement( "AlternativnyNazov", "Fotka albumu - Omša sv. Terezka - 01" ) );
-				$xmlNEW_fotka->appendChild( $xmlNEW->createElement( "TitulokFotky", "Janko nesie obetné dary." ) );
+				//$xmlNEW_fotka->appendChild( $xmlNEW->createElement( "Vypnut", "FALSE" ) );
+				//$xmlNEW_fotka->appendChild( $xmlNEW->createElement( "MenoSuboru", $e ) );
+				$xmlNEW_fotka->appendChild( $xmlNEW->createElement( "AlternativnyNazov", "Fotka albumu - " . $NazovALBUMU . " - Fotka č." . $i ) );
+				$xmlNEW_fotka->appendChild( $xmlNEW->createElement( "TitulokFotky", "" ) );
+				//$xmlNEW_fotka->appendChild( $xmlNEW->createElement( "LinkFotka", $adresar . '/' . $e ) );
+				//$xmlNEW_fotka->appendChild( $xmlNEW->createElement( "LinkFotkaThumbs", $adresar . '/thumbs/' . $e ) );
+				//$xmlNEW_fotka->appendChild( $xmlNEW->createElement( "Orientacia", "V" ) );
+				//$xmlNEW_fotka->appendChild( $xmlNEW->createElement( "Vyska", "1000" ) );
+				//$xmlNEW_fotka->appendChild( $xmlNEW->createElement( "Sirka", "1500" ) );
 		}
 	
 	//header( "Content-Type: text/plain; charset=utf-8" ); // XML hlavička
 	header('Content-type: text/html; charset=utf-8');    // HTML hlavička
-	$xmlNEW->save( $cestaVSTUP, LIBXML_NOEMPTYTAG);
+	$xmlNEW->save( $suborXML, LIBXML_NOEMPTYTAG);
 	
 	//return $xmlNEW;
 	
@@ -333,3 +345,60 @@ function VytvorXML($cestaVSTUP){
 	//header("Content-Type: text/plain");
 	//echo $xmlNEW->saveXML();	
 }
+
+function print_album_card($XMLfiles, $nahodneFotky = false){
+
+	$pracovny = '';
+	$zalomenie = "\n\t\t\t\t";
+	
+	$xml = new DOMDocument();
+	$xml->load( $XMLfiles );
+	$titleALBUM = $xml->getElementsByTagName( "NazovAlbumu" )->item(0)->nodeValue;
+	
+	$pracovny .= $zalomenie . "\t" . '<a href="' . $xml->getElementsByTagName( "LinkRewrite" )->item(0)->nodeValue . '/1/">';
+	$pracovny .= $zalomenie . "\t\t" . '<div class="card mx-3 mx-sm-0 border-primary">';
+	
+	if ($nahodneFotky){
+		$pocetFotiek = $xml->getElementsByTagName( "PocetFotiek" )->item(0)->nodeValue;
+		$titulnaFotkaCislo = rand( 1, $pocetFotiek);
+	} else {
+		$titulnaFotkaCislo = $xml->getElementsByTagName( "TitulnaFotka" )->item(0)->nodeValue;
+	}
+	$titulnaFotkaCislo--;
+	
+	$titulnaFotkaSubor = $xml->getElementsByTagName( "Fotka" )->item($titulnaFotkaCislo)->getAttribute("subor");
+	$titulnaFotkaLink = $xml->getElementsByTagName( "LinkFotogaleriaThumbs" )->item(0)->nodeValue . $titulnaFotkaSubor;
+	$titulnaFotkaPopisok = $xml->getElementsByTagName( "AlternativnyNazovAlbum" )->item(0)->nodeValue;
+	
+	$pracovny .= $zalomenie . "\t\t\t" . '<img class="card-img-top" src="' . $titulnaFotkaLink . '" alt="' . $titulnaFotkaPopisok . '"/>';
+	$pracovny .= $zalomenie . "\t\t\t" . '<div class="card-body">';
+	$pracovny .= $zalomenie . "\t\t\t\t" . '<h5 class="card-title">' . $xml->getElementsByTagName( "NazovAlbumu" )->item(0)->nodeValue . '</h5>';
+	
+	$datumDEN = $xml->getElementsByTagName( "DenFotenia" )->item(0)->nodeValue . '. ';
+	$datumMES = $xml->getElementsByTagName( "MesFotenia" )->item(0)->nodeValue . '. ';
+	$datumROK = $xml->getElementsByTagName( "RokFotenia" )->item(0)->nodeValue;
+	if ($datumDEN=='. '){$datumDEN='';}
+	if ($datumMES=='. '){$datumMES='';}
+	$datumAlbumu = $datumDEN . $datumMES . $datumROK;
+	if ($datumAlbumu!=''){
+		$pracovny .= $zalomenie . "\t\t\t\t" . '<h6 class="card-subtitle mb-2 text-muted">' . $datumAlbumu . '</h6>';
+	}
+	
+	$titulokAlbumu = $xml->getElementsByTagName( "TitulokAlbumu" )->item(0)->nodeValue;
+	if ($titulokAlbumu!=''){
+		$pracovny .= $zalomenie . "\t\t\t\t" . '<p class="card-text">' . $titulokAlbumu . '</p>';	
+	}
+	
+	$fotil = $xml->getElementsByTagName( "AutorFotiek" )->item(0)->nodeValue;
+	if ($fotil!=''){
+		$pracovny .= $zalomenie . "\t\t\t\t" . '<p class="card-text"><small class="text-muted">' . $fotil . '</small></p>';		
+	}
+	
+	$pracovny .= $zalomenie . "\t\t\t" . '</div>';	
+	$pracovny .= $zalomenie . "\t\t" . '</div>';
+	$pracovny .= $zalomenie . "\t" . '</a>';
+	$pracovny .= "\n";
+	
+	return $pracovny;
+}
+

@@ -1,5 +1,5 @@
 <!-- START Include - Menu -->
-<div id="MojeMenu" class="d-print-none static-top p-3">
+<div id="MojeMenu" class="d-print-none static-top pt-3">
 	<div class="container">
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark rounded" aria-label="Menu stránky" role="navigation">
 			<button class="navbar-toggler" type="button" 
