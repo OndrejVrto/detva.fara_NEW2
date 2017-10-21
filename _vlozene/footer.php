@@ -1,4 +1,4 @@
-<footer class="container" role="contentinfo">
+<footer class="container px-4" role="contentinfo">
 	<div class="row">
 		<section class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4">
 				<h1>Kontakt</h1>

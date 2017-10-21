@@ -1,25 +1,28 @@
 <!-- START Include - Menu -->
-<div id="MojeMenu" class="d-print-none static-top pt-3">
+<div class="d-print-none static-top pt-3">
 	<div class="container">
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark rounded" aria-label="Menu stránky" role="navigation">
-			<button class="navbar-toggler" type="button" 
+			<button 
+				class="navbar-toggler" 
+				type="button" 
 				data-toggle="collapse" 
 				data-target="#navbarNavDropdown" 
 				aria-controls="navbarNavDropdown" 
 				aria-expanded="false" 
 				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon align-middle"></span><span class="h4 align-middle"> Menu</span>
+				<span class="navbar-toggler-icon align-middle"></span>
+				<span class="h4 align-middle">&nbsp;&nbsp;Menu</span>
 			</button>
 			<a class="navbar-brand mr-0 mx-lg-4 mr-lg-5 my-1" href="/">Farnosť Detva</a>
 			<div id="navbarNavDropdown" class="collapse navbar-collapse" >
 				<ul class="navbar-nav">
-					<li class="nav-item dropdown mx-lg-3">
+					<li class="nav-item dropdown mx-lg-2">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" 
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" role="button">Farnosť</a>
-						<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" role="menu">
+						<ul class="dropdown-menu" role="menu">
 							<a class="dropdown-item" href="/" >Aktuality</a>
 							<a class="dropdown-item" href="/farnost/liturgicke-oznamy-detva" >Liturgické oznamy</a>
-							<a class="dropdown-item" href="/farnost/liturgicke-oznamy-detva" >Rozpisy lektorov</a>
+							<a class="dropdown-item" href="/cista" >Rozpisy lektorov</a>
 							<a class="dropdown-item" href="/cista" >Omše vo farnosti</a>
 							<div class="dropdown-divider" role="separator"></div>
 							<a class="dropdown-item" href="/farnost/historia-kostola-sv-frantiska-v-detve" >História farnosti</a>
@@ -36,9 +39,9 @@
 							<a class="dropdown-item" href="/cista" >Kňazi pochádzajúci z farnosti</a>
 							<div class="dropdown-divider" role="separator"></div>
 							<a class="dropdown-item" href="/farnost/kontakt-farsky-urad-detva" >Kontakt</a>
-						</div>
+						</ul>
 					</li>
-					<li class="nav-item dropdown mr-lg-3">
+					<li class="nav-item dropdown mr-lg-2">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" 
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" role="button">Spoločenstvá</a>
 						<ul class="dropdown-menu" role="menu">
@@ -63,17 +66,17 @@
 							<a class="dropdown-item" href="/cista" >Život vo farnosti</a>
 						</ul>
 					</li>
-					<li class="nav-item dropdown mr-lg-3">
+					<li class="nav-item dropdown mr-lg-2">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" 
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" role="button">Liturgia</a>
 						<ul class="dropdown-menu" role="menu">
 							<a class="dropdown-item" href="/liturgia/krestanske-sviatosti" >Sviatosť krstu</a>
-							<a class="dropdown-item" href="/liturgia/krestanske-sviatosti" >Sväté prijímanie</a>
-							<a class="dropdown-item" href="/liturgia/krestanske-sviatosti" >Birmovanie</a>
+							<a class="dropdown-item" href="/cista" >Sväté prijímanie</a>
+							<a class="dropdown-item" href="/cista" >Birmovanie</a>
 							<a class="dropdown-item" href="/cista" >Spovedanie</a>
 							<a class="dropdown-item" href="/cista" >Pomazanie chorých</a>
 							<a class="dropdown-item" href="/cista" >Vysviacka</a>
-							<a class="dropdown-item" href="/liturgia/krestanske-sviatosti" >Sobáš</a>
+							<a class="dropdown-item" href="/cista" >Sobáš</a>
 							<div class="dropdown-divider" role="separator"></div>
 							<a class="dropdown-item" href="/cista" >Pohreb</a>
 							<a class="dropdown-item" href="/cista" >Požehnávanie príbytkov</a>
@@ -88,7 +91,7 @@
 							<a class="dropdown-item" href="/cista" >Kódex kánonického práva</a>
 						</ul>
 					</li>
-					<li class="nav-item dropdown mr-lg-3">
+					<li class="nav-item dropdown mr-lg-2">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" 
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" role="button">Fotogaléria</a>
 						<ul class="dropdown-menu" role="menu">
@@ -104,16 +107,16 @@
 							<a class="dropdown-item" href="/fotogaleria/detvianske-vyrezavane-krize" >Detvianske vyrezávané kríže</a>
 						</ul>
 					</li>
-					<li class="nav-item dropdown mr-lg-3">
+					<li class="nav-item dropdown mr-lg-2">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" 
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" role="button">Dekanát</a>
 						<ul class="dropdown-menu" role="menu">
-							<a class="dropdown-item" href="/dekanat/schematizmus-dekanatu-detva-zoznam-farnosti-a-knazov" >Mapa a zoznam farností</a>
+							<a class="dropdown-item disabled" href="/dekanat/schematizmus-dekanatu-detva-zoznam-farnosti-a-knazov" >Mapa a zoznam farností</a>
 							<a class="dropdown-item" href="/dekanat/klastor-kralovnej-karmelu-v-detve" >Kláštor Kráľovnej Karmelu</a>
 							<a class="dropdown-item" href="/cista" >Rád Menších bratov kapucínov</a>
 							<div class="dropdown-divider" role="separator"></div>
-							<a class="dropdown-item" href="/dekanat/schematizmus-dekanatu-detva-zoznam-farnosti-a-knazov" >Fotogaléria kostolov a kaplniek</a>
-							<a class="dropdown-item" href="/dekanat/detvianske-vyrezavane-krize" >Detvianske vyrezávané kríže</a>
+							<a class="dropdown-item" href="/cista" >Fotogaléria kostolov a kaplniek</a>
+							<a class="dropdown-item" href="/cista" >Detvianske vyrezávané kríže</a>
 							<div class="dropdown-divider" role="separator"></div>
 							<a class="dropdown-item" href="/cista" >Sväté omše v okolí</a>
 							<a class="dropdown-item" href="/cista" >Kam vo farnosti ?</a>
@@ -122,6 +125,15 @@
 						</ul>
 					</li>
 				</ul>
+				
+				<ul class="navbar-nav flex-row ml-md-auto d-none d-flex">
+					<form class="form-inline my-2 my-lg-0 align-right">
+						<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+						<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+					</form>					
+				</ul>
+ 
+
 			</div>
 		</nav>
 	</div>

@@ -9,7 +9,7 @@
 
 	</div> <!-- .row -->
 	<div class="row"><!-- kotva na návrat k Menu -->
-		<a href="#MojeMenu" class="mx-auto"><i class="fa fa-chevron-up fa-2x" aria-hidden="true"></i></a>
+		<a href="#top" class="mx-auto"><i class="fa fa-chevron-up fa-2x" aria-hidden="true"></i></a>
 	</div>
 </div> <!-- .container -->
 

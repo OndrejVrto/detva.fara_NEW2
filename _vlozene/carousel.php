@@ -30,7 +30,7 @@
 		if(!isset($caruselPoradie)) { $caruselPoradie = $vseobecnyCarousel; }
 		$pocetObrazkov = count($caruselPoradie);
 		if(!isset($caruselAktivny)) { $caruselAktivny = rand(1,$pocetObrazkov); }	
-		echo "<div id=\"myCarousel\" class=\"carousel slide d-print-none\" data-ride=\"carousel\" role=\"banner\">\n\t";
+		echo "<div id=\"myCarousel\" class=\"carousel slide d-print-none pt-3\" data-ride=\"carousel\" role=\"banner\">\n\t";
 		echo "<!-- Indicators -->\n\t";
 		echo "<ol class=\"carousel-indicators\">\n";
 		

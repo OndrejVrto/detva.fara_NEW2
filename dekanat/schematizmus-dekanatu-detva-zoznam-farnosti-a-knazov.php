@@ -14,7 +14,7 @@
 
 	// určuje či sa na stránke zobrazí bublinkové menu a následne ho naplní
 	$bublinkoveMenu = array (
-		array("html" => "/dekanat/dekanat", "nazov" => "Dekanát"),
+		array("html" => "/dekanat/", "nazov" => "Dekanát"),
 		array("html" => "", "nazov" => "Schématizmus dekanátu Detva")
 	);
 	//$bublinkoveMenu = false;

@@ -5,7 +5,9 @@ body {
 
 @media (min-width: 1600px) {
   .container {
-    max-width: 1540px;
+    padding-right: 0px;
+	padding-left: 0px;
+	max-width: 1540px;
   }
 }
 
@@ -399,7 +401,7 @@ mark {
 
 .carousel {
 	position: relative;
-	max-width: 1510px;
+	max-width: 1540px;
 	margin-left: auto;
 	margin-right: auto;
 }
