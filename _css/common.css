@@ -246,12 +246,21 @@ ul.zarovnanie1{
 	margin-right:20px;
 }
 
+.mapyGoogle{
+	border-style: none;
+	height: 320px;
+	max-width: 600px;
+}
+
 @media (min-width: 992px) {
 	.navbar-brand {
 		font-size: 24px;
 	}
 	.nav {
 		font-size: 14px;
+	}
+	.mapyGoogle{
+		height: 425px;
 	}
 }
 
@@ -269,14 +278,7 @@ iframe.noScrolling {
 	overflow: hidden;
 	margin-left: -30px;
 }
-.mapyGoogle{
-	width: 425px;
-	height: 350px;
-	overflow: hidden;
-	margin: 0px;
-	border-style: none;
-	margin: auto;
-}
+
 
 footer {
   padding: 0px 15px 10px 15px;
