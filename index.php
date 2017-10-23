@@ -45,6 +45,11 @@
 <!-- End HEAD special -->
 <?php include "_vlozene/vrch-stranky.php"; echo "\n"; ?>
 
+<a href="/stranka-2z5" >2</a>
+<a href="/stranka-3z5" >3</a>
+<a href="/stranka-4z5" >4</a>
+<a href="/stranka-5z5" >5</a>
+
 <?php
 	// nastavenie vlastností pre "rýchlo" pridané správy načítavané zo súboru
 	// Dohodnúť to s dekanom a dopracovať kód načítavania textu z klasického txt súboru
@@ -59,7 +64,6 @@
 	
 	include("_vlozene/spravy.php");
 ?>
-
 <?php include "_vlozene/spodok-stranky.php"; echo "\n";?>
 <!-- START - skripty na konci stranky -->
 <!-- END - skripty na konci stranky -->

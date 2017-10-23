@@ -18,7 +18,7 @@
 		echo "\t\t<main class=\"col-12 col-sm-12 col-md-7 col-lg-8 col-xl-8\" role=\"main\">\n";
 	}
 ?>
-			<div class="d-print-block mt-4 text-center">  <!-- Nadpis stránky pre tlačiareň -->
+			<div class="d-print-block mt-4 text-center" ID="NadpisTlac">  <!-- Nadpis stránky pre tlačiareň -->
 				<h2><?php echo $nadpisStrankyPreTlac; ?></h2>
 			</div>
 <?php
@@ -36,6 +36,6 @@
 		include "vedeli-ste-ze.php"; echo "\n";
 	}
 ?>
-
+		<div class="container" ID="ExportSearch">
 <!-- START MAIN - Hlavný obsah stránky
 =============================================================================================================================== -->

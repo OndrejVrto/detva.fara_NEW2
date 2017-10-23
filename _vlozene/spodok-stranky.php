@@ -1,6 +1,6 @@
 <!-- END MAIN - Hlavný obsah stránky
 =============================================================================================================================== -->
-
+		</div> <!-- END container na export -->
 <?php if ($otazkyOFF !== false) {include "casto-kladene-otazky.php"; echo "\n";}; ?>
 
 		</main> <!-- END hlavný stĺpec -->
