@@ -2,6 +2,9 @@
 	// hlavička textového súboru
 	header( "Content-Type: text/plain; charset=utf-8" );
 	
+	// nastavenie - kolko sekund môze bezat tento cod
+	set_time_limit(5*60);
+	
 	// odchytávanie chýb
 	error_reporting(0);
 	//error_reporting(E_ERROR | E_WARNING);
@@ -82,7 +85,9 @@
 			}
 		}
 	}
-
+	
+	echo "\nPočet vykonaní SQL: " . $ochrana . " z " . ochranaMAX;
+	
 	// vytvorenie FULTEXTového kľúča nad tabuľkou
 	$dotaz = "ALTER TABLE search_data ADD FULLTEXT search (title, nadpis, obsah)";
 	MySQLi_query($SQLlink, $dotaz) or die("Nepodarilo sa vyhodnotiť dotaz (VYTVOR FULTEXT) !");
@@ -125,8 +130,9 @@ function najdi_vsetky_linky ($cesta){
 		$link = preg_replace("/(.*)\..*/", "", $link);
 		// ak je link v hlavnom zozname alebo
 		// ak je link v ignore liste alebo 
-		// ak link nezačína spetným lomítkom nezaradí sa do výberu
-		if (!in_array($link, $linky_vsetky) and !in_array($link, $ignoreListLinky) and substr($link, 0, 1 )=='/') {
+		// ak link nezačína spetným lomítkom 
+		// nezaradí sa do výberu
+		if (!in_array($link, $linky_vsetky) and !in_array($link, $ignoreListLinky) and $link[1]=='/') {
 			// ak je zapnutá voľba "bez fotogalérie" na true fotogalérie sa odignorujú
 			if (bezFotogalerii and substr($link, 0, 13 )=='/fotogaleria/'){
 			} else {
@@ -155,8 +161,10 @@ function parsuj_stranku ($linkStranky){
 	  'o'=>'o', 'O'=>'O', 'o'=>'o', 'O'=>'O', 'ő'=>'o', 'Ő'=>'O', 'ř'=>'r', 'Ř'=>'R', 'ŕ'=>'r', 'Ŕ'=>'R',
 	  'š'=>'s', 'Š'=>'S', 'ś'=>'s', 'Ś'=>'S', 'ť'=>'t', 'Ť'=>'T', 'ú'=>'u', 'Ú'=>'U', 'ů'=>'u', 'Ů'=>'U',
 	  'ü'=>'u', 'Ü'=>'U', 'u'=>'u', 'U'=>'U', 'u'=>'u', 'U'=>'U', 'u'=>'u', 'U'=>'U', 'ý'=>'y', 'Ý'=>'Y',
-	  'ž'=>'z', 'Ž'=>'Z', 'ź'=>'z', 'Ź'=>'Z', ','=>'',  '.'=>'',
+	  'ž'=>'z', 'Ž'=>'Z', 'ź'=>'z', 'Ź'=>'Z', 
 	);
+	
+	//','=>'',  '.'=>'',
 	
 	$dokument = new DOMDocument();
 	@$dokument->loadHTMLFile(kSERVER . $linkStranky);

@@ -19,6 +19,23 @@
 					<span class="card-text float-right">12.10.2017</span>
 				</div>
 			</article>
+			
+			<article class="card border border-danger my-3" role="region">
+				<div class="card-header bg-danger text-white">
+					<h1 class="card-title">Pozvánka na spoločnú modlitbu</h1>
+				</div>
+				<div class="card-body p-3">
+					<img class="mx-auto ml-lg-3 mb-3 d-block img-thumbnail float-lg-right" width="200" src="/_aktuality/2016-2Q/plagat-ruzenec-k-boziemu-milosrdenstvu.jpg" alt="Plagát a pozvánka na ruženec k božiemu milosrdenstvu" />
+					<p class="text-justify">V nedeľu 10.04. bude v kláštore o 15.00 hod modlitba <strong>Ruženca k Božiemu milosrdenstvu</strong> s piesňami zboru z Bánoviec nad Bebravou.</p>
+					<p>Srdečne Vás všetkých pozývame.</p>
+					<p><a target="_blank" href="/_aktuality/2016-2Q/plagat-ruzenec-k-boziemu-milosrdenstvu.pdf" title="Plagát a pozvánka na ruženec k božiemu milosrdenstvu v pdf">Plagát v pdf</a></p>
+					<img class="img-thumbnail d-block mx-auto float-lg-left" src="/_aktuality/2016-2Q/zbor-banovce.jpg" width="200" alt="Spoločná fotka zboru s Bánoviec nad bebravou" />
+				</div>
+				<div class="card-footer text-muted">
+					<span class="card-text float-left"><small>Napísal:</small> Ondrej Vrťo</span>
+					<span class="card-text float-right">12.05.2017</span>
+				</div>
+			</article>
 	<!-- END - Ručne pridané správy -->
 	
 	<!-- START - Automaticky pridané správy -->
@@ -46,6 +63,9 @@
 	}
 	
 include_once("_vlozene/spravy-zoznam.php");
+echo "\n<br>",'<code>';
+echo htmlspecialchars(var_dump($spravy));
+echo "</code>";
 
 /*   konstanty sú nastavené v hlavnom súbore
 	$otazkyTrvale = true;
@@ -130,23 +150,6 @@ for ($x=0; $x<=$pocetPrvkov-1 ;$x++){
 
 <!-- ZALOHA - start -->
 		
-			<article class="card border border-danger my-3" role="region">
-				<div class="card-header bg-danger text-white">
-					<h1 class="card-title">Pozvánka na spoločnú modlitbu</h1>
-				</div>
-				<div class="card-body p-3">
-					<img class="mx-auto ml-lg-3 mb-3 d-block img-thumbnail float-lg-right" width="200" src="/_aktuality/2016-2Q/plagat-ruzenec-k-boziemu-milosrdenstvu.jpg" alt="Plagát a pozvánka na ruženec k božiemu milosrdenstvu" />
-					<p class="text-justify">V nedeľu 10.04. bude v kláštore o 15.00 hod modlitba <strong>Ruženca k Božiemu milosrdenstvu</strong> s piesňami zboru z Bánoviec nad Bebravou.</p>
-					<p>Srdečne Vás všetkých pozývame.</p>
-					<p><a target="_blank" href="/_aktuality/2016-2Q/plagat-ruzenec-k-boziemu-milosrdenstvu.pdf" title="Plagát a pozvánka na ruženec k božiemu milosrdenstvu v pdf">Plagát v pdf</a></p>
-					<img class="img-thumbnail d-block mx-auto float-lg-left" src="/_aktuality/2016-2Q/zbor-banovce.jpg" width="200" alt="Spoločná fotka zboru s Bánoviec nad bebravou" />
-				</div>
-				<div class="card-footer text-muted">
-					<span class="card-text float-left"><small>Napísal:</small> Ondrej Vrťo</span>
-					<span class="card-text float-right">12.05.2017</span>
-				</div>
-			</article>
-			
 			
 			<!--<article class="card text-left" role="region">
 				<h1 class="bg-success text-center">Odber krvi na Detvianskej fare</h1>

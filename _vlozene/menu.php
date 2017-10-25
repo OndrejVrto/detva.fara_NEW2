@@ -13,10 +13,10 @@
 				<span class="navbar-toggler-icon align-middle"></span>
 				<span class="h4 align-middle">&nbsp;&nbsp;Menu</span>
 			</button>
-			<a class="navbar-brand mr-0 mx-lg-4 mr-lg-5 my-1" href="/">Farnosť Detva</a>
+			<a class="navbar-brand mr-0 mx-lg-4 mr-xl-5 my-1" href="/">Farnosť Detva</a>
 			<div id="navbarNavDropdown" class="collapse navbar-collapse" >
 				<ul class="navbar-nav">
-					<li class="nav-item dropdown mx-lg-2">
+					<li class="nav-item dropdown mx-lg-1">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" 
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" role="button">Farnosť</a>
 						<ul class="dropdown-menu" role="menu">
@@ -41,7 +41,7 @@
 							<a class="dropdown-item" href="/farnost/kontakt-farsky-urad-detva" >Kontakt</a>
 						</ul>
 					</li>
-					<li class="nav-item dropdown mr-lg-2">
+					<li class="nav-item dropdown mr-lg-1">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" 
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" role="button">Spoločenstvá</a>
 						<ul class="dropdown-menu" role="menu">
@@ -66,7 +66,7 @@
 							<a class="dropdown-item" href="/cista" >Život vo farnosti</a>
 						</ul>
 					</li>
-					<li class="nav-item dropdown mr-lg-2">
+					<li class="nav-item dropdown mr-lg-1">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" 
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" role="button">Liturgia</a>
 						<ul class="dropdown-menu" role="menu">
@@ -91,7 +91,7 @@
 							<a class="dropdown-item" href="/cista" >Kódex kánonického práva</a>
 						</ul>
 					</li>
-					<li class="nav-item dropdown mr-lg-2">
+					<li class="nav-item dropdown mr-lg-1">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" 
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" role="button">Fotogaléria</a>
 						<ul class="dropdown-menu" role="menu">
@@ -107,7 +107,7 @@
 							<a class="dropdown-item" href="/fotogaleria/detvianske-vyrezavane-krize" >Detvianske vyrezávané kríže</a>
 						</ul>
 					</li>
-					<li class="nav-item dropdown mr-lg-2">
+					<li class="nav-item dropdown mr-lg-1">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" 
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" role="button">Dekanát</a>
 						<ul class="dropdown-menu" role="menu">
@@ -125,10 +125,10 @@
 						</ul>
 					</li>
 				</ul>
-				<ul class="navbar-nav flex-row ml-md-auto d-none d-flex">
-					<form class="form-inline my-2 align-right" action="/ostatne/vyhladavanie.php" method="post">
-						<input class="form-control mr-sm-2" type="search" placeholder="Hľadaný text" name="search" aria-label="Search">
-						<button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="submit" value="send" id="submit">Hľadaj</button>
+				<ul class="navbar-nav ml-md-auto">
+					<form class="form-inline" action="/ostatne/vyhladavanie.php" method="post">
+						<input class="form-control" type="search" placeholder="Hľadaný text" name="search" aria-label="Search">
+						<button class="btn btn-outline-success ml-2" type="submit" name="submit" value="send" id="submit">Hľadaj</button>
 					</form>				
 				</ul>
 			</div>

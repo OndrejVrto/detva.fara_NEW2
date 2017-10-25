@@ -168,7 +168,10 @@ html {
   }
 }
 
-
+.form-inline {
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+}
 
 
 
