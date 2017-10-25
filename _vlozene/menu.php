@@ -125,15 +125,12 @@
 						</ul>
 					</li>
 				</ul>
-				
 				<ul class="navbar-nav flex-row ml-md-auto d-none d-flex">
-					<form class="form-inline my-2 my-lg-0 align-right">
-						<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-						<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-					</form>					
+					<form class="form-inline my-2 align-right" action="/ostatne/vyhladavanie.php" method="post">
+						<input class="form-control mr-sm-2" type="search" placeholder="Hľadaný text" name="search" aria-label="Search">
+						<button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="submit" value="send" id="submit">Hľadaj</button>
+					</form>				
 				</ul>
- 
-
 			</div>
 		</nav>
 	</div>
