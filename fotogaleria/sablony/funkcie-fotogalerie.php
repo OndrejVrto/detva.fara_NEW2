@@ -8,7 +8,7 @@
 	$adresarFotogaleria = "/_fotoalbumy/";
 	$adresaFotogalerieHTML = "/fotogaleria/";
 	
-	$albumov_na_stranke = 20;						// number of albums per page
+	$albumov_na_stranke = 10;						// number of albums per page
 	$fotiek_na_stranke  = 20;						// number of images per page    
 	$radenie_albumov = "Z-A";						// radenie od A-Z alebo Z-A
 	

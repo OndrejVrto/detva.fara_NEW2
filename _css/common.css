@@ -173,6 +173,20 @@ html {
     flex-flow: row nowrap;
 }
 
+/*
+!!!  prepísať v šablone bootstrap z hodnoty 1px na 2px.
+.form-control {
+    border: 2px;
+}
+*/
+
+.dropdown-item:focus, .dropdown-item:hover {
+	color: #f8f9fa;
+	text-decoration: none;
+	background-color: #007bff;
+}
+
+
 
 
 /* STARé */

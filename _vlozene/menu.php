@@ -13,10 +13,10 @@
 				<span class="navbar-toggler-icon align-middle"></span>
 				<span class="h4 align-middle">&nbsp;&nbsp;Menu</span>
 			</button>
-			<a class="navbar-brand mr-0 mx-lg-4 mr-xl-5 my-1" href="/">Farnosť Detva</a>
+			<a class="navbar-brand my-2 py-0 ml-2 mr-4 mr-xl-5" href="/">Farnosť Detva</a>
 			<div id="navbarNavDropdown" class="collapse navbar-collapse" >
 				<ul class="navbar-nav">
-					<li class="nav-item dropdown mx-lg-1">
+					<li class="nav-item dropdown mr-lg-1">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" 
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" role="button">Farnosť</a>
 						<ul class="dropdown-menu" role="menu">
@@ -107,11 +107,13 @@
 							<a class="dropdown-item" href="/fotogaleria/detvianske-vyrezavane-krize" >Detvianske vyrezávané kríže</a>
 						</ul>
 					</li>
-					<li class="nav-item dropdown mr-lg-1">
+				</ul>
+				<ul class="navbar-nav ml-md-auto">					
+					<li class="nav-item dropdown mr-lg-3">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" 
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" role="button">Dekanát</a>
-						<ul class="dropdown-menu" role="menu">
-							<a class="dropdown-item disabled" href="/dekanat/schematizmus-dekanatu-detva-zoznam-farnosti-a-knazov" >Mapa a zoznam farností</a>
+						<ul class="dropdown-menu dropdown-menu-right" role="menu">
+							<a class="dropdown-item" href="/dekanat/schematizmus-dekanatu-detva-zoznam-farnosti-a-knazov" >Mapa a zoznam farností</a>
 							<a class="dropdown-item" href="/dekanat/klastor-kralovnej-karmelu-v-detve" >Kláštor Kráľovnej Karmelu</a>
 							<a class="dropdown-item" href="/cista" >Rád Menších bratov kapucínov</a>
 							<div class="dropdown-divider" role="separator"></div>
@@ -124,11 +126,9 @@
 							<a class="dropdown-item" href="/cista" >Kontakt dekanského úradu</a>
 						</ul>
 					</li>
-				</ul>
-				<ul class="navbar-nav ml-md-auto">
-					<form class="form-inline" action="/ostatne/vyhladavanie.php" method="post">
-						<input class="form-control" type="search" placeholder="Hľadaný text" name="search" aria-label="Search">
-						<button class="btn btn-outline-success ml-2" type="submit" name="submit" value="send" id="submit">Hľadaj</button>
+					<form class="form-inline pt-2 pt-lg-0" action="/ostatne/vyhladavanie.php" method="post">
+						<input class="form-control" type="search" placeholder="" name="search" aria-label="Search">
+						<button class="btn btn-outline-success ml-2" type="submit" name="submit" value="send" id="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
 					</form>				
 				</ul>
 			</div>
