@@ -50,8 +50,8 @@ if (!isset($_POST['search']) or $_POST['search']=='') {
 	$hladanyRetazec = $link->real_escape_string($hladanyRetazec3);
 	echo $hladanyRetazec . "\n<br>\n<br>\n";
 
-	$dotaz = "SELECT *,MATCH(title, nadpis, obsah) AGAINST('";
-	$dotaz .= $hladanyRetazec . "' IN BOOLEAN MODE) as score FROM search_data WHERE MATCH(title, nadpis, obsah) AGAINST('";
+	$dotaz = "SELECT *,MATCH(title_upraveny, nadpis_upraveny, obsah) AGAINST('";
+	$dotaz .= $hladanyRetazec . "' IN BOOLEAN MODE) as score FROM search_data WHERE MATCH(title_upraveny, nadpis_upraveny, obsah) AGAINST('";
 	$dotaz .= $hladanyRetazec . "' IN BOOLEAN MODE) ORDER BY score DESC";
 	
 	echo $dotaz . "\n<br>\n";
@@ -59,7 +59,7 @@ if (!isset($_POST['search']) or $_POST['search']=='') {
 	echo "Počet nájdených vyhovujúcich výsledkov A: <b>".mysqli_num_rows($vysledok)."</b><br>";
 	echo "\n<br>\n";
 	if (mysqli_num_rows($vysledok)==0) {
-		$dotaz =	"SELECT link, title, nadpis, obsah FROM search_data WHERE obsah LIKE '%" . $hladanyRetazec . "%'";
+		$dotaz =	"SELECT score_manualne as score, link, title, nadpis, obsah FROM search_data WHERE obsah LIKE '%" . $hladanyRetazec . "%' or title_upraveny LIKE '%" . $hladanyRetazec . "%' or nadpis_upraveny LIKE '%" . $hladanyRetazec . "%'";
 		echo $dotaz . "\n<br>\n";
 		$vysledok = mysqli_query($link, $dotaz) or die("Nepodarilo sa vyhodnotiť dotaz!");
 		echo "Počet nájdených vyhovujúcich výsledkov B: <b>".mysqli_num_rows($vysledok)."</b><br>";
@@ -70,16 +70,18 @@ if (!isset($_POST['search']) or $_POST['search']=='') {
           <caption>Výsledky vyhľadávania</caption>
           <thead>
             <tr>
-				<th>LINK</th>
-				<th>TITULOK</th>
-                <th>NADPIS</th>
-                <th>TEXT</th>
+					<th>SCORE</th>
+					<th>LINK</th>
+					<th>TITULOK</th>
+					<th>NADPIS</th>
+               <th>TEXT</th>
             </tr>
           </thead>
           <tbody>";
 		 while($pole=mysqli_fetch_array($vysledok))
 		 {
 			  echo "<tr>
+							<td>".$pole["score"]."</td>
 							<td>".$pole["link"]."</td>
 							<td>".$pole["title"]."</td>
 							<td>".$pole["nadpis"]."</td>
