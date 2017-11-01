@@ -32,34 +32,46 @@ if (!isset($_POST['search']) or $_POST['search']=='') {
 	//čistenie hľadaného textu vo viacerých krokoch
 	// O. orginál text
 	$hladanyRetazec0 = $_POST['search'];
-	echo $hladanyRetazec0 . "\n<br>\n<br>\n";
+	echo $hladanyRetazec0 . "\n<br>\n";
 	
 	// 1. odstránenie diakritiky
 	$hladanyRetazec1 =  strtr($hladanyRetazec0, $prevodni_tabulka);
-	echo $hladanyRetazec1 . "\n<br>\n<br>\n";
+	echo $hladanyRetazec1 . "\n<br>\n";
 	
 	// 2. zmenšenie všetkých písmen
 	$hladanyRetazec2 = strtolower($hladanyRetazec1);
-	echo $hladanyRetazec2 . "\n<br>\n<br>\n";
+	echo $hladanyRetazec2 . "\n<br>\n";
 
 	// 3. odstránenie html znakov
 	$hladanyRetazec3 = htmlentities($hladanyRetazec2);
-	echo $hladanyRetazec3 . "\n<br>\n<br>\n";
+	echo $hladanyRetazec3 . "\n<br>";
 	
 	// 4. odstránenie eskejpovacích znakov pre ochranu SQL
 	$hladanyRetazec = $link->real_escape_string($hladanyRetazec3);
 	echo $hladanyRetazec . "\n<br>\n<br>\n";
 
-	$dotaz = "SELECT *,MATCH(title_upraveny, nadpis_upraveny, obsah) AGAINST('";
-	$dotaz .= $hladanyRetazec . "' IN BOOLEAN MODE) as score FROM search_data WHERE MATCH(title_upraveny, nadpis_upraveny, obsah) AGAINST('";
-	$dotaz .= $hladanyRetazec . "' IN BOOLEAN MODE) ORDER BY score DESC";
+	$dotaz = "SELECT *, MATCH(title_upraveny, nadpis_upraveny, obsah) AGAINST('";
+	$dotaz .= $hladanyRetazec . "' IN NATURAL LANGUAGE MODE) as score, ";
+	$dotaz .= "((LENGTH(obsah) - LENGTH(REPLACE(obsah, '" . $hladanyRetazec . "', '')))/LENGTH('" . $hladanyRetazec . "'))+";
+	$dotaz .= "((LENGTH(title_upraveny) - LENGTH(REPLACE(title_upraveny, '" . $hladanyRetazec . "', '')))/LENGTH('" . $hladanyRetazec . "'))*3 +";
+	$dotaz .= "((LENGTH(nadpis_upraveny) - LENGTH(REPLACE(nadpis_upraveny, '" . $hladanyRetazec . "', '')))/LENGTH('" . $hladanyRetazec . "'))*2 AS count ";
+	$dotaz .= "FROM search_data WHERE MATCH(title_upraveny, nadpis_upraveny, obsah) AGAINST('";
+	$dotaz .= $hladanyRetazec . "' IN NATURAL LANGUAGE MODE) ORDER BY score DESC";
 	
 	echo $dotaz . "\n<br>\n";
 	$vysledok = mysqli_query($link, $dotaz) or die("Nepodarilo sa vyhodnotiť dotaz!");
 	echo "Počet nájdených vyhovujúcich výsledkov A: <b>".mysqli_num_rows($vysledok)."</b><br>";
 	echo "\n<br>\n";
 	if (mysqli_num_rows($vysledok)==0) {
-		$dotaz =	"SELECT score_manualne as score, link, title, nadpis, obsah FROM search_data WHERE obsah LIKE '%" . $hladanyRetazec . "%' or title_upraveny LIKE '%" . $hladanyRetazec . "%' or nadpis_upraveny LIKE '%" . $hladanyRetazec . "%'";
+		$dotaz = "SELECT score_manualne as count, link, title, nadpis, obsah, ";
+		$dotaz .= "(((LENGTH(obsah) - LENGTH(REPLACE(obsah, '" . $hladanyRetazec . "', '')))/LENGTH('" . $hladanyRetazec . "'))+";
+		$dotaz .= "((LENGTH(title_upraveny) - LENGTH(REPLACE(title_upraveny, '" . $hladanyRetazec . "', '')))/LENGTH('" . $hladanyRetazec . "'))*3 +";
+		$dotaz .= "((LENGTH(nadpis_upraveny) - LENGTH(REPLACE(nadpis_upraveny, '" . $hladanyRetazec . "', '')))/LENGTH('" . $hladanyRetazec . "'))*2 )*score_manualne AS score ";
+		$dotaz .= "FROM search_data WHERE ";
+		$dotaz .= "obsah LIKE '%" . $hladanyRetazec . "%' or ";
+		$dotaz .= "title_upraveny LIKE '%" . $hladanyRetazec . "%' or ";
+		$dotaz .= "nadpis_upraveny LIKE '%" . $hladanyRetazec . "%' ORDER BY score DESC;";
+		
 		echo $dotaz . "\n<br>\n";
 		$vysledok = mysqli_query($link, $dotaz) or die("Nepodarilo sa vyhodnotiť dotaz!");
 		echo "Počet nájdených vyhovujúcich výsledkov B: <b>".mysqli_num_rows($vysledok)."</b><br>";
@@ -70,11 +82,12 @@ if (!isset($_POST['search']) or $_POST['search']=='') {
           <caption>Výsledky vyhľadávania</caption>
           <thead>
             <tr>
-					<th>SCORE</th>
-					<th>LINK</th>
-					<th>TITULOK</th>
-					<th>NADPIS</th>
-               <th>TEXT</th>
+				<th>SCORE</th>
+				<th>BODY</th>
+				<th>LINK</th>
+				<th>TITULOK</th>
+				<th>NADPIS</th>
+				<th>TEXT</th>
             </tr>
           </thead>
           <tbody>";
@@ -82,6 +95,7 @@ if (!isset($_POST['search']) or $_POST['search']=='') {
 		 {
 			  echo "<tr>
 							<td>".$pole["score"]."</td>
+							<td>".$pole["count"]."</td>
 							<td>".$pole["link"]."</td>
 							<td>".$pole["title"]."</td>
 							<td>".$pole["nadpis"]."</td>

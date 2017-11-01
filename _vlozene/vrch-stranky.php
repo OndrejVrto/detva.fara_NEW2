@@ -7,6 +7,8 @@
 	}
 	echo PHP_EOL;
 	include "menu.php"; echo "\n" . PHP_EOL;
+	echo PHP_EOL;
+	include "menu-pracovne.php"; echo "\n" . PHP_EOL;
 	if (!isset($caruselOFF) or $caruselOFF != false) {include "carousel.php"; echo "\n" . PHP_EOL;};
 ?>
 <div class="container">

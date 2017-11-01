@@ -57,7 +57,7 @@
 				<h2 class="text-left">Sviatosť manželstva</h2>
 				<p class="text-left">Na prijatie sviatosti manželstva je potrebné sa prihlásiť 2 mesiace vopred na farskom úrade.</p>
 				<br>
-				<p class="text-left"><strong>Príprava snúbencov v roku 2016</strong> </p>
+				<p class="text-left"><strong>Príprava snúbencov v roku 2016</strong> </p>
 				<p style="text-align: left;">Prednáška začína vždy o 18.30 h. v zasadačke Farského úradu v Detve</p>
 
 				<div id="Príprava snúbencov 2016" align=center>
@@ -153,19 +153,19 @@
 			<hr>
 			<section>
 				<h2 class="text-left">Sviatosť krstu</h2>
-				<p class="text-left">Sviatosť krstu sa vysluhuje v našej farnosti bez svätej omše každú sobotu po rannej svätej omši o 6:30. Sviatosť krstu so svätou omšou sa vysluhuje v nedeľu po dohode s kňazom.</p>
-				<p class="text-left">Príprava na sviatosť krstu sa koná každú stredu o 18:30 v budove farského úradu.</p>
+				<p class="text-left">Sviatosť krstu sa vysluhuje v našej farnosti bez svätej omše každú sobotu po rannej svätej omši o 6:30. Sviatosť krstu so svätou omšou sa vysluhuje v nedeľu po dohode s kňazom.</p>
+				<p class="text-left">Príprava na sviatosť krstu sa koná každú stredu o 18:30 v budove farského úradu.</p>
 			</section>
 			<hr>
 			<section>
 				<h2 class="text-left">Sviatosť pomazania chorých</h2>
-				<p class="text-left">Vyslúženie tejto sviatosti chorému a umierajúcemu kedykoľvek i uprostred noci, treba zavolať kňazovi, na farský úrad, alebo osobne kontaktovať cez deň na farskom úrade alebo po každej svätej omši.</p>
+				<p class="text-left">Vyslúženie tejto sviatosti chorému a umierajúcemu kedykoľvek i uprostred noci, treba zavolať kňazovi, na farský úrad, alebo osobne kontaktovať cez deň na farskom úrade alebo po každej svätej omši.</p>
 			</section>
 			<hr>
 			<section>
 				<h2 class="text-left">Sviatosť zmierenia</h2>
-				<p class="text-left">Sviatosť pokánia sa  vysluhuje každý deň pol hodinu pred každou svätou omšou a cez svätú omšu v prípade potreby okrem nedele.</p>
-				<p class="text-left">V prvopiatkovom týždni sa sviatosť zmierenia vysluhuje podľa potreby, časy sú vždy rozpísané vo farských oznamoch na príslušný týždeň.</p>
+				<p class="text-left">Sviatosť pokánia sa  vysluhuje každý deň pol hodinu pred každou svätou omšou a cez svätú omšu v prípade potreby okrem nedele.</p>
+				<p class="text-left">V prvopiatkovom týždni sa sviatosť zmierenia vysluhuje podľa potreby, časy sú vždy rozpísané vo farských oznamoch na príslušný týždeň.</p>
 			</section>
 
 <?php include "../_vlozene/spodok-stranky.php"; echo "\n";?>

@@ -26,7 +26,7 @@
 	<meta name="theme-color" content="#ffffff">
 	
 	<link rel="stylesheet" type="text/css" href="/_fonty/FontAwesome/css/font-awesome.css">
-	<link rel="stylesheet" type="text/css" href="/_css/bootstrap-ver2.css">
+	<link rel="stylesheet" type="text/css" href="/_css/bootstrap-4.0.0-beta.2.css">
 	<link rel="stylesheet" type="text/css" href="/_css/common.css">
 	
 	 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->

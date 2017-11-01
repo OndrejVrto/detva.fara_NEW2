@@ -128,7 +128,7 @@
 				byť možnosť žiť podľa evanjelia. A František s bratmi si nič iné neželali. Ku schváleniu prispel aj údajný pápežov sen 
 				o rúcajúcej sa Lateránskej bazilike, ktorú podoprel muž - František. Pápež Inocent III. ústne schválil prvú regulu 
 				16. apríla 1209. Táto regula sa však písomne nezachovala. František po zložení sľubu poslušnosti pápežovi bol ním 
-				poverený riadiť &nbsp;František u pápeža Inocenta III.bratov, žiť s nimi v úplnej chudobe a hlásať evanjelium.</p>
+				poverený riadiť František u pápeža Inocenta III.bratov, žiť s nimi v úplnej chudobe a hlásať evanjelium.</p>
 				<br>
 				<p style="text-align: justify;">Po návrate z Ríma bratia ďalej žili v Rivotorto. Bola to lokalita vzdialená od Assisi 
 				na pol hodiny cesty peši. Odtiaľ chodil František kázať do mesta. Kázal aj v katedrále San Rufino. Na jar roku 1211 ich 

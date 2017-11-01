@@ -1,4 +1,6 @@
 <?php
+	require_once "class.html2text.inc.php";
+	
 	// hlavička textového súboru
 	header( "Content-Type: text/plain; charset=utf-8" );
 	
@@ -10,23 +12,40 @@
 	error_reporting(E_ERROR | E_WARNING);
 	//error_reporting(E_ALL);
 
-	$time_pre = microtime(true);
-	
 	define ("kSERVER", 'http://detva.fara.new');
 	define ("linkVSTUP", '/');  	//inicializacia prveho adresara
-	//define ("linkVSTUP", '/fotogaleria/2015/2015-12-25-Betlehemci-na-fare/1/');  	//inicializacia prveho adresara	
-
+	//define ("linkVSTUP", '/fotogaleria/2015');  	//inicializacia prveho adresara	
+	//define ("linkVSTUP", '/farnost/knazi-posobiaci-vo-farnosti-detva');  	//inicializacia prveho adresara	
 	define ("VYPIS", false);
-	define ("ochranaMAX", '2000');
+	define ("ochranaMAX", '1000');
 	define ("scoreMANUAL", '0.1');
 	
 	//globalne premenne
 	$linky_vsetky = array();
 	$ignoreListLinky = array ("/", "/cista", "mailto:" );
 
+	// vynulovanie ochrany
+	$ochrana = '0';
+	$pocitadlo = '0';
+
+	$time_pre = microtime(true);	
+	
+	// hlavny skript
+	$dotazDATA = "INSERT INTO `search_data` (`id`, `score_manualne`, `subor`, `pripona`, `typ_suboru`, `link`, `title`, `nadpis`, `title_upraveny`, `nadpis_upraveny`, `obsah`) VALUES \n";
+	najdi_vsetky_linky(linkVSTUP);
+	// odstráni poslednú čiarku
+	$dotazDATA = substr($dotazDATA, 0 , StrLen($dotazDATA)-3);
+		
+	$time_post = microtime(true);
+	$exec_time = $time_post - $time_pre;
+	
+	echo "\nPočet vykonaní funkcie: " . $ochrana . " z " . ochranaMAX;
+	echo "\nProgram trval: " . round ($exec_time, 1) . " s\n\n";
+	//var_export($linky_vsetky);	
+	var_dump($dotazDATA);
+	
 	//otvorenie spojenia
 	include '../_vlozene/ConnectMyAdmin.php';
-	
 	$SQLlink = MySQLi_connect($prihlasenieSQL, $loginSQL, $passwordSQL, $databazaSQL) or die('Pripojenie k serveru zlyhalo!');
 	$SQLlink->set_charset("utf8");
 	/* check connection */
@@ -35,13 +54,13 @@
 		exit();
 	}
 	//vymazanie tabuľky v databáze
-	$dotaz = "DROP TABLE IF EXISTS `search_data`";
+	$dotaz = "DROP TABLE IF EXISTS `search_data`;";
 	MySQLi_query($SQLlink, $dotaz) or die("Nepodarilo sa vyhodnotiť dotaz (ZMAŽ TABUĽKU) !");
 	
 	//vytvorenie čistej tabuľky v databáze
 	$dotaz = "CREATE TABLE search_data (
-				id int(11) NOT NULL AUTO_INCREMENT,
-				score_manualne float(3) NOT NULL DEFAULT '0.1',
+				id int(11) NOT NULL,
+				score_manualne float(3) NOT NULL,
 				subor varchar(255) COLLATE utf8_slovak_ci NULL,
 				pripona varchar(10) COLLATE utf8_general_ci NULL,
 				typ_suboru varchar(25) COLLATE utf8_general_ci NULL,
@@ -52,30 +71,20 @@
 				nadpis_upraveny varchar(255) COLLATE utf8_slovak_ci NOT NULL,
 				obsah text COLLATE utf8_slovak_ci NOT NULL,
 				PRIMARY KEY (id)
-				) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci";
+				) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci;";
 	MySQLi_query($SQLlink, $dotaz) or die("Nepodarilo sa vyhodnotiť dotaz (VYTVOR TABUĽKU) !");
+	
+	// naplnenie tabuľky hodnotami
+	MySQLi_query($SQLlink, $dotazDATA) or die("\n\nNepodarilo sa vyhodnotiť dotaz (VLOŽ ÚDAJ) !" . $pocitadlo);
 
-	// vynulovanie ochrany
-	$ochrana = '0';
-	$pocitadlo = '0';
-	
-	
-	najdi_vsetky_linky(linkVSTUP);
-	
 	// vytvorenie FULTEXTového kľúča nad tabuľkou
-	$dotaz = "ALTER TABLE search_data ADD FULLTEXT search (title_upraveny, nadpis_upraveny, obsah)";
+	$dotaz = "ALTER TABLE `search_data` ADD FULLTEXT `searchINDEX` (`title_upraveny`, `nadpis_upraveny`, `obsah`);";
 	MySQLi_query($SQLlink, $dotaz) or die("Nepodarilo sa vyhodnotiť dotaz (VYTVOR FULTEXT) !");
 
 	//uzavretie spojenia
 	MySQLi_Close($SQLlink);
 	
-	$time_post = microtime(true);
-	$exec_time = $time_post - $time_pre;
-	
-	echo "\nPočet vykonaní funkcie: " . $ochrana . " z " . ochranaMAX;
-	echo "\nProgram trval: " . $exec_time . " s\n\n";
-	var_export($linky_vsetky);	
-	
+
 // koniec skriptu
 	
 
@@ -84,11 +93,11 @@
 // prechádza všetki linky na stránke a podstránkach a hľadá jedinečné linky
 function najdi_vsetky_linky ($cesta){
 	
+	global $dotazDATA;
 	global $pocitadlo;
 	global $linky_vsetky;
 	global $ochrana;
 	global $ignoreListLinky;
-	global $SQLlink;
 	
 	$vystup = '';
 	$vsetly_linky_local = array();
@@ -97,9 +106,14 @@ function najdi_vsetky_linky ($cesta){
 	
 	$dokument = new DOMDocument();
 	@$dokument->loadHTMLFile(kSERVER . $cesta);
+	$dokument->normalizeDocument();
+	
+	// ak NIEje v $link odkaz na súbor 
+	// alebo 
+	// je link na stránku ktorá končí hocijakým číslom okrem /1/
+	//  and !preg_replace("/.*\/[2-9]?|\d{2,}\/$/", '', $cesta
 	
 	if (preg_replace("/.*\..*/", '', $cesta)){
-		// ak je v $link odkaz na Stránku
 		
 		// POZOR nasledujúce 3 riadky generujú chybu (Notice) ak neexistuje na stránke daný element alebo ID
 		$title = $dokument->getElementsByTagName('title')->item(0)->nodeValue;
@@ -117,26 +131,28 @@ function najdi_vsetky_linky ($cesta){
 			$nadpis = gramatika($nadpis);
 
 			// HLAVNÝ TEXT - úprava
-			$obsah = $hlavnyObsah->nodeValue;
+			// ziskanie cisteho HTML kodu aj s elementami
+			$obsah = $dokument->saveHTML($hlavnyObsah);
+			// specialna trieda pre vyber cisteho textu z html kodu
+			// http://www.chuggnutt.com/html2text
+			$obsah = gramatika($obsah);
+			$h2t =& new html2text($obsah['bezGramatiky']);
+			$obsah = $h2t->get_text();
 			$obsah = gramatika($obsah);
 			
 			$pocitadlo++;
 			// naplnenie tabuľky hodnotami
-			$dotaz = "INSERT INTO search_data VALUES ( 
-						'" . $pocitadlo . "',
-						'" . scoreMANUAL . "',
-						'NULL',
-						'',
-						'',
-						'" . $SQLlink->real_escape_string((string)$cesta) . "', 
-						'" . $SQLlink->real_escape_string((string)$title['sGramatikou']) . "', 
-						'" . $SQLlink->real_escape_string((string)$nadpis['sGramatikou']) . "',
-						'" . $SQLlink->real_escape_string((string)$title['bezGramatiky']) . "',
-						'" . $SQLlink->real_escape_string((string)$nadpis['bezGramatiky']) . "',
-						'" . $SQLlink->real_escape_string((string)$obsah['bezGramatiky']) . "'
-						)";
-			// naplnenie tabuľky hodnotami
-			MySQLi_query($SQLlink, $dotaz) or die("\n\nNepodarilo sa vyhodnotiť dotaz (VLOŽ ÚDAJ) !" . $pocitadlo);
+			$dotazDATA .= "('" . $pocitadlo . "',";
+			$dotazDATA .= "'" . scoreMANUAL . "',";
+			$dotazDATA .= "'NULL',";
+			$dotazDATA .= "'',";
+			$dotazDATA .= "'',";
+			$dotazDATA .= "'" . (string)$cesta . "',";
+			$dotazDATA .= "'" . (string)$title['sGramatikou'] . "',";
+			$dotazDATA .= "'" . (string)$nadpis['sGramatikou'] . "',";
+			$dotazDATA .= "'" . (string)$title['bezGramatiky'] . "',";
+			$dotazDATA .= "'" . (string)$nadpis['bezGramatiky'] . "',";
+			$dotazDATA .= "'" . (string)$obsah['bezGramatiky'] . "'), \n";
 		}
 	}
 
@@ -154,15 +170,15 @@ function najdi_vsetky_linky ($cesta){
 		// ak link nezačína spetným lomítkom 
 		// nezaradí sa do výberu
 		if (!in_array($link, $linky_vsetky) and !in_array($link, $ignoreListLinky) and substr($link, 0, 1 )=='/') {
-			// TITULOK súboru - úprava
-			$titulokSuboru = $linka->getAttribute('title');
-			$titulokSuboru = gramatika($titulokSuboru);
-
 			// ak je v $linka odkaz na Súbor
 			if (!preg_replace("/.*\..*/", '', $link)){
-				// ak je v v premennej link na fotku s vyplneným titulkom alebo odkaz na hocijaký Súbor mimo adresára fotoalbumy
-				if ((!preg_replace("/^\/\_fotoalbumy.*\..*/", '', $link) and $titulokSuboru['bezGramatiky']!='') or preg_replace("/^\/\_fotoalbumy.*\..*/", '', $link)){
-				
+				// TITULOK súboru - úprava
+				$titulokSuboru = $linka->getAttribute('title');
+				// ak je v premennej link na fotku s vyplneným titulkom alebo odkaz na hocijaký Súbor mimo adresára fotoalbumy
+				if ((!preg_replace("/^\/\_fotoalbumy.*\..*/", '', $link) and $titulokSuboru!=NULL) or preg_replace("/^\/\_fotoalbumy.*\..*/", '', $link)){
+			
+					$titulokSuboru = gramatika($titulokSuboru);				
+					
 					$element = $linka->nodeValue;
 					$element = gramatika($element);
 						
@@ -177,21 +193,18 @@ function najdi_vsetky_linky ($cesta){
 					
 					$pocitadlo++;
 					// naplnenie tabuľky hodnotami
-					$dotaz = "INSERT INTO search_data VALUES ( 
-								'" . $pocitadlo . "',
-								'" . scoreMANUAL*1.5 . "',
-								'" . (string)$subor['sGramatikou'] . "',
-								'" . (string)$pripona['bezGramatiky'] . "',
-								'" . (string)$typSuboru['bezGramatiky'] . "',
-								'" . $SQLlink->real_escape_string((string)$link) . "', 
-								'" . (string)$titulokSuboru['sGramatikou'] . "',
-								'" . (string)$element['sGramatikou'] . "',
-								'" . (string)$titulokSuboru['bezGramatiky'] . "',
-								'" . (string)$element['bezGramatiky'] . "',
-								'" . (string)$subor['bezGramatiky'] . "'
-								)";
-					// naplnenie tabuľky hodnotami
-					MySQLi_query($SQLlink, $dotaz) or die("\n\nNepodarilo sa vyhodnotiť dotaz (VLOŽ ÚDAJ) !" . $pocitadlo);
+					$dotazDATA .= "(";
+					$dotazDATA .= "'" . $pocitadlo . "',";
+					$dotazDATA .= "'" . scoreMANUAL*4 . "',";
+					$dotazDATA .= "'" . (string)$subor['sGramatikou'] . "',";
+					$dotazDATA .= "'" . (string)$pripona['bezGramatiky'] . "',";
+					$dotazDATA .= "'" . (string)$typSuboru['bezGramatiky'] . "',";
+					$dotazDATA .= "'" . (string)$link . "',";
+					$dotazDATA .= "'" . (string)$titulokSuboru['sGramatikou'] . "',";
+					$dotazDATA .= "'" . (string)$element['sGramatikou'] . "',";
+					$dotazDATA .= "'" . (string)$titulokSuboru['bezGramatiky'] . "',";
+					$dotazDATA .= "'" . (string)$element['bezGramatiky'] . "',";
+					$dotazDATA .= "'" . (string)$subor['bezGramatiky'] . "." . (string)$pripona['bezGramatiky'] . "'), \n";
 				} else {
 					$link = false;
 				}
@@ -214,6 +227,7 @@ function najdi_vsetky_linky ($cesta){
 }
 
 function gramatika($vstup){
+	
 	$prevodni_tabulka = Array(
 	  'ä'=>'a', 'Ä'=>'A', 'á'=>'a', 'Á'=>'A', 'a'=>'a', 'A'=>'A', 'a'=>'a', 'A'=>'A', 'â'=>'a', 'Â'=>'A',
 	  'č'=>'c', 'Č'=>'C', 'ć'=>'c', 'Ć'=>'C', 'ď'=>'d', 'Ď'=>'D', 'ě'=>'e', 'Ě'=>'E', 'é'=>'e', 'É'=>'E',
@@ -223,16 +237,24 @@ function gramatika($vstup){
 	  'o'=>'o', 'O'=>'O', 'o'=>'o', 'O'=>'O', 'ő'=>'o', 'Ő'=>'O', 'ř'=>'r', 'Ř'=>'R', 'ŕ'=>'r', 'Ŕ'=>'R',
 	  'š'=>'s', 'Š'=>'S', 'ś'=>'s', 'Ś'=>'S', 'ť'=>'t', 'Ť'=>'T', 'ú'=>'u', 'Ú'=>'U', 'ů'=>'u', 'Ů'=>'U',
 	  'ü'=>'u', 'Ü'=>'U', 'u'=>'u', 'U'=>'U', 'u'=>'u', 'U'=>'U', 'u'=>'u', 'U'=>'U', 'ý'=>'y', 'Ý'=>'Y',
-	  'ž'=>'z', 'Ž'=>'Z', 'ź'=>'z', 'Ź'=>'Z', 
+	  'ž'=>'z', 'Ž'=>'Z', 'ź'=>'z', 'Ź'=>'Z', ','=>'',  '.'=>'',
 	);
-	//','=>'',  '.'=>'',
+
 	if ($vstup=='' or $vstup==NULL){
-		return array( 'sGramatikou'=>'' , 'bezGramatiky'=>'' );
+		return array( 'sGramatikou'=>'xxx' , 'bezGramatiky'=>'xxx' );
 	} else {
 		// odstráni všetky tabulátory a konce riadkov
 		$vystup_gramatika = str_replace(array("\n\r", "\n", "\r", "\t"), " ", $vstup);
+
+		//od-eskejpuje uvodzovky
+		$vystup_gramatika = str_replace(array("'", '"'), array("\\'", "\\\""), $vystup_gramatika);
+		// eskejpuje tiez ale treba zapnut globalnu premennu sqllink
+		//$vystup_gramatika = $SQLlink->real_escape_string($vystup_gramatika);
+		
 		// dve a viac medzier nahradí jednou medzerou
-		$vystup_gramatika = preg_replace("/ {2,}/", " ", $vystup_gramatika);
+		$vystup_gramatika = preg_replace("/( ){2,}/", " ", $vystup_gramatika);
+		// nahradí pevnú medzeru za normálnu
+		$vystup_gramatika = preg_replace("/\xC2\xA0/", " ", $vystup_gramatika);
 		// odstráni prázdne miesto na konci a na začiatku
 		$vystup_gramatika = trim($vystup_gramatika);
 

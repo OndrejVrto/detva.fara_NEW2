@@ -63,9 +63,9 @@
 	}
 	
 include_once("_vlozene/spravy-zoznam.php");
-echo "\n<br>",'<code>';
+/*echo "\n<br>",'<code>';
 echo htmlspecialchars(var_dump($spravy));
-echo "</code>";
+echo "</code>";*/
 
 /*   konstanty sú nastavené v hlavnom súbore
 	$otazkyTrvale = true;
