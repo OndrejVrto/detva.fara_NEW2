@@ -1,6 +1,7 @@
 ﻿<?php
 	// funkcie špeciálne pre fotoalbum
-include "sablony/funkcie-fotogalerie.php";
+	include "sablony/funkcie-fotogalerie.php";
+	
 	//oprava gramatiky niektorých galérií - POZOR prvé písmeno daj veľkým	
 	$title = str_replace(Array('%20', '-'), Array(' ', ' '),ucwords(str_replace(Array('.php', '_'), Array('', ' '), $nazovGalerie)));
 	$title = str_replace(Array('Fotogaleria', 'Detvianske vyrezavane krize', 'Starsie'), 

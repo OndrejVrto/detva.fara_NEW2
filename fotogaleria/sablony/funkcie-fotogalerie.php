@@ -60,7 +60,10 @@
 	//echo "<br><br>\n";
 
 //Spoločný kód
-
+	// vloží funkciu pagination
+	// function pagination_vrto($aktivnaStranka, $pocetStran, $url_zaciatok, $url_koniec, $id, $opacneCislovanie = false, $velkost = 0 )
+	include "../_vlozene/funkcie-paginations.php";
+	
 	// skontroluje či existujú adresáre. Ak nie presmeruje na jednotlivé typy podstránok
 	// zároveň naplní základné premenné
 	$nazovGalerie = $_GET["galeria"];
@@ -100,46 +103,6 @@
 
 
 // ZACIATOK - Funkcie
-
-// display pagination2 - počet stránok
-function print_pagination2($poradie, $numPages, $urlVars, $currentPage) {
-
-	if ($numPages > 1) {
-		$pracovny = '';
-		$zalomenie = "\n\t\t\t\t";
-		$pracovny .= $zalomenie . '<nav aria-label="Page navigation">';
-		$pracovny .= $zalomenie . "\t" . '<ul class="pagination justify-content-center" id="' . $poradie . "\">";
-
-		if ($currentPage > 1) {
-			$prevPage = $currentPage - 1;
-			$pracovny .= $zalomenie . "\t\t" . '<li class="page-item"><a class="page-link" href="'. $urlVars .$prevPage.'/" aria-label="Previous"><i class="fa fa-chevron-left" aria-hidden="true"></i></a></li>';
-		} else {
-			$pracovny .= $zalomenie . "\t\t" . '<li class="page-item disabled"><a class="page-link" href="#" aria-label="Previous"><i class="fa fa-chevron-left" aria-hidden="true"></i></a></li>';
-		}
-		for( $e=0; $e < $numPages; $e++ ) {
-			$p = $e + 1;
-			if ($p == $currentPage) {
-				$pracovny .= $zalomenie . "\t\t" . '<li class="page-item active"><a class="page-link" href="'. $urlVars . $p .'/">'. $p .'<span class="sr-only">(aktívna)</span></a></li>';
-			} else {
-				$pracovny .= $zalomenie . "\t\t" . '<li class="page-item"><a class="page-link" href="'. $urlVars . $p .'/">'. $p .'</a></li>';
-			} 
-		}
-		if ($currentPage != $numPages) {
-			$nextPage = $currentPage + 1;
-			$pracovny .= $zalomenie . "\t\t" . '<li class="page-item"><a class="page-link" href="'. $urlVars .$nextPage.'/" aria-label="Next"><i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>';
-		} else {
-			$pracovny .= $zalomenie . "\t\t" . '<li class="page-item disabled"><a class="page-link" href="#" aria-label="Next"><i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>';
-		}
-		
-		$pracovny .= $zalomenie . "\t" . '</ul>';
-		$pracovny .= $zalomenie . '</nav>';
-		$pracovny .= "\n";
-		
-		return $pracovny;
-	} else {
-		return false;
-	}
-}
 
 /**
  * Checks if a folder exist and return canonicalized absolute pathname (long version)

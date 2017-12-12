@@ -33,7 +33,7 @@
 		
 	// vrchný pagination
 		$vystupHTML .= print_hlavicka_albumu($xml, $XMLsuborABS);
-		//$vystupHTML .=  print_pagination2('prve', $pocetStranok, $adresarVSTUPalbumHTML, $cisloListu);	
+		//$vystupHTML .=  pagination_vrto($cisloListu, $pocetStranok, $adresarVSTUPalbumHTML, '/', 'prve', false, 0 );	
 		$vystupHTML .=	"\n\t\t\t\t" . '<div class="card-columns">';
 		
 	// samotny zoznam albumov
@@ -45,7 +45,8 @@
 		$vystupHTML .=	"\n\t\t\t\t" . '</div>' . "\n";
 
 	// spodný pagination
-		$vystupHTML .=  print_pagination2('druhe', $pocetStranok, $adresarVSTUPalbumHTML, $cisloListu);
+		//$vystupHTML .=  pagination_vrto($aktivnaStranka, $pocetStran, $url_zaciatok, $url_koniec, $id, $opacneCislovanie = false, $velkost = 0 )
+		$vystupHTML .=  pagination_vrto($cisloListu, $pocetStranok, $adresarVSTUPalbumHTML, '/', 'druhe', false, 0 );	
 	}
 
 

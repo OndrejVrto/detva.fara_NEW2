@@ -44,19 +44,21 @@ if (!isset($_POST['search']) or $_POST['search']=='') {
 
 	// 3. odstránenie html znakov
 	$hladanyRetazec3 = htmlentities($hladanyRetazec2);
-	echo $hladanyRetazec3 . "\n<br>";
+	echo $hladanyRetazec3 . "\n<br>\n";
 	
 	// 4. odstránenie eskejpovacích znakov pre ochranu SQL
 	$hladanyRetazec = $link->real_escape_string($hladanyRetazec3);
 	echo $hladanyRetazec . "\n<br>\n<br>\n";
 
 	$dotaz = "SELECT *, MATCH(title_upraveny, nadpis_upraveny, obsah) AGAINST('";
-	$dotaz .= $hladanyRetazec . "' IN NATURAL LANGUAGE MODE) as score, ";
+	$dotaz .= $hladanyRetazec . "' IN NATURAL LANGUAGE MODE WITH QUERY EXPANSION) as score, ";
 	$dotaz .= "((LENGTH(obsah) - LENGTH(REPLACE(obsah, '" . $hladanyRetazec . "', '')))/LENGTH('" . $hladanyRetazec . "'))+";
 	$dotaz .= "((LENGTH(title_upraveny) - LENGTH(REPLACE(title_upraveny, '" . $hladanyRetazec . "', '')))/LENGTH('" . $hladanyRetazec . "'))*3 +";
 	$dotaz .= "((LENGTH(nadpis_upraveny) - LENGTH(REPLACE(nadpis_upraveny, '" . $hladanyRetazec . "', '')))/LENGTH('" . $hladanyRetazec . "'))*2 AS count ";
 	$dotaz .= "FROM search_data WHERE MATCH(title_upraveny, nadpis_upraveny, obsah) AGAINST('";
-	$dotaz .= $hladanyRetazec . "' IN NATURAL LANGUAGE MODE) ORDER BY score DESC";
+	$dotaz .= $hladanyRetazec . "' IN NATURAL LANGUAGE MODE WITH QUERY EXPANSION) ORDER BY score DESC";
+	
+	//WITH QUERY EXPANSION
 	
 	echo $dotaz . "\n<br>\n";
 	$vysledok = mysqli_query($link, $dotaz) or die("Nepodarilo sa vyhodnotiť dotaz!");

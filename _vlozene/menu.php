@@ -126,10 +126,14 @@
 							<a class="dropdown-item" href="/cista" >Kontakt dekanského úradu</a>
 						</ul>
 					</li>
-					<form class="form-inline pt-2 pt-lg-0" action="/ostatne/vyhladavanie.php" method="post">
-						<input class="form-control" type="search" placeholder="" name="search" aria-label="Search">
-						<button class="btn btn-outline-success ml-2" type="submit" name="submit" value="send" id="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-					</form>				
+					<li>
+						<form class="input-group mt-2 mt-lg-0" action="/ostatne/vyhladavanie.php" method="post">
+							<input class="form-control" type="search" placeholder="" name="search" aria-label="Search">
+							<span class="input-group-btn">
+								<button class="btn btn-warning" type="submit" name="submit" value="send" id="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+							</span>
+						</form>
+					</li>
 				</ul>
 			</div>
 		</nav>

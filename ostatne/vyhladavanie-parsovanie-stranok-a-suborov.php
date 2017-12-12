@@ -71,7 +71,7 @@
 				nadpis_upraveny varchar(255) COLLATE utf8_slovak_ci NOT NULL,
 				obsah text COLLATE utf8_slovak_ci NOT NULL,
 				PRIMARY KEY (id)
-				) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci;";
+				) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci;";
 	MySQLi_query($SQLlink, $dotaz) or die("Nepodarilo sa vyhodnotiť dotaz (VYTVOR TABUĽKU) !");
 	
 	// naplnenie tabuľky hodnotami
