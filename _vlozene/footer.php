@@ -28,7 +28,7 @@
 		</section>
      	<section class="footerHIGH col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 mx-0">
 			<h1>Myšlienka dňa</h1>
-			<!-- START PHP - Myslienka --><?php include "myslienka.php"; ?>
+			<!-- START PHP - Myslienka --><?php include "myslienka.php"; echo "\n"; ?>
 			<blockquote class="lead myslienka">
 				<p class="mb-0"><?php echo $udaje["citat"]; ?></p>
 				<footer class="blockquote-footer"><strong><?php echo $udaje["autor"]; ?></strong></footer>

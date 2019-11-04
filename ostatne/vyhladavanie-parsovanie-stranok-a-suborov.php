@@ -156,7 +156,7 @@ function najdi_vsetky_linky ($cesta){
 		}
 	}
 
-	// načítanie všetkých liniek na styránke
+	// načítanie všetkých liniek na stránke
 	$linky = $dokument->getElementsByTagName('a');
 
 	foreach ($linky as $linka){

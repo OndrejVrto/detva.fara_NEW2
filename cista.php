@@ -50,7 +50,9 @@
 			<h3>Prepáčte</h3>
 			<br>
 			<br>
-
+<?php include "test/pagination/pagination_in_php_mysql/paginations-vzor-opacne.php"; echo "\n";?>
+<?php include "test/pagination/pagination_in_php_mysql/paginations3.php"; echo "\n";?>
+<br>
 <?php include "_vlozene/spodok-stranky.php"; echo "\n";?>
 <!-- START - skripty na konci stranky -->
 <!-- END - skripty na konci stranky -->

@@ -95,16 +95,16 @@
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" 
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" role="button">Fotogaléria</a>
 						<ul class="dropdown-menu" role="menu">
-							<a class="dropdown-item" href="/fotogaleria/2007" >2007</a>
-							<a class="dropdown-item" href="/fotogaleria/2008" >2008</a>
+							<a class="dropdown-item" href="/fotogaleria/2007/1/" >2007</a>
+							<a class="dropdown-item" href="/fotogaleria/2008/1/" >2008</a>
 							<div class="dropdown-divider" role="separator"></div>
-							<a class="dropdown-item" href="/fotogaleria/2015" >2015</a>
-							<a class="dropdown-item" href="/fotogaleria/2017" >2017</a>
-							<a class="dropdown-item" href="/fotogaleria/starsie" >Staršie</a>
+							<a class="dropdown-item" href="/fotogaleria/2015/1/" >2015</a>
+							<a class="dropdown-item" href="/fotogaleria/2017/1/" >2017</a>
+							<a class="dropdown-item" href="/fotogaleria/starsie/1/" >Staršie</a>
 							<div class="dropdown-divider" role="separator"></div>
-							<a class="dropdown-item" href="/fotogaleria/kostoly" >Kostoly</a>
-							<a class="dropdown-item" href="/fotogaleria/kaplnky" >Kaplnky</a>							
-							<a class="dropdown-item" href="/fotogaleria/detvianske-vyrezavane-krize" >Detvianske vyrezávané kríže</a>
+							<a class="dropdown-item" href="/fotogaleria/kostoly/1/" >Kostoly</a>
+							<a class="dropdown-item" href="/fotogaleria/kaplnky/1/" >Kaplnky</a>							
+							<a class="dropdown-item" href="/fotogaleria/detvianske-vyrezavane-krize/1/" >Detvianske vyrezávané kríže</a>
 						</ul>
 					</li>
 				</ul>
