@@ -4,10 +4,12 @@
 	// Meta značky stránky - ! musia byť vyplnené !
 	$titulokStranky = 'Farnosť Detva - oficiálna stránka farnosti aj dekanátu, aktuálne oznamy';
 	$nadpisStrankyPreTlac = 'Schematizmus dekanátu Detva';
-	$navsivitPo = '30 days';
 	$popisStranky = 'Farnosť Detva - hlavná stránka farnosti, hlavný obsah, kontakty, bohoslužby, aktuálne oznamy';
 	$klucoveslova = 'Detva, fara, kostol, farnosť, liturgické, oznamy, sväté, omše, rozpis, lektor, dekanát, aktuality, služby, božie, bohoslužby, nedeľa';
 
+	$navsivitPo = '7 days';
+	$nastavenieRobots = 'noindex, nofollow';
+	
 	// poradie a typy obrázkov v caruseli
 	$caruselPoradie = array('006', '002', '003', '004', '001', '009', '010');
 	$aktivny = 1;
@@ -59,7 +61,8 @@
 				<p>Od 18. októbra 2002 je dekanom detvianskeho dekanátu <a href="http://www.novyschema.bbdieceza.sk/knazi_main.php?knaz=MTY5">ThLic. Ľuboš Sabol</a>.</p>
 			<div class="row gallery">
 				<!-- START PHP - Galery -->
-<?php include "../fotogaleria/sablony/gallery-dekanat.php"; ?>
+<?php //include "../fotogaleria/sablony/gallery-dekanat.php";
+echo 'Dorobiť fotogalériu!!!';?>
 				<!-- END PHP - Galery -->
 			</div>
 			<h2>Zoznam farností v dekanáte Detva</h2>

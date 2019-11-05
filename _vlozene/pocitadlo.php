@@ -2,7 +2,12 @@
 include 'ConnectMyAdmin.php';
 
 $stranka = $_SERVER["REQUEST_URI"];
-$prehliadac = $_SERVER["HTTP_USER_AGENT"];
+
+if(isset($_SERVER["HTTP_USER_AGENT"])) {
+	$prehliadac = $_SERVER["HTTP_USER_AGENT"];
+} else {
+	$prehliadac = 'Chyba v názve prehliadač';
+}  // nie keždá stránka má povolené sťahovanie prehliadača
 
 if(isset($_SERVER['HTTP_REFERER'])) {
 	$referencia = $_SERVER["HTTP_REFERER"];

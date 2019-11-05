@@ -11,6 +11,5 @@
 		 $pracovny .= "<li>" . $zoznam_adresarov_Galeria. "</li>\n";
 	}
 	$pracovny .= "</ol>";
-	
 
 $vystupHTML .= $pracovny;

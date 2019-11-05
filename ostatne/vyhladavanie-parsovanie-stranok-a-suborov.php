@@ -4,20 +4,21 @@
 	// hlavička textového súboru
 	header( "Content-Type: text/plain; charset=utf-8" );
 	
-	// nastavenie - kolko sekund môze bezat tento cod
+	// nastavenie - koľko sekúnd môže bežat tento kód
 	set_time_limit(5*60);
 	
 	// odchytávanie chýb
 	error_reporting(0);
-	error_reporting(E_ERROR | E_WARNING);
-	//error_reporting(E_ALL);
+	//error_reporting(E_ERROR | E_WARNING);
+	error_reporting(E_ALL);
 
-	define ("kSERVER", 'http://detva.fara.new');
-	define ("linkVSTUP", '/');  	//inicializacia prveho adresara
-	//define ("linkVSTUP", '/fotogaleria/2015');  	//inicializacia prveho adresara	
-	//define ("linkVSTUP", '/farnost/knazi-posobiaci-vo-farnosti-detva');  	//inicializacia prveho adresara	
+	//define ("kSERVER", 'http://detva.fara.new');
+	define ("kSERVER", 'http://localhost:8080');
+	//define ("linkVSTUP", '/');  	//inicializacia prveho adresara
+	//define ("linkVSTUP", '/fotogaleria/2015/1');  	//inicializacia prveho adresara	
+	define ("linkVSTUP", '/farnost/knazi-posobiaci-vo-farnosti-detva');  	//inicializacia prveho adresara	
 	define ("VYPIS", false);
-	define ("ochranaMAX", '1000');
+	define ("ochranaMAX", '10');
 	define ("scoreMANUAL", '0.1');
 	
 	//globalne premenne
@@ -33,6 +34,7 @@
 	// hlavny skript
 	$dotazDATA = "INSERT INTO `search_data` (`id`, `score_manualne`, `subor`, `pripona`, `typ_suboru`, `link`, `title`, `nadpis`, `title_upraveny`, `nadpis_upraveny`, `obsah`) VALUES \n";
 	najdi_vsetky_linky(linkVSTUP);
+	
 	// odstráni poslednú čiarku
 	$dotazDATA = substr($dotazDATA, 0 , StrLen($dotazDATA)-3);
 		
@@ -105,9 +107,9 @@ function najdi_vsetky_linky ($cesta){
 	$ochrana++;
 	
 	$dokument = new DOMDocument();
-	@$dokument->loadHTMLFile(kSERVER . $cesta);
+	@$dokument->loadHTMLfile(kSERVER . $cesta);
 	$dokument->normalizeDocument();
-	
+		
 	// ak NIEje v $link odkaz na súbor 
 	// alebo 
 	// je link na stránku ktorá končí hocijakým číslom okrem /1/
@@ -156,7 +158,7 @@ function najdi_vsetky_linky ($cesta){
 		}
 	}
 
-	// načítanie všetkých liniek na styránke
+	// načítanie všetkých liniek na stránke
 	$linky = $dokument->getElementsByTagName('a');
 
 	foreach ($linky as $linka){

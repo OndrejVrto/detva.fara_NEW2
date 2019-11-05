@@ -5,6 +5,7 @@
 	$titulokStranky = 'Farnosť Detva - oficiálna stránka farnosti aj dekanátu, aktuálne oznamy';
 	$nadpisStrankyPreTlac = 'Mapa stránky dekanát';
 	$navsivitPo = '14 days';
+	$nastavenieRobots = 'noindex, nofollow';	
 	$popisStranky = 'Farnosť Detva - hlavná stránka farnosti, hlavný obsah, kontakty, bohoslužby, aktuálne oznamy';
 	$klucoveslova = 'Detva, fara, kostol, farnosť, liturgické, oznamy, sväté, omše, rozpis, lektor, dekanát, aktuality, služby, božie, bohoslužby, nedeľa';
 

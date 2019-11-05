@@ -15,12 +15,12 @@ $otazky_zoznam = array
 */
 include_once("casto-kladene-otazky-zoznam.php");
 
-/*   konstanty sú nastavené v hlavnom súbore
+/*   konstanty sú nastavené v hlavnom súbore */
 	$otazkyTrvale = true;
 	$otazkyTrvaleZoznam = array(2, 3);  // určuje poradie trvalych otázok
 	$otazkyRandom = true;  	// určuje či otázky rozšíriť o náhodné otázky
 	$otazkyPocetCelkovy = 4; 		// určuje celkový počet otázok na stránke Trvalé+Random
-*/
+
 
 function vypisKodNaOtazky($idOtazky, $zoznam, $Posledny){
 	

@@ -50,13 +50,13 @@ if (!isset($_POST['search']) or $_POST['search']=='') {
 	$hladanyRetazec = $link->real_escape_string($hladanyRetazec3);
 	echo $hladanyRetazec . "\n<br>\n<br>\n";
 
-	$dotaz = "SELECT *, MATCH(title_upraveny, nadpis_upraveny, obsah) AGAINST('";
+	$dotaz = "SELECT *, LOCATE(\"" . $hladanyRetazec . "\", obsah) as poloha, MATCH(title_upraveny, nadpis_upraveny, obsah) AGAINST('";
 	$dotaz .= $hladanyRetazec . "' IN NATURAL LANGUAGE MODE WITH QUERY EXPANSION) as score, ";
 	$dotaz .= "((LENGTH(obsah) - LENGTH(REPLACE(obsah, '" . $hladanyRetazec . "', '')))/LENGTH('" . $hladanyRetazec . "'))+";
 	$dotaz .= "((LENGTH(title_upraveny) - LENGTH(REPLACE(title_upraveny, '" . $hladanyRetazec . "', '')))/LENGTH('" . $hladanyRetazec . "'))*3 +";
 	$dotaz .= "((LENGTH(nadpis_upraveny) - LENGTH(REPLACE(nadpis_upraveny, '" . $hladanyRetazec . "', '')))/LENGTH('" . $hladanyRetazec . "'))*2 AS count ";
 	$dotaz .= "FROM search_data WHERE MATCH(title_upraveny, nadpis_upraveny, obsah) AGAINST('";
-	$dotaz .= $hladanyRetazec . "' IN NATURAL LANGUAGE MODE WITH QUERY EXPANSION) ORDER BY score DESC";
+	$dotaz .= $hladanyRetazec . "' IN NATURAL LANGUAGE MODE WITH QUERY EXPANSION) ORDER BY score DESC LIMIT 10";
 	
 	//WITH QUERY EXPANSION
 	
@@ -65,27 +65,44 @@ if (!isset($_POST['search']) or $_POST['search']=='') {
 	echo "Počet nájdených vyhovujúcich výsledkov A: <b>".mysqli_num_rows($vysledok)."</b><br>";
 	echo "\n<br>\n";
 	if (mysqli_num_rows($vysledok)==0) {
-		$dotaz = "SELECT score_manualne as count, link, title, nadpis, obsah, ";
+		$dotaz = "SELECT score_manualne as count, LOCATE(\"" . $hladanyRetazec . "\", obsah) as poloha, link, title, nadpis, obsah, ";
 		$dotaz .= "(((LENGTH(obsah) - LENGTH(REPLACE(obsah, '" . $hladanyRetazec . "', '')))/LENGTH('" . $hladanyRetazec . "'))+";
 		$dotaz .= "((LENGTH(title_upraveny) - LENGTH(REPLACE(title_upraveny, '" . $hladanyRetazec . "', '')))/LENGTH('" . $hladanyRetazec . "'))*3 +";
 		$dotaz .= "((LENGTH(nadpis_upraveny) - LENGTH(REPLACE(nadpis_upraveny, '" . $hladanyRetazec . "', '')))/LENGTH('" . $hladanyRetazec . "'))*2 )*score_manualne AS score ";
 		$dotaz .= "FROM search_data WHERE ";
 		$dotaz .= "obsah LIKE '%" . $hladanyRetazec . "%' or ";
 		$dotaz .= "title_upraveny LIKE '%" . $hladanyRetazec . "%' or ";
-		$dotaz .= "nadpis_upraveny LIKE '%" . $hladanyRetazec . "%' ORDER BY score DESC;";
+		$dotaz .= "nadpis_upraveny LIKE '%" . $hladanyRetazec . "%' ORDER BY score DESC LIMIT 10;";
 		
 		echo $dotaz . "\n<br>\n";
 		$vysledok = mysqli_query($link, $dotaz) or die("Nepodarilo sa vyhodnotiť dotaz!");
 		echo "Počet nájdených vyhovujúcich výsledkov B: <b>".mysqli_num_rows($vysledok)."</b><br>";
 	}
-	
+?>
+
+		<hr>
+		<br>
+
+		<!--  Vzor z Google -->
+		<div class="">
+			<h3 class=""><a href="http://detva.fara.sk/" target="_blank">Farnosť Detva</a></h3>
+			<div class="">
+				<div class="" style="white-space:nowrap">
+					<cite class="">detva.fara.sk/</cite>
+				</div>
+				<span class="">Pôstna duchovná obnova vo farnosti <em>Detva</em>. Plagát - Postna duchovná obnova v <em>Detve</em> 2017. Združenie apoštolov Božieho milosrdenstva Vás srdečne pozýva&nbsp;...</span>
+			</div>
+		</div>
+
+<?php
     // výpis výsledku
-    echo "<table width=\"100%\" border=\"1\">
+    echo "\t\t<br><br>\n\t\t<hr>\n\n\t\t<table width=\"100%\" border=\"5\">
           <caption>Výsledky vyhľadávania</caption>
           <thead>
             <tr>
 				<th>SCORE</th>
 				<th>BODY</th>
+				<th>POLOHA</th>				
 				<th>LINK</th>
 				<th>TITULOK</th>
 				<th>NADPIS</th>
@@ -95,29 +112,20 @@ if (!isset($_POST['search']) or $_POST['search']=='') {
           <tbody>";
 		 while($pole=mysqli_fetch_array($vysledok))
 		 {
-			  echo "<tr>
-							<td>".$pole["score"]."</td>
-							<td>".$pole["count"]."</td>
-							<td>".$pole["link"]."</td>
-							<td>".$pole["title"]."</td>
-							<td>".$pole["nadpis"]."</td>
-							<td>".$pole["obsah"]."</td>";
-			 echo "</tr>";
+			  echo "\n\t\t\t<tr>
+				<td>".$pole["score"]."</td>
+				<td>".$pole["count"]."</td>
+				<td>".$pole["poloha"]."</td>
+				<td>".$pole["link"]."</td>
+				<td>".$pole["title"]."</td>
+				<td>".$pole["nadpis"]."</td>
+				<td>".$pole["obsah"]."</td>";
+			 echo "\n\t\t\t</tr>";
 		 }
-    echo "</tbody>
-          </table>";
+    echo "\n\t\t</tbody>\n\t</table>";
 
 	
 	MySQLi_Close($link);
 }
 ?>
 
-<div class="g">
-	<h3 class="r"><a href="http://detva.fara.sk/" target="_blank">Farnosť Detva</a></h3>
-	<div class="s">
-		<div class="f kv _SWb" style="white-space:nowrap">
-			<cite class="_Rm">detva.fara.sk/</cite>
-		</div>
-		<span class="st">Pôstna duchovná obnova vo farnosti <em>Detva</em>. Plagát - Postna duchovná obnova v <em>Detve</em> 2017. Združenie apoštolov Božieho milosrdenstva Vás 	srdečne pozýva&nbsp;...</span>
-	</div>
-</div>

@@ -5,6 +5,7 @@
 	$titulokStranky = 'Farnosť Detva - oficiálna stránka farnosti aj dekanátu, aktuálne oznamy';
 	$nadpisStrankyPreTlac = 'Sv. františek - patrón farnosti';
 	$navsivitPo = '30 days';
+	$nastavenieRobots = 'noindex, nofollow';	
 	$popisStranky = 'Farnosť Detva - hlavná stránka farnosti, hlavný obsah, kontakty, bohoslužby, aktuálne oznamy';
 	$klucoveslova = 'Detva, fara, kostol, farnosť, liturgické, oznamy, sväté, omše, rozpis, lektor, dekanát, aktuality, služby, božie, bohoslužby, nedeľa';
 

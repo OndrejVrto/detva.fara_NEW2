@@ -7,9 +7,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="language" content="Slovak">
 	<meta name="author" content="Ing. Ondrej VRŤO">
-	<meta name="robots" content="<?php echo $nastavenieRobots; ?>">
 	
+	<meta name="robots" content="<?php echo $nastavenieRobots; ?>">
 	<meta name="revisit-after" content="<?php echo $navsivitPo; ?>">
+
 	<meta name="description" content="<?php echo $popisStranky; ?>">
 	<meta name="keywords" content="<?php echo $klucoveslova; ?>">
 	
