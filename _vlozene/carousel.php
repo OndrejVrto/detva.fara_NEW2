@@ -9,8 +9,12 @@
 	$vseobecnyCarousel = array('057', '056', '054', '051', '042', '048', '035', '036', '038', '040', '055'); 
 	if(!isset($caruselStabilny)) {$caruselStabilny=false;}
 
+	
 	// funkcia pre zistenie počtu všetkých suborov v adresari so zadanou maskou
-	$maska = $cestaABS . $NazovSuboru . "[0-9][0-9][0-9].jpg";
+	$maska = $cestaABS . $NazovSuboru;
+	for($i = 1; $i <= $digits; $i++) { $maska .= "[0-9]"; }
+	$maska .= ".jpg";
+	
 	if (glob($maska, GLOB_BRACE) != false) {
 		$fileCount = count(glob($maska));
 	} else {
@@ -23,7 +27,12 @@
 		$nahodnyObrazok = str_pad(rand(1, $fileCount), $digits, '0', STR_PAD_LEFT);
 		echo "<div class=\"carousel slide d-print-none pt-3\" role=\"banner\">\n\t";
 		echo "<div class=\"carousel-item active\">\n\t\t";
-		echo "<img class=\"d-block rounded w-100\" src=\"". $cesta . $NazovSuboru . $nahodnyObrazok . $pripona ."\" alt=\"Carousel - Náhodný obrázok\">\n\t";
+		echo "<img class=\"d-block rounded w-100\" alt=\"Carousel - Náhodný obrázok\"\n\t\t\t";
+			echo "src=\"". $cesta ."1200x300/". $NazovSuboru . $nahodnyObrazok . $pripona ."\"\n\t\t\t";
+			echo "srcset=\"". $cesta ."0600x150/". $NazovSuboru . $nahodnyObrazok . $pripona ." 600w,\n\t\t\t\t\t";
+			echo $cesta ."1200x300/". $NazovSuboru . $nahodnyObrazok . $pripona ." 1200w,\n\t\t\t\t\t";
+			echo $cesta ."1800x450/". $NazovSuboru . $nahodnyObrazok . $pripona ." 1800w,\n\t\t\t\t\t";
+			echo $cesta ."2400x600/". $NazovSuboru . $nahodnyObrazok . $pripona ." 2400w\">\n\t\t";
 		echo "</div>\n";
 		echo "</div>\n";
 	} else {
@@ -54,12 +63,17 @@
 			echo "<div class=\"carousel-item";
 			if ($pocitadlo==$caruselAktivny) { echo " active"; }
 			echo "\">\n\t\t\t";
-			echo "<img class=\"d-block rounded w-100\" src=\"". $cesta . $NazovSuboru . $ObrazokCislo2 . $pripona ."\" alt=\"slide". $pocitadlo ."\">\n\t\t";
+			echo "<img class=\"d-block rounded w-100\" alt=\"slide". $pocitadlo ."\"\n\t\t\t\t";
+				echo "src=\"". $cesta ."1200x300/". $NazovSuboru . $ObrazokCislo2 . $pripona ."\"\n\t\t\t\t";
+				echo "srcset=\"". $cesta ."0600x150/". $NazovSuboru . $ObrazokCislo2 . $pripona ." 600w,\n\t\t\t\t\t\t";
+				echo $cesta ."1200x300/". $NazovSuboru . $ObrazokCislo2 . $pripona ." 1200w,\n\t\t\t\t\t\t";
+				echo $cesta ."1800x450/". $NazovSuboru . $ObrazokCislo2 . $pripona ." 1800w,\n\t\t\t\t\t\t";
+				echo $cesta ."2400x600/". $NazovSuboru . $ObrazokCislo2 . $pripona ." 2400w\">\n\t\t";
 			echo "</div>\n";
 			$pocitadlo++;
 		}
-		
-		echo"\n\t</div>";
+
+		echo"\t</div>";
 		echo"\n\t<!-- Left and right controls -->";
 		echo"\n\t<a class=\"carousel-control-prev\" href=\"#myCarousel\" role=\"button\" data-slide=\"prev\">";
 		echo"\n\t\t<span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"></span>";
