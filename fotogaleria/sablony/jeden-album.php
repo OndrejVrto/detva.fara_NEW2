@@ -33,8 +33,8 @@
 		
 	// vrchný pagination
 		$vystupHTML .= print_hlavicka_albumu($xml, $XMLsuborABS);
-		//$vystupHTML .=  pagination_vrto($cisloListu, $pocetStranok, $adresarVSTUPalbumHTML, '/', 'prve', false, 0 );	
-		$vystupHTML .=	"\n\t\t\t\t" . '<div class="card-columns">';
+		$vystupHTML .=  pagination_vrto($cisloListu, $pocetStranok, $adresarVSTUPalbumHTML, '/', 'prve', false, 0 );	
+		$vystupHTML .=	"\n\t\t\t\t" . '<div class="card-columns mb-minus-1">';
 		
 	// samotny zoznam albumov
 	// klasické radenie albumov = od A-Z
@@ -112,7 +112,7 @@ function print_foto_card($xml, $start, $ende ){
 		$fotkaPopisok = $xml->getElementsByTagName( "Fotka" )->item($i)->getElementsByTagName( "TitulokFotky" )->item(0)->nodeValue;
 		
 		$pracovny .= $zalomenie . "\t" . '<a class="albumpix" href="' . $linkNAobrazok . $fotkaSubor . '" title="' . $fotkaPopisok . '">';
-		$pracovny .= $zalomenie . "\t\t" . '<div class="card mx-3 mx-sm-0 border-success">';
+		$pracovny .= $zalomenie . "\t\t" . '<div class="card  border-success">';
 		
 		$fotkaALT = $xml->getElementsByTagName( "Fotka" )->item($i)->getElementsByTagName( "AlternativnyNazov" )->item(0)->nodeValue;
 		

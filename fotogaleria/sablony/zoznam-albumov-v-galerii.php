@@ -59,8 +59,8 @@
 		}
 		
 	// vrchný pagination
-		//$vystupHTML .=  pagination_vrto($cisloListu, $pocetStranok, $adresarVSTUP_html, '/', 'prve', false, 0 );	
-		$vystupHTML .=	"\n\t\t\t\t" . '<div class="card-columns">';
+		$vystupHTML .=  pagination_vrto($cisloListu, $pocetStranok, $adresarVSTUP_html, '/', 'prve', false, 0 );	
+		$vystupHTML .=	"\n\t\t\t\t" . '<div class="card-columns mb-minus-1">';
 		
 	// samotny zoznam albumov
 		if ($radenie_albumov == "A-Z"){
@@ -99,7 +99,7 @@ function print_album_card($XMLfiles, $nahodneFotky = false){
 	
 	
 	$pracovny .= $zalomenie . "\t" . '<a href="' . $xml->getElementsByTagName( "LinkRewrite" )->item(0)->nodeValue . '/1/">';
-	$pracovny .= $zalomenie . "\t\t" . '<div class="card mx-3 mx-sm-0 border-primary">';
+	$pracovny .= $zalomenie . "\t\t" . '<div class="card mx-sm-0 border-primary">';
 	
 	if ($nahodneFotky){
 		$pocetFotiek = $xml->getElementsByTagName( "PocetFotiek" )->item(0)->nodeValue;

@@ -16,7 +16,7 @@ function pagination_vrto($aktivnaStranka, $pocetStran, $url_zaciatok, $url_konie
         $velkost = " pagination-lg";
         break;
 	}
-	if ($id!='') {
+	if ($id!="") {
 		$id = htmlspecialchars($id);
 		$id = str_replace(array("'", '"'), array("\\'", "\\\""), $id);
 		$id = ' id="' .  $id . '"';
@@ -35,8 +35,8 @@ function pagination_vrto($aktivnaStranka, $pocetStran, $url_zaciatok, $url_konie
 		
 		$vystup = '';
 		$zalomenie = "\n\t\t\t\t";
-		$vystup .= $zalomenie . '<nav class="breadcrumb justify-content-center" aria-label="Page navigation">';
-		$vystup .= $zalomenie . "\t" . '<ul class="pagination' . $velkost . ' justify-content-center"' . $id . '>';
+		$vystup .= $zalomenie . '<nav class="breadcrumb justify-content-center m-0 px-0" aria-label="Page navigation"' . $id . '>';
+		$vystup .= $zalomenie . "\t" . '<ul class="pagination' . $velkost . ' justify-content-center m-0 p-0">';
 
 		If ($opacneCislovanie==false){
 			if ($aktivnaStranka == 1) {

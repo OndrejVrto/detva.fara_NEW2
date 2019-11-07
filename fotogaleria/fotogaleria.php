@@ -70,7 +70,7 @@ echo "\t\t\t</div>\n";
 
 
 // zmaz tento docasny kod pre vlozenie VZORov
-		echo "\n\n<h4><i class=\"fa fa-arrow-down\" aria-hidden=\"true\"></i> VZOR <i class=\"fa fa-arrow-down \" aria-hidden=\"true\"></i></h4>\n\n\t\t\t<div class=\"gallery\" role=\"img\">\n";
+/* 		echo "\n\n<h4><i class=\"fa fa-arrow-down\" aria-hidden=\"true\"></i> VZOR <i class=\"fa fa-arrow-down \" aria-hidden=\"true\"></i></h4>\n\n\t\t\t<div class=\"gallery\" role=\"img\">\n";
 		if ($nazovGalerie=='zoznam-galerii'){
 			include "vzory/zoznam-galerii-VZOR.php";
 		} else {
@@ -79,7 +79,7 @@ echo "\t\t\t</div>\n";
 			} else {
 				include "vzory/jeden-album-VZOR.php";
 			}
-		}
+		} */
 // zmaz tento docasny kod pre vlozenie VZORov 
 
 include "../_vlozene/spodok-stranky.php"; echo "\n";

@@ -40,6 +40,6 @@
 		include "vedeli-ste-ze.php"; echo "\n";
 	}
 ?>
-		<div class="container" ID="ExportSearch">
+		<div class="container p-0" ID="ExportSearch">
 <!-- START MAIN - Hlavný obsah stránky
 =============================================================================================================================== -->
