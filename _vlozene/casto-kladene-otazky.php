@@ -15,13 +15,6 @@ $otazky_zoznam = array
 */
 include_once("casto-kladene-otazky-zoznam.php");
 
-/*   konstanty sú nastavené v hlavnom súbore */
-	$otazkyTrvale = true;
-	$otazkyTrvaleZoznam = array(2, 3);  // určuje poradie trvalych otázok
-	$otazkyRandom = true;  	// určuje či otázky rozšíriť o náhodné otázky
-	$otazkyPocetCelkovy = 4; 		// určuje celkový počet otázok na stránke Trvalé+Random
-
-
 function vypisKodNaOtazky($idOtazky, $zoznam, $Posledny){
 	
 	echo "\t\t\t\t\t<div class=\"d-inline\">";
@@ -49,15 +42,15 @@ function vypisKodNaOtazky($idOtazky, $zoznam, $Posledny){
 }
 
 if ($otazkyTrvale==true){
-	$polePracovne = $otazkyTrvaleZoznam;
+	$polePracovne = $otazkyTrvale;
 }else {
 	$polePracovne = array();
 }
 
 $ochrana = 0;
-$otazkyPocetNahodnych = $otazkyPocetCelkovy - count($polePracovne);
+$otazkyPocetNahodnych = $otazkyPocet - count($polePracovne);
 
-if ($otazkyPocetNahodnych>0 and $otazkyRandom==true) {
+if ($otazkyPocetNahodnych>0) {
 	
 	for ($y=0; $y<=$otazkyPocetNahodnych-1 ;$y++){
 		$nahodnaotazka = rand(1,count($otazky_zoznam));
@@ -92,6 +85,6 @@ for ($x=0; $x<=$pocetPrvkov-1 ;$x++){
 	echo "\t\t\t\t<hr>\n";
 }
 ?>
-				<p class="text-secondary pt-0 pb-0 mb-0 text-right"><a href="/ostatne/casto-kladene-otazky-spolu"><small>Otázky zo všetkých kategórií</small></a></p>
+				<p class="text-secondary pt-0 pb-0 mb-0 text-right"><a href="/ostatne/casto-kladene-otazky-spolu" title="Stránka so všetkými otázkami"><small>Otázky zo všetkých kategórií</small></a></p>
 			</div>
 <!-- START Include - Často kladené otázky -->

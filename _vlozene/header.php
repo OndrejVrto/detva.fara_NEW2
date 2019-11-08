@@ -1,3 +1,7 @@
+<?php
+	$path = $_SERVER['DOCUMENT_ROOT'];
+	include_once $path . "/_vlozene/inicializacne-konstanty-stranok.php";
+?>
 <!DOCTYPE html>
 <html lang="sk">
 <head>
@@ -8,8 +12,9 @@
 	<meta name="language" content="Slovak">
 	<meta name="author" content="Ing. Ondrej VRŤO">
 	
-	<meta name="robots" content="<?php echo $nastavenieRobots; ?>">
-	<meta name="revisit-after" content="<?php echo $navsivitPo; ?>">
+	<meta name="robots" content="<?php if($nastavenieRobotsIndex===true){ echo'index'; } else { echo 'noindex'; }
+									   if($nastavenieRobotsFolow===true){ echo', follow'; } else { echo ', nofollow'; }?>">
+	<meta name="revisit-after" content="<?php echo $navsivitRobotsPo . ' days'; ?>">
 
 	<meta name="description" content="<?php echo $popisStranky; ?>">
 	<meta name="keywords" content="<?php echo $klucoveslova; ?>">
@@ -26,7 +31,9 @@
 	<meta name="msapplication-TileImage" content="/mstile-144x144.png">
 	<meta name="theme-color" content="#ffffff">
 	
+	<!--  Štýly stránky - hlavné-->
 	<link rel="stylesheet" type="text/css" href="/_fonty/FontAwesome/css/font-awesome.css">
+	<!-- <link rel="stylesheet" type="text/css" href="/_css/bootstrap.css"> -->
 	<link rel="stylesheet" type="text/css" href="/_css/bootstrap-4.0.0-beta.2.css">
 	<link rel="stylesheet" type="text/css" href="/_css/common.css">
 	

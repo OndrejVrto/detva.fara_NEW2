@@ -6,12 +6,12 @@ if ($PravyPanelZlozenie == false) {
 	echo "\t\t<aside class=\"col-12 col-sm-12 col-md-5 col-lg-4 col-xl-4\" role=\"complementary\">";
 	if(!isset($PravyPanelZlozenie) or $PravyPanelZlozenie =='standard') { 
 		$PravyPanelZlozenie = array(
-			array('CestaSuboru' => "rightPanel-standard.php", "Tlaciaren" => true, "PevnaVyska" => false, "Role" => false, "NazovPanelu" => 'Meniny'),
-			array('CestaSuboru' => "rightPanel-standard.php", "Tlaciaren" => false, "PevnaVyska" => 365, "Role" => false, "NazovPanelu" => 'VyveskaOznamy'),
-			array('CestaSuboru' => "rightPanel-standard.php", "Tlaciaren" => true, "PevnaVyska" => 360, "Role" => false, "NazovPanelu" => 'CitanieNaDnes'),
-			array('CestaSuboru' => "rightPanel-standard.php", "Tlaciaren" => false, "PevnaVyska" => 365, "Role" => false, "NazovPanelu" => 'VyveskaAkcie'),
-			array('CestaSuboru' => "rightPanel-standard.php", "Tlaciaren" => true, "PevnaVyska" => false, "Role" => false, "NazovPanelu" => 'LinkBreviarBiblia'),
-			array('CestaSuboru' => "rightPanel-standard.php", "Tlaciaren" => true, "PevnaVyska" => false, "Role" => false, "NazovPanelu" => 'PochodZaZivot')
+			array('CestaSuboru' => "rightPanel-panely.php", "Tlaciaren" => true, "PevnaVyska" => false, "Role" => false, "NazovPanelu" => 'Meniny'),
+			array('CestaSuboru' => "rightPanel-panely.php", "Tlaciaren" => false, "PevnaVyska" => 365, "Role" => false, "NazovPanelu" => 'VyveskaOznamy'),
+			array('CestaSuboru' => "rightPanel-panely.php", "Tlaciaren" => true, "PevnaVyska" => 360, "Role" => false, "NazovPanelu" => 'CitanieNaDnes'),
+			array('CestaSuboru' => "rightPanel-panely.php", "Tlaciaren" => false, "PevnaVyska" => 365, "Role" => false, "NazovPanelu" => 'VyveskaAkcie'),
+			array('CestaSuboru' => "rightPanel-panely.php", "Tlaciaren" => true, "PevnaVyska" => false, "Role" => false, "NazovPanelu" => 'LinkBreviarBiblia'),
+			array('CestaSuboru' => "rightPanel-panely.php", "Tlaciaren" => true, "PevnaVyska" => false, "Role" => false, "NazovPanelu" => 'PochodZaZivot')
 		);
 	}
 	foreach ($PravyPanelZlozenie as $PanelID) {

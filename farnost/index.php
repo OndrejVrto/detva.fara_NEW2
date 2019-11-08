@@ -48,10 +48,10 @@
 	<article class="well text-left" role="navigation">
 		<h1>Farnosť</h1>
 		<ul>
-			<li><a href="/dekanat/cista" >Detvianske vyrezávané kríže</a></li>
-			<li><a href="/dekanat/cista" >Sväté omše v okolí</a></li>
-			<li><a href="/dekanat/cista" >Kam vo farnosti ?</a></li>
-			<li><a href="/dekanat/cista" >Kontakt dekanského úradu</a></li>
+			<li><a href="/cista" >Detvianske vyrezávané kríže</a></li>
+			<li><a href="/cista" >Sväté omše v okolí</a></li>
+			<li><a href="/cista" >Kam vo farnosti ?</a></li>
+			<li><a href="/cista" >Kontakt dekanského úradu</a></li>
 		</ul>
 	</article>
 	<article class="well text-left">

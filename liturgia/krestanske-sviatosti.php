@@ -4,14 +4,18 @@
 	// Meta značky stránky - ! musia byť vyplnené !
 	$titulokStranky = 'Farnosť Detva - oficiálna stránka farnosti aj dekanátu, aktuálne oznamy';
 	$nadpisStrankyPreTlac = 'Sviatosti';
-	$navsivitPo = '30 days';
-	$nastavenieRobots = 'noindex, nofollow';	
 	$popisStranky = 'Farnosť Detva - hlavná stránka farnosti, hlavný obsah, kontakty, bohoslužby, aktuálne oznamy';
 	$klucoveslova = 'Detva, fara, kostol, farnosť, liturgické, oznamy, sväté, omše, rozpis, lektor, dekanát, aktuality, služby, božie, bohoslužby, nedeľa';
 
+	$navsivitRobotsPo = 30;
+	$nastavenieRobotsIndex = True;
+	$nastavenieRobotsFolow = True;
+
 	// poradie a typy obrázkov v caruseli
+	$caruselOFF = false;
+	$caruselStabilny = false;	
 	$caruselPoradie = array('038', '040', '030', '045', '018', '019', '020');
-	$aktivny = 1;
+	$caruselAktivny = 1;
 
 	// určuje či sa na stránke zobrazí bublinkové menu a následne ho naplní
 	$bublinkoveMenu = array (
@@ -33,10 +37,10 @@
 	// určuje skladbu Pravého panelu
 	// ak sa nezadá nič alebo sa zadá hodnota 'standard' bude na stránke štandardne zvolený panel nakonfigurovaný v súbore rightPanel-standard.php
 	// ak sa zvolí hodnota false panel nebude žiadny a hlavný obsah sa roztiahne na celú šírku stránky
-	$PravyPanelZlozenie = array(
+/* 	$PravyPanelZlozenie = array(
 		array('CestaSuboru' => "liturgicke-oznamy-detva-right.php", "Tlaciaren" => true, "PevnaVyska" => false, "Role" => false, "NazovPanelu" => 'PochodZaZivot'),
 		array('CestaSuboru' => "rightPanel-standard.php", "Tlaciaren" => true, "PevnaVyska" => 360, "Role" => false, "NazovPanelu" => 'CitanieNaDnes')
-	);
+	); */
 	//$PravyPanelZlozenie = false;
 	$PravyPanelZlozenie = 'standard';
 ?>
