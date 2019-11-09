@@ -1,50 +1,13 @@
-<?php 
-	// Inicializačné konštanty stránky
+<?php
+	// názov stránky v súbore: inicializacne-konstanty-stranok.php
+	$nazovVolajucejStranky = 'farnost->historia-kostola';
 
-	// Meta značky stránky - ! musia byť vyplnené !
-	$titulokStranky = 'Farnosť Detva - oficiálna stránka farnosti aj dekanátu, aktuálne oznamy';
-	$nadpisStrankyPreTlac = 'História kostola';
-	$navsivitPo = '30 days';
-	$nastavenieRobots = 'noindex, nofollow';	
-	$popisStranky = 'Farnosť Detva - hlavná stránka farnosti, hlavný obsah, kontakty, bohoslužby, aktuálne oznamy';
-	$klucoveslova = 'Detva, fara, kostol, farnosť, liturgické, oznamy, sväté, omše, rozpis, lektor, dekanát, aktuality, služby, božie, bohoslužby, nedeľa';
-
-	// poradie a typy obrázkov v caruseli
-	$caruselPoradie = array('06', '02', '03', '04', '01', '09', '10');
-	$aktivny = 1;
-
-	// určuje či sa na stránke zobrazí bublinkové menu a následne ho naplní
-	$bublinkoveMenu = array (
-		array("html" => "/farnost", "nazov" => "Farnosť"),
-		array("html" => "", "nazov" => "História kostola")
-	);
-	//$bublinkoveMenu = false;
-
-	// určuje či sa na stránke zobrazí menu "vedeli ste že" do ktorého sa načítava obsah z MySQL
-	$vedeliSteZeOFF = false;
-
-	// určuje či sa zobrazia "často kladené otázky" - tie sa načítavajú z MySQL
-	$otazkyOFF = true;
-	//$otazkyTrvale = false;
-	$otazkyTrvale = array('01', '02', '03', '04');  // určuje id otázok v tabuľke SQL
-	// určuje či otázky rozšíriť o náhodné otázky
-	$otazkyRandomOFF = true;  
-	$otazkyPočet = 7; // určuje celkový počet otázok na stránke Trvalé+Random
-
-	// určuje skladbu Pravého panelu
-	// ak sa nezadá nič alebo sa zadá hodnota 'standard' bude na stránke štandardne zvolený panel nakonfigurovaný v súbore rightPanel-standard.php
-	// ak sa zvolí hodnota false panel nebude žiadny a hlavný obsah sa roztiahne na celú šírku stránky
-	$PravyPanelZlozenie = array(
-		array('CestaSuboru' => "liturgicke-oznamy-detva-right.php", "Tlaciaren" => true, "PevnaVyska" => false, "Role" => false, "NazovPanelu" => 'PochodZaZivot'),
-		array('CestaSuboru' => "rightPanel-standard.php", "Tlaciaren" => true, "PevnaVyska" => 360, "Role" => false, "NazovPanelu" => 'CitanieNaDnes')
-	);
-	$PravyPanelZlozenie = false;
-	//$PravyPanelZlozenie = 'standard';
+	$path = $_SERVER['DOCUMENT_ROOT'];	
+	include_once $path . "/_vlozene/header.php"; echo "\n";
 ?>
-<?php include "../_vlozene/header.php"; echo "\n"; ?>
 <!-- Start HEAD special -->
 <!-- End HEAD special -->
-<?php include "../_vlozene/vrch-stranky.php"; echo "\n"; ?>
+<?php include_once $path . "/_vlozene/vrch-stranky.php"; echo "\n"; ?>
 
 
 			<div class="kostolPage">
@@ -70,7 +33,7 @@
 			</div>
 
 
-<?php include "../_vlozene/spodok-stranky.php"; echo "\n";?>
+<?php include_once $path . "/_vlozene/spodok-stranky.php"; echo "\n";?>
 <!-- START - skripty na konci stranky -->
 <!-- END - skripty na konci stranky -->
 </body>

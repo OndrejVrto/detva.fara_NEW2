@@ -1,13 +1,13 @@
 <?php
 	// názov stránky v súbore: inicializacne-konstanty-stranok.php
-	$nazovVolajucejStranky = 'farnost_kontakt-farsky-urad-detva';
+	$nazovVolajucejStranky = 'farnost->kontakt-farsky-urad';
 	
 	$path = $_SERVER['DOCUMENT_ROOT'];
 	include_once $path . "/_vlozene/header.php"; echo "\n";
 ?>
 <!-- Start HEAD special -->
 <!-- End HEAD special -->
-<?php include $path . "/_vlozene/vrch-stranky.php"; echo "\n"; ?>
+<?php include_once $path . "/_vlozene/vrch-stranky.php"; echo "\n"; ?>
 
 			<div class="well text-center">
 				<h1>Kontakt na Farský úrad</h1>
@@ -49,7 +49,7 @@
 				</div>
 			</div>
 
-<?php include $path . "/_vlozene/spodok-stranky.php"; echo "\n";?>
+<?php include_once $path . "/_vlozene/spodok-stranky.php"; echo "\n";?>
 <!-- START - skripty na konci stranky -->
 <!-- END - skripty na konci stranky -->
 </body>

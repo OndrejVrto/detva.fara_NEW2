@@ -1,54 +1,64 @@
-<?php 
-	// Inicializačné konštanty stránky
+<?php
+	// názov stránky v súbore: inicializacne-konstanty-stranok.php
+	$nazovVolajucejStranky = 'ostatne->Vsetky-otazky';
 
-	// Meta značky stránky - ! musia byť vyplnené !
-	$titulokStranky = 'Farnosť Detva - oficiálna stránka farnosti aj dekanátu, aktuálne oznamy';
-	$nadpisStrankyPreTlac = 'Sviatosti';
-	$navsivitPo = '30 days';
-	$nastavenieRobots = 'noindex, nofollow';	
-	$popisStranky = 'Farnosť Detva - hlavná stránka farnosti, hlavný obsah, kontakty, bohoslužby, aktuálne oznamy';
-	$klucoveslova = 'Detva, fara, kostol, farnosť, liturgické, oznamy, sväté, omše, rozpis, lektor, dekanát, aktuality, služby, božie, bohoslužby, nedeľa';
-
-	// poradie a typy obrázkov v caruseli
-	$caruselPoradie = array('038', '040', '030', '045', '018', '019', '020');
-	$aktivny = 1;
-
-	// určuje či sa na stránke zobrazí bublinkové menu a následne ho naplní
-	$bublinkoveMenu = array (
-		array("html" => "/liturgia", "nazov" => "Liturgia"),
-		array("html" => "", "nazov" => "Sviatosti")
-	);
-	//$bublinkoveMenu = false;
-
-	// určuje či sa na stránke zobrazí menu "vedeli ste že" do ktorého sa načítava obsah z MySQL
-	$vedeliSteZeOFF = false;
-
-	// určuje či sa zobrazia "často kladené otázky" - tie sa načítavajú z MySQL
-	$otazkyOFF = false;
-	$otazkyTrvale = false;
-	$otazkyTrvaleZoznam = array(2, 3);  // určuje poradie trvalych otázok
-	$otazkyRandom = false;  	// určuje či otázky rozšíriť o náhodné otázky
-	$otazkyPocetCelkovy = 6; 		// určuje celkový počet otázok na stránke Trvalé+Random
-
-	// určuje skladbu Pravého panelu
-	// ak sa nezadá nič alebo sa zadá hodnota 'standard' bude na stránke štandardne zvolený panel nakonfigurovaný v súbore rightPanel-standard.php
-	// ak sa zvolí hodnota false panel nebude žiadny a hlavný obsah sa roztiahne na celú šírku stránky
-	$PravyPanelZlozenie = array(
-		array('CestaSuboru' => "liturgicke-oznamy-detva-right.php", "Tlaciaren" => true, "PevnaVyska" => false, "Role" => false, "NazovPanelu" => 'PochodZaZivot'),
-		array('CestaSuboru' => "rightPanel-standard.php", "Tlaciaren" => true, "PevnaVyska" => 360, "Role" => false, "NazovPanelu" => 'CitanieNaDnes')
-	);
-	//$PravyPanelZlozenie = false;
-	$PravyPanelZlozenie = 'standard';
+	$path = $_SERVER['DOCUMENT_ROOT'];	
+	include_once $path . "/_vlozene/header.php"; echo "\n";
 ?>
-<?php include "../_vlozene/header.php"; echo "\n"; ?>
 <!-- Start HEAD special -->
 <!-- End HEAD special -->
-<?php include "../_vlozene/vrch-stranky.php"; echo "\n"; ?>
+<?php include_once $path . "/_vlozene/vrch-stranky.php"; echo "\n";
 
-			<h1 class="text-center">Často kladené otázky (FAQ)</h1>
+include_once $path . "/_vlozene/casto-kladene-otazky-zoznam.php";
 
+$nazvyOblasti = array_keys($otazky_zoznam);
 
-<?php include "../_vlozene/spodok-stranky.php"; echo "\n";?>
+echo "\t\t<h1 class=\"text-center\">Všetky často kladené otázky (FAQ)</h1>";
+echo "\n\n\t\t\t<div class=\"well text-left\">";
+	
+for ($x=0; $x<=count($otazky_zoznam)-1 ;$x++){
+
+	echo "\n\t\t\t<h2>";
+	echo $nazvyOblasti[$x];
+	echo "</h2>";
+	
+	// echo count($otazky_zoznam[$nazvyOblasti[$x]]);
+	
+  	for ($y=1; $y<=count($otazky_zoznam[$nazvyOblasti[$x]]) ;$y++){
+		
+		echo "\n\t\t\t\t<div class=\"d-inline\"><strong>";
+		echo $otazky_zoznam[$nazvyOblasti[$x]][$y]["Otazka"];
+		echo "</strong></div><br>";
+		echo "\n\t\t\t\t<div class=\"d-inline\">";
+		echo $otazky_zoznam[$nazvyOblasti[$x]][$y]["Odpoved"];
+		
+		
+		if (array_key_exists("Odkaz",$otazky_zoznam[$nazvyOblasti[$x]][$y])) {  
+			echo "\n\t\t\t\t<a href=\"" .  $otazky_zoznam[$nazvyOblasti[$x]][$y]["Odkaz"] . "\"";
+			if (array_key_exists("Titulok",$otazky_zoznam[$nazvyOblasti[$x]][$y])) {
+				echo " title=\"" . $otazky_zoznam[$nazvyOblasti[$x]][$y]["Titulok"] . "\""; 
+			}
+			if (array_key_exists("OdkazText",$otazky_zoznam[$nazvyOblasti[$x]][$y])) {
+				echo ">" . $otazky_zoznam[$nazvyOblasti[$x]][$y]["OdkazText"] . "</a>"; 
+			} else {
+				echo ">Viac ... </a>"; 
+			}
+		}
+		echo "</div>";		
+		if ($y!==count($otazky_zoznam[$nazvyOblasti[$x]])){
+			echo "\n\t\t\t\t\t<br><hr>";
+		}
+	}
+	if ($x==count($otazky_zoznam)-1){
+		echo "\n\t\t\t</div>\n";
+	} else {
+		echo "\n\t\t\t</div>\n";
+		echo "\n\t\t\t<div class=\"well text-left\">";
+	}
+}
+
+include_once $path . "/_vlozene/spodok-stranky.php"; echo "\n";
+?>
 <!-- START - skripty na konci stranky -->
 <!-- END - skripty na konci stranky -->
 </body>

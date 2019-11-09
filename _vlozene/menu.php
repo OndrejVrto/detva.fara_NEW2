@@ -52,7 +52,7 @@
 							<div class="dropdown-divider" role="separator"></div>
 							<a class="dropdown-item" href="/cista" >Lektori</a>
 							<a class="dropdown-item" href="/cista" >Miništranti</a>
-							<a class="dropdown-item" href="/cista" >Akoliti</a>
+							<a class="dropdown-item" href="/cista" >Akolyti</a>
 							<a class="dropdown-item" href="/cista" >Kostolníci</a>
 							<a class="dropdown-item" href="/cista" >Organisti farnosti</a>
 							<div class="dropdown-divider" role="separator"></div>

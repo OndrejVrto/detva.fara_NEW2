@@ -3,86 +3,108 @@
 			<h2>Často kladené otázky</h2>
 			<div class="well text-left">
 <?php
-/*vlozenie poľa s otázkami
-$otazky_zoznam = array
-(	1 => array(
-		"Oblast" 	=> "krst",
-		"Otazka" 	=> "Je krst sviatosť?",
-		"Odpoved"	=> "Nieje, pretože je to svätenina.",
-		"Odkaz"		=> "/liturgia/krestanske-sviatosti#krst",
-		"Titulok"	=> "Stránka o krstoch"
-		).....atď
+
+/* // možnosti
+	"Otázky Zapnut" => array(
+		"Chybová 404" 						=>	false,
+		"Čistá" 							=>	true,
+		"farnost->liturgicke-oznamy"		=>	'Liturgia',
+		"farnost->historia-kostola"			=>	array(
+													array("Liturgia", 9),
+													array("Svadba", 3)
 */
-include_once("casto-kladene-otazky-zoznam.php");
 
-function vypisKodNaOtazky($idOtazky, $zoznam, $Posledny){
-	
-	echo "\t\t\t\t\t<div class=\"d-inline\">";
-	echo $zoznam[$idOtazky]["Otazka"];
-	echo "</div>";
-	echo "\n\t\t\t\t\t<div class=\"d-inline\">";
-	echo $zoznam[$idOtazky]["Odpoved"];
-	
-	if (array_key_exists("Odkaz",$zoznam[$idOtazky])) {  
-		echo "\n\t\t\t\t\t<a href=\"" .  $zoznam[$idOtazky]["Odkaz"] . "\"";
-		if (array_key_exists("Titulok",$zoznam[$idOtazky])) {
-			echo " title=\"" . $zoznam[$idOtazky]["Titulok"] . "\""; 
-		}
-		if (array_key_exists("OdkazText",$zoznam[$idOtazky])) {
-			echo ">" . $zoznam[$idOtazky]["OdkazText"] . "</a>"; 
-		} else {
-			echo ">Viac ... </a>"; 
-		}
-	}
-	if ($Posledny===true){
-		echo "</div>\n";	
-	} else {
-		echo "</div>\n\t\t\t\t<br>\n";	
-	}
-}
+include_once $path . "/_vlozene/casto-kladene-otazky-zoznam.php";
 
-if ($otazkyTrvale==true){
-	$polePracovne = $otazkyTrvale;
-}else {
-	$polePracovne = array();
-}
+	// konštanta počtu otázok ktoré sa zobrazia ak je zaškrtnutá iba voľba true
+	$pocetNahodnychOtazok = 4;
 
-$ochrana = 0;
-$otazkyPocetNahodnych = $otazkyPocet - count($polePracovne);
+	if ($otazkyOFF==true) { $kod = 1; }
+	if (is_string($otazkyOFF)){ $kod = 2; }
+	if (is_array($otazkyOFF)) { $kod = 3; }
 
-if ($otazkyPocetNahodnych>0) {
-	
-	for ($y=0; $y<=$otazkyPocetNahodnych-1 ;$y++){
-		$nahodnaotazka = rand(1,count($otazky_zoznam));
-		$key = array_search($nahodnaotazka, $polePracovne);
-		if ($key===false){	
-			array_push($polePracovne, $nahodnaotazka);
-		} else {
-			$y--;
-		}
-		$ochrana++;
-		if ($ochrana>=100){
-			//echo 'Priveľa opakovaní: ' . $ochrana;
-			break(1);
-		}
-	}
-} else {
-	if (count($polePracovne)>0){
-	}else{
+	switch ($kod) {
+		// 1 = true - vygeneruj náhodné otázky
+		case 1:
+			$polePracovne = array();
+			$polePracovneVYBER = array();
+			$pocetOblasti = count($otazky_zoznam);
+			$nazvyOblasti = array_keys($otazky_zoznam);
+			$pocetOtazok = $pocetNahodnychOtazok;
+			$ochrana = 0; 
+			//echo "Pocet oblasti: " . $pocetOblasti . "<br>";	
+			
+			for ($y=0; $y<=$pocetNahodnychOtazok-1 ;$y++){
+				$nahodnaOblast = rand(0,$pocetOblasti-1);
+				$nahodnaOtazka = rand(1,count(array_values($otazky_zoznam)[$nahodnaOblast]));
+				//echo $nahodnaOblast . "<br>";
+				//echo $nahodnaOtazka. "<br><br>";
+				$key = array_search($nahodnaOblast.','.$nahodnaOtazka, $polePracovneVYBER);
+				if ($key===false){	
+					array_push($polePracovneVYBER, $nahodnaOblast.','.$nahodnaOtazka);
+					array_push($polePracovne, array($nazvyOblasti[$nahodnaOblast],$nahodnaOtazka));
+				} else {
+					$y--;
+				}
+				$ochrana++;
+				if ($ochrana>=100){
+					//echo 'Priveľa opakovaní: ' . $ochrana;
+					break(1);
+				} 
+			}
+		break;
+		
+		// 2 = presný názov stránky - poľa
+		case 2:
 		$polePracovne = array();
-		//echo "\t\t\t\t<div class=\"d-inline\"><a href=\"/ostatne/casto-kladene-otazky-spolu\" >Otázky zo všetkých kategórií.</a></div>\n";
+		$pocetOtazok = count($otazky_zoznam[$otazkyOFF]);
+		
+		for ($y=1; $y<=$pocetOtazok ;$y++){
+			array_push($polePracovne, array($otazkyOFF, $y));
+		}
+		break;
+		
+		// 3 = zadefinované poľe otázok
+		case 3:
+		$polePracovne = $otazkyOFF;
+		$pocetOtazok = count($otazkyOFF);
 	}
-}
+	
+/*  print_r($polePracovne);
+ echo '<br><br>';
+ echo 'Pocet otazok: ' . $pocetOtazok;
+ echo '<br><br>'; */
 
-$pocetPrvkov = count($polePracovne);
+vypisKodNaOtazky($polePracovne, $otazky_zoznam, $pocetOtazok);
 
-for ($x=0; $x<=$pocetPrvkov-1 ;$x++){
-	if ($x==$pocetPrvkov-1){
-		vypisKodNaOtazky($polePracovne[$x],$otazky_zoznam,true);
-	} else {
-		vypisKodNaOtazky($polePracovne[$x],$otazky_zoznam,false);
-	}		
-	echo "\t\t\t\t<hr>\n";
+function vypisKodNaOtazky($otazky, $zoznam, $pocetOpakovani){
+
+	for ($x=0; $x<=$pocetOpakovani-1 ;$x++){
+		$idOtazky = $otazky[$x];
+		echo "\t\t\t\t<div class=\"d-inline\"><strong>";
+		echo $zoznam[$idOtazky[0]][$idOtazky[1]]["Otazka"];
+		echo "</strong></div><br>";
+		echo "\n\t\t\t\t<div class=\"d-inline\">";
+		echo $zoznam[$idOtazky[0]][$idOtazky[1]]["Odpoved"];
+		
+		if (array_key_exists("Odkaz",$zoznam[$idOtazky[0]][$idOtazky[1]])) {  
+			echo "\n\t\t\t\t<a href=\"" .  $zoznam[$idOtazky[0]][$idOtazky[1]]["Odkaz"] . "\"";
+			if (array_key_exists("Titulok",$zoznam[$idOtazky[0]][$idOtazky[1]])) {
+				echo " title=\"" . $zoznam[$idOtazky[0]][$idOtazky[1]]["Titulok"] . "\""; 
+			}
+			if (array_key_exists("OdkazText",$zoznam[$idOtazky[0]][$idOtazky[1]])) {
+				echo ">" . $zoznam[$idOtazky[0]][$idOtazky[1]]["OdkazText"] . "</a>"; 
+			} else {
+				echo ">Viac ... </a>"; 
+			}
+		}
+		echo "</div>";		
+		if ($x!==$pocetOpakovani-1){
+			echo "\n\t\t\t\t\t<br><hr>\n";
+		} else {
+			echo "\n\t\t\t\t\t<br><br>\n";
+		}
+	}
 }
 ?>
 				<p class="text-secondary pt-0 pb-0 mb-0 text-right"><a href="/ostatne/casto-kladene-otazky-spolu" title="Stránka so všetkými otázkami"><small>Otázky zo všetkých kategórií</small></a></p>
