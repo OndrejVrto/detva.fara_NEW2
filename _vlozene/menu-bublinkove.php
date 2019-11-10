@@ -1,4 +1,4 @@
-<!-- START Include - Bublinkové menu -->
+			<!-- START Include - Bublinkové menu -->
 <?php
 	$pocetBubliniek = count($bublinkoveMenu);
 	$pocitadlo = 0;
@@ -11,15 +11,15 @@
 			echo " active";
 		}
 		echo "\">";
-		if ($MYbublinkoveMenu['html'] !==''){
-			echo '<a href="' . $MYbublinkoveMenu['html'] . '">';
-			echo $MYbublinkoveMenu['nazov'];
+		if ($MYbublinkoveMenu[0] !==''){
+			echo '<a href="' . $MYbublinkoveMenu[0] . '">';
+			echo $MYbublinkoveMenu[1];
 			echo '</a>';
 		} else {
-			echo $MYbublinkoveMenu['nazov'];
+			echo $MYbublinkoveMenu[1];
 		}
 		echo "</li>";
 	}
 	echo "\n\t\t\t</ol>\n";
 ?>
-<!-- END Include - Bublinkové menu -->
+			<!-- END Include - Bublinkové menu -->

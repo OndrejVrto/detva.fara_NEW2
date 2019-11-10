@@ -8,11 +8,9 @@
 <!-- Start HEAD special -->
 <!-- End HEAD special -->
 <?php include_once $path . "/_vlozene/vrch-stranky.php"; echo "\n"; ?>
-
-
 			<div class="kostolPage">
-				<h1>Farský kostol</h1>
-				<div class="textkostol">Pôvod mestečka Detva tesne súvisí s Vígľašským hradom, s ktorým spolu znášali všetky utrpenia, o ktorých súčasné pokolenie vie len veľmi málo. Historické pramene hovoria, že pánmi tohto územia boli pred tisíc rokmi Slovania. Títo už akiste boli kresťanmi, preto sa dá domnievať, že tu v hradnom sídle mohlo už byť niečo kresťanského charakteru, možno i kostol.</div>
+				<h2>Farský kostol</h2>
+				<p class="textkostol">Pôvod mestečka Detva tesne súvisí s Vígľašským hradom, s ktorým spolu znášali všetky utrpenia, o ktorých súčasné pokolenie vie len veľmi málo. Historické pramene hovoria, že pánmi tohto územia boli pred tisíc rokmi Slovania. Títo už akiste boli kresťanmi, preto sa dá domnievať, že tu v hradnom sídle mohlo už byť niečo kresťanského charakteru, možno i kostol.</p>
 				<div class="textkostol">Prvá lokalita ( Zvolen ) mala už v roku 1135 kostol, ktorý mal aj svojho kňaza. Je teda viac než pravdepodobné, začiatky tohto kostola siahajú do čias svätoštefanských. Uhorský kráľ Štefan I., keď sa zbavil všetkých svojich protivníkov – pohanov, svoje kráľovstvo vzorne usporiadal a zosilnil. Zvlášť mu záležalo na osude kresťanstva preto nariadil, aby v každej desiatej osade bol postavený kostol. Vychádzajúc z týchto predpokladov, ľud sa oboznamoval z evanjeliom najskôr na hrade vo Vígľaši, potom Očovej, ku ktorej v rámci cirkevnej organizácie patrilo aj územie Detvy. </div>
 				<div class="textkostol">V prvej písomnej zmienke o obci Detva sa už po prvýkrát spomína fara,  založená roku 1644.</div>
 				<div class="textkostol">Základy kostola boli položené roku 1661 a v roku 1664 bol dokončený. V tom čase tu ako farár pôsobil Juraj Kološi. Nad bránou kostola bol latinský nápis: „Dňa 13. augusta 1661 túto bránu postavili na vlastné náklady Detvanci a v tom istom roku dňa 4. mája položili základný kameň kostola.“</div>
@@ -31,8 +29,6 @@
 				<div class="textkostol">V súčasnosti je kostol pravidelne udržiavaný, denne sa tu konajú sväté omše.</div>
 				<div class="textkostol">V roku 1990 ONV vo zvolene zaregistroval chrám sv. Františka Assiského v Detve ako národnú kultúrnu pamiatku.</div>
 			</div>
-
-
 <?php include_once $path . "/_vlozene/spodok-stranky.php"; echo "\n";?>
 <!-- START - skripty na konci stranky -->
 <!-- END - skripty na konci stranky -->

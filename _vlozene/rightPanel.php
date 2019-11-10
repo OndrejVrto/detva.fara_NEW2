@@ -1,4 +1,4 @@
-<!-- START Include - Right Panel -->
+		<!-- START Include - Right Panel -->
 <?php 
 if ($PravyPanelZlozenie == false) {
 	echo "\t<!-- Stránka neobsahuje - Right Panel -->\n";
@@ -34,4 +34,4 @@ if ($PravyPanelZlozenie == false) {
 	echo "\n\t\t</aside>\n";
 }
 ?>
-<!-- END Include - Right Panel -->
+		<!-- END Include - Right Panel -->

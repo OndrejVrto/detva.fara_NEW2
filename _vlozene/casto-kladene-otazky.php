@@ -1,4 +1,4 @@
-<!-- START Include - Často kladené otázky -->			
+			<!-- START Include - Často kladené otázky -->			
 			<hr>
 			<h2>Často kladené otázky</h2>
 			<div class="well text-left">
@@ -15,9 +15,6 @@
 */
 
 include_once $path . "/_vlozene/casto-kladene-otazky-zoznam.php";
-
-	// konštanta počtu otázok ktoré sa zobrazia ak je zaškrtnutá iba voľba true
-	$pocetNahodnychOtazok = 4;
 
 	if ($otazkyOFF==true) { $kod = 1; }
 	if (is_string($otazkyOFF)){ $kod = 2; }
@@ -109,4 +106,4 @@ function vypisKodNaOtazky($otazky, $zoznam, $pocetOpakovani){
 ?>
 				<p class="text-secondary pt-0 pb-0 mb-0 text-right"><a href="/ostatne/casto-kladene-otazky-spolu" title="Stránka so všetkými otázkami"><small>Otázky zo všetkých kategórií</small></a></p>
 			</div>
-<!-- START Include - Často kladené otázky -->
+			<!-- START Include - Často kladené otázky -->

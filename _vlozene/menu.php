@@ -103,12 +103,12 @@
 							<a class="dropdown-item" href="/fotogaleria/starsie/1/" >Staršie</a>
 							<div class="dropdown-divider" role="separator"></div>
 							<a class="dropdown-item" href="/fotogaleria/kostoly/1/" >Kostoly</a>
-							<a class="dropdown-item" href="/fotogaleria/kaplnky/1/" >Kaplnky</a>							
+							<a class="dropdown-item" href="/fotogaleria/kaplnky/1/" >Kaplnky</a>
 							<a class="dropdown-item" href="/fotogaleria/detvianske-vyrezavane-krize/1/" >Detvianske vyrezávané kríže</a>
 						</ul>
 					</li>
 				</ul>
-				<ul class="navbar-nav ml-md-auto">					
+				<ul class="navbar-nav ml-md-auto">
 					<li class="nav-item dropdown mr-lg-3">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" 
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" role="button">Dekanát</a>
@@ -118,7 +118,7 @@
 							<a class="dropdown-item" href="/cista" >Rád Menších bratov kapucínov</a>
 							<div class="dropdown-divider" role="separator"></div>
 							<a class="dropdown-item" href="/cista" >Fotogaléria kostolov a kaplniek</a>
-							<a class="dropdown-item" href="/cista" >Detvianske vyrezávané kríže</a>
+							<a class="dropdown-item" href="/dekanat/podpolianske-vyrezavane-krize" >Podpolianske vyrezávané kríže</a>
 							<div class="dropdown-divider" role="separator"></div>
 							<a class="dropdown-item" href="/cista" >Sväté omše v okolí</a>
 							<a class="dropdown-item" href="/cista" >Kam vo farnosti ?</a>

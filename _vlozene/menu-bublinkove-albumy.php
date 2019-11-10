@@ -1,4 +1,4 @@
-<!-- START Include - Bublinkové menu - Automaticky generované pre FotoAlbumy -->
+			<!-- START Include - Bublinkové menu - Automaticky generované pre FotoAlbumy -->
 <?php
     echo "\t\t\t<ol class=\"breadcrumb mt-3 text-left\">\n";
 	echo "\t\t\t\t<li class=\"breadcrumb-item\"><a href=\"/\"><i class=\"fa fa-home\" aria-hidden=\"true\"></i><span class=\"sr-only\">Domov</span></a></li>\n";
@@ -15,4 +15,4 @@
 	}
 	echo "\t\t\t</ol>\n";
 ?>
-<!-- END Include - Bublinkové menu - Automaticky generované pre FotoAlbumy -->
+			<!-- END Include - Bublinkové menu - Automaticky generované pre FotoAlbumy -->

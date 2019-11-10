@@ -1,4 +1,4 @@
-<!-- START Include - Vedeli ste že ... -->
+			<!-- START Include - Vedeli ste že ... -->
 <?php
 /*vlozenie poľa s otázkami
 
@@ -30,4 +30,4 @@ include_once("vedeli-ste-ze-zoznam.php");
 
 	echo "\n\t\t\t</div>\n";
 ?>
-<!-- END Include - Vedeli ste že ... -->
+			<!-- END Include - Vedeli ste že ... -->

@@ -8,7 +8,6 @@
 <!-- Start HEAD special -->
 <!-- End HEAD special -->
 <?php include_once $path . "/_vlozene/vrch-stranky.php"; echo "\n"; ?>
-
 		<div class="row text-center">
 			<div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-0">
 				<div class="panel panel-default">
@@ -65,7 +64,6 @@ if ($handle = opendir($path . '/_data/lektori/')) {
 				</div>
 			</div>
 		</div>
-
 <?php include_once $path . "/_vlozene/spodok-stranky.php"; echo "\n";?>
 <!-- START - skripty na konci stranky -->
 <!-- END - skripty na konci stranky -->

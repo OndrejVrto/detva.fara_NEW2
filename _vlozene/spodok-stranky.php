@@ -1,17 +1,24 @@
+
 <!-- END MAIN - Hlavný obsah stránky
 =============================================================================================================================== -->
-		</div> <!-- END container na export -->
+
+		</div>
+		<!-- END - container "ExportSearch" na vyhľadávanie -->
+
 <?php if ($otazkyOFF !== false) {include "casto-kladene-otazky.php"; echo "\n";}; ?>
 
-		</main> <!-- END hlavný stĺpec -->
+		</main> <!-- END - hlavný stĺpec -->
 		
 <?php include "rightPanel.php"; echo "\n"; ?>
 
-	</div> <!-- .row -->
-	<div class="row"><!-- kotva na návrat k Menu -->
+	</div> <!-- END - Hlavný .row -->
+	
+	<!-- Kotva na návrat na začiatok stránky -->
+	<div class="row">
 		<a href="#top" class="mx-auto"><i class="fa fa-chevron-up fa-2x" aria-hidden="true"></i></a>
 	</div>
-</div> <!-- .container -->
+	
+</div> <!-- END - Hlavný .container -->
 
 <!-- START Include - Footer -->
 <?php include "footer.php"; echo "\n"; ?>
