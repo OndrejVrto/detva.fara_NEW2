@@ -1,22 +1,16 @@
 <?php
-// nastavenie gallerií
-// Inicializačné konštanty stránky
+// Základné konštanty fotogalérií sú v súbore: inicializacne-konstanty-stranok.php
+
+// Ďalšie nastavenie gallerií
+	// aké prípony obrázkov sú povolené
+	$extensions    = array(".jpg",".png",".jpeg", ".JPG", ".PNG");		// allowed extensions in photo gallery
+
 
 	$polohaSkriptu = "..";  // poloha skriptu voči koreňovému adresáru WWW
 	$vystupHTML = '';   // inicializácia premennej
-
 	$adresarFotogaleria = "/_fotoalbumy/";
 	$adresaFotogalerieHTML = "/fotogaleria/";
 	
-	$albumov_na_stranke = 10;						// number of albums per page
-	$fotiek_na_stranke  = 20;						// number of images per page    
-	$radenie_albumov = "Z-A";						// radenie od A-Z alebo Z-A
-	
-	$nahodneFotky = false;
-	
-	$thumb_width   = '280';						// width of thumbnails
-	$thumb_height  = '280';						// height of thumbnails
-	$extensions    = array(".jpg",".png",".jpeg", ".JPG", ".PNG");		// allowed extensions in photo gallery
 	
 /*
 	// zapnutie vypisovania chýb
@@ -61,8 +55,9 @@
 
 //Spoločný kód
 	// vloží funkciu pagination
-	// function pagination_vrto($aktivnaStranka, $pocetStran, $url_zaciatok, $url_koniec, $id, $opacneCislovanie = false, $velkost = 0 )
+	
 	include "../_vlozene/funkcie-paginations.php";
+	// function pagination_vrto($aktivnaStranka, $pocetStran, $url_zaciatok, $url_koniec, $id, $opacneCislovanie = false, $velkost = 0 )
 	
 	// skontroluje či existujú adresáre. Ak nie presmeruje na jednotlivé typy podstránok
 	// zároveň naplní základné premenné

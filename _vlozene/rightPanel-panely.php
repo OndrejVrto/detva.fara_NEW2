@@ -1,11 +1,16 @@
 <?php switch ($PanelID['NazovPanelu']) {
 			case "Meniny":
 ?>
-				<!-- START PHP - Meniny --><?php include "meniny.php"; echo "\n"; ?>
+				<!-- START PHP - Meniny --><?php $path = $_SERVER['DOCUMENT_ROOT']; include_once $path . "/_vlozene/meniny.php"; echo "\n"; ?>
 				<p class="meniny"><strong>Dnes je</strong><br><?php  echo $dneska; ?></p>
 				<p class="meniny"><strong>Meniny má</strong><br><?php  echo $meniny_dnes; ?></p>
 				<p class="meniny"><strong>Zajtra má meniny</strong><br><?php  echo $meniny_zajtra; ?></p>
 				<!-- END PHP - Meniny -->
+<?php
+break; case "OsobneUdaje":
+?>				
+				<h2>Ochrana osobných údajov</h2>
+				<a target="_blank" href="https://gdpr.kbs.sk/"><img width="200" title="Kniha s kľúčom" src="/_data/spolocne/gdpr.jpg" alt="GDPR, Ochrana osobných údajov"/></a>
 <?php
 break; case "PochodZaZivot":
 ?>

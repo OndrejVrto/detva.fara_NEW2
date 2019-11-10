@@ -1,15 +1,41 @@
 <?php
 
- 	// Inicializačné konštanty každej stránky: detva.fara.sk
+// Inicializačné konštanty každej stránky: detva.fara.sk
 
-// Inicializačné konštanty spoločné
+// Konštanty spoločné
 
 	// zoznam obrázkov carousel ak je zvolená možnosť 'standard'
 	$StandardnyCarousel = array('057', '056', '054', '051', '042', '048', '035', '036', '038', '040', '055'); 
+
 	// konštanta počtu často kladených otázok ktoré sa zobrazia ak je zaškrtnutá iba voľba TRUE
 	$pocetNahodnychOtazok = 5;
 
-// Inicializačné konštanty individuálne
+	// START - Konštanty pre Foto-albumy
+		// nastaví počty miniatúr vo fotogalérii
+		$albumov_na_stranke = 15;						// number of albums per page
+		$fotiek_na_stranke  = 30;						// number of images per page    
+		$radenie_albumov = "Z-A";						// radenie od A-Z alebo Z-A
+		
+		// true - pri zobrazení zoznamu galérií vyberie do náhľadu jednu náhodnú fotku
+		$nahodneFotky = false;
+		
+		// Veľkosť zmenšenín obrázkov. Tie sa generujú automaticky, ale iba 1x. 
+		// Ak chceš zmeniť veľkosť musíš najskôr zmazať pôvodné a refrešnúť stránku
+		$thumb_width   = '280';						// width of thumbnails
+		$thumb_height  = '280';						// height of thumbnails
+		
+		// Názvy galérií sa automaticky načítavajú z názvu adresára.
+		// pri niektorých je potrebné upraviť gramatiku, aby to vyzeralo pekne na stránke.
+		// v poli $OpravaGramatikyIN je presný názov adresára
+		//POZOR prvé písmeno prvého slova v poli $OpravaGramatikyIN daj veľkým,
+		$OpravaGramatikyIN  = Array('Fotogaleria', 'Detvianske vyrezavane krize', 'Starsie');
+		$OpravaGramatikyOUT = Array('Fotogaléria', 'Detvianske vyrezávané kríže', 'Staršie');
+	// END - Konštanty pre Foto-albumy
+
+
+
+
+// Konštanty individuálne
 $konstantyStranok = array(
 
 	// Meta značka stránky - TITLE -> Zobrazuje sa ako názov okna.	
@@ -19,10 +45,13 @@ $konstantyStranok = array(
 		"Hlavná Stránka" 					=>	"Farnosť Detva - oficiálna stránka farnosti aj dekanátu, aktuálne oznamy",
 		"Fotogaléria" 						=>	"Farnosť Detva - fotogaléria",   // POZOR špeciálny kód pri fotogalérii
 		"ostatne->Vsetky-otazky"			=>	"Farnosť Detva - zaujímavé otázky",
+		
 		"farnost->liturgicke-oznamy"		=>	"Farnosť Detva - oficiálna stránka farnosti aj dekanátu, aktuálne oznamy",
 		"farnost->kontakt-farsky-urad"		=>	"Farnosť Detva - kontakty farnosti",
 		"farnost->historia-kostola"			=>	"Farnosť Detva - história kostola",
 		"farnost->knazi-vo-farnosti"		=>	"Farnosť Detva - Aktuálne pôsobiaci kňazi vo farnosti",
+		"farnost->svety-frantisek"			=>	"Farnosť Detva - sv. František patrón farnosti",
+
 		"dekanat->podpolianske-krize"		=>	"Farnosť Detva - Podpolianske vyrezávané kríže",
 	),	// "Titulok Stránky"
 
@@ -32,11 +61,14 @@ $konstantyStranok = array(
 		"Čistá" 							=>	"Farnosť Detva - čistá stránka, na ktorej nieje žiadny obsah. Zobrazuje sa pri neexistujúcom odkaze.",
 		"Hlavná Stránka" 					=>	"Farnosť Detva - hlavná stránka farnosti, hlavný obsah, kontakty, bohoslužby, aktuálne oznamy",
 		"Fotogaléria" 						=>	"Farnosť Detva - fotogaléria, albumy, obrázky kostolov a kaplniek",
+		
 		"ostatne->Vsetky-otazky"			=>	"Farnosť Detva - zaujímavé otázky a odpovede na rôzne témy",
 		"farnost->liturgicke-oznamy"		=>	"Farnosť Detva - aktuálne oznamy",
 		"farnost->kontakt-farsky-urad"		=>	"Farnosť Detva - kontakty, poloha v meste Detva, telefón, email, sms",
 		"farnost->historia-kostola"			=>	"Farnosť Detva - dejiny a história farského kostola v Detve",
 		"farnost->knazi-vo-farnosti"		=>	"Kňazi aktuálne pôsobiaci vo farnosti Detva.",
+		"farnost->svety-frantisek"			=>	"sv. František - patrón farnosti",
+
 		"dekanat->podpolianske-krize"		=>	"Detvianske vyrezávaní kríže sú zaradené do nehmotného kultúrneho dedičstva Slovenska.",
 	),	// "Popis Stránky"
 
@@ -47,10 +79,13 @@ $konstantyStranok = array(
 		"Hlavná Stránka" 					=>	"Hlavná stránka",
 		"Fotogaléria" 						=>	"Fotogaléria",    // POZOR špeciálny kód pri fotogalérii
 		"ostatne->Vsetky-otazky"			=>	"Zaujímavé otázky",
+		
 		"farnost->liturgicke-oznamy"		=>	"Litgurgické oznamy",
 		"farnost->kontakt-farsky-urad"		=>	"Kontakt na farský úrad Detva",
 		"farnost->historia-kostola"			=>	"História kostola",
 		"farnost->knazi-vo-farnosti"		=>	"Kňazi pôsobiaci vo farnosti Detva",
+		"farnost->svety-frantisek"			=>	"sv. František - patrón farnosti",
+
 		"dekanat->podpolianske-krize"		=>	"Podpolianske vyrezávané kríže",
 	),	// "Nadpis pre tlač"
 	
@@ -61,10 +96,13 @@ $konstantyStranok = array(
 		"Hlavná Stránka" 					=>	"p.Dekan Sabol, Ing. Ondrej VRŤO",
 		"Fotogaléria" 						=>	"Rôzny autori",
 		"ostatne->Vsetky-otazky"			=>	"Ing. Ondrej VRŤO",
+		
 		"farnost->liturgicke-oznamy"		=>	"p. Dekan Sabol",
 		"farnost->kontakt-farsky-urad"		=>	"p. Dekan Sabol",
 		"farnost->historia-kostola"			=>	"Mgr. Anička BARTKOVÁ",
 		"farnost->knazi-vo-farnosti"		=>	"Ing. Ondrej VRŤO",
+		"farnost->svety-frantisek"			=>	"Mgr. Anička BARTKOVÁ",
+
 		"dekanat->podpolianske-krize"		=>	"Mgr. Anička BARTKOVÁ",
 	),	// "Autor"
 	
@@ -75,10 +113,13 @@ $konstantyStranok = array(
 		"Hlavná Stránka" 					=>	true,
 		"Fotogaléria" 						=>	false,
 		"ostatne->Vsetky-otazky"			=>	true,
+		
 		"farnost->liturgicke-oznamy"		=>	true,
 		"farnost->kontakt-farsky-urad"		=>	true,
 		"farnost->historia-kostola"			=>	true,
 		"farnost->knazi-vo-farnosti"		=>	true,
+		"farnost->svety-frantisek"			=>	true,
+
 		"dekanat->podpolianske-krize"		=>	true,
 	),	// "Nastavenie Robots Index"
 
@@ -89,10 +130,13 @@ $konstantyStranok = array(
 		"Hlavná Stránka" 					=>	true,
 		"Fotogaléria" 						=>	false,
 		"ostatne->Vsetky-otazky"			=>	true,
+		
 		"farnost->liturgicke-oznamy"		=>	true,
 		"farnost->kontakt-farsky-urad"		=>	true,
 		"farnost->historia-kostola"			=>	true,
 		"farnost->knazi-vo-farnosti"		=>	true,
+		"farnost->svety-frantisek"			=>	true,
+
 		"dekanat->podpolianske-krize"		=>	true,
 	),	// "Nastavenie Robots Folow"
 
@@ -107,10 +151,13 @@ $konstantyStranok = array(
 		"Hlavná Stránka" 					=>	'JedenNahodnyObrazok',
 		"Fotogaléria" 						=>	false,
 		"ostatne->Vsetky-otazky"			=>	array('028', '029', '030', '031', '032', '033', '034'),
+		
 		"farnost->liturgicke-oznamy"		=>	'standard',
 		"farnost->kontakt-farsky-urad"		=>	array('006', '002', '003', '004', '001', '009', '010'),
 		"farnost->historia-kostola"			=>	array('021', '022', '023', '024', '025', '026', '027'),
 		"farnost->knazi-vo-farnosti"		=>	'standard',
+		"farnost->svety-frantisek"			=>	array('040', '041'),
+
 		"dekanat->podpolianske-krize"		=>	array('035', '036', '037', '038'),
 	),	// "Carusel"
 
@@ -122,10 +169,13 @@ $konstantyStranok = array(
 		"Hlavná Stránka" 					=>	true,
 		"Fotogaléria" 						=>	false,
 		"ostatne->Vsetky-otazky"			=>	true,
+		
 		"farnost->liturgicke-oznamy"		=>	true,
 		"farnost->kontakt-farsky-urad"		=>	false,
 		"farnost->historia-kostola"			=>	false,
 		"farnost->knazi-vo-farnosti"		=>	true,
+		"farnost->svety-frantisek"			=>	false,
+
 		"dekanat->podpolianske-krize"		=>	true,
 	),	// "Vedeli Ste Ze"
 
@@ -137,6 +187,7 @@ $konstantyStranok = array(
 		"Hlavná Stránka" 					=>	true,
 		"Fotogaléria" 						=>	false,
 		"ostatne->Vsetky-otazky"			=>	false,
+		
 		"farnost->liturgicke-oznamy"		=>	'Liturgia',
 		"farnost->kontakt-farsky-urad"		=>	'Krst',
 		"farnost->historia-kostola"			=>	array(
@@ -144,6 +195,8 @@ $konstantyStranok = array(
 													array("Svadba", 3)
 												),
 		"farnost->knazi-vo-farnosti"		=>	true,
+		"farnost->svety-frantisek"			=>	false,
+
 		"dekanat->podpolianske-krize"		=>	true,
 	),	// "Často kladené otázky"
 
@@ -154,6 +207,7 @@ $konstantyStranok = array(
 		"Hlavná Stránka" 					=>	false,
 		"Fotogaléria" 						=>	true, // pri fotogalériách sa vkladá separátny kód
 		"ostatne->Vsetky-otazky"			=>	false,
+		
 		"farnost->liturgicke-oznamy"		=>	array (
 													array("/farnost", "Farnosť"),
 													array("", "Litgurgické oznamy")
@@ -170,10 +224,15 @@ $konstantyStranok = array(
 													array("/farnost", "Farnosť"),
 													array("", "Kňazi pôsobiaci vo farnosti Detva")
 												),
+		"farnost->svety-frantisek"			=>	array (
+													array("/farnost", "Farnosť"),
+													array("", "sv. František - patrón našej farnosti")
+												),
+
 		"dekanat->podpolianske-krize"		=>	array (
 													array("/dekanat/", "Dekanát"),
 													array("", "Podpolianske vyrezávané kríže")
-												),												
+												),
 	),	// "Bublinkové Menu"
 	
 	// Pravý panel ->  určuje celkový počet otázok na stránke Trvalé + Náhodné
@@ -192,6 +251,8 @@ $konstantyStranok = array(
 		"farnost->kontakt-farsky-urad"		=>	'standard',
 		"farnost->historia-kostola"			=>	'standard',
 		"farnost->knazi-vo-farnosti"		=>	'standard',
+		"farnost->svety-frantisek"			=>	false,
+		
 		"dekanat->podpolianske-krize"		=>	'standard',
 	),	// "Pravý Panel Zloženie"
 );
@@ -201,7 +262,7 @@ $konstantyStranok = array(
 	
 // Naplnenie konštánt pre konkrétnu stránku z poľa:  $konstantyStranok
 // ak na stránke nieje premenná ktorá označuje o akú stránku ide
-//alebo v poli $konstantyStranok chýba hodnota prislúchajúca stránke, nastavia sa štandardné hodnoty
+// alebo v poli $konstantyStranok chýba hodnota prislúchajúca stránke, nastavia sa štandardné hodnoty
 
 	if (!isset($nazovVolajucejStranky)){$nazovVolajucejStranky = "";}
 	

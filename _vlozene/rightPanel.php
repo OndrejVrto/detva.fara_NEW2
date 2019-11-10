@@ -7,6 +7,7 @@ if ($PravyPanelZlozenie == false) {
 	if(!isset($PravyPanelZlozenie) or $PravyPanelZlozenie =='standard') { 
 		$PravyPanelZlozenie = array(
 			array('CestaSuboru' => "rightPanel-panely.php", "Tlaciaren" => true, "PevnaVyska" => false, "Role" => false, "NazovPanelu" => 'Meniny'),
+			array('CestaSuboru' => "rightPanel-panely.php", "Tlaciaren" => true, "PevnaVyska" => false, "Role" => false, "NazovPanelu" => 'OsobneUdaje'),			
 			array('CestaSuboru' => "rightPanel-panely.php", "Tlaciaren" => false, "PevnaVyska" => 365, "Role" => false, "NazovPanelu" => 'VyveskaOznamy'),
 			array('CestaSuboru' => "rightPanel-panely.php", "Tlaciaren" => true, "PevnaVyska" => 360, "Role" => false, "NazovPanelu" => 'CitanieNaDnes'),
 			array('CestaSuboru' => "rightPanel-panely.php", "Tlaciaren" => false, "PevnaVyska" => 365, "Role" => false, "NazovPanelu" => 'VyveskaAkcie'),

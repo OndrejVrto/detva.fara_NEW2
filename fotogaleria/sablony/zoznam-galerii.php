@@ -1,6 +1,6 @@
 <?php
 
-	$pracovny = '';
+/* 	$pracovny = '';
 	$adresarVSTUP = $adresarFotogaleria;
 	$adresarRELscript = $polohaSkriptu . $adresarVSTUP;
 	$adresarABS = folder_exist($adresarRELscript);
@@ -12,4 +12,5 @@
 	}
 	$pracovny .= "</ol>";
 
-$vystupHTML .= $pracovny;
+$vystupHTML .= $pracovny; */
+?>
