@@ -52,7 +52,8 @@ $konstantyStranok = array(
 		"farnost->knazi-vo-farnosti"		=>	"Farnosť Detva - Aktuálne pôsobiaci kňazi vo farnosti",
 		"farnost->svety-frantisek"			=>	"Farnosť Detva - sv. František patrón farnosti",
 
-		"dekanat->podpolianske-krize"		=>	"Farnosť Detva - Podpolianske vyrezávané kríže",
+		"dekanat"							=>	"Dekanát Detva - hlavná stránka",
+		"dekanat->podpolianske-krize"		=>	"Dekanát Detva - Podpolianske vyrezávané kríže",
 	),	// "Titulok Stránky"
 
 	// Meta značka stránky - description -> popisuje stránku
@@ -69,7 +70,8 @@ $konstantyStranok = array(
 		"farnost->knazi-vo-farnosti"		=>	"Kňazi aktuálne pôsobiaci vo farnosti Detva.",
 		"farnost->svety-frantisek"			=>	"sv. František - patrón farnosti",
 
-		"dekanat->podpolianske-krize"		=>	"Detvianske vyrezávaní kríže sú zaradené do nehmotného kultúrneho dedičstva Slovenska.",
+		"dekanat"							=>	"Dekanát Detva. Môžete obdivovať krásu našich chrámov či vyrezávaných krížov.",
+		"dekanat->podpolianske-krize"		=>	"Detvianske vyrezávané kríže sú zaradené do nehmotného kultúrneho dedičstva Slovenska.",
 	),	// "Popis Stránky"
 
 	// Nadpis stránky  pre tlač ->  zobrazuje sa len pri tlačení na tlačiarni
@@ -79,13 +81,14 @@ $konstantyStranok = array(
 		"Hlavná Stránka" 					=>	"Hlavná stránka",
 		"Fotogaléria" 						=>	"Fotogaléria",    // POZOR špeciálny kód pri fotogalérii
 		"ostatne->Vsetky-otazky"			=>	"Zaujímavé otázky",
-		
+
 		"farnost->liturgicke-oznamy"		=>	"Litgurgické oznamy",
 		"farnost->kontakt-farsky-urad"		=>	"Kontakt na farský úrad Detva",
 		"farnost->historia-kostola"			=>	"História kostola",
 		"farnost->knazi-vo-farnosti"		=>	"Kňazi pôsobiaci vo farnosti Detva",
 		"farnost->svety-frantisek"			=>	"sv. František - patrón farnosti",
 
+		"dekanat"							=>	"Dekanát Detva",
 		"dekanat->podpolianske-krize"		=>	"Podpolianske vyrezávané kríže",
 	),	// "Nadpis pre tlač"
 	
@@ -103,6 +106,7 @@ $konstantyStranok = array(
 		"farnost->knazi-vo-farnosti"		=>	"Ing. Ondrej VRŤO",
 		"farnost->svety-frantisek"			=>	"Mgr. Anička BARTKOVÁ",
 
+		"dekanat"							=>	"Ing. Ondrej VRŤO",
 		"dekanat->podpolianske-krize"		=>	"Mgr. Anička BARTKOVÁ",
 	),	// "Autor"
 	
@@ -120,6 +124,7 @@ $konstantyStranok = array(
 		"farnost->knazi-vo-farnosti"		=>	true,
 		"farnost->svety-frantisek"			=>	true,
 
+		"dekanat"							=>	true,
 		"dekanat->podpolianske-krize"		=>	true,
 	),	// "Nastavenie Robots Index"
 
@@ -137,6 +142,7 @@ $konstantyStranok = array(
 		"farnost->knazi-vo-farnosti"		=>	true,
 		"farnost->svety-frantisek"			=>	true,
 
+		"dekanat"							=>	true,
 		"dekanat->podpolianske-krize"		=>	true,
 	),	// "Nastavenie Robots Folow"
 
@@ -158,6 +164,7 @@ $konstantyStranok = array(
 		"farnost->knazi-vo-farnosti"		=>	'standard',
 		"farnost->svety-frantisek"			=>	array('040', '041'),
 
+		"dekanat"							=>	'standard',
 		"dekanat->podpolianske-krize"		=>	array('035', '036', '037', '038'),
 	),	// "Carusel"
 
@@ -176,6 +183,7 @@ $konstantyStranok = array(
 		"farnost->knazi-vo-farnosti"		=>	true,
 		"farnost->svety-frantisek"			=>	false,
 
+		"dekanat"							=>	false,
 		"dekanat->podpolianske-krize"		=>	true,
 	),	// "Vedeli Ste Ze"
 
@@ -197,6 +205,7 @@ $konstantyStranok = array(
 		"farnost->knazi-vo-farnosti"		=>	true,
 		"farnost->svety-frantisek"			=>	false,
 
+		"dekanat"							=>	true,
 		"dekanat->podpolianske-krize"		=>	true,
 	),	// "Často kladené otázky"
 
@@ -229,6 +238,9 @@ $konstantyStranok = array(
 													array("", "sv. František - patrón našej farnosti")
 												),
 
+		"dekanat"							=>	array (
+													array("", "Dekanát")
+												),
 		"dekanat->podpolianske-krize"		=>	array (
 													array("/dekanat/", "Dekanát"),
 													array("", "Podpolianske vyrezávané kríže")
@@ -253,6 +265,7 @@ $konstantyStranok = array(
 		"farnost->knazi-vo-farnosti"		=>	'standard',
 		"farnost->svety-frantisek"			=>	false,
 		
+		"dekanat"							=>	'standard',
 		"dekanat->podpolianske-krize"		=>	'standard',
 	),	// "Pravý Panel Zloženie"
 );
