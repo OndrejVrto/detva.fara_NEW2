@@ -21,23 +21,23 @@
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" 
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" role="button">Farnosť</a>
 						<ul class="dropdown-menu" role="menu">
-							<a class="dropdown-item" href="/" >Aktuality</a>
-							<a class="dropdown-item" href="/farnost/liturgicke-oznamy-detva" >Liturgické oznamy</a>
-							<a class="dropdown-item" href="/cista" >Rozpisy lektorov</a>
-							<a class="dropdown-item" href="/cista" >Omše vo farnosti</a>
+							<a class="dropdown-item text-success" href="/" >Aktuality</a>
+							<a class="dropdown-item" href="/farnost/liturgicke-oznamy-farnosti-detva" >Liturgické oznamy</a>
+							<a class="dropdown-item text-danger" href="/farnost/rozpisy-lektorov-detva" >Rozpisy lektorov</a>
+							<a class="dropdown-item text-danger" href="/farnost/svate-omse-vo-farnosti-detva" >Omše vo farnosti</a>
 							<div class="dropdown-divider" role="separator"></div>
-							<a class="dropdown-item" href="/farnost/historia-kostola-sv-frantiska-v-detve" >História farnosti</a>
-							<a class="dropdown-item" href="/cista" >Zaujímavosti nášho kostola</a>
-							<a class="dropdown-item" href="/cista" >Dôležité osobnosti farnosti</a>
+							<a class="dropdown-item" href="/farnost/historia-kostola-sv-frantiska-v-detve" >História kostola</a>
+							<a class="dropdown-item text-danger" href="/farnost/zaujimavosti-nasho-kostola" >Zaujímavosti nášho kostola</a>
+							<a class="dropdown-item text-danger" href="/farnost/dolezite-osobnosti-farnosti" >Dôležité osobnosti farnosti</a>
 							<a class="dropdown-item" href="/farnost/svety-frantisek-z-assisi-patron-farnosti-detva" >Patrón farnosti</a>
-							<a class="dropdown-item" href="/cista" >Štatistiky</a>
-							<a class="dropdown-item" href="/cista" >Vianoce v Detve</a>
+							<a class="dropdown-item text-danger" href="/farnost/statistiky-a-ine-zaujimave-cisla" >Štatistiky</a>
+							<a class="dropdown-item text-danger" href="/farnost/vianoce-v-detve" >Vianoce v Detve</a>
 							<div class="dropdown-divider" role="separator"></div>
-							<a class="dropdown-item" href="/cista" >Farská charita</a>
-							<a class="dropdown-item" href="/cista" >Farská knižnica</a>
+							<a class="dropdown-item text-danger" href="/farnost/farska-charita" >Farská charita</a>
+							<a class="dropdown-item text-danger" href="/farnost/farska-kniznica" >Farská knižnica</a>
 							<div class="dropdown-divider" role="separator"></div>
 							<a class="dropdown-item" href="/farnost/knazi-posobiaci-vo-farnosti-detva" >Kňazi pôsobiaci vo farnosti</a>
-							<a class="dropdown-item" href="/cista" >Kňazi pochádzajúci z farnosti</a>
+							<a class="dropdown-item text-danger" href="/farnost/knazi-pochadzajuci-z-nasho-kraja" >Kňazi z nášho kraja</a>
 							<div class="dropdown-divider" role="separator"></div>
 							<a class="dropdown-item" href="/farnost/kontakt-farsky-urad-detva" >Kontakt</a>
 						</ul>
@@ -46,66 +46,66 @@
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" 
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" role="button">Spoločenstvá</a>
 						<ul class="dropdown-menu" role="menu">
-							<a class="dropdown-item" href="/cista" >Mládežnícky zbor Hosanna</a>
-							<a class="dropdown-item" href="/cista" >Detský spevokol Srdiečko</a>
-							<a class="dropdown-item" href="/cista" >Ochotnícke divadlo František</a>
-							<a class="dropdown-item" href="/cista" >Dychová hudba</a>
+							<a class="dropdown-item text-danger" href="/cista" >Mládežnícky zbor Hosanna</a>
+							<a class="dropdown-item text-danger" href="/cista" >Detský spevokol Srdiečko</a>
+							<a class="dropdown-item text-danger" href="/cista" >Ochotnícke divadlo František</a>
+							<a class="dropdown-item text-danger" href="/cista" >Dychová hudba</a>
 							<div class="dropdown-divider" role="separator"></div>
-							<a class="dropdown-item" href="/cista" >Lektori</a>
-							<a class="dropdown-item" href="/cista" >Miništranti</a>
-							<a class="dropdown-item" href="/cista" >Akolyti</a>
-							<a class="dropdown-item" href="/cista" >Kostolníci</a>
-							<a class="dropdown-item" href="/cista" >Organisti farnosti</a>
+							<a class="dropdown-item text-danger" href="/cista" >Lektori</a>
+							<a class="dropdown-item text-danger" href="/cista" >Miništranti</a>
+							<a class="dropdown-item text-danger" href="/cista" >Akolyti</a>
+							<a class="dropdown-item text-danger" href="/cista" >Kostolníci</a>
+							<a class="dropdown-item text-danger" href="/cista" >Organisti farnosti</a>
 							<div class="dropdown-divider" role="separator"></div>
-							<a class="dropdown-item" href="/cista" >Faustínum</a>
-							<a class="dropdown-item" href="/cista" >Ružencové spoločenstvá</a>
-							<a class="dropdown-item" href="/cista" >Biblické stretká</a>
-							<a class="dropdown-item" href="/cista" >eRko</a>
+							<a class="dropdown-item text-danger" href="/cista" >Faustínum</a>
+							<a class="dropdown-item text-danger" href="/cista" >Ružencové spoločenstvá</a>
+							<a class="dropdown-item text-danger" href="/cista" >Biblické stretká</a>
+							<a class="dropdown-item text-danger" href="/cista" >eRko</a>
 							<div class="dropdown-divider" role="separator"></div>
-							<a class="dropdown-item" href="/cista" >Farská rada</a>
-							<a class="dropdown-item" href="/cista" >Katechéti a animátori</a>
-							<a class="dropdown-item" href="/cista" >Život vo farnosti</a>
+							<a class="dropdown-item text-danger" href="/cista" >Farská rada</a>
+							<a class="dropdown-item text-danger" href="/cista" >Katechéti a animátori</a>
+							<a class="dropdown-item text-danger" href="/cista" >Život vo farnosti</a>
 						</ul>
 					</li>
 					<li class="nav-item dropdown mr-lg-1">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" 
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" role="button">Liturgia</a>
 						<ul class="dropdown-menu" role="menu">
-							<a class="dropdown-item" href="/liturgia/krestanske-sviatosti" >Sviatosť krstu</a>
-							<a class="dropdown-item" href="/cista" >Sväté prijímanie</a>
-							<a class="dropdown-item" href="/cista" >Birmovanie</a>
-							<a class="dropdown-item" href="/cista" >Spovedanie</a>
-							<a class="dropdown-item" href="/cista" >Pomazanie chorých</a>
-							<a class="dropdown-item" href="/cista" >Vysviacka</a>
-							<a class="dropdown-item" href="/cista" >Sobáš</a>
+							<a class="dropdown-item text-warning" href="/liturgia/sviatost-krstu" >Sviatosť krstu</a>
+							<a class="dropdown-item text-danger" href="/liturgia/svate-prijimanie" >Sväté prijímanie</a>
+							<a class="dropdown-item text-danger" href="/liturgia/birmovanie" >Birmovanie</a>
+							<a class="dropdown-item text-danger" href="/liturgia/spovedanie" >Spovedanie</a>
+							<a class="dropdown-item text-danger" href="/liturgia/pomazanie-chorych" >Pomazanie chorých</a>
+							<a class="dropdown-item text-danger" href="/liturgia/vysviacka" >Vysviacka</a>
+							<a class="dropdown-item text-danger" href="/liturgia/sobas" >Sobáš</a>
 							<div class="dropdown-divider" role="separator"></div>
-							<a class="dropdown-item" href="/cista" >Pohreb</a>
-							<a class="dropdown-item" href="/cista" >Požehnávanie príbytkov</a>
-							<a class="dropdown-item" href="/cista" >Požehnávanie predmetov</a>
-							<a class="dropdown-item" href="/cista" >Pobožnosti a adorácie</a>
+							<a class="dropdown-item text-danger" href="/liturgia/pohreb" >Pohreb</a>
+							<a class="dropdown-item text-danger" href="/liturgia/pozehnavanie-pribitkov" >Požehnávanie príbytkov</a>
+							<a class="dropdown-item text-danger" href="/liturgia/pozehnavanie-predmetov" >Požehnávanie predmetov</a>
+							<a class="dropdown-item text-danger" href="/liturgia/poboznosti-a-adoracie" >Pobožnosti a adorácie</a>
 							<div class="dropdown-divider" role="separator"></div>
-							<a class="dropdown-item" href="/cista" >Životopisy svätých</a>
-							<a class="dropdown-item" href="/cista" >Zaujímavé kázne a úvahy</a>
-							<a class="dropdown-item" href="/cista" >Odkazy na zaujímavé stránky</a>
+							<a class="dropdown-item text-danger" href="/liturgia/zivotopisy-svatych" >Životopisy svätých</a>
+							<a class="dropdown-item text-danger" href="/liturgia/zaujimave-kazne-a-uvahy" >Zaujímavé kázne a úvahy</a>
+							<a class="dropdown-item text-danger" href="/liturgia/odkazy-na-zaujimave-stranky" >Odkazy na zaujímavé stránky</a>
 							<div class="dropdown-divider" role="separator"></div>
-							<a class="dropdown-item" href="/cista" >Základné vedomosti kresťana</a>
-							<a class="dropdown-item" href="/cista" >Kódex kánonického práva</a>
+							<a class="dropdown-item text-danger" href="/liturgia/zakladne-vedomosti-krestana" >Základné vedomosti kresťana</a>
+							<a class="dropdown-item text-danger" href="/liturgia/kodex-kanonickeho-prava" >Kódex kánonického práva</a>
 						</ul>
 					</li>
 					<li class="nav-item dropdown mr-lg-1">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" 
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" role="button">Fotogaléria</a>
 						<ul class="dropdown-menu" role="menu">
-							<a class="dropdown-item" href="/fotogaleria/2007/1/" >2007</a>
-							<a class="dropdown-item" href="/fotogaleria/2008/1/" >2008</a>
+							<a class="dropdown-item text-success" href="/fotogaleria/2007/1/" >2007</a>
+							<a class="dropdown-item text-success" href="/fotogaleria/2008/1/" >2008</a>
 							<div class="dropdown-divider" role="separator"></div>
-							<a class="dropdown-item" href="/fotogaleria/2015/1/" >2015</a>
-							<a class="dropdown-item" href="/fotogaleria/2017/1/" >2017</a>
-							<a class="dropdown-item" href="/fotogaleria/starsie/1/" >Staršie</a>
+							<a class="dropdown-item text-success" href="/fotogaleria/2015/1/" >2015</a>
+							<a class="dropdown-item text-success" href="/fotogaleria/2017/1/" >2017</a>
+							<a class="dropdown-item text-success" href="/fotogaleria/starsie/1/" >Staršie</a>
 							<div class="dropdown-divider" role="separator"></div>
-							<a class="dropdown-item" href="/fotogaleria/kostoly/1/" >Kostoly</a>
-							<a class="dropdown-item" href="/fotogaleria/kaplnky/1/" >Kaplnky</a>
-							<a class="dropdown-item" href="/fotogaleria/detvianske-vyrezavane-krize/1/" >Detvianske vyrezávané kríže</a>
+							<a class="dropdown-item text-success" href="/fotogaleria/kostoly/1/" >Kostoly</a>
+							<a class="dropdown-item text-success" href="/fotogaleria/kaplnky/1/" >Kaplnky</a>
+							<a class="dropdown-item text-danger" href="/fotogaleria/detvianske-vyrezavane-krize/1/" >Detvianske vyrezávané kríže</a>
 						</ul>
 					</li>
 				</ul>
@@ -116,15 +116,13 @@
 						<ul class="dropdown-menu dropdown-menu-right" role="menu">
 							<a class="dropdown-item" href="/dekanat/schematizmus-dekanatu-detva-zoznam-farnosti-a-knazov" >Mapa a zoznam farností</a>
 							<a class="dropdown-item" href="/dekanat/klastor-kralovnej-karmelu-v-detve" >Kláštor Kráľovnej Karmelu</a>
-							<a class="dropdown-item" href="/cista" >Rád Menších bratov kapucínov</a>
+							<a class="dropdown-item text-danger" href="/dekanat/rad-mensich-bratov-kapucinov" >Rád Menších bratov Kapucínov</a>
 							<div class="dropdown-divider" role="separator"></div>
-							<a class="dropdown-item" href="/cista" >Fotogaléria kostolov a kaplniek</a>
+							<a class="dropdown-item text-danger" href="/dekanat/svate-omse-v-okoli" >Sväté omše v okolí</a>
+							<a class="dropdown-item text-danger" href="/dekanat/kam-vo-farnosti" >Kam vo farnosti ?</a>
 							<a class="dropdown-item" href="/dekanat/podpolianske-vyrezavane-krize" >Podpolianske vyrezávané kríže</a>
 							<div class="dropdown-divider" role="separator"></div>
-							<a class="dropdown-item" href="/cista" >Sväté omše v okolí</a>
-							<a class="dropdown-item" href="/cista" >Kam vo farnosti ?</a>
-							<div class="dropdown-divider" role="separator"></div>
-							<a class="dropdown-item" href="/cista" >Kontakt dekanského úradu</a>
+							<a class="dropdown-item text-danger" href="/dekanat/kontakt-dekanskeho-uradu" >Kontakt dekanského úradu</a>
 						</ul>
 					</li>
 					<li>

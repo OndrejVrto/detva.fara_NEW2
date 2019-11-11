@@ -8,17 +8,17 @@
 	set_time_limit(5*60);
 	
 	// odchytávanie chýb
-	error_reporting(0);
+	//error_reporting(0);
 	//error_reporting(E_ERROR | E_WARNING);
 	error_reporting(E_ALL);
 
-	//define ("kSERVER", 'http://detva.fara.new');
-	define ("kSERVER", 'http://localhost:8080');
-	//define ("linkVSTUP", '/');  	//inicializacia prveho adresara
+	define ("kSERVER", 'https://detva.fara.new');
+	//define ("kSERVER", 'http://localhost:8080');
+	define ("linkVSTUP", '/');  	//inicializacia prveho adresara
 	//define ("linkVSTUP", '/fotogaleria/2015/1');  	//inicializacia prveho adresara	
-	define ("linkVSTUP", '/farnost/knazi-posobiaci-vo-farnosti-detva');  	//inicializacia prveho adresara	
+	//define ("linkVSTUP", '/farnost/knazi-posobiaci-vo-farnosti-detva');  	//inicializacia prveho adresara	
 	define ("VYPIS", false);
-	define ("ochranaMAX", '10');
+	define ("ochranaMAX", '1000');
 	define ("scoreMANUAL", '0.1');
 	
 	//globalne premenne

@@ -3,8 +3,8 @@
 <body>
 <?php
 	// vymazať po vyvoji
-/* 	echo PHP_EOL;
-	include "menu-pracovne.php"; echo "\n" . PHP_EOL; */
+ 	// echo PHP_EOL;
+	// include "menu-pracovne.php"; echo "\n" . PHP_EOL;
 	// vymazať po vyvoji
 	
 	$path = $_SERVER['DOCUMENT_ROOT'];	

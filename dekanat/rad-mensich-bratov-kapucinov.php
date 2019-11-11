@@ -1,6 +1,6 @@
 <?php
 	// názov stránky v súbore: inicializacne-konstanty-stranok.php
-	$nazovVolajucejStranky = 'dekanat->';
+	$nazovVolajucejStranky = 'dekanat->rad-bratov-kapucinov';
 	
 	$path = $_SERVER['DOCUMENT_ROOT'];
 	include_once $path . "/_vlozene/header.php"; echo "\n";
@@ -12,6 +12,8 @@
 				<img width="50" title="Včela" src="/_data/spolocne/vcela.svg" alt="Včielka s ceruzkou v ruke."/>
 				<h2>Na tejto stránke pracujeme pilne ako včielky.</h2>
 			</div>
+
+rad-mensich-bratov-kapucinov
 			
 			<!-- =============================================== -->
 			<!-- sem vlož kód samotnej stránky -->

@@ -1,3 +1,39 @@
+<?php
+	// názov stránky v súbore: inicializacne-konstanty-stranok.php
+	$nazovVolajucejStranky = 'ostatne->vyhladavanie';
+	
+	$path = $_SERVER['DOCUMENT_ROOT'];
+	include_once $path . "/_vlozene/header.php"; echo "\n";
+?>
+<!-- START - Špeciálne HEAD pre túto stránku -->
+<!-- END   - Špeciálne HEAD pre túto stránku -->
+<?php include $path . "/_vlozene/vrch-stranky.php"; echo "\n"; ?>
+			<div class="alert alert-warning text-center mt-3 mb-5" role="alert">
+				<img width="50" title="Včela" src="/_data/spolocne/vcela.svg" alt="Včielka s ceruzkou v ruke."/>
+				<h2>Na tejto stránke pracujeme pilne ako včielky.</h2>
+			</div>
+<div class="container galeria">
+		<!--  Vzor z Google -->
+		<div class="card shadow p-4 m-4">
+			<h3 class=""><a href="http://detva.fara.new" target="_blank">Farnosť Detva</a></h3>
+			<div class="">
+				<div class="" style="white-space:nowrap">
+					<cite class="">detva.fara.new</cite>
+				</div>
+				<span class="">Pôstna duchovná obnova vo farnosti <em>Detva</em>. Plagát - Postna duchovná obnova v <em>Detve</em> 2017. Združenie apoštolov Božieho milosrdenstva Vás srdečne pozýva&nbsp;...</span>
+			</div>
+		</div>
+		<div class="card shadow p-4 m-4">
+			<h3 class=""><a href="http://detva.fara.new" target="_blank">Farnosť Detva</a></h3>
+			<div class="">
+				<div class="" style="white-space:nowrap">
+					<cite class="">detva.fara.new</cite>
+				</div>
+				<span class="">Pôstna duchovná obnova vo farnosti <em>Detva</em>. Plagát - Postna duchovná obnova v <em>Detve</em> 2017. Združenie apoštolov Božieho milosrdenstva Vás srdečne pozýva&nbsp;...</span>
+			</div>
+		</div>		
+<hr>
+<br>
 <?php 
 // i pro multi-byte (napr. UTF-8)
 $prevodni_tabulka = Array(
@@ -17,8 +53,8 @@ if (!isset($_POST['search']) or $_POST['search']=='') {
 	$hladanyRetazec = 'Prázdny reťazec';
 } else {
 	
-	//pripojenie k databáz
-	include '../_vlozene/ConnectMyAdmin.php';
+	//pripojenie k databáze
+	include_once $path . "/_vlozene/ConnectMyAdmin.php";
 
 	$link = mysqli_connect($prihlasenieSQL, $loginSQL, $passwordSQL, $databazaSQL) or die('Pripojenie k serveru zlyhalo!');
 	$link->set_charset("utf8");
@@ -36,15 +72,15 @@ if (!isset($_POST['search']) or $_POST['search']=='') {
 	
 	// 1. odstránenie diakritiky
 	$hladanyRetazec1 =  strtr($hladanyRetazec0, $prevodni_tabulka);
-	echo $hladanyRetazec1 . "\n<br>\n";
+	//echo $hladanyRetazec1 . "\n<br>\n";
 	
 	// 2. zmenšenie všetkých písmen
 	$hladanyRetazec2 = strtolower($hladanyRetazec1);
-	echo $hladanyRetazec2 . "\n<br>\n";
+	//echo $hladanyRetazec2 . "\n<br>\n";
 
 	// 3. odstránenie html znakov
 	$hladanyRetazec3 = htmlentities($hladanyRetazec2);
-	echo $hladanyRetazec3 . "\n<br>\n";
+	//echo $hladanyRetazec3 . "\n<br>\n";
 	
 	// 4. odstránenie eskejpovacích znakov pre ochranu SQL
 	$hladanyRetazec = $link->real_escape_string($hladanyRetazec3);
@@ -61,7 +97,7 @@ if (!isset($_POST['search']) or $_POST['search']=='') {
 	//WITH QUERY EXPANSION
 	
 	echo $dotaz . "\n<br>\n";
-	$vysledok = mysqli_query($link, $dotaz) or die("Nepodarilo sa vyhodnotiť dotaz!");
+	$vysledok = mysqli_query($link, $dotaz) or die("1. Nepodarilo sa vyhodnotiť dotaz!");
 	echo "Počet nájdených vyhovujúcich výsledkov A: <b>".mysqli_num_rows($vysledok)."</b><br>";
 	echo "\n<br>\n";
 	if (mysqli_num_rows($vysledok)==0) {
@@ -74,30 +110,15 @@ if (!isset($_POST['search']) or $_POST['search']=='') {
 		$dotaz .= "title_upraveny LIKE '%" . $hladanyRetazec . "%' or ";
 		$dotaz .= "nadpis_upraveny LIKE '%" . $hladanyRetazec . "%' ORDER BY score DESC LIMIT 10;";
 		
-		echo $dotaz . "\n<br>\n";
-		$vysledok = mysqli_query($link, $dotaz) or die("Nepodarilo sa vyhodnotiť dotaz!");
+		//echo $dotaz . "\n<br>\n";
+		$vysledok = mysqli_query($link, $dotaz) or die("2. Nepodarilo sa vyhodnotiť dotaz!");
 		echo "Počet nájdených vyhovujúcich výsledkov B: <b>".mysqli_num_rows($vysledok)."</b><br>";
 	}
 ?>
 
-		<hr>
-		<br>
-
-		<!--  Vzor z Google -->
-		<div class="">
-			<h3 class=""><a href="http://detva.fara.sk/" target="_blank">Farnosť Detva</a></h3>
-			<div class="">
-				<div class="" style="white-space:nowrap">
-					<cite class="">detva.fara.sk/</cite>
-				</div>
-				<span class="">Pôstna duchovná obnova vo farnosti <em>Detva</em>. Plagát - Postna duchovná obnova v <em>Detve</em> 2017. Združenie apoštolov Božieho milosrdenstva Vás srdečne pozýva&nbsp;...</span>
-			</div>
-		</div>
-
 <?php
     // výpis výsledku
-    echo "\t\t<br><br>\n\t\t<hr>\n\n\t\t<table width=\"100%\" border=\"5\">
-          <caption>Výsledky vyhľadávania</caption>
+    echo "\t\t<br><br>\n\t\t\t<table width=\"100%\" border=\"5\">
           <thead>
             <tr>
 				<th>SCORE</th>
@@ -128,4 +149,9 @@ if (!isset($_POST['search']) or $_POST['search']=='') {
 	MySQLi_Close($link);
 }
 ?>
-
+		</div>
+<?php include $path . "/_vlozene/spodok-stranky.php"; echo "\n";?>
+<!-- START - Individuálne skripty na konci stranky -->
+<!-- END   - Individuálne skripty na konci stranky -->
+</body>
+</html>
