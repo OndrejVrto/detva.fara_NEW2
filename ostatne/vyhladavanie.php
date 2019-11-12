@@ -12,9 +12,11 @@
 
 	// predvyplnenie poľa Input naposledy hľadanou hodnotou.
 	// poľe sa pre istotu ošetrí na html znaky
-	
+
 	if (isset($_GET['search'])) {
+		$prevodni_tabulka_mala = Array('        '=>' ', '       '=>' ', '      '=>' ', '     '=>' ', '    '=>' ', '   '=>' ', '  '=>' ',); // medzery 8 zž 2 nahradiť 1
 		$hladanaHodnota = $_GET['search'];
+		$hladanaHodnota =  strtr($hladanaHodnota, $prevodni_tabulka_mala);
 		$hladanaHodnota = htmlentities($hladanaHodnota);
 	} else { $hladanaHodnota = ''; }
 	$hladanaHodnota = "value=\"". $hladanaHodnota ."\"";
@@ -60,7 +62,8 @@ $prevodni_tabulka = Array(
   'o'=>'o', 'O'=>'O', 'o'=>'o', 'O'=>'O', 'ő'=>'o', 'Ő'=>'O', 'ř'=>'r', 'Ř'=>'R', 'ŕ'=>'r', 'Ŕ'=>'R',
   'š'=>'s', 'Š'=>'S', 'ś'=>'s', 'Ś'=>'S', 'ť'=>'t', 'Ť'=>'T', 'ú'=>'u', 'Ú'=>'U', 'ů'=>'u', 'Ů'=>'U',
   'ü'=>'u', 'Ü'=>'U', 'u'=>'u', 'U'=>'U', 'u'=>'u', 'U'=>'U', 'u'=>'u', 'U'=>'U', 'ý'=>'y', 'Ý'=>'Y',
-  'ž'=>'z', 'Ž'=>'Z', 'ź'=>'z', 'Ź'=>'Z', ','=>'',  '.'=>'',
+  'ž'=>'z', 'Ž'=>'Z', 'ź'=>'z', 'Ź'=>'Z', ','=>'',  '.'=>'-' , 
+  '        '=>' ', '       '=>' ', '      '=>' ', '     '=>' ', '    '=>' ', '   '=>' ', '  '=>' ',   // medzery 8 zž 2 nahradiť 1
 );
 
 // Otestuje či je vložená nejaká hodnota v premennej "search"
@@ -84,23 +87,27 @@ if (!isset($_GET['search']) or $_GET['search']=='') {
 	// O. orginál text
 	$hladanyRetazec0 = $_GET['search'];
 	
-	echo $hladanyRetazec0 . "\n<br>\n";
+	echo "VSTUP\t\t>" . $hladanyRetazec0 . "\n<br>\n";
 
 	// 1. odstránenie html znakov
 	$hladanyRetazec1 = htmlentities($hladanyRetazec0);
-	echo $hladanyRetazec1 . "\n<br>\n";
+	echo "HTML\t\t>" . $hladanyRetazec1 . "\n<br>\n";
 	
 	// 2. odstránenie diakritiky
 	$hladanyRetazec2 =  strtr($hladanyRetazec1, $prevodni_tabulka);
-	echo $hladanyRetazec2 . "\n<br>\n";
+	echo "ZNAKY\t\t>" . $hladanyRetazec2 . "\n<br>\n";
 	
 	// 3. zmenšenie všetkých písmen
 	$hladanyRetazec3 = strtolower($hladanyRetazec2);
-	echo $hladanyRetazec3 . "\n<br>\n";
+	echo "MALE\t\t>" . $hladanyRetazec3 . "\n<br>\n";
 	
 	// 4. odstránenie eskejpovacích znakov pre ochranu SQL
-	$hladanyRetazec = $link->real_escape_string($hladanyRetazec3);
-	echo $hladanyRetazec . "\n<br>\n<br>\n";
+	$hladanyRetazec4 = trim($hladanyRetazec3);
+	echo "TRIM\t\t>" . $hladanyRetazec4 . "\n<br>\n\n";
+	
+	// 5. odstránenie eskejpovacích znakov pre ochranu SQL
+	$hladanyRetazec = $link->real_escape_string($hladanyRetazec4);
+	echo "SQL\t\t>" . $hladanyRetazec . "\n<br>\n<br>\n";
 
 	$dotaz = "SELECT *, LOCATE(\"" . $hladanyRetazec . "\", obsah) as poloha, MATCH(title_upraveny, nadpis_upraveny, obsah) AGAINST('";
 	$dotaz .= $hladanyRetazec . "' IN NATURAL LANGUAGE MODE WITH QUERY EXPANSION) as score, ";
@@ -108,13 +115,7 @@ if (!isset($_GET['search']) or $_GET['search']=='') {
 	$dotaz .= "((LENGTH(title_upraveny) - LENGTH(REPLACE(title_upraveny, '" . $hladanyRetazec . "', '')))/LENGTH('" . $hladanyRetazec . "'))*3 +";
 	$dotaz .= "((LENGTH(nadpis_upraveny) - LENGTH(REPLACE(nadpis_upraveny, '" . $hladanyRetazec . "', '')))/LENGTH('" . $hladanyRetazec . "'))*2 AS count ";
 	$dotaz .= "FROM search_data WHERE MATCH(title_upraveny, nadpis_upraveny, obsah) AGAINST('";
-	$dotaz .= $hladanyRetazec . "' IN NATURAL LANGUAGE MODE WITH QUERY EXPANSION) ORDER BY score DESC LIMIT 10";
-	
-	
-/* 	$dotaz = "SELECT *, LOCATE(\"" . $hladanyRetazec . "\", obsah) as poloha, MATCH(title_upraveny, nadpis_upraveny, obsah) AGAINST('";
-	$dotaz .= $hladanyRetazec . "' IN NATURAL LANGUAGE MODE WITH QUERY EXPANSION) as score";
-	$dotaz .= " FROM search_data WHERE MATCH(title_upraveny, nadpis_upraveny, obsah) AGAINST('";
-	$dotaz .= $hladanyRetazec . "' IN NATURAL LANGUAGE MODE WITH QUERY EXPANSION) ORDER BY score DESC LIMIT 10"; */
+	$dotaz .= $hladanyRetazec . "' IN NATURAL LANGUAGE MODE WITH QUERY EXPANSION) ORDER BY score DESC";
 	
 	//WITH QUERY EXPANSION
 	
@@ -130,7 +131,7 @@ if (!isset($_GET['search']) or $_GET['search']=='') {
 		$dotaz .= "FROM search_data WHERE ";
 		$dotaz .= "obsah LIKE '%" . $hladanyRetazec . "%' or ";
 		$dotaz .= "title_upraveny LIKE '%" . $hladanyRetazec . "%' or ";
-		$dotaz .= "nadpis_upraveny LIKE '%" . $hladanyRetazec . "%' ORDER BY score DESC LIMIT 10;";
+		$dotaz .= "nadpis_upraveny LIKE '%" . $hladanyRetazec . "%' ORDER BY score DESC;";
 		
 		//echo $dotaz . "\n<br>\n";
 		$vysledok = mysqli_query($link, $dotaz) or die("2. Nepodarilo sa vyhodnotiť dotaz!");

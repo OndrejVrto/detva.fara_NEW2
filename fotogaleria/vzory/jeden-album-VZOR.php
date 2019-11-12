@@ -30,7 +30,7 @@
 				<div class="card-columns">
 					<a href="/fotogaleria/2015/2015-12-xx_Zdobenie_stromceka/1/">
 						<div class="card mx-3 mx-sm-0 border-success">
-							<img class="card-img-top" src="/_fotoalbumy/2015/2015-12-26_Dychovka_na_Stefana/thumbs/Dychovka2015_002.jpg" alt="2015-12-xx_Zdobenie_stromceka-Random"/>
+							<img class="card-img-top" src="/_fotoalbumy/2015/2015-12-26-Dychovka-na-Stefana/thumbs/Dychovka2015-002.jpg" alt="2015-12-xx_Zdobenie_stromceka-Random"/>
 							<div class="card-body">
 								<p class="card-text">Na sv. Štefanna zahrala dychovka všetkým farnikom. Spev, slovo veselé bolo cítiť na každom kroku.</p>
 							</div>
@@ -38,24 +38,24 @@
 					</a>
 					<a href="/fotogaleria/2015/2015-12-xx_Zdobenie_stromceka/1/">
 						<div class="card mx-3 mx-sm-0 border-success">
-							<img class="card-img-top" src="/_fotoalbumy/2015/2015-12-26_Dychovka_na_Stefana/thumbs/Dychovka2015_010.jpg" alt="2015-12-xx_Zdobenie_stromceka-Random"/>
+							<img class="card-img-top" src="/_fotoalbumy/2015/2015-12-26-Dychovka-na-Stefana/thumbs/Dychovka2015-010.jpg" alt="2015-12-xx_Zdobenie_stromceka-Random"/>
 							<div class="card-body">
 							</div>
 						</div>
 					</a>
 					<a href="/fotogaleria/2015/2015-12-xx_Zdobenie_stromceka/1/">
 						<div class="card mx-3 mx-sm-0 border-success">
-							<img class="card-img-top" src="/_fotoalbumy/2015/2015-12-26_Dychovka_na_Stefana/thumbs/Dychovka2015_004.jpg" alt="2015-12-xx_Zdobenie_stromceka-Random"/>
+							<img class="card-img-top" src="/_fotoalbumy/2015/2015-12-26-Dychovka-na-Stefana/thumbs/Dychovka2015-004.jpg" alt="2015-12-xx_Zdobenie_stromceka-Random"/>
 						</div>
 					</a>
 					<a href="/fotogaleria/2015/2015-12-xx_Zdobenie_stromceka/1/">
 						<div class="card mx-3 mx-sm-0 border-success">
-							<img class="card-img-top" src="/_fotoalbumy/2015/2015-12-26_Dychovka_na_Stefana/thumbs/Dychovka2015_008.jpg" alt="2015-12-xx_Zdobenie_stromceka-Random"/>
+							<img class="card-img-top" src="/_fotoalbumy/2015/2015-12-26-Dychovka-na-Stefana/thumbs/Dychovka2015-008.jpg" alt="2015-12-xx_Zdobenie_stromceka-Random"/>
 						</div>
 					</a>
 					<a href="/fotogaleria/2015/2015-12-xx_Zdobenie_stromceka/1/">
 						<div class="card mx-3 mx-sm-0 border-success">
-							<img class="card-img-top" src="/_fotoalbumy/2015/2015-12-26_Dychovka_na_Stefana/thumbs/Dychovka2015_004.jpg" alt="2015-12-xx_Zdobenie_stromceka-Random"/>
+							<img class="card-img-top" src="/_fotoalbumy/2015/2015-12-26-Dychovka-na-Stefana/thumbs/Dychovka2015-004.jpg" alt="2015-12-xx_Zdobenie_stromceka-Random"/>
 							<div class="card-body">
 								<p class="card-text">Na sv. Štefanna.</p>
 							</div>
@@ -63,12 +63,12 @@
 					</a>
 					<a href="/fotogaleria/2015/2015-12-xx_Zdobenie_stromceka/1/">
 						<div class="card mx-3 mx-sm-0 border-success">
-							<img class="card-img-top" src="/_fotoalbumy/2015/2015-12-26_Dychovka_na_Stefana/thumbs/Dychovka2015_003.jpg" alt="2015-12-xx_Zdobenie_stromceka-Random"/>
+							<img class="card-img-top" src="/_fotoalbumy/2015/2015-12-26-Dychovka-na-Stefana/thumbs/Dychovka2015-003.jpg" alt="2015-12-xx_Zdobenie_stromceka-Random"/>
 						</div>
 					</a>
 					<a href="/fotogaleria/2015/2015-12-xx_Zdobenie_stromceka/1/">
 						<div class="card mx-3 mx-sm-0 border-success">
-							<img class="card-img-top" src="/_fotoalbumy/2015/2015-12-xx_Adventna_cesta/thumbs/AdvCesta001.jpg" alt="2015-12-xx_Zdobenie_stromceka-Random"/>
+							<img class="card-img-top" src="/_fotoalbumy/2015/2015-12-xx-Adventna-cesta/thumbs/AdvCesta001.jpg" alt="2015-12-xx_Zdobenie_stromceka-Random"/>
 							<div class="card-body">
 								<p class="card-text">Na sv. Štefanna zahrala dychovka všetkým farnikom. Spev, slovo veselé bolo cítiť na každom kroku.</p>
 							</div>
@@ -76,13 +76,13 @@
 					</a>
 					<a href="/fotogaleria/2015/2015-12-xx_Zdobenie_stromceka/1/">
 						<div class="card mx-3 mx-sm-0 border-success">
-							<img class="card-img-top" src="/_fotoalbumy/2015/2015-12-26_Dychovka_na_Stefana/thumbs/Dychovka2015_005.jpg" alt="2015-12-xx_Zdobenie_stromceka-Random"/>
+							<img class="card-img-top" src="/_fotoalbumy/2015/2015-12-26-Dychovka-na-Stefana/thumbs/Dychovka2015-005.jpg" alt="2015-12-xx_Zdobenie_stromceka-Random"/>
 
 						</div>
 					</a>
 					<a href="/fotogaleria/2015/2015-12-xx_Zdobenie_stromceka/1/">
 						<div class="card mx-3 mx-sm-0 border-success">
-							<img class="card-img-top" src="/_fotoalbumy/2015/2015-12-xx_Adventna_cesta/thumbs/AdvCesta010.jpg" alt="2015-12-xx_Zdobenie_stromceka-Random"/>
+							<img class="card-img-top" src="/_fotoalbumy/2015/2015-12-xx-Adventna-cesta/thumbs/AdvCesta010.jpg" alt="2015-12-xx_Zdobenie_stromceka-Random"/>
 							<div class="card-body">
 								<p class="card-text">Spev, slovo veselé bolo cítiť na každom kroku.</p>
 							</div>
@@ -90,7 +90,7 @@
 					</a>
 					<a href="/fotogaleria/2015/2015-12-xx_Zdobenie_stromceka/1/">
 						<div class="card mx-3 mx-sm-0 border-success">
-							<img class="card-img-top" src="/_fotoalbumy/2015/2015-12-26_Dychovka_na_Stefana/thumbs/Dychovka2015_007.jpg" alt="2015-12-xx_Zdobenie_stromceka-Random"/>
+							<img class="card-img-top" src="/_fotoalbumy/2015/2015-12-26-Dychovka-na-Stefana/thumbs/Dychovka2015-007.jpg" alt="2015-12-xx_Zdobenie_stromceka-Random"/>
 							<div class="card-body">
 								<p class="card-text">šetkým farnikom. Spev, slovo veselé bolo cítiť na každom kroku.</p>
 							</div>

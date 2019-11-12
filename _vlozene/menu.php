@@ -46,25 +46,25 @@
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" 
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" role="button">Spoločenstvá</a>
 						<ul class="dropdown-menu" role="menu">
-							<a class="dropdown-item text-danger" href="/cista" >Mládežnícky zbor Hosanna</a>
-							<a class="dropdown-item text-danger" href="/cista" >Detský spevokol Srdiečko</a>
-							<a class="dropdown-item text-danger" href="/cista" >Ochotnícke divadlo František</a>
-							<a class="dropdown-item text-danger" href="/cista" >Dychová hudba</a>
+							<a class="dropdown-item text-danger" href="/spolocenstva/mladeznicky-zbor-hosanna" >Mládežnícky zbor Hosanna</a>
+							<a class="dropdown-item text-danger" href="/spolocenstva/detsky-spevokol-srdiecko" >Detský spevokol Srdiečko</a>
+							<a class="dropdown-item text-danger" href="/spolocenstva/ochotnicke-divadlo-frantisek" >Ochotnícke divadlo František</a>
+							<a class="dropdown-item text-danger" href="/spolocenstva/dychova-hudba" >Dychová hudba</a>
 							<div class="dropdown-divider" role="separator"></div>
-							<a class="dropdown-item text-danger" href="/cista" >Lektori</a>
-							<a class="dropdown-item text-danger" href="/cista" >Miništranti</a>
-							<a class="dropdown-item text-danger" href="/cista" >Akolyti</a>
-							<a class="dropdown-item text-danger" href="/cista" >Kostolníci</a>
-							<a class="dropdown-item text-danger" href="/cista" >Organisti farnosti</a>
+							<a class="dropdown-item text-danger" href="/spolocenstva/lektori" >Lektori</a>
+							<a class="dropdown-item text-danger" href="/spolocenstva/ministranti" >Miništranti</a>
+							<a class="dropdown-item text-danger" href="/spolocenstva/akolyti" >Akolyti</a>
+							<a class="dropdown-item text-danger" href="/spolocenstva/kostolnici" >Kostolníci</a>
+							<a class="dropdown-item text-danger" href="/spolocenstva/organisti-farnosti" >Organisti farnosti</a>
 							<div class="dropdown-divider" role="separator"></div>
-							<a class="dropdown-item text-danger" href="/cista" >Faustínum</a>
-							<a class="dropdown-item text-danger" href="/cista" >Ružencové spoločenstvá</a>
-							<a class="dropdown-item text-danger" href="/cista" >Biblické stretká</a>
-							<a class="dropdown-item text-danger" href="/cista" >eRko</a>
+							<a class="dropdown-item text-danger" href="/spolocenstva/faustinum" >Faustínum</a>
+							<a class="dropdown-item text-danger" href="/spolocenstva/ruzencove-spolocenstva" >Ružencové spoločenstvá</a>
+							<a class="dropdown-item text-danger" href="/spolocenstva/biblicke-stretka" >Biblické stretká</a>
+							<a class="dropdown-item text-danger" href="/spolocenstva/erko" >eRko</a>
 							<div class="dropdown-divider" role="separator"></div>
-							<a class="dropdown-item text-danger" href="/cista" >Farská rada</a>
-							<a class="dropdown-item text-danger" href="/cista" >Katechéti a animátori</a>
-							<a class="dropdown-item text-danger" href="/cista" >Život vo farnosti</a>
+							<a class="dropdown-item text-danger" href="/spolocenstva/farska-rada" >Farská rada</a>
+							<a class="dropdown-item text-danger" href="/spolocenstva/katecheti-a-animatori" >Katechéti a animátori</a>
+							<a class="dropdown-item text-danger" href="/spolocenstva/zivot-vo-farnosti" >Život vo farnosti</a>
 						</ul>
 					</li>
 					<li class="nav-item dropdown mr-lg-1">
