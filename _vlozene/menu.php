@@ -126,10 +126,10 @@
 						</ul>
 					</li>
 					<li>
-						<form class="input-group mt-2 mt-lg-0" action="/ostatne/vyhladavanie.php" method="post">
-							<input class="form-control" type="search" placeholder="" name="search" aria-label="Search">
-							<span class="input-group-btn">
-								<button class="btn btn-warning" type="submit" name="submit" value="send" id="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+						<form class="input-group mt-2 mt-lg-0">
+							<input onkeypress="return SearchEnter(event)" class="form-control" type="search" name="search" id="PoleSearch_1" aria-label="Search">
+							<span class="input-group-append">
+								<button onclick="return SearchKlik()" class="btn btn-warning" type="button" name="submit1" value="send" id="submit1"><i class="fa fa-search" aria-hidden="true"></i></button>
 							</span>
 						</form>
 					</li>

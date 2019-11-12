@@ -84,7 +84,7 @@ function CarouselPohyblivy ($vstupnePoleCarousel, $cisielok, $cesta, $NazovSubor
 		echo "<div class=\"carousel-item";
 		if ($pocitadlo==$caruselAktivny) { echo " active"; }
 		echo "\">\n\t\t\t";
-		echo "<img class=\"d-block rounded w-100\" alt=\"slide". $pocitadlo ."\"\n\t\t\t\t";
+		echo "<img class=\"d-block w-100\" alt=\"slide". $pocitadlo ."\"\n\t\t\t\t";
 			echo "src=\"". $cesta ."1200x300/". $NazovSuboru . $ObrazokCislo2 . $pripona ."\"\n\t\t\t\t";
 			echo "srcset=\"". $cesta ."0600x150/". $NazovSuboru . $ObrazokCislo2 . $pripona ." 600w,\n\t\t\t\t\t\t";
 			echo $cesta ."1200x300/". $NazovSuboru . $ObrazokCislo2 . $pripona ." 1200w,\n\t\t\t\t\t\t";

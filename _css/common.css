@@ -188,10 +188,6 @@ nav#druhe {
 	padding-top: 1rem;
 	padding-bottom: 0;
 }
-button#submit {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-}
 
 
 /* STARé */
@@ -429,10 +425,10 @@ mark {
 }
 
 @media (max-width: 720px) {
-	.carousel-control-prev,
-	.carousel-control-next,
-	.carousel-control-prev-icon,
-	.ccarousel-control-next-icon,
+/*  	.carousel-control-prev,
+	.carousel-control-next,  */
+/*  	.carousel-control-prev-icon,
+	.carousel-control-next-icon,  */
 	.carousel-indicators{
 	  display: none;
 	  /*top: 46%;*/

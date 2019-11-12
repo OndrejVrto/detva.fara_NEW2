@@ -23,8 +23,8 @@
 
 	// START - Konštanty pre Foto-albumy
 		// nastaví počty miniatúr vo fotogalérii
-		$albumov_na_stranke = 15;						// number of albums per page
-		$fotiek_na_stranke  = 30;						// number of images per page    
+		$albumov_na_stranke = 10;						// number of albums per page
+		$fotiek_na_stranke  = 20;						// number of images per page    
 		$radenie_albumov = "Z-A";						// radenie od A-Z alebo Z-A
 		
 		// true - pri zobrazení zoznamu galérií vyberie do náhľadu jednu náhodnú fotku
@@ -488,7 +488,7 @@ $konstantyStranok = array(
 		"Hlavná Stránka" 					=>	'JedenNahodnyObrazok',
 		"Fotogaléria" 						=>	false,
 		"ostatne->Vsetky-otazky"			=>	array('028', '029', '030', '031', '032', '033', '034'),
-		"ostatne->vyhladavanie"				=>	'JedenNahodnyObrazok',
+		"ostatne->vyhladavanie"				=>	false,
 
 		"farnost"							=>	'standard',
 		"farnost->liturgicke-oznamy"		=>	'standard',

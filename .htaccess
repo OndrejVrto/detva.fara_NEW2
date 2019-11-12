@@ -23,6 +23,10 @@ RewriteRule ^fotogaleria/([0-9a-zA-Z-]+)/([0])/ fotogaleria/fotogaleria.php?gale
 RewriteRule ^fotogaleria/([0-9a-zA-Z-]+)/([1-9]*[0-9]+)/ fotogaleria/fotogaleria.php?galeria=$1&p=$2 [QSA,L]
 RewriteRule ^fotogaleria/([0-9a-zA-Z-]+) fotogaleria/fotogaleria.php?galeria=$1&p=1 [QSA,L]
 
+# pravidlo pre vyhladavanie
+# funguje ak napr: https://detva.fara.sk/ostatne/vyhladavanie/*Hladanahodnota*
+RewriteRule ^vyhladavanie/(.+) ostatne/vyhladavanie.php?search=$1 [QSA,L]
+
 # pravidlá presmerovania pre správy hlavnej stránky
 RewriteRule ^stranka\-([0]) index.php?&p=1 [QSA,L]
 RewriteRule ^stranka\-([1-9]*[0-9]+) index.php?&p=$1 [QSA,L]
@@ -55,7 +59,7 @@ RewriteRule ^stranka\-([1-9]*[0-9]+) index.php?&p=$1 [QSA,L]
  # RewriteCond %{REQUEST_FILENAME} !-f
  # RewriteCond %{REQUEST_FILENAME} !-d
  # RewriteRule . /? [R=301]
- 
+
 #Block bad bots
 RewriteCond %{HTTP_USER_AGENT} ^BlackWidow [OR]
 RewriteCond %{HTTP_USER_AGENT} ^Bot\ mailto:craftbot@yahoo.com [OR]

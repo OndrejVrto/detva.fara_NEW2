@@ -7,14 +7,29 @@
 ?>
 <!-- START - Špeciálne HEAD pre túto stránku -->
 <!-- END   - Špeciálne HEAD pre túto stránku -->
-<?php include $path . "/_vlozene/vrch-stranky.php"; echo "\n"; ?>
-			<div class="alert alert-warning text-center mt-3 mb-5" role="alert">
-				<img width="50" title="Včela" src="/_data/spolocne/vcela.svg" alt="Včielka s ceruzkou v ruke."/>
-				<h2>Na tejto stránke pracujeme pilne ako včielky.</h2>
-			</div>
+<?php
+	include $path . "/_vlozene/vrch-stranky.php"; echo "\n";
+
+	// predvyplnenie poľa Input naposledy hľadanou hodnotou.
+	// poľe sa pre istotu ošetrí na html znaky
+	
+	if (isset($_GET['search'])) {
+		$hladanaHodnota = $_GET['search'];
+		$hladanaHodnota = htmlentities($hladanaHodnota);
+	} else { $hladanaHodnota = ''; }
+	$hladanaHodnota = "value=\"". $hladanaHodnota ."\"";
+?>
+			<form class="input-group input-group-lg m-auto p-4">
+				<input onkeypress="return SearchEnter2(event)" class="form-control"  type="search" name="search" id="PoleSearch_2" aria-label="Search"
+						<?php echo $hladanaHodnota;?>>  <!-- Naposledy hľadaná hodnota -->
+				<span class="input-group-append">
+					<button onclick="return SearchKlik2()" class="btn btn-warning" type="button" name="submit2" value="send" id="submit2"><i class="fa fa-search" aria-hidden="true"></i></button>
+				</span>
+			</form>
+			
 <div class="container galeria">
 		<!--  Vzor z Google -->
-		<div class="card shadow p-4 m-4">
+		<div class="card shadow px-4 mx-4">
 			<h3 class=""><a href="http://detva.fara.new" target="_blank">Farnosť Detva</a></h3>
 			<div class="">
 				<div class="" style="white-space:nowrap">
@@ -23,7 +38,7 @@
 				<span class="">Pôstna duchovná obnova vo farnosti <em>Detva</em>. Plagát - Postna duchovná obnova v <em>Detve</em> 2017. Združenie apoštolov Božieho milosrdenstva Vás srdečne pozýva&nbsp;...</span>
 			</div>
 		</div>
-		<div class="card shadow p-4 m-4">
+<!-- 		<div class="card shadow p-4 m-4">
 			<h3 class=""><a href="http://detva.fara.new" target="_blank">Farnosť Detva</a></h3>
 			<div class="">
 				<div class="" style="white-space:nowrap">
@@ -31,9 +46,9 @@
 				</div>
 				<span class="">Pôstna duchovná obnova vo farnosti <em>Detva</em>. Plagát - Postna duchovná obnova v <em>Detve</em> 2017. Združenie apoštolov Božieho milosrdenstva Vás srdečne pozýva&nbsp;...</span>
 			</div>
-		</div>		
-<hr>
+		</div>	 -->	
 <br>
+
 <?php 
 // i pro multi-byte (napr. UTF-8)
 $prevodni_tabulka = Array(
@@ -49,7 +64,7 @@ $prevodni_tabulka = Array(
 );
 
 // Otestuje či je vložená nejaká hodnota v premennej "search"
-if (!isset($_POST['search']) or $_POST['search']=='') {
+if (!isset($_GET['search']) or $_GET['search']=='') {
 	$hladanyRetazec = 'Prázdny reťazec';
 } else {
 	
@@ -67,20 +82,21 @@ if (!isset($_POST['search']) or $_POST['search']=='') {
 
 	//čistenie hľadaného textu vo viacerých krokoch
 	// O. orginál text
-	$hladanyRetazec0 = $_POST['search'];
+	$hladanyRetazec0 = $_GET['search'];
+	
 	echo $hladanyRetazec0 . "\n<br>\n";
-	
-	// 1. odstránenie diakritiky
-	$hladanyRetazec1 =  strtr($hladanyRetazec0, $prevodni_tabulka);
-	//echo $hladanyRetazec1 . "\n<br>\n";
-	
-	// 2. zmenšenie všetkých písmen
-	$hladanyRetazec2 = strtolower($hladanyRetazec1);
-	//echo $hladanyRetazec2 . "\n<br>\n";
 
-	// 3. odstránenie html znakov
-	$hladanyRetazec3 = htmlentities($hladanyRetazec2);
-	//echo $hladanyRetazec3 . "\n<br>\n";
+	// 1. odstránenie html znakov
+	$hladanyRetazec1 = htmlentities($hladanyRetazec0);
+	echo $hladanyRetazec1 . "\n<br>\n";
+	
+	// 2. odstránenie diakritiky
+	$hladanyRetazec2 =  strtr($hladanyRetazec1, $prevodni_tabulka);
+	echo $hladanyRetazec2 . "\n<br>\n";
+	
+	// 3. zmenšenie všetkých písmen
+	$hladanyRetazec3 = strtolower($hladanyRetazec2);
+	echo $hladanyRetazec3 . "\n<br>\n";
 	
 	// 4. odstránenie eskejpovacích znakov pre ochranu SQL
 	$hladanyRetazec = $link->real_escape_string($hladanyRetazec3);
@@ -93,6 +109,12 @@ if (!isset($_POST['search']) or $_POST['search']=='') {
 	$dotaz .= "((LENGTH(nadpis_upraveny) - LENGTH(REPLACE(nadpis_upraveny, '" . $hladanyRetazec . "', '')))/LENGTH('" . $hladanyRetazec . "'))*2 AS count ";
 	$dotaz .= "FROM search_data WHERE MATCH(title_upraveny, nadpis_upraveny, obsah) AGAINST('";
 	$dotaz .= $hladanyRetazec . "' IN NATURAL LANGUAGE MODE WITH QUERY EXPANSION) ORDER BY score DESC LIMIT 10";
+	
+	
+/* 	$dotaz = "SELECT *, LOCATE(\"" . $hladanyRetazec . "\", obsah) as poloha, MATCH(title_upraveny, nadpis_upraveny, obsah) AGAINST('";
+	$dotaz .= $hladanyRetazec . "' IN NATURAL LANGUAGE MODE WITH QUERY EXPANSION) as score";
+	$dotaz .= " FROM search_data WHERE MATCH(title_upraveny, nadpis_upraveny, obsah) AGAINST('";
+	$dotaz .= $hladanyRetazec . "' IN NATURAL LANGUAGE MODE WITH QUERY EXPANSION) ORDER BY score DESC LIMIT 10"; */
 	
 	//WITH QUERY EXPANSION
 	
@@ -121,7 +143,7 @@ if (!isset($_POST['search']) or $_POST['search']=='') {
     echo "\t\t<br><br>\n\t\t\t<table width=\"100%\" border=\"5\">
           <thead>
             <tr>
-				<th>SCORE</th>
+ 				<th>SCORE</th>
 				<th>BODY</th>
 				<th>POLOHA</th>				
 				<th>LINK</th>
@@ -134,13 +156,13 @@ if (!isset($_POST['search']) or $_POST['search']=='') {
 		 while($pole=mysqli_fetch_array($vysledok))
 		 {
 			  echo "\n\t\t\t<tr>
-				<td>".$pole["score"]."</td>
-				<td>".$pole["count"]."</td>
-				<td>".$pole["poloha"]."</td>
-				<td>".$pole["link"]."</td>
-				<td>".$pole["title"]."</td>
-				<td>".$pole["nadpis"]."</td>
-				<td>".$pole["obsah"]."</td>";
+				<td>" .$pole["score"]. "</td>
+				<td>" .$pole["count"]. "</td>
+				<td>" .$pole["poloha"]."</td>
+				<td>" .$pole["link"].  "</td>
+				<td>" .$pole["title"]. "</td>
+				<td>" .$pole["nadpis"]."</td>
+				<td>" .$pole["obsah"]. "</td>";
 			 echo "\n\t\t\t</tr>";
 		 }
     echo "\n\t\t</tbody>\n\t</table>";
