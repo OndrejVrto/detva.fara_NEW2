@@ -60,7 +60,7 @@
 		
 	// vrchný pagination
 		$vystupHTML .=  pagination_vrto($cisloListu, $pocetStranok, $adresarVSTUP_html, '/', 'prve', false, 0 );	
-		$vystupHTML .=	"\n\t\t\t\t" . '<div class="card-columns mb-minus-1">';
+		$vystupHTML .=	"\n\t\t\t\t" . '<div class="card-columns mb-n3">';
 		
 	// samotny zoznam albumov
 		if ($radenie_albumov == "A-Z"){

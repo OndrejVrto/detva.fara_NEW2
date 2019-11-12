@@ -180,11 +180,6 @@ html {
 	background-color: #007bff;
 }
 
-.mb-minus-1 {
-	margin-bottom: -1rem;
-}
-
-
 nav#prve {
 	padding-top: 0;
 	padding-bottom: 1rem;
@@ -193,8 +188,10 @@ nav#druhe {
 	padding-top: 1rem;
 	padding-bottom: 0;
 }
-
-
+button#submit {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
 
 
 /* STARé */

@@ -31,10 +31,15 @@
     <script>window.jQuery || document.write('<script src="/_javascripty/jquery-slim.min.js"><\/script>')</script>
     <script src="/_javascripty/popper.min.js"></script>
     <script src="/_javascripty/bootstrap.min.js"></script>
-	<script> $('.carousel').carousel({
+<?php
+	if ($caruselOFF === 'JedenNahodnyObrazok' or $caruselOFF === false){
+	} else{
+	echo"\t<script> $('.carousel').carousel({
 				wrap: false
-			})
-	</script>
+				})
+	</script>\n";
+	}
+?>
 	<script>
 		$(function () {
 			var nua = navigator.userAgent

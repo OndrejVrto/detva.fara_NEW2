@@ -25,7 +25,7 @@
 ?>
 
 			<!-- Nadpis stránky pre tlačiareň -->
-			<div class="d-print-block mt-4 text-center" ID="NadpisTlac">
+			<div class="d-none d-print-block mt-4 text-center" ID="NadpisTlac">
 				<h2><?php echo $nadpisStrankyPreTlac; ?></h2>
 			</div>
 <?php

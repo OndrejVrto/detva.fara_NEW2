@@ -33,7 +33,7 @@
 		case 1:
 		$nahodnyObrazok = str_pad(rand(1, $fileCount), $digits, '0', STR_PAD_LEFT);
 		echo "<div class=\"carousel slide d-print-none pt-3\" role=\"banner\">\n\t";
-		echo "<div class=\"carousel-item active\">\n\t\t";
+		echo "<div class=\"carousel active\">\n\t\t";
 		echo "<img class=\"d-block rounded w-100\" alt=\"Carousel - Náhodný obrázok\"\n\t\t\t";
 			echo "src=\"". $cesta ."1200x300/". $NazovSuboru . $nahodnyObrazok . $pripona ."\"\n\t\t\t";
 			echo "srcset=\"". $cesta ."0600x150/". $NazovSuboru . $nahodnyObrazok . $pripona ." 600w,\n\t\t\t\t\t";

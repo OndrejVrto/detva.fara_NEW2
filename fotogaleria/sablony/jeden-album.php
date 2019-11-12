@@ -34,7 +34,7 @@
 	// vrchný pagination
 		$vystupHTML .= print_hlavicka_albumu($xml, $XMLsuborABS);
 		$vystupHTML .=  pagination_vrto($cisloListu, $pocetStranok, $adresarVSTUPalbumHTML, '/', 'prve', false, 0 );	
-		$vystupHTML .=	"\n\t\t\t\t" . '<div class="card-columns mb-minus-1">';
+		$vystupHTML .=	"\n\t\t\t\t" . '<div class="card-columns mb-n3">';
 		
 	// samotny zoznam albumov
 	// klasické radenie albumov = od A-Z
