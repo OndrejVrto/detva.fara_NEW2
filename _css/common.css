@@ -100,8 +100,12 @@ a:hover .card {
 .gallery a:active,
 .gallery a:visited,
 .gallery a:hover {
-	 color: #212529;
+	color: #212529;
     text-decoration: none;
+}
+
+.vsetkyGalerie a:hover {
+    text-decoration-line: underline; 
 }
 
 .gallery .page-item {

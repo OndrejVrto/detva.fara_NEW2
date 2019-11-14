@@ -16,12 +16,14 @@ AddType text/x-component .htc
 RewriteEngine On
 RewriteBase /
  
-# pravidla pre fotogaleriu 
+# pravidla pre fotogalerie
 RewriteRule ^fotogaleria/(.+)/(.+)/([0])/ fotogaleria/fotogaleria.php?galeria=$1&album=$2&p=1 [QSA,L]
 RewriteRule ^fotogaleria/(.+)/(.+)/([1-9]*[0-9]+)/ fotogaleria/fotogaleria.php?galeria=$1&album=$2&p=$3 [QSA,L]
 RewriteRule ^fotogaleria/([0-9a-zA-Z-]+)/([0])/ fotogaleria/fotogaleria.php?galeria=$1&p=1 [QSA,L]
 RewriteRule ^fotogaleria/([0-9a-zA-Z-]+)/([1-9]*[0-9]+)/ fotogaleria/fotogaleria.php?galeria=$1&p=$2 [QSA,L]
 RewriteRule ^fotogaleria/([0-9a-zA-Z-]+) fotogaleria/fotogaleria.php?galeria=$1&p=1 [QSA,L]
+#zoznam galerii
+RewriteRule ^fotogaleria fotogaleria/fotogaleria.php?galeria=zoznam-galerii [QSA,L]
 
 # pravidlo pre vyhladavanie
 # funguje ak napr: https://detva.fara.sk/ostatne/vyhladavanie/*Hladanahodnota*
