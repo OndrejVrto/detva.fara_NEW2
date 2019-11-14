@@ -28,6 +28,7 @@ RewriteRule ^fotogaleria fotogaleria/fotogaleria.php?galeria=zoznam-galerii [QSA
 # pravidlo pre vyhladavanie
 # funguje ak napr: https://detva.fara.sk/ostatne/vyhladavanie/*Hladanahodnota*
 RewriteRule ^vyhladavanie/(.+) ostatne/vyhladavanie.php?search=$1 [QSA,L]
+RewriteRule ^vyhladavanie(.*) ostatne/vyhladavanie.php?search=$1 [QSA,L]
 
 # pravidlá presmerovania pre správy hlavnej stránky
 RewriteRule ^stranka\-([0]) index.php?&p=1 [QSA,L]
