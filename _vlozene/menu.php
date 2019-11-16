@@ -1,7 +1,7 @@
 <!-- START Include - Menu -->
 <div class="d-print-none static-top pt-3">
 	<div class="container">
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark rounded" aria-label="Menu stránky" role="navigation">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark rounded" aria-label="Menu stránky">
 			<button 
 				class="navbar-toggler" 
 				type="button" 
@@ -18,9 +18,9 @@
 			<div id="navbarNavDropdown" class="collapse navbar-collapse" >
 				<ul class="navbar-nav">
 					<li class="nav-item dropdown mr-lg-1">
-						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" 
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink1" 
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" role="button">Farnosť</a>
-						<ul class="dropdown-menu" role="menu">
+						<div class="dropdown-menu" role="menu">
 							<a class="dropdown-item text-success" href="/" >Aktuality</a>
 							<a class="dropdown-item" href="/farnost/liturgicke-oznamy-farnosti-detva" >Liturgické oznamy</a>
 							<a class="dropdown-item text-danger" href="/farnost/rozpisy-lektorov-detva" >Rozpisy lektorov</a>
@@ -40,12 +40,12 @@
 							<a class="dropdown-item text-danger" href="/farnost/knazi-pochadzajuci-z-nasho-kraja" >Kňazi z nášho kraja</a>
 							<div class="dropdown-divider" role="separator"></div>
 							<a class="dropdown-item" href="/farnost/kontakt-farsky-urad-detva" >Kontakt</a>
-						</ul>
+						</div>
 					</li>
 					<li class="nav-item dropdown mr-lg-1">
-						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" 
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" 
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" role="button">Spoločenstvá</a>
-						<ul class="dropdown-menu" role="menu">
+						<div class="dropdown-menu" role="menu">
 							<a class="dropdown-item text-danger" href="/spolocenstva/mladeznicky-zbor-hosanna" >Mládežnícky zbor Hosanna</a>
 							<a class="dropdown-item text-danger" href="/spolocenstva/detsky-spevokol-srdiecko" >Detský spevokol Srdiečko</a>
 							<a class="dropdown-item text-danger" href="/spolocenstva/ochotnicke-divadlo-frantisek" >Ochotnícke divadlo František</a>
@@ -65,12 +65,12 @@
 							<a class="dropdown-item text-danger" href="/spolocenstva/farska-rada" >Farská rada</a>
 							<a class="dropdown-item text-danger" href="/spolocenstva/katecheti-a-animatori" >Katechéti a animátori</a>
 							<a class="dropdown-item text-danger" href="/spolocenstva/zivot-vo-farnosti" >Život vo farnosti</a>
-						</ul>
+						</div>
 					</li>
 					<li class="nav-item dropdown mr-lg-1">
-						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" 
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink3" 
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" role="button">Liturgia</a>
-						<ul class="dropdown-menu" role="menu">
+						<div class="dropdown-menu" role="menu">
 							<a class="dropdown-item text-warning" href="/liturgia/sviatost-krstu" >Sviatosť krstu</a>
 							<a class="dropdown-item text-danger" href="/liturgia/svate-prijimanie" >Sväté prijímanie</a>
 							<a class="dropdown-item text-danger" href="/liturgia/birmovanie" >Birmovanie</a>
@@ -90,12 +90,12 @@
 							<div class="dropdown-divider" role="separator"></div>
 							<a class="dropdown-item text-danger" href="/liturgia/zakladne-vedomosti-krestana" >Základné vedomosti kresťana</a>
 							<a class="dropdown-item text-danger" href="/liturgia/kodex-kanonickeho-prava" >Kódex kánonického práva</a>
-						</ul>
+						</div>
 					</li>
 					<li class="nav-item dropdown mr-lg-1">
-						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" 
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink4" 
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" role="button">Fotogaléria</a>
-						<ul class="dropdown-menu" role="menu">
+						<div class="dropdown-menu" role="menu">
 							<a class="dropdown-item text-success" href="/fotogaleria/2007/1/" >2007</a>
 							<a class="dropdown-item text-success" href="/fotogaleria/2008/1/" >2008</a>
 							<div class="dropdown-divider" role="separator"></div>
@@ -106,14 +106,14 @@
 							<a class="dropdown-item text-success" href="/fotogaleria/kostoly/1/" >Kostoly</a>
 							<a class="dropdown-item text-success" href="/fotogaleria/kaplnky/1/" >Kaplnky</a>
 							<a class="dropdown-item text-danger" href="/fotogaleria/detvianske-vyrezavane-krize/1/" >Detvianske vyrezávané kríže</a>
-						</ul>
+						</div>
 					</li>
 				</ul>
 				<ul class="navbar-nav ml-md-auto">
 					<li class="nav-item dropdown mr-lg-3">
-						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" 
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink5" 
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" role="button">Dekanát</a>
-						<ul class="dropdown-menu dropdown-menu-right" role="menu">
+						<div class="dropdown-menu dropdown-menu-right" role="menu">
 							<a class="dropdown-item" href="/dekanat/schematizmus-dekanatu-detva-zoznam-farnosti-a-knazov" >Mapa a zoznam farností</a>
 							<a class="dropdown-item" href="/dekanat/klastor-kralovnej-karmelu-v-detve" >Kláštor Kráľovnej Karmelu</a>
 							<a class="dropdown-item text-danger" href="/dekanat/rad-mensich-bratov-kapucinov" >Rád Menších bratov Kapucínov</a>
@@ -123,7 +123,7 @@
 							<a class="dropdown-item" href="/dekanat/podpolianske-vyrezavane-krize" >Podpolianske vyrezávané kríže</a>
 							<div class="dropdown-divider" role="separator"></div>
 							<a class="dropdown-item text-danger" href="/dekanat/kontakt-dekanskeho-uradu" >Kontakt dekanského úradu</a>
-						</ul>
+						</div>
 					</li>
 					<li>
 						<form class="input-group mt-2 mt-lg-0">

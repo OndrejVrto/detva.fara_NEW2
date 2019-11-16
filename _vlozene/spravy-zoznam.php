@@ -1,13 +1,13 @@
 <?php
 
 $farby = array(
-	"Modrá" 		=> 'primary',
+	"Modrá" 	=> 'primary',
 	"Sivá" 		=> 'secondary',
 	"Zelená" 	=> 'success',
 	"Červená" 	=> 'danger',
 	"Žltá" 		=> 'warning',
 	"Tyrkisová" => 'info',
-	"Biela" 		=> 'light',
+	"Biela" 	=> 'light',
 	"Čierna" 	=> 'dark'
 );
 

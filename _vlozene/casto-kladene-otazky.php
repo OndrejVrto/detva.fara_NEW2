@@ -85,7 +85,7 @@ function vypisKodNaOtazky($otazky, $zoznam, $pocetOpakovani){
 		echo $zoznam[$idOtazky[0]][$idOtazky[1]]["Odpoved"];
 		
 		if (array_key_exists("Odkaz",$zoznam[$idOtazky[0]][$idOtazky[1]])) {  
-			echo "\n\t\t\t\t<a href=\"" .  $zoznam[$idOtazky[0]][$idOtazky[1]]["Odkaz"] . "\"";
+			echo "\n\t\t\t\t<a href=\"" .  str_replace(" ", '%20', $zoznam[$idOtazky[0]][$idOtazky[1]]["Odkaz"]) . "\"";
 			if (array_key_exists("Titulok",$zoznam[$idOtazky[0]][$idOtazky[1]])) {
 				echo " title=\"" . $zoznam[$idOtazky[0]][$idOtazky[1]]["Titulok"] . "\""; 
 			}

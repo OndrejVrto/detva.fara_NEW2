@@ -19,7 +19,9 @@
 					<ul class="list-unstyled">
 						<li>nar. 14.2. 1964 v Petrovanoch</li>
 						<li>ord. 13.6.1987 v Banskej Bystrici</li>
-						<br>
+					</ul>
+					<br>					
+					<ul class="list-unstyled">
 						<li>1987 - kaplán Hriňová, základná vojenská služba</li>
 						<li>1988 - kaplán Detva</li>
 						<li>1990 - farár Slovenské Pravno</li>
@@ -42,7 +44,9 @@
 					<ul class="list-unstyled">
 						<li>nar. nar. 24. 11. 1983 vo Zvolene</li>
 						<li>ord: 09.06.2012 v Banskej Bystrici</li>
-						<br>
+					</ul>
+					<br>					
+					<ul class="list-unstyled">
 						<li>Júl 2012 - Jún 2015 - kaplán Prievidza - Zapotôčky</li>
 						<li>Júl 2015 - kaplán Detva</li>
 					</ul>
@@ -58,7 +62,9 @@
 					<ul class="list-unstyled">
 						<li>nar. 1. 10. 1987 v Brezne</li>
 						<li>ord. 21. 6. 2014 v Banskej Bystrici</li>
-						<br>
+					</ul>
+					<br>
+					<ul class="list-unstyled">
 						<li>2014 - kaplán Detva</li>
 					</ul>
 					</div>

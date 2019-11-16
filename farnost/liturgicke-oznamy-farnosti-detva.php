@@ -24,10 +24,9 @@ if ($handle = opendir($path . '/_data/oznamy/')) {
 	$blacklist = array('.', '..', 'lektori', 'oznamy', 'archiv');
 	while (false !== ($file = readdir($handle))) {
 		if (!in_array($file, $blacklist)) {
-			$meno = substr($file, 0, strlen($file)-4); 
-			echo "\t\t\t\t\t\t<a rel=\"noindex, nofollow\" target=\"_blank\" href=\"/_data/oznamy/";
-			echo $file;
-			echo "\">$meno</a><br>\n";
+			$meno = substr($file, 0, strlen($file)-4);
+			$file = str_replace(" ", '%20', $file);
+			echo "\t\t\t\t\t\t<a target=\"_blank\" href=\"/_data/oznamy/$file\">$meno</a><br>\n";
 		}
 	}
 	closedir($handle);
@@ -50,10 +49,9 @@ if ($handle = opendir($path . '/_data/lektori/')) {
 
 	while (false !== ($file = readdir($handle))) {
 		if (!in_array($file, $blacklist)) {
-			$meno = substr($file, 0, strlen($file)-4); 
-			echo "\t\t\t\t\t\t<a rel=\"noindex, nofollow\" target=\"_blank\" href=\"/_data/lektori/";
-			echo $file;
-			echo "\">$meno</a><br>\n";
+			$meno = substr($file, 0, strlen($file)-4);
+			$file = str_replace(" ", '%20', $file);
+			echo "\t\t\t\t\t\t<a target=\"_blank\" href=\"/_data/lektori/$file\">$meno</a><br>\n";
 		}
 	}
 	closedir($handle);

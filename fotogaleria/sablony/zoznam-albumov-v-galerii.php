@@ -97,8 +97,7 @@ function print_album_card($XMLfiles, $nahodneFotky = false){
 	$xml = new DOMDocument();
 	$xml->load( $XMLfiles );
 	
-	
-	$pracovny .= $zalomenie . "\t" . '<a href="' . $xml->getElementsByTagName( "LinkRewrite" )->item(0)->nodeValue . '/1/">';
+	$pracovny .= $zalomenie . "\t" . '<a href="' . str_replace(" ", '%20', $xml->getElementsByTagName( "LinkRewrite" )->item(0)->nodeValue) . '/1/">';
 	$pracovny .= $zalomenie . "\t\t" . '<div class="card mx-sm-0 border-primary">';
 	
 	if ($nahodneFotky){
@@ -113,7 +112,7 @@ function print_album_card($XMLfiles, $nahodneFotky = false){
 	$titulnaFotkaLink = $xml->getElementsByTagName( "LinkFotogaleriaThumbs" )->item(0)->nodeValue . $titulnaFotkaSubor;
 	$titulnaFotkaPopisok = $xml->getElementsByTagName( "AlternativnyNazovAlbum" )->item(0)->nodeValue;
 	
-	$pracovny .= $zalomenie . "\t\t\t" . '<img class="card-img-top" src="' . $titulnaFotkaLink . '" alt="' . $titulnaFotkaPopisok . '"/>';
+	$pracovny .= $zalomenie . "\t\t\t" . '<img class="card-img-top" src="' . str_replace(" ", '%20', $titulnaFotkaLink) . '" alt="' . $titulnaFotkaPopisok . '"/>';
 	$pracovny .= $zalomenie . "\t\t\t" . '<div class="card-body">';
 	
 	$titleALBUM = $xml->getElementsByTagName( "NazovAlbumu" )->item(0)->nodeValue;

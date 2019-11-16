@@ -24,8 +24,9 @@
 			$ObrazokAlbumu = get_files($path . $adresarFotogaleria . $zoznam_Galerii);
 			
 			if (!empty($ObrazokAlbumu)){
-				$vystupHTML .= $zalomenie . "\t\t" . "<a href=\"" . $adresaFotogalerieHTML . $zoznam_Galerii . "/1/\">";
-				$vystupHTML .= $zalomenie . "\t\t\t" . "<img class=\"card-img-top\" src=\"" . $adresarFotogaleria . $zoznam_Galerii;
+																	// str_replace -> nahradí medzery v href - V HTML nie sú dovolené
+				$vystupHTML .= $zalomenie . "\t\t" . "<a href=\"" . str_replace(" ", '%20', $adresaFotogalerieHTML . $zoznam_Galerii) . "/1/\">";
+				$vystupHTML .= $zalomenie . "\t\t\t" . "<img class=\"card-img-top\" src=\"" . str_replace(" ", '%20', $adresarFotogaleria . $zoznam_Galerii);
 				$vystupHTML .= "/" . $ObrazokAlbumu[0] . "\" alt=\"Vybraný obrázok z galérie " . $zoznam_Galerii . "\"/>";
 				$vystupHTML .= $zalomenie . "\t\t" . "</a>";		
 			}
@@ -35,10 +36,8 @@
 			$zoznam_Adresarov2 = glob($adresarABS2 . '*', GLOB_ONLYDIR);
 			$albumovVgalerii = count($zoznam_Adresarov2);
 
-			
 			$vystupHTML .= $zalomenie . "\t\t" . "<div class=\"card-body\">";
-			
-			$vystupHTML .= $zalomenie . "\t\t\t" . "<a href=\"" . $adresaFotogalerieHTML . $zoznam_Galerii . "/1/\">";
+			$vystupHTML .= $zalomenie . "\t\t\t" . "<a href=\"" . str_replace(" ", '%20', $adresaFotogalerieHTML . $zoznam_Galerii) . "/1/\">";
 			$vystupHTML .= $zalomenie . "\t\t\t\t" . "<h5 class=\"card-title text-center\">" . $zoznam_Galerii . "</h5>";
 			$vystupHTML .= $zalomenie . "\t\t\t\t" . "<h6 class=\"card-subtitle text-center mb-2 text-muted\">" . $albumovVgalerii . GramatikaAlbumy($albumovVgalerii) . "</h6>";
 			$vystupHTML .= $zalomenie . "\t\t\t" . "</a>";	
@@ -55,7 +54,7 @@
 						$xml->load( $XMLfilename );
 						$titleALBUM = $xml->getElementsByTagName( "NazovAlbumu" )->item(0)->nodeValue;
 						
-						$vystupHTML .= $zalomenie . "\t\t\t\t" . "<li class=\"vsetkyGalerie\" >" . "<a href=\"" . $xml->getElementsByTagName( "LinkRewrite" )->item(0)->nodeValue . "/1/\">";
+						$vystupHTML .= $zalomenie . "\t\t\t\t" . "<li class=\"vsetkyGalerie\" >" . "<a href=\"" . str_replace(" ", '%20', $xml->getElementsByTagName( "LinkRewrite" )->item(0)->nodeValue) . "/1/\">";
 						$vystupHTML .= $titleALBUM . "</a>". "</li>";;
 					
 					} else {

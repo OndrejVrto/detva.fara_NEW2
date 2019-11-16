@@ -5,6 +5,10 @@
 //
 function pagination_vrto($aktivnaStranka, $pocetStran, $url_zaciatok, $url_koniec, $id, $opacneCislovanie = false, $velkost = 0 ) {
 
+	//nahradenie medzier kvoli validite HTML kodu href
+	$url_zaciatok = str_replace(" ", '%20', $url_zaciatok);
+	$url_koniec = str_replace(" ", '%20', $url_koniec);
+
 	switch ($velkost) {
     case 0:
         $velkost = "";

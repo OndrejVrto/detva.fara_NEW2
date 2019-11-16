@@ -8,7 +8,7 @@
 <!-- START - Špeciálne HEAD pre túto stránku -->
 <!-- END   - Špeciálne HEAD pre túto stránku -->
 <?php include $path . "/_vlozene/vrch-stranky.php"; echo "\n"; ?>
-	<article class="well text-left" role="navigation">
+	<article class="well text-left">
 		<h1>Farnosť</h1>
 		<ul>
 			<li><a href="/cista" >Detvianske vyrezávané kríže</a></li>

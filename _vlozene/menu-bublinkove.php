@@ -12,7 +12,7 @@
 		}
 		echo "\">";
 		if ($MYbublinkoveMenu[0] !==''){
-			echo '<a href="' . $MYbublinkoveMenu[0] . '">';
+			echo '<a href="' . str_replace(" ", '%20', $MYbublinkoveMenu[0]) . '">';
 			echo $MYbublinkoveMenu[1];
 			echo '</a>';
 		} else {

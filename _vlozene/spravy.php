@@ -42,18 +42,18 @@
 <?php
 	// kod pre potreby vyvoja
 	
-	//echo $_SERVER['PHP_SELF'];
-	//echo "<br>\n";
-	//echo $_SERVER['SERVER_NAME'];
-	//echo "<br>\n";
-	//echo $_SERVER['HTTP_HOST'];
-	//echo "<br>\n";
-	//echo $_SERVER['HTTP_REFERER'];
-	//echo "<br>\n";
-	//echo $_SERVER['SCRIPT_NAME'];
-	//echo "<br>\n";
-	//echo $_SERVER['SCRIPT_FILENAME'];
-	//echo "<br>\n";
+	echo $_SERVER['PHP_SELF'];
+	echo "<br>\n";
+	echo $_SERVER['SERVER_NAME'];
+	echo "<br>\n";
+	echo $_SERVER['HTTP_HOST'];
+	echo "<br>\n";
+	echo $_SERVER['HTTP_REFERER'];
+	echo "<br>\n";
+	echo $_SERVER['SCRIPT_NAME'];
+	echo "<br>\n";
+	echo $_SERVER['SCRIPT_FILENAME'];
+	echo "<br>\n";
 	echo $_SERVER['QUERY_STRING'];
 	echo "<br>\n p -> ";
 	if (isset($_GET["p"])){

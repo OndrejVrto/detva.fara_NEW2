@@ -34,12 +34,12 @@
 		$nahodnyObrazok = str_pad(rand(1, $fileCount), $digits, '0', STR_PAD_LEFT);
 		echo "<div class=\"carousel slide d-print-none pt-3\" role=\"banner\">\n\t";
 		echo "<div class=\"carousel active\">\n\t\t";
-		echo "<img class=\"d-block rounded w-100\" alt=\"Carousel - Náhodný obrázok\"\n\t\t\t";
-			echo "src=\"". $cesta ."1200x300/". $NazovSuboru . $nahodnyObrazok . $pripona ."\"\n\t\t\t";
-			echo "srcset=\"". $cesta ."0600x150/". $NazovSuboru . $nahodnyObrazok . $pripona ." 600w,\n\t\t\t\t\t";
-			echo $cesta ."1200x300/". $NazovSuboru . $nahodnyObrazok . $pripona ." 1200w,\n\t\t\t\t\t";
-			echo $cesta ."1800x450/". $NazovSuboru . $nahodnyObrazok . $pripona ." 1800w,\n\t\t\t\t\t";
-			echo $cesta ."2400x600/". $NazovSuboru . $nahodnyObrazok . $pripona ." 2400w\" >\n\t";
+		echo "<img class=\"d-block w-100\" alt=\"Carousel - Náhodný obrázok\"\n\t\t\t";
+			echo "src=\"" . str_replace(" ", '%20', $cesta ."1200x300/". $NazovSuboru . $nahodnyObrazok . $pripona) ."\"\n\t\t\t";
+			echo "srcset=\"" . str_replace(" ", '%20', $cesta ."0600x150/". $NazovSuboru . $nahodnyObrazok . $pripona) ." 600w,\n\t\t\t\t\t";
+			echo str_replace(" ", '%20', $cesta ."1200x300/". $NazovSuboru . $nahodnyObrazok . $pripona) ." 1200w,\n\t\t\t\t\t";
+			echo str_replace(" ", '%20', $cesta ."1800x450/". $NazovSuboru . $nahodnyObrazok . $pripona) ." 1800w,\n\t\t\t\t\t";
+			echo str_replace(" ", '%20', $cesta ."2400x600/". $NazovSuboru . $nahodnyObrazok . $pripona) ." 2400w\" sizes=\"(max-width: 768px) 300px, 100vw\" >\n\t";
 		echo "</div>\n";
 		echo "</div>\n";
 		break;
@@ -85,11 +85,11 @@ function CarouselPohyblivy ($vstupnePoleCarousel, $cisielok, $cesta, $NazovSubor
 		if ($pocitadlo==$caruselAktivny) { echo " active"; }
 		echo "\">\n\t\t\t";
 		echo "<img class=\"d-block w-100\" alt=\"slide". $pocitadlo ."\"\n\t\t\t\t";
-			echo "src=\"". $cesta ."1200x300/". $NazovSuboru . $ObrazokCislo2 . $pripona ."\"\n\t\t\t\t";
-			echo "srcset=\"". $cesta ."0600x150/". $NazovSuboru . $ObrazokCislo2 . $pripona ." 600w,\n\t\t\t\t\t\t";
-			echo $cesta ."1200x300/". $NazovSuboru . $ObrazokCislo2 . $pripona ." 1200w,\n\t\t\t\t\t\t";
-			echo $cesta ."1800x450/". $NazovSuboru . $ObrazokCislo2 . $pripona ." 1800w,\n\t\t\t\t\t\t";
-			echo $cesta ."2400x600/". $NazovSuboru . $ObrazokCislo2 . $pripona ." 2400w\">\n\t\t";
+			echo "src=\"" . str_replace(" ", '%20', $cesta ."1200x300/". $NazovSuboru . $ObrazokCislo2 . $pripona) . "\"\n\t\t\t\t";
+			echo "srcset=\"" . str_replace(" ", '%20', $cesta ."0600x150/". $NazovSuboru . $ObrazokCislo2 . $pripona) ." 600w,\n\t\t\t\t\t\t";
+			echo str_replace(" ", '%20', $cesta ."1200x300/". $NazovSuboru . $ObrazokCislo2 . $pripona) ." 1200w,\n\t\t\t\t\t\t";
+			echo str_replace(" ", '%20', $cesta ."1800x450/". $NazovSuboru . $ObrazokCislo2 . $pripona) ." 1800w,\n\t\t\t\t\t\t";
+			echo str_replace(" ", '%20', $cesta ."2400x600/". $NazovSuboru . $ObrazokCislo2 . $pripona) ." 2400w\" sizes=\"(max-width: 768px) 300px, 100vw\" >\n\t\t";
 		echo "</div>\n";
 		$pocitadlo++;
 	}

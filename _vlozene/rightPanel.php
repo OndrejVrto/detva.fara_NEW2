@@ -3,7 +3,7 @@
 if ($PravyPanelZlozenie == false) {
 	echo "\t\t\t<!-- Stránka neobsahuje - Right Panel -->\n";
 } else {
-	echo "\t\t<aside class=\"col-12 col-sm-12 col-md-5 col-lg-4 col-xl-4\" role=\"complementary\">";
+	echo "\t\t<aside class=\"col-12 col-sm-12 col-md-5 col-lg-4 col-xl-4\" >";
 	if(!isset($PravyPanelZlozenie) or $PravyPanelZlozenie =='standard') { 
 		$PravyPanelZlozenie = $PravyPanelStandard;
 	}

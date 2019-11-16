@@ -52,14 +52,14 @@ echo "\t\t\t</div>\n";
 include_once $path . "/_vlozene/spodok-stranky.php"; echo "\n";
 ?>
 <!-- START - Individuálne skripty na konci stranky -->
-	<script type="text/javascript" src="/_javascripty/jquery-1.9.1.min.js"></script>
-	<script type="text/javascript">
+	<script src="/_javascripty/jquery-1.9.1.min.js"></script>
+	<script>
 	$(document).ready(function() {
 		$(".albumpix").colorbox({rel:'albumpix', slideshow:true, slideshowSpeed:"4000" , maxWidth:"90%", maxHeight:"90%"});
 	});
 	</script>
-	<script type="text/javascript" src="/_javascripty/jquery.colorbox-min.js"></script>
-	<script type="text/javascript" src="/_javascripty/jquery.colorbox-sk.js"></script>
+	<script src="/_javascripty/jquery.colorbox-min.js"></script>
+	<script src="/_javascripty/jquery.colorbox-sk.js"></script>
 <!-- END   - Individuálne skripty na konci stranky -->
 </body>
 </html>

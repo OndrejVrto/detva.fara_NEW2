@@ -8,30 +8,28 @@
 <!-- START - Špeciálne HEAD pre túto stránku -->
 <!-- END   - Špeciálne HEAD pre túto stránku -->
 <?php include $path . "/_vlozene/vrch-stranky.php"; echo "\n"; ?>
-			<article class="well text-left" role="navigation">
-				<h1>Dekanát</h1>
+			<article class="well text-left">
+				<h2>Dekanát</h2>
 				<ul>
 					<li><a href="/dekanat/schematizmus-dekanatu-detva-zoznam-farnosti-a-knazov" >Mapa a zoznam farností</a></li>
 					<li><a href="/dekanat/klastor-kralovnej-karmelu-v-detve" >Kláštor Kráľovnej Karmelu</a></li>
 					<li><a href="/dekanat/cista" >Rád Menších bratov kapucínov</a></li>
-					<li><a href="/dekanat/schematizmus-dekanatu-detva-zoznam-farnosti-a-knazov" >Fotogaléria kostolov a kaplniek</a></li>
+				</ul>
+				<div class="dropdown-divider" role="separator"></div>
+				<ul>	
 					<li><a href="/dekanat/cista" >Detvianske vyrezávané kríže</a></li>
 					<li><a href="/dekanat/cista" >Sväté omše v okolí</a></li>
+				</ul>
+				<div class="dropdown-divider" role="separator"></div>
+				<ul>					
 					<li><a href="/dekanat/cista" >Kam vo farnosti ?</a></li>
 					<li><a href="/dekanat/cista" >Kontakt dekanského úradu</a></li>
 				</ul>
 			</article>
 			<article class="well text-left">
-				<h1>Príbuzné stránky</h1>
+				<h2>Príbuzné stránky</h2>
 				<ul>
-					<li><a href="/dekanat/schematizmus-dekanatu-detva-zoznam-farnosti-a-knazov" >Mapa a zoznam farností</a></li>
-					<li><a href="/dekanat/klastor-kralovnej-karmelu-v-detve" >Kláštor Kráľovnej Karmelu</a></li>
-					<li><a href="/dekanat/cista" >Rád Menších bratov kapucínov</a></li>
 					<li><a href="/dekanat/schematizmus-dekanatu-detva-zoznam-farnosti-a-knazov" >Fotogaléria kostolov a kaplniek</a></li>
-					<li><a href="/dekanat/cista" >Detvianske vyrezávané kríže</a></li>
-					<li><a href="/dekanat/cista" >Sväté omše v okolí</a></li>
-					<li><a href="/dekanat/cista" >Kam vo farnosti ?</a></li>
-					<li><a href="/dekanat/cista" >Kontakt dekanského úradu</a></li>
 				</ul>
 			</article>
 <?php include $path . "/_vlozene/spodok-stranky.php"; echo "\n";?>
