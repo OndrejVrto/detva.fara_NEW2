@@ -13,7 +13,7 @@
 			<article class="well text-left">
 				<h2>Spoločenstvá</h2>
 				<ul class="list-group list-group-flush">
-<?php	echo vytvorMENU_index ("Spoločenstvá", $menuHlavne); ?>
+<?php	echo vytvorMENU_index ("Spoločenstvá", $menuHlavne, $konstantyStranok); ?>
 				</ul>
 			</article>
 		</div>

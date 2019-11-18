@@ -1,18 +1,24 @@
 <?php
-	function vytvorMENU ($vstup, $menuHlavne) {
+	function vytvorMENU ($vstup, $menuHlavne, $konstantyStranok) {
 
 		if (!array_key_exists($vstup, $menuHlavne)) {
 			return false;
 		}
 		
 		$pracovny = '';
+		$titulok = '';
 		
 		foreach($menuHlavne[$vstup] as $polozkaMenu) {
 			$pracovny .= "\t\t\t\t\t\t\t";
 			if (!is_array($polozkaMenu)){
 				$pracovny .= '<div class="dropdown-divider" role="separator"></div>';
 			} else {
-				$pracovny .= "<a class=\"dropdown-item " . $polozkaMenu[0]. "\" href=\"" . str_replace(" ", '%20', $polozkaMenu[1]) . "\" >". $polozkaMenu[2] . "</a>";
+				if (array_key_exists($polozkaMenu[0], $konstantyStranok["Popis Stránky"])) { 
+					if ($konstantyStranok["Popis Stránky"][$polozkaMenu[0]]!==''){
+						$titulok = "title=\"" . $konstantyStranok["Popis Stránky"][$polozkaMenu[0]] . "\" ";
+					} else { $titulok = ''; }
+				}
+				$pracovny .= "<a class=\"dropdown-item " . $polozkaMenu[1]. "\" href=\"" . str_replace(" ", '%20', $polozkaMenu[2]) . "\" " . $titulok . ">". $polozkaMenu[3] . "</a>";
 			}
 			$pracovny .= "\n";
 		}
@@ -20,26 +26,31 @@
 	}
 
 
-	function vytvorMENU_index ($vstup, $menuHlavne) {
+	function vytvorMENU_index ($vstup, $menuHlavne, $konstantyStranok) {
 
 		if (!array_key_exists($vstup, $menuHlavne)) {
 			return false;
 		}
 		
 		$pracovny = '';
-		
+		$titulok = '';
+		$trieda = '';
 		foreach($menuHlavne[$vstup] as $polozkaMenu) {
 			$pracovny .= "\t\t\t\t\t";
 			if (!is_array($polozkaMenu)){
 				$pracovny .= "\t<hr>";
 			} else {
 				
-				if ($polozkaMenu[0]!==''){ 
-					$trieda = "class=\"" . $polozkaMenu[0] . "\" ";
-				};
+				if ($polozkaMenu[1]!==''){ 
+					$trieda = "class=\"" . $polozkaMenu[1] . "\" ";
+				}
+				if (array_key_exists($polozkaMenu[0], $konstantyStranok["Popis Stránky"])) { 
+					$titulok = "title=\"" . $konstantyStranok["Popis Stránky"][$polozkaMenu[0]] . "\" ";
+				}
 				
-				$pracovny .= "<li class=\"list-group-item\"><a " . $trieda . "href=\"" . str_replace(" ", '%20', $polozkaMenu[1]) . "\" >". $polozkaMenu[2] . "</a></li>";
+				$pracovny .= "<li " . $titulok . "class=\"list-group-item\"><a " . $trieda . "href=\"" . str_replace(" ", '%20', $polozkaMenu[2]) . "\" >". $polozkaMenu[3] . "</a></li>";
 				$trieda = '';
+				$titulok = '';
 			}
 		$pracovny .= "\n";
 		}
@@ -71,7 +82,7 @@
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink1" 
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" role="button">Farnosť</a>
 						<div class="dropdown-menu" role="menu">
-<?php	echo vytvorMENU ("Farnosť", $menuHlavne); ?>
+<?php	echo vytvorMENU ("Farnosť", $menuHlavne, $konstantyStranok); ?>
 						</div>
 					</li>
 				
@@ -79,21 +90,21 @@
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" 
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" role="button">Spoločenstvá</a>
 						<div class="dropdown-menu" role="menu">
-<?php	echo vytvorMENU ("Spoločenstvá", $menuHlavne); ?>
+<?php	echo vytvorMENU ("Spoločenstvá", $menuHlavne, $konstantyStranok); ?>
 						</div>
 					</li>
 					<li class="nav-item dropdown mr-lg-1">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink3" 
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" role="button">Liturgia</a>
 						<div class="dropdown-menu" role="menu">
-<?php	echo vytvorMENU ("Liturgia", $menuHlavne); ?>
+<?php	echo vytvorMENU ("Liturgia", $menuHlavne, $konstantyStranok); ?>
 						</div>
 					</li>
 					<li class="nav-item dropdown mr-lg-1">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink4" 
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" role="button">Fotogaléria</a>
 						<div class="dropdown-menu" role="menu">
-<?php	echo vytvorMENU ("Fotogaléria", $menuHlavne); ?>
+<?php	echo vytvorMENU ("Fotogaléria", $menuHlavne, $konstantyStranok); ?>
 						</div>
 					</li>
 				</ul>
@@ -102,7 +113,7 @@
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink5" 
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" role="button">Dekanát</a>
 						<div class="dropdown-menu dropdown-menu-right" role="menu">
-<?php	echo vytvorMENU ("Dekanát", $menuHlavne); ?>
+<?php	echo vytvorMENU ("Dekanát", $menuHlavne, $konstantyStranok); ?>
 						</div>
 					</li>
 					<li>
