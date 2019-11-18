@@ -8,30 +8,24 @@
 <!-- START - Špeciálne HEAD pre túto stránku -->
 <!-- END   - Špeciálne HEAD pre túto stránku -->
 <?php include $path . "/_vlozene/vrch-stranky.php"; echo "\n"; ?>
+	<div class="row">
+		<div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6" >
 			<article class="well text-left">
 				<h2>Dekanát</h2>
-				<ul>
-					<li><a href="/dekanat/schematizmus-dekanatu-detva-zoznam-farnosti-a-knazov" >Mapa a zoznam farností</a></li>
-					<li><a href="/dekanat/klastor-kralovnej-karmelu-v-detve" >Kláštor Kráľovnej Karmelu</a></li>
-					<li><a href="/dekanat/cista" >Rád Menších bratov kapucínov</a></li>
-				</ul>
-				<div class="dropdown-divider" role="separator"></div>
-				<ul>	
-					<li><a href="/dekanat/cista" >Detvianske vyrezávané kríže</a></li>
-					<li><a href="/dekanat/cista" >Sväté omše v okolí</a></li>
-				</ul>
-				<div class="dropdown-divider" role="separator"></div>
-				<ul>					
-					<li><a href="/dekanat/cista" >Kam vo farnosti ?</a></li>
-					<li><a href="/dekanat/cista" >Kontakt dekanského úradu</a></li>
+				<ul class="list-group list-group-flush">
+<?php	echo vytvorMENU_index ("Dekanát", $menuHlavne); ?>
 				</ul>
 			</article>
+		</div>
+		<div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6" >
 			<article class="well text-left">
 				<h2>Príbuzné stránky</h2>
-				<ul>
-					<li><a href="/dekanat/schematizmus-dekanatu-detva-zoznam-farnosti-a-knazov" >Fotogaléria kostolov a kaplniek</a></li>
-				</ul>
+				<ul class="list-group list-group-flush">
+					<li class="list-group-item"><a href="/dekanat/schematizmus-dekanatu-detva-zoznam-farnosti-a-knazov" >Mapa a zoznam farností</a></li>
+				</ul>					
 			</article>
+		</div>
+	</div>
 <?php include $path . "/_vlozene/spodok-stranky.php"; echo "\n";?>
 <!-- START - Individuálne skripty na konci stranky -->
 <!-- END   - Individuálne skripty na konci stranky -->

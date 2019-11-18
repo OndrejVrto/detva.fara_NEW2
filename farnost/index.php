@@ -8,21 +8,24 @@
 <!-- START - Špeciálne HEAD pre túto stránku -->
 <!-- END   - Špeciálne HEAD pre túto stránku -->
 <?php include $path . "/_vlozene/vrch-stranky.php"; echo "\n"; ?>
-	<article class="well text-left">
-		<h1>Farnosť</h1>
-		<ul>
-			<li><a href="/cista" >Detvianske vyrezávané kríže</a></li>
-			<li><a href="/cista" >Sväté omše v okolí</a></li>
-			<li><a href="/cista" >Kam vo farnosti ?</a></li>
-			<li><a href="/cista" >Kontakt dekanského úradu</a></li>
-		</ul>
-	</article>
-	<article class="well text-left">
-		<h1>Príbuzné stránky</h1>
-		<ul>
-			<li><a href="/dekanat/schematizmus-dekanatu-detva-zoznam-farnosti-a-knazov" >Mapa a zoznam farností</a></li>
-		</ul>
-	</article>
+	<div class="row">
+		<div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6" >
+			<article class="well text-left">
+				<h2>Farnosť</h2>
+				<ul class="list-group list-group-flush">
+<?php	echo vytvorMENU_index ("Farnosť", $menuHlavne); ?>
+				</ul>
+			</article>
+		</div>
+		<div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6" >
+			<article class="well text-left">
+				<h2>Príbuzné stránky</h2>
+				<ul class="list-group list-group-flush">
+					<li class="list-group-item"><a href="/dekanat/schematizmus-dekanatu-detva-zoznam-farnosti-a-knazov" >Mapa a zoznam farností</a></li>
+				</ul>					
+			</article>
+		</div>
+	</div>
 <?php include $path . "/_vlozene/spodok-stranky.php"; echo "\n";?>
 <!-- START - Individuálne skripty na konci stranky -->
 <!-- END   - Individuálne skripty na konci stranky -->

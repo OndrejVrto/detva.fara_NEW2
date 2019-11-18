@@ -45,8 +45,101 @@
 
 
 
+// MENU hlavné a zoznam linik do stránok jednotlivých sekcií
+$menuHlavne = array (
+	"Farnosť" => array (
+		1	=> array ("text-success"	,"/"														,"Aktuality"),
+		2	=> array (""				,"/farnost/liturgicke-oznamy-farnosti-detva"				,"Liturgické oznamy"),
+		3	=> array ("text-danger"		,"/farnost/rozpisy-lektorov-detva"							,"Rozpisy lektorov"),
+		4	=> array ("text-danger"		,"/farnost/svate-omse-vo-farnosti-detva"					,"Omše vo farnosti"),
+		5	=> "separator",
+		6	=> array (""				,"/farnost/historia-kostola-sv-frantiska-v-detve"			,"História kostola"),
+		7	=> array ("text-danger"		,"/farnost/zaujimavosti-nasho-kostola"						,"Zaujímavosti nášho kostola"),
+		8	=> array ("text-danger"		,"/farnost/dolezite-osobnosti-farnosti"						,"Dôležité osobnosti farnosti"),
+		9	=> array (""				,"/farnost/svety-frantisek-z-assisi-patron-farnosti-detva"	,"Patrón farnosti"),
+		10	=> array ("text-danger"		,"/farnost/statistiky-a-ine-zaujimave-cisla"				,"Štatistiky"),
+		11	=> array ("text-danger"		,"/farnost/vianoce-v-detve"									,"Vianoce v Detve"),
+		12	=> "separator",
+		13	=> array ("text-danger"		,"/farnost/farska-charita"									,"Farská charita"),
+		14	=> array ("text-danger"		,"/farnost/farska-kniznica"									,"Farská knižnica"),
+		15	=> "separator",
+		16	=> array (""				,"/farnost/knazi-posobiaci-vo-farnosti-detva"				,"Kňazi pôsobiaci vo farnosti"),
+		17	=> array ("text-danger"		,"/farnost/knazi-pochadzajuci-z-nasho-kraja"				,"Kňazi pochádzajúci z farnosti"),
+		18	=> "separator",
+		19	=> array ("text-danger"		,"/farnost/kontakt-farsky-urad-detva"						,"Kontakt"),
+	),
+	
+	"Spoločenstvá" => array (
+		1	=> array ("text-danger"		,"/spolocenstva/mladeznicky-zbor-hosanna" 		,"Mládežnícky zbor Hosanna"),
+		2	=> array ("text-danger"		,"/spolocenstva/detsky-spevokol-srdiecko" 		,"Detský spevokol Srdiečko"),
+		3	=> array ("text-danger"		,"/spolocenstva/ochotnicke-divadlo-frantisek" 	,"Ochotnícke divadlo František"),
+		4	=> array ("text-danger"		,"/spolocenstva/dychova-hudba" 					,"Dychová hudba"),
+		5	=> "separator",
+		6	=> array ("text-danger"		,"/spolocenstva/lektori" 						,"Lektori"),
+		7	=> array ("text-danger"		,"/spolocenstva/ministranti" 					,"Miništranti"),
+		8	=> array ("text-danger"		,"/spolocenstva/akolyti" 						,"Akolyti"),
+		9	=> array ("text-danger"		,"/spolocenstva/kostolnici" 					,"Kostolníci"),
+		10	=> array ("text-danger"		,"/spolocenstva/organisti-farnosti" 			,"Organisti farnosti"),
+		11	=> "separator",
+		12	=> array ("text-danger"		,"/spolocenstva/faustinum" 						,"Faustínum"),
+		13	=> array ("text-danger"		,"/spolocenstva/ruzencove-spolocenstva" 		,"Ružencové spoločenstvá"),
+		14	=> array ("text-danger"		,"/spolocenstva/biblicke-stretka" 				,"Biblické stretká"),
+		15	=> array ("text-danger"		,"/spolocenstva/erko" 							,"eRko"),
+		16	=> "separator",
+		17	=> array ("text-danger"		,"/spolocenstva/farska-rada" 					,"Farská rada"),
+		18	=> array ("text-danger"		,"/spolocenstva/katecheti-a-animatori" 			,"Katechéti a animátori"),
+		19	=> array ("text-danger"		,"/spolocenstva/zivot-vo-farnosti" 				,"Život vo farnosti"),
+	),
 
-// Konštanty individuálne
+	"Liturgia" => array (
+		1	=> array ("text-warning"	,"/liturgia/sviatost-krstu" 			 	,"Sviatosť krstu"),
+		2	=> array ("text-danger"		,"/liturgia/svate-prijimanie" 			 	,"Sväté prijímanie"),
+		3	=> array ("text-danger"		,"/liturgia/birmovanie" 				 	,"Birmovanie"),
+		4	=> array ("text-danger"		,"/liturgia/spovedanie" 				 	,"Spovedanie"),
+		5	=> array ("text-danger"		,"/liturgia/pomazanie-chorych"			 	,"Pomazanie chorých"),
+		6	=> array ("text-danger"		,"/liturgia/vysviacka" 					 	,"Vysviacka"),
+		7	=> array ("text-danger"		,"/liturgia/sobas" 						 	,"Sobáš"),
+		8	=> "separator",
+		9	=> array ("text-danger"		,"/liturgia/pohreb" 					 	,"Pohreb"),
+		10	=> array ("text-danger"		,"/liturgia/pozehnavanie-pribitkov" 	 	,"Požehnávanie príbytkov"),
+		11	=> array ("text-danger"		,"/liturgia/pozehnavanie-predmetov" 	 	,"Požehnávanie predmetov"),
+		12	=> array ("text-danger"		,"/liturgia/poboznosti-a-adoracie" 		 	,"Pobožnosti a adorácie"),
+		13	=> "separator",
+		14	=> array ("text-danger"		,"/liturgia/zivotopisy-svatych" 		 	,"Životopisy svätých"),
+		15	=> array ("text-danger"		,"/liturgia/zaujimave-kazne-a-uvahy" 	 	,"Zaujímavé kázne a úvahy"),
+		16	=> array ("text-danger"		,"/liturgia/odkazy-na-zaujimave-stranky" 	,"Odkazy na zaujímavé stránky"),
+		17	=> "separator",
+		18	=> array ("text-danger"		,"/liturgia/zakladne-vedomosti-krestana" 	,"Základné vedomosti kresťana"),
+		19	=> array ("text-danger"		,"/liturgia/kodex-kanonickeho-prava" 	 	,"Kódex kánonického práva"),
+	),
+	
+	"Dekanát" => array (
+		1	=> array ("text-warning"	,"/dekanat/schematizmus-dekanatu-detva-zoznam-farnosti-a-knazov","Mapa a zoznam farností"),
+		2	=> array ("text-warning"	,"/dekanat/klastor-kralovnej-karmelu-v-detve" 					,"Kláštor Kráľovnej Karmelu"),
+		3	=> array ("text-danger"		,"/dekanat/rad-mensich-bratov-kapucinov" 						,"Rád Menších bratov Kapucínov"),
+		4	=> "separator",	
+		5	=> array ("text-danger"		,"/dekanat/svate-omse-v-okoli" 									,"Sväté omše v okolí"),
+		6	=> array ("text-danger"		,"/dekanat/kam-vo-farnosti" 									,"Kam vo farnosti ?"),
+		7	=> array ("text-warning"	,"/dekanat/podpolianske-vyrezavane-krize" 						,"Podpolianske vyrezávané kríže"),
+		8	=> "separator",	
+		9	=> array ("text-warning"	,"/dekanat/kontakt-dekanskeho-uradu" 							,"Kontakt dekanského úradu"),
+	),	
+	
+	"Fotogaléria" => array (
+		1	=> array ("text-success"	,"/fotogaleria/2007/1/" 						,"2007"),
+		2	=> array ("text-success"	,"/fotogaleria/2008/1/" 						,"2008"),
+		3	=> "separator",	
+		4	=> array ("text-success"	,"/fotogaleria/2015/1/" 						,"2015"),
+		5	=> array ("text-success"	,"/fotogaleria/2017/1/" 						,"2017"),
+		6	=> array ("text-success"	,"/fotogaleria/starsie/1/" 						,"Staršie"),
+		7	=> "separator",
+		8	=> array ("text-success"	,"/fotogaleria/kostoly/1/" 						,"Kostoly"),
+		9	=> array ("text-success"	,"/fotogaleria/kaplnky/1/" 						,"Kaplnky"),
+		10	=> array ("text-warning"	,"/fotogaleria/detvianske-vyrezavane-krize/1/"	,"Detvianske vyrezávané kríže"),
+	),	
+);
+
+// Konštanty stránok individuálne
 $konstantyStranok = array(
 
 	// Meta značka stránky - TITLE -> Zobrazuje sa ako názov okna.	
@@ -199,7 +292,7 @@ $konstantyStranok = array(
 		"Hlavná Stránka" 					=>	"Hlavná stránka",
 		"Fotogaléria" 						=>	"Fotogaléria",    // POZOR špeciálny kód pri fotogalérii
 		"ostatne->Vsetky-otazky"			=>	"Zaujímavé otázky",
-		"ostatne->vyhladavanie"				=>	"",
+		"ostatne->vyhladavanie"				=>	"Vyhľadávanie ...",
 
 		"farnost"							=>	"Farnosť Detva",
 		"farnost->liturgicke-oznamy"		=>	"Litgurgické oznamy",
@@ -283,7 +376,7 @@ $konstantyStranok = array(
 		"farnost->statistiky"				=>	"p. Dekan Sabol",
 		"farnost->vianoce-v-detve"			=>	"Ing. Ondrej VRŤO",
 		"farnost->farska-charita"			=>	"p. Dekan Sabol",
-		"farnost->farska-kniznica"			=>	"Milka Žubrietovsk8",
+		"farnost->farska-kniznica"			=>	"Milka Žubrietovská",
 		"farnost->knazi-vo-farnosti"		=>	"p. Dekan Sabol",
 		"farnost->knazi-z-nasho-kraja"		=>	"p. Dekan Sabol",
 		"farnost->kontakt-farsky-urad"		=>	"p. Dekan Sabol",
