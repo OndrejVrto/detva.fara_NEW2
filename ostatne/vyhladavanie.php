@@ -29,28 +29,23 @@
 				</span>
 			</form>
 			
-<div class="container galeria">
-		<!--  Vzor z Google -->
-		<div class="card shadow px-4 mx-4">
-			<h3 class=""><a href="http://detva.fara.new" target="_blank">Farnosť Detva</a></h3>
-			<div class="">
-				<div class="" style="white-space:nowrap">
-					<cite class="">detva.fara.new</cite>
-				</div>
-				<span class="">Pôstna duchovná obnova vo farnosti <em>Detva</em>. Plagát - Postna duchovná obnova v <em>Detve</em> 2017. Združenie apoštolov Božieho milosrdenstva Vás srdečne pozýva&nbsp;...</span>
+		<!--  Vzor -->
+	<!-- 	<div class="card py-2 px-3 mb-1">
+				<a class="h4" href="http://detva.fara.new" target="_blank">Farnosť Detva</a>
+				<cite class="font-weight-light text-success">detva.fara.new</cite>
+				<span class="text-break">Pôstna duchovná obnova vo farnosti <span class="font-weight-bold">Detva</span>. Plagát - Postna duchovná obnova v Detve 2017&nbsp;...</span>
 			</div>
-		</div>
-<!-- 		<div class="card shadow p-4 m-4">
-			<h3 class=""><a href="http://detva.fara.new" target="_blank">Farnosť Detva</a></h3>
-			<div class="">
-				<div class="" style="white-space:nowrap">
-					<cite class="">detva.fara.new</cite>
-				</div>
-				<span class="">Pôstna duchovná obnova vo farnosti <em>Detva</em>. Plagát - Postna duchovná obnova v <em>Detve</em> 2017. Združenie apoštolov Božieho milosrdenstva Vás srdečne pozýva&nbsp;...</span>
+			<div class="card py-2 px-3 mb-1">
+				<a class="h4" href="http://detva.fara.new" target="_blank">Farnosť Detva</a>
+				<cite class="font-weight-light text-success">detva.fara.new</cite>
+				<span class="d-inline-block text-truncate">Pôstna duchovná obnova vo farnosti <em>Detva</em>. Plagát - Postna duchovná obnova v <em>Detve</em> 2017. Združenie apoštolov Božieho milosrdenstva Vás srdečne pozýva&nbsp;...</span>
 			</div>
-		</div>	 -->	
-<br>
-
+			<div class="card py-2 px-3 mb-1">
+				<a class="h4" href="http://detva.fara.new" target="_blank">Farnosť Detva</a>
+				<cite class="font-weight-light text-success">detva.fara.new</cite>
+				<span>Pôstna duchovná obnova vo farnosti <em>Detva</em>. Plagát - Postna duchovná obnova v <em>Detve</em> 2017. Združenie apoštolov Božieho milosrdenstva Vás srdečne pozýva&nbsp;...</span>
+			</div>		 -->
+		<!--  Vzor -->		
 <?php 
 // i pro multi-byte (napr. UTF-8)
 $prevodni_tabulka = Array(
@@ -62,7 +57,7 @@ $prevodni_tabulka = Array(
   'o'=>'o', 'O'=>'O', 'o'=>'o', 'O'=>'O', 'ő'=>'o', 'Ő'=>'O', 'ř'=>'r', 'Ř'=>'R', 'ŕ'=>'r', 'Ŕ'=>'R',
   'š'=>'s', 'Š'=>'S', 'ś'=>'s', 'Ś'=>'S', 'ť'=>'t', 'Ť'=>'T', 'ú'=>'u', 'Ú'=>'U', 'ů'=>'u', 'Ů'=>'U',
   'ü'=>'u', 'Ü'=>'U', 'u'=>'u', 'U'=>'U', 'u'=>'u', 'U'=>'U', 'u'=>'u', 'U'=>'U', 'ý'=>'y', 'Ý'=>'Y',
-  'ž'=>'z', 'Ž'=>'Z', 'ź'=>'z', 'Ź'=>'Z', ','=>'',  '.'=>'-' , 
+  'ž'=>'z', 'Ž'=>'Z', 'ź'=>'z', 'Ź'=>'Z', ','=>'',  '.'=>'-', '<'=>' ', '>'=>' ',
   '        '=>' ', '       '=>' ', '      '=>' ', '     '=>' ', '    '=>' ', '   '=>' ', '  '=>' ',   // medzery 8 zž 2 nahradiť 1
 );
 
@@ -86,62 +81,73 @@ if (!isset($_GET['search']) or $_GET['search']=='') {
 	//čistenie hľadaného textu vo viacerých krokoch
 	// O. orginál text
 	$hladanyRetazec0 = $_GET['search'];
-	
-	echo "VSTUP\t\t>" . $hladanyRetazec0 . "\n<br>\n";
+	//echo "VSTUP\t" . $hladanyRetazec0 . "\n<br>\n";
 
-	// 1. odstránenie html znakov
-	$hladanyRetazec1 = htmlentities($hladanyRetazec0);
-	echo "HTML\t\t>" . $hladanyRetazec1 . "\n<br>\n";
-	
 	// 2. odstránenie diakritiky
-	$hladanyRetazec2 =  strtr($hladanyRetazec1, $prevodni_tabulka);
-	echo "ZNAKY\t\t>" . $hladanyRetazec2 . "\n<br>\n";
+	$hladanyRetazec1 =  strtr($hladanyRetazec0, $prevodni_tabulka);
+	//echo "ZNAKY&nbsp;>\t" . $hladanyRetazec1 . "\n<br>\n";
 	
 	// 3. zmenšenie všetkých písmen
-	$hladanyRetazec3 = strtolower($hladanyRetazec2);
-	echo "MALE\t\t>" . $hladanyRetazec3 . "\n<br>\n";
+	$hladanyRetazec3 = strtolower($hladanyRetazec1);
+	//echo "MALE&nbsp;&nbsp;>\t" . $hladanyRetazec3 . "\n<br>\n";
 	
-	// 4. odstránenie eskejpovacích znakov pre ochranu SQL
+	// 4. trim
 	$hladanyRetazec4 = trim($hladanyRetazec3);
-	echo "TRIM\t\t>" . $hladanyRetazec4 . "\n<br>\n\n";
+	//echo "TRIM&nbsp;&nbsp;>" . $hladanyRetazec4 . "\n<br>\n\n";
 	
 	// 5. odstránenie eskejpovacích znakov pre ochranu SQL
-	$hladanyRetazec = $link->real_escape_string($hladanyRetazec4);
-	echo "SQL\t\t>" . $hladanyRetazec . "\n<br>\n<br>\n";
+	$hladanyRetazec5 = $link->real_escape_string($hladanyRetazec4);
+	//echo "SQL&nbsp;&nbsp;&nbsp;>\t" . $hladanyRetazec5 . "\n<br>\n";
 
-	$dotaz = "SELECT *, LOCATE(\"" . $hladanyRetazec . "\", obsah) as poloha, MATCH(title_upraveny, nadpis_upraveny, obsah) AGAINST('";
+	// 1. odstránenie html znakov
+	$hladanyRetazec = htmlentities($hladanyRetazec5);
+	//echo "HTML&nbsp;&nbsp;>\t" . $hladanyRetazec . "\n<br>\n<br>\n";
+
+	$dotaz = "SELECT *, LOCATE(\"" . $hladanyRetazec . "\", obsah_upraveny) as poloha, MATCH(title_upraveny, nadpis_upraveny, obsah_upraveny) AGAINST('";
 	$dotaz .= $hladanyRetazec . "' IN NATURAL LANGUAGE MODE WITH QUERY EXPANSION) as score, ";
-	$dotaz .= "((LENGTH(obsah) - LENGTH(REPLACE(obsah, '" . $hladanyRetazec . "', '')))/LENGTH('" . $hladanyRetazec . "'))+";
+	$dotaz .= "((LENGTH(obsah_upraveny) - LENGTH(REPLACE(obsah_upraveny, '" . $hladanyRetazec . "', '')))/LENGTH('" . $hladanyRetazec . "'))+";
 	$dotaz .= "((LENGTH(title_upraveny) - LENGTH(REPLACE(title_upraveny, '" . $hladanyRetazec . "', '')))/LENGTH('" . $hladanyRetazec . "'))*3 +";
 	$dotaz .= "((LENGTH(nadpis_upraveny) - LENGTH(REPLACE(nadpis_upraveny, '" . $hladanyRetazec . "', '')))/LENGTH('" . $hladanyRetazec . "'))*2 AS count ";
-	$dotaz .= "FROM search_data WHERE MATCH(title_upraveny, nadpis_upraveny, obsah) AGAINST('";
-	$dotaz .= $hladanyRetazec . "' IN NATURAL LANGUAGE MODE WITH QUERY EXPANSION) ORDER BY score DESC";
+	$dotaz .= "FROM search_data WHERE MATCH(title_upraveny, nadpis_upraveny, obsah_upraveny) AGAINST('";
+	$dotaz .= $hladanyRetazec . "' IN NATURAL LANGUAGE MODE WITH QUERY EXPANSION) ORDER BY score DESC LIMIT 10;";
 	
 	//WITH QUERY EXPANSION
 	
-	echo $dotaz . "\n<br>\n";
+	//echo $dotaz . "\n<br>\n";
 	$vysledok = mysqli_query($link, $dotaz) or die("1. Nepodarilo sa vyhodnotiť dotaz!");
-	echo "Počet nájdených vyhovujúcich výsledkov A: <b>".mysqli_num_rows($vysledok)."</b><br>";
-	echo "\n<br>\n";
+	//echo "Počet nájdených vyhovujúcich výsledkov A: <b>".mysqli_num_rows($vysledok)."</b><br>";
+	//echo "\n<br>\n";
 	if (mysqli_num_rows($vysledok)==0) {
-		$dotaz = "SELECT score_manualne as count, LOCATE(\"" . $hladanyRetazec . "\", obsah) as poloha, link, title, nadpis, obsah, ";
-		$dotaz .= "(((LENGTH(obsah) - LENGTH(REPLACE(obsah, '" . $hladanyRetazec . "', '')))/LENGTH('" . $hladanyRetazec . "'))+";
+		$dotaz = "SELECT score_manualne as count, LOCATE(\"" . $hladanyRetazec0 . "\", obsah) as poloha, link, title, nadpis, obsah, ";
+		$dotaz .= "(((LENGTH(obsah_upraveny) - LENGTH(REPLACE(obsah_upraveny, '" . $hladanyRetazec . "', '')))/LENGTH('" . $hladanyRetazec . "'))+";
 		$dotaz .= "((LENGTH(title_upraveny) - LENGTH(REPLACE(title_upraveny, '" . $hladanyRetazec . "', '')))/LENGTH('" . $hladanyRetazec . "'))*3 +";
 		$dotaz .= "((LENGTH(nadpis_upraveny) - LENGTH(REPLACE(nadpis_upraveny, '" . $hladanyRetazec . "', '')))/LENGTH('" . $hladanyRetazec . "'))*2 )*score_manualne AS score ";
 		$dotaz .= "FROM search_data WHERE ";
-		$dotaz .= "obsah LIKE '%" . $hladanyRetazec . "%' or ";
+		$dotaz .= "obsah_upraveny LIKE '%" . $hladanyRetazec . "%' or ";
 		$dotaz .= "title_upraveny LIKE '%" . $hladanyRetazec . "%' or ";
-		$dotaz .= "nadpis_upraveny LIKE '%" . $hladanyRetazec . "%' ORDER BY score DESC;";
+		$dotaz .= "nadpis_upraveny LIKE '%" . $hladanyRetazec . "%' ORDER BY score DESC LIMIT 10;";
 		
 		//echo $dotaz . "\n<br>\n";
 		$vysledok = mysqli_query($link, $dotaz) or die("2. Nepodarilo sa vyhodnotiť dotaz!");
-		echo "Počet nájdených vyhovujúcich výsledkov B: <b>".mysqli_num_rows($vysledok)."</b><br>";
+		//echo "Počet nájdených vyhovujúcich výsledkov B: <b>".mysqli_num_rows($vysledok)."</b><br>";
 	}
-?>
+?><?php
+	if (mysqli_num_rows($vysledok)==0) {
+			  echo "\n\t\t\t<div class=\"card py-2 px-3 mb-2\">
+			  <span class=\"text-break\">Hľadaný výraz nepriniesol žiadne výsledky ...</span>";
+			 echo "\n\t\t\t</div>";		
+	}
+	while($pole=mysqli_fetch_array($vysledok)){
+			echo "\n\t\t\t<div class=\"card py-2 px-3 mb-2\">
+			<a class=\"h4\" href=\"" . $pole["link"] .  "\" title=\"" .$pole["title"]. "\" >" .$pole["nadpis"]."</a>
+			<cite class=\"font-weight-light text-success\">" . substr($pole["link"], 1) .  "</cite>
+			<span class=\"text-break\">" . substr($pole["obsah"],0,140) . "&nbsp;...</span>";
+			echo "\n\t\t\t</div>";
+	}
 
-<?php
-    // výpis výsledku
-    echo "\t\t<br><br>\n\t\t\t<table width=\"100%\" border=\"5\">
+
+    // výpis výsledku 2
+/*     echo "\t\t<br><br>\n\t\t\t<table width=\"100%\" border=\"5\">
           <thead>
             <tr>
  				<th>SCORE</th>
@@ -166,13 +172,12 @@ if (!isset($_GET['search']) or $_GET['search']=='') {
 				<td>" .$pole["obsah"]. "</td>";
 			 echo "\n\t\t\t</tr>";
 		 }
-    echo "\n\t\t</tbody>\n\t</table>";
+    echo "\n\t\t</tbody>\n\t</table>"; */
 
 	
 	MySQLi_Close($link);
 }
 ?>
-		</div>
 <?php include $path . "/_vlozene/spodok-stranky.php"; echo "\n";?>
 <!-- START - Individuálne skripty na konci stranky -->
 <!-- END   - Individuálne skripty na konci stranky -->

@@ -12,18 +12,18 @@
 	//error_reporting(E_ERROR | E_WARNING);
 	error_reporting(E_ALL);
 
-	define ("kSERVER", 'https://detva.fara.new');
+	define ("kSERVER", 'http://detva.fara.new');
 	//define ("kSERVER", 'http://localhost:8080');
 	define ("linkVSTUP", '/');  	//inicializacia prveho adresara
 	//define ("linkVSTUP", '/fotogaleria/2015/1');  	//inicializacia prveho adresara	
 	//define ("linkVSTUP", '/farnost/knazi-posobiaci-vo-farnosti-detva');  	//inicializacia prveho adresara	
-	define ("VYPIS", false);
+	define ("VYPIS", true);
 	define ("ochranaMAX", '1000');
 	define ("scoreMANUAL", '0.1');
 	
 	//globalne premenne
 	$linky_vsetky = array();
-	$ignoreListLinky = array ("/", "/cista", "mailto:" );
+	$ignoreListLinky = array ("/", "/cista", "mailto:", "/ostatne/vyhladavanie-parsovanie-stranok-a-suborov", "/ostatne/vyhladavanie/" );
 
 	// vynulovanie ochrany
 	$ochrana = '0';
@@ -32,7 +32,7 @@
 	$time_pre = microtime(true);	
 	
 	// hlavny skript
-	$dotazDATA = "INSERT INTO `search_data` (`id`, `score_manualne`, `subor`, `pripona`, `typ_suboru`, `link`, `title`, `nadpis`, `title_upraveny`, `nadpis_upraveny`, `obsah`) VALUES \n";
+	$dotazDATA = "INSERT INTO `search_data` (`id`, `score_manualne`, `subor`, `pripona`, `typ_suboru`, `link`, `title`, `nadpis`, `title_upraveny`, `nadpis_upraveny`, `obsah`, `obsah_upraveny`) VALUES \n";
 	najdi_vsetky_linky(linkVSTUP);
 	
 	// odstráni poslednú čiarku
@@ -41,10 +41,14 @@
 	$time_post = microtime(true);
 	$exec_time = $time_post - $time_pre;
 	
-	echo "\nPočet vykonaní funkcie: " . $ochrana . " z " . ochranaMAX;
-	echo "\nProgram trval: " . round ($exec_time, 1) . " s\n\n";
-	//var_export($linky_vsetky);	
-	var_dump($dotazDATA);
+	if (VYPIS){
+		echo "\nPočet vykonaní funkcie: " . $ochrana . " z " . ochranaMAX;
+		echo "\nProgram trval: " . round ($exec_time, 1) . " s\n\n";
+		// var_export($linky_vsetky);
+		// echo "\n\n";
+		// var_dump($dotazDATA);
+		// echo "\n\n";
+	}
 	
 	//otvorenie spojenia
 	include '../_vlozene/ConnectMyAdmin.php';
@@ -72,6 +76,7 @@
 				title_upraveny varchar(255) COLLATE utf8_slovak_ci NOT NULL,
 				nadpis_upraveny varchar(255) COLLATE utf8_slovak_ci NOT NULL,
 				obsah text COLLATE utf8_slovak_ci NOT NULL,
+				obsah_upraveny text COLLATE utf8_slovak_ci NOT NULL,
 				PRIMARY KEY (id)
 				) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci;";
 	MySQLi_query($SQLlink, $dotaz) or die("Nepodarilo sa vyhodnotiť dotaz (VYTVOR TABUĽKU) !");
@@ -80,7 +85,7 @@
 	MySQLi_query($SQLlink, $dotazDATA) or die("\n\nNepodarilo sa vyhodnotiť dotaz (VLOŽ ÚDAJ) !" . $pocitadlo);
 
 	// vytvorenie FULTEXTového kľúča nad tabuľkou
-	$dotaz = "ALTER TABLE `search_data` ADD FULLTEXT `searchINDEX` (`title_upraveny`, `nadpis_upraveny`, `obsah`);";
+	$dotaz = "ALTER TABLE `search_data` ADD FULLTEXT `searchINDEX` (`title_upraveny`, `nadpis_upraveny`, `obsah_upraveny`);";
 	MySQLi_query($SQLlink, $dotaz) or die("Nepodarilo sa vyhodnotiť dotaz (VYTVOR FULTEXT) !");
 
 	//uzavretie spojenia
@@ -105,6 +110,8 @@ function najdi_vsetky_linky ($cesta){
 	$vsetly_linky_local = array();
 	
 	$ochrana++;
+	
+	//echo "\t" . kSERVER . $cesta . "\n";
 	
 	$dokument = new DOMDocument();
 	@$dokument->loadHTMLfile(kSERVER . $cesta);
@@ -138,9 +145,12 @@ function najdi_vsetky_linky ($cesta){
 			// specialna trieda pre vyber cisteho textu z html kodu
 			// http://www.chuggnutt.com/html2text
 			$obsah = gramatika($obsah);
-			$h2t =& new html2text($obsah['bezGramatiky']);
+			$h2t =& new html2text($obsah['sGramatikou']);
 			$obsah = $h2t->get_text();
+			// $obsah = html2text($obsah['bezGramatiky']);
 			$obsah = gramatika($obsah);
+			
+			//echo "" . $obsah['bezGramatiky'] . "\n\n\n";
 			
 			$pocitadlo++;
 			// naplnenie tabuľky hodnotami
@@ -154,6 +164,7 @@ function najdi_vsetky_linky ($cesta){
 			$dotazDATA .= "'" . (string)$nadpis['sGramatikou'] . "',";
 			$dotazDATA .= "'" . (string)$title['bezGramatiky'] . "',";
 			$dotazDATA .= "'" . (string)$nadpis['bezGramatiky'] . "',";
+			$dotazDATA .= "'" . (string)$obsah['sGramatikou'] . "',";
 			$dotazDATA .= "'" . (string)$obsah['bezGramatiky'] . "'), \n";
 		}
 	}
@@ -206,6 +217,7 @@ function najdi_vsetky_linky ($cesta){
 					$dotazDATA .= "'" . (string)$element['sGramatikou'] . "',";
 					$dotazDATA .= "'" . (string)$titulokSuboru['bezGramatiky'] . "',";
 					$dotazDATA .= "'" . (string)$element['bezGramatiky'] . "',";
+					$dotazDATA .= "'" . (string)$subor['sGramatikou'] . "." . (string)$pripona['sGramatikou'] . "',";					
 					$dotazDATA .= "'" . (string)$subor['bezGramatiky'] . "." . (string)$pripona['bezGramatiky'] . "'), \n";
 				} else {
 					$link = false;
@@ -221,7 +233,7 @@ function najdi_vsetky_linky ($cesta){
 	}
 	
 	// !!! rekurzívna funkcia sa spustí v prípade, že sa na stránke nájdu linky ktoré ešte niesú v hlavnom poli
-	foreach ($vsetly_linky_local as $linka_jedna_local){
+ 	foreach ($vsetly_linky_local as $linka_jedna_local){
 		if ( $ochrana < ochranaMAX ){
 			najdi_vsetky_linky($linka_jedna_local);
 		}
@@ -259,7 +271,6 @@ function gramatika($vstup){
 		$vystup_gramatika = preg_replace("/\xC2\xA0/", " ", $vystup_gramatika);
 		// odstráni prázdne miesto na konci a na začiatku
 		$vystup_gramatika = trim($vystup_gramatika);
-
 		// odstráni diakritiku
 		$vystup_bez_gramatiky = strtr($vystup_gramatika, $prevodni_tabulka);
 		// všetky znaky malé

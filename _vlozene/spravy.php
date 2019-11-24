@@ -42,7 +42,7 @@
 <?php
 	// kod pre potreby vyvoja
 	
-	echo $_SERVER['PHP_SELF'];
+/* 	echo $_SERVER['PHP_SELF'];
 	echo "<br>\n";
 	echo $_SERVER['SERVER_NAME'];
 	echo "<br>\n";
@@ -60,7 +60,7 @@
 		echo $_GET["p"];
 	} else {
 		echo 'neexistuje';
-	}
+	} */
 	
 include_once("_vlozene/spravy-zoznam.php");
 /*echo "\n<br>",'<code>';
@@ -258,7 +258,7 @@ for ($x=0; $x<=$pocetPrvkov-1 ;$x++){
 					<p class="text-left"><em>Text a foto: Zuzana Juhaniaková</em></p>
 			</article>
 			<article class="card" role="region">
-				<p><a href="/farnost/liturgicke-oznamy-detva" >Oznamy nájdete v menu - Farnosť -> Liturgické Oznamy</a></p>
-				<p><a href="/farnost/liturgicke-oznamy-detva">Rozpisy služieb lektorov nájdete v menu - Farnosť -> Liturgické Oznamy</a></p>
+				<p><a href="/farnost/liturgicke-oznamy-farnosti-detva" >Oznamy nájdete v menu - Farnosť -> Liturgické Oznamy</a></p>
+				<p><a href="/farnost/liturgicke-oznamy-farnosti-detva">Rozpisy služieb lektorov nájdete v menu - Farnosť -> Liturgické Oznamy</a></p>
 			</article>-->
 <!-- ZALOHA end -->

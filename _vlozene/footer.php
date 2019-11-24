@@ -24,7 +24,7 @@
 				<dd>Farský kostol - 7:45, 9:00, 10:30, 17:30</dd>
 				<dd>Kláštor - 7:30</dd>
 			</dl>
-			Viac nájdete v <a href="/farnost/liturgicke-oznamy-detva" >liturgických oznamoch</a> na daný týždeň.
+			Viac nájdete v <a href="/farnost/liturgicke-oznamy-farnosti-detva" >liturgických oznamoch</a> na daný týždeň.
 		</section>
      	<section class="footerHIGH col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 mx-0">
 			<h2>Myšlienka dňa</h2>

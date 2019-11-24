@@ -11,7 +11,7 @@ $vedeliSteZe_zoznam = array
 	2 => array(
 		"Oblast" 		=> "krst",
 		"Zaujimavost" 	=> "2. pred krstom treba chodiť na náučenstvo.",
-		"Odkaz"			=> "/liturgia/krestanske-sviatosti#krst",
+		"Odkaz"			=> "/liturgia/sviatost-krstu",
 		),
 	3 => array(
 		"Oblast" 		=> "svadba",
@@ -28,13 +28,13 @@ $vedeliSteZe_zoznam = array
 	5 => array(
 		"Oblast" 		=> "krst",
 		"Zaujimavost" 	=> "5. fara je otvorená pre všetkých?",
-		"Odkaz"			=> "/liturgia/krestanske-sviatosti#krst",
+		"Odkaz"			=> "/liturgia/sviatost-krstu",
 		"Titulok"		=> "Stránka o krstoch"
 		),
 	6 => array(
 		"Oblast" 		=> "krst",
 		"Zaujimavost" 	=> "6. Máme nového biskupa?",
-		"Odkaz"			=> "/liturgia/krestanske-sviatosti#krst",
+		"Odkaz"			=> "/liturgia/sviatost-krstu",
 		"Titulok"		=> "Stránka o krstoch"
 		),		
 		

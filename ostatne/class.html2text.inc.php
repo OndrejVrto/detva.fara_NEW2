@@ -182,7 +182,7 @@ class html2text
         '/&(ndash|minus|#8211|#8722);/i',        // ndash
         '/&(bull|#149|#8226);/i',                // Bullet
         '/&(pound|#163);/i',                     // Pound sign
-        '/&(euro|#8364);/i',                     // Euro sign
+        '/&(euro|#8364});/i',                     // Euro sign
         '/&[^&;]+;/i',                           // Unknown/unhandled entities
         '/[ ]{2,}/',                              // Runs of spaces, post-handling
         '/&(nbsp|#160|#xa0);/i',                      // Non-breaking space
@@ -202,14 +202,14 @@ class html2text
         '',                                     // <script>s -- which strip_tags supposedly has problems with
         '',                                     // <style>s -- which strip_tags supposedly has problems with
         //'',                                     // Comments -- which strip_tags might have problem a with
-        "strtoupper(\"\n\n\\1\n\n\")",          // H1 - H3
-        "ucwords(\"\n\n\\1\n\n\")",             // H4 - H6
+        "\\1",          // H1 - H3
+        "\\1",             // H4 - H6
         "\n\n\t",                               // <P>
         "\n",                                   // <br>
-        'strtoupper("\\1")',                    // <b>
-        'strtoupper("\\1")',                    // <strong>
-        '_\\1_',                                // <i>
-        '_\\1_',                                // <em>
+        '\\1',                    // <b>
+        '\\1',                    // <strong>
+        '\\1',                                // <i>
+        '\\1',                                // <em>
         "\n\n",                                 // <ul> and </ul>
         "\n\n",                                 // <ol> and </ol>
         "\t \\1\n",                            // <li> and </li> - UPRAVA Vrto
@@ -222,10 +222,10 @@ class html2text
         "\n\n",                                 // <table> and </table>
         "\n",                                   // <tr> and </tr>
         "\t\t\\1\n",                            // <td> and </td>
-        "strtoupper(\"\t\t\\1\n\")",            // <th> and </th>
+        "\\1",            // <th> and </th>
         ' ',                                    // Non-breaking space
-        '"',                                    // Double quotes
-        "'",                                    // Single quotes
+        ' ',                                    // Double quotes
+        " ",                                    // Single quotes
         '>',
         '<',
         '&',
@@ -235,8 +235,8 @@ class html2text
         '--',
         '-',
         '*',
-        '£',
-        'EUR',                                  // Euro sign. € ?
+        'Å',
+        'EUR',                                  // Euro sign. â‚¬ ?
         '',                                     // Unknown/unhandled entities
         ' ',                                    // Runs of spaces, post-handling
         ' '                                     // Runs of spaces, post-handling		
