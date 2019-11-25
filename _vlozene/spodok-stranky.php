@@ -47,19 +47,15 @@
 			}
 		})
 	</script>
-	
-	
-	
-	
 	<script>
 		// funkcie na presmerovanie stránky s vyhľadávačom
 		function SearchKlik(){
 			var input = document.getElementById("PoleSearch_1").value
 			var ocistenyInput = input.replace(/\?/g, '');
 			if (ocistenyInput==="") {
-				window.location.replace('https://detva.fara.new:4433/vyhladavanie');
+				window.location.replace('http://detva.fara.new/vyhladavanie');
 			} else{
-				window.location.replace('https://detva.fara.new:4433/vyhladavanie/' + ocistenyInput);
+				window.location.replace('http://detva.fara.new/vyhladavanie/1/' + ocistenyInput);
 			}
 		}
 		function SearchEnter(e) {
@@ -68,9 +64,9 @@
 				var input = document.getElementById("PoleSearch_1").value
 				var ocistenyInput = input.replace(/\?/g, '');
 				if (ocistenyInput==="") {
-					window.location.replace('https://detva.fara.new:4433/vyhladavanie');
-				} else{
-					window.location.replace('https://detva.fara.new:4433/vyhladavanie/' + ocistenyInput);
+				window.location.replace('http://detva.fara.new/vyhladavanie');
+			} else{
+				window.location.replace('http://detva.fara.new/vyhladavanie/1/' + ocistenyInput);
 				}
 				return false;
 			}
@@ -79,9 +75,9 @@
 			var input = document.getElementById("PoleSearch_2").value
 			var ocistenyInput = input.replace(/\?/g, '');
 			if (ocistenyInput==="") {
-				window.location.replace('https://detva.fara.new:4433/vyhladavanie');
+				window.location.replace('http://detva.fara.new/vyhladavanie');
 			} else{
-				window.location.replace('https://detva.fara.new:4433/vyhladavanie/' + ocistenyInput);
+				window.location.replace('http://detva.fara.new/vyhladavanie/1/' + ocistenyInput);
 			}
 		}
 		function SearchEnter2(e) {
@@ -90,9 +86,9 @@
 				var input = document.getElementById("PoleSearch_2").value
 				var ocistenyInput = input.replace(/\?/g, '');
 				if (ocistenyInput==="") {
-					window.location.replace('https://detva.fara.new:4433/vyhladavanie');
-				} else{
-					window.location.replace('https://detva.fara.new:4433/vyhladavanie/' + ocistenyInput);
+				window.location.replace('http://detva.fara.new/vyhladavanie');
+			} else{
+				window.location.replace('http://detva.fara.new/vyhladavanie/1/' + ocistenyInput);
 				}
 				return false;
 			}

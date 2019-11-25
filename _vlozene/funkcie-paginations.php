@@ -39,7 +39,7 @@ function pagination_vrto($aktivnaStranka, $pocetStran, $url_zaciatok, $url_konie
 		
 		$vystup = '';
 		$zalomenie = "\n\t\t\t\t";
-		$vystup .= $zalomenie . '<nav class="breadcrumb justify-content-center m-0 px-0" aria-label="Page navigation"' . $id . '>';
+		$vystup .= $zalomenie . '<nav class="justify-content-center m-0 px-0" aria-label="Page navigation"' . $id . '>';
 		$vystup .= $zalomenie . "\t" . '<ul class="pagination' . $velkost . ' justify-content-center m-0 p-0">';
 
 		If ($opacneCislovanie==false){

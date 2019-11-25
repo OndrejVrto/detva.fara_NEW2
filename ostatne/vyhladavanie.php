@@ -61,6 +61,9 @@ $prevodni_tabulka = Array(
   '        '=>' ', '       '=>' ', '      '=>' ', '     '=>' ', '    '=>' ', '   '=>' ', '  '=>' ',   // medzery 8 zž 2 nahradiť 1
 );
 
+$pocetVysledkovHladania = 8;
+
+
 // Otestuje či je vložená nejaká hodnota v premennej "search"
 if (!isset($_GET['search']) or $_GET['search']=='') {
 	$hladanyRetazec = 'Prázdny reťazec';
@@ -102,52 +105,86 @@ if (!isset($_GET['search']) or $_GET['search']=='') {
 	// 1. odstránenie html znakov
 	$hladanyRetazec = htmlentities($hladanyRetazec5);
 	//echo "HTML&nbsp;&nbsp;>\t" . $hladanyRetazec . "\n<br>\n<br>\n";
+	
 
-	$dotaz = "SELECT *, LOCATE(\"" . $hladanyRetazec . "\", obsah_upraveny) as poloha, MATCH(title_upraveny, nadpis_upraveny, obsah_upraveny) AGAINST('";
-	$dotaz .= $hladanyRetazec . "' IN NATURAL LANGUAGE MODE WITH QUERY EXPANSION) as score, ";
-	$dotaz .= "((LENGTH(obsah_upraveny) - LENGTH(REPLACE(obsah_upraveny, '" . $hladanyRetazec . "', '')))/LENGTH('" . $hladanyRetazec . "'))+";
-	$dotaz .= "((LENGTH(title_upraveny) - LENGTH(REPLACE(title_upraveny, '" . $hladanyRetazec . "', '')))/LENGTH('" . $hladanyRetazec . "'))*3 +";
-	$dotaz .= "((LENGTH(nadpis_upraveny) - LENGTH(REPLACE(nadpis_upraveny, '" . $hladanyRetazec . "', '')))/LENGTH('" . $hladanyRetazec . "'))*2 AS count ";
-	$dotaz .= "FROM search_data WHERE MATCH(title_upraveny, nadpis_upraveny, obsah_upraveny) AGAINST('";
-	$dotaz .= $hladanyRetazec . "' IN NATURAL LANGUAGE MODE WITH QUERY EXPANSION) ORDER BY score DESC LIMIT 10;";
+	$dotaz1 = "SELECT *, LOCATE(\"" . $hladanyRetazec . "\", obsah_upraveny) as poloha, MATCH(title_upraveny, nadpis_upraveny, obsah_upraveny) AGAINST('";
+	$dotaz1 .= $hladanyRetazec . "' IN NATURAL LANGUAGE MODE WITH QUERY EXPANSION) as score, ";
+	$dotaz1 .= "((LENGTH(obsah_upraveny) - LENGTH(REPLACE(obsah_upraveny, '" . $hladanyRetazec . "', '')))/LENGTH('" . $hladanyRetazec . "'))+";
+	$dotaz1 .= "((LENGTH(title_upraveny) - LENGTH(REPLACE(title_upraveny, '" . $hladanyRetazec . "', '')))/LENGTH('" . $hladanyRetazec . "'))*3 +";
+	$dotaz1 .= "((LENGTH(nadpis_upraveny) - LENGTH(REPLACE(nadpis_upraveny, '" . $hladanyRetazec . "', '')))/LENGTH('" . $hladanyRetazec . "'))*2 AS count ";
+	$dotaz1 .= "FROM search_data WHERE MATCH(title_upraveny, nadpis_upraveny, obsah_upraveny) AGAINST('";
+	$dotaz1 .= $hladanyRetazec . "' IN NATURAL LANGUAGE MODE WITH QUERY EXPANSION) ORDER BY score DESC";
 	
 	//WITH QUERY EXPANSION
 	
 	//echo $dotaz . "\n<br>\n";
-	$vysledok = mysqli_query($link, $dotaz) or die("1. Nepodarilo sa vyhodnotiť dotaz!");
+	$vysledok = mysqli_query($link, $dotaz1) or die("1. Nepodarilo sa vyhodnotiť dotaz!");
 	//echo "Počet nájdených vyhovujúcich výsledkov A: <b>".mysqli_num_rows($vysledok)."</b><br>";
 	//echo "\n<br>\n";
 	if (mysqli_num_rows($vysledok)==0) {
-		$dotaz = "SELECT score_manualne as count, LOCATE(\"" . $hladanyRetazec0 . "\", obsah) as poloha, link, title, nadpis, obsah, ";
-		$dotaz .= "(((LENGTH(obsah_upraveny) - LENGTH(REPLACE(obsah_upraveny, '" . $hladanyRetazec . "', '')))/LENGTH('" . $hladanyRetazec . "'))+";
-		$dotaz .= "((LENGTH(title_upraveny) - LENGTH(REPLACE(title_upraveny, '" . $hladanyRetazec . "', '')))/LENGTH('" . $hladanyRetazec . "'))*3 +";
-		$dotaz .= "((LENGTH(nadpis_upraveny) - LENGTH(REPLACE(nadpis_upraveny, '" . $hladanyRetazec . "', '')))/LENGTH('" . $hladanyRetazec . "'))*2 )*score_manualne AS score ";
-		$dotaz .= "FROM search_data WHERE ";
-		$dotaz .= "obsah_upraveny LIKE '%" . $hladanyRetazec . "%' or ";
-		$dotaz .= "title_upraveny LIKE '%" . $hladanyRetazec . "%' or ";
-		$dotaz .= "nadpis_upraveny LIKE '%" . $hladanyRetazec . "%' ORDER BY score DESC LIMIT 10;";
+		$dotaz2 = "SELECT score_manualne as count, LOCATE(\"" . $hladanyRetazec0 . "\", obsah) as poloha, link, title, nadpis, obsah, ";
+		$dotaz2 .= "(((LENGTH(obsah_upraveny) - LENGTH(REPLACE(obsah_upraveny, '" . $hladanyRetazec . "', '')))/LENGTH('" . $hladanyRetazec . "'))+";
+		$dotaz2 .= "((LENGTH(title_upraveny) - LENGTH(REPLACE(title_upraveny, '" . $hladanyRetazec . "', '')))/LENGTH('" . $hladanyRetazec . "'))*3 +";
+		$dotaz2 .= "((LENGTH(nadpis_upraveny) - LENGTH(REPLACE(nadpis_upraveny, '" . $hladanyRetazec . "', '')))/LENGTH('" . $hladanyRetazec . "'))*2 )*score_manualne AS score ";
+		$dotaz2 .= "FROM search_data WHERE ";
+		$dotaz2 .= "obsah_upraveny LIKE '%" . $hladanyRetazec . "%' or ";
+		$dotaz2 .= "title_upraveny LIKE '%" . $hladanyRetazec . "%' or ";
+		$dotaz2 .= "nadpis_upraveny LIKE '%" . $hladanyRetazec . "%' ORDER BY score DESC";
 		
 		//echo $dotaz . "\n<br>\n";
-		$vysledok = mysqli_query($link, $dotaz) or die("2. Nepodarilo sa vyhodnotiť dotaz!");
+		$vysledok = mysqli_query($link, $dotaz2) or die("2. Nepodarilo sa vyhodnotiť dotaz!");
 		//echo "Počet nájdených vyhovujúcich výsledkov B: <b>".mysqli_num_rows($vysledok)."</b><br>";
 	}
-?><?php
+	
+
 	if (mysqli_num_rows($vysledok)==0) {
 			  echo "\n\t\t\t<div class=\"card py-2 px-3 mb-2\">
 			  <span class=\"text-break\">Hľadaný výraz nepriniesol žiadne výsledky ...</span>";
 			 echo "\n\t\t\t</div>";		
-	}
-	while($pole=mysqli_fetch_array($vysledok)){
-			echo "\n\t\t\t<div class=\"card py-2 px-3 mb-2\">
-			<a class=\"h4\" href=\"" . $pole["link"] .  "\" title=\"" .$pole["title"]. "\" >" .$pole["nadpis"]."</a>
-			<cite class=\"font-weight-light text-success\">" . substr($pole["link"], 1) .  "</cite>
-			<span class=\"text-break\">" . substr($pole["obsah"],0,140) . "&nbsp;...</span>";
-			echo "\n\t\t\t</div>";
+	} else {
+
+		$pocetCelkovy = mysqli_num_rows($vysledok);
+		echo "\n\t\t\t". "<p class=\"mx-5 mb-3 mt-n3\">Približný počet výsledkov: <span class=\"font-weight-bold\">" . $pocetCelkovy ."</span></p>\n\t\t\t";
+		
+		$aktivnaStranka = htmlentities($link->real_escape_string($_GET['p']));
+		
+		//echo $aktivnaStranka;
+		$pocetStran = ceil( $pocetCelkovy / $pocetVysledkovHladania);
+		//echo mysqli_num_rows($vysledok)."\n<br>";
+		//echo $pocetStran;
+		$url_zaciatok = "/vyhladavanie/";
+
+		if ($aktivnaStranka > $pocetStran){
+			$aktivnaStranka=$pocetStran;
+		}
+		if ($aktivnaStranka < 1){
+			$aktivnaStranka = 1;
+		}
+		
+		$dotaz1 .= " LIMIT " . $pocetVysledkovHladania . " OFFSET " . ($aktivnaStranka-1) * $pocetVysledkovHladania;
+		$vysledok = mysqli_query($link, $dotaz1) or die("1. Nepodarilo sa vyhodnotiť dotaz!");
+
+		if (mysqli_num_rows($vysledok)==0) {
+			$dotaz2 .= " LIMIT " . $pocetVysledkovHladania . " OFFSET " . ($aktivnaStranka-1) * $pocetVysledkovHladania;
+			$vysledok = mysqli_query($link, $dotaz2) or die("2. Nepodarilo sa vyhodnotiť dotaz!");
+		}
+
+		while($pole=mysqli_fetch_array($vysledok)){
+				echo "\n\t\t\t<div class=\"card py-2 px-3 mb-2\">
+				<a class=\"h5\" href=\"" . $pole["link"] .  "\" title=\"" .$pole["title"]. "\" >" .$pole["nadpis"]."</a>
+				<cite class=\"font-weight-light text-success\">" . substr($pole["link"], 1) .  "</cite>
+				<span class=\"text-break\">" . substr($pole["obsah"], 0 , 140 ) . "&nbsp;...</span>";
+				echo "\n\t\t\t</div>";
+		}
+		
+		// vloží pagination
+		include_once $path . "/_vlozene/funkcie-paginations.php";
+		echo pagination_vrto($aktivnaStranka, $pocetStran, $url_zaciatok, '/' . $hladanyRetazec0 , '', false, 0 );
 	}
 
 
     // výpis výsledku 2
-/*     echo "\t\t<br><br>\n\t\t\t<table width=\"100%\" border=\"5\">
+/*      echo "\t\t<br><br>\n\t\t\t<table width=\"100%\" border=\"5\">
           <thead>
             <tr>
  				<th>SCORE</th>
@@ -160,7 +197,7 @@ if (!isset($_GET['search']) or $_GET['search']=='') {
             </tr>
           </thead>
           <tbody>";
-		 while($pole=mysqli_fetch_array($vysledok))
+		 while($pole=mysqli_fetch_all($vysledok))
 		 {
 			  echo "\n\t\t\t<tr>
 				<td>" .$pole["score"]. "</td>
