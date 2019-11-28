@@ -73,9 +73,3 @@
 
 			$vystupHTML .=	$zalomenie . '</div>' . "\n";
 	}
-
-
-
-
-
-?>

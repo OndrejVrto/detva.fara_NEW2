@@ -72,21 +72,19 @@
 		
 		if (FALSE == $adresarABS) { redirect("/fotogaleria/zoznam-galerii"); }
 
+		$zoznam_Adresarov = glob($adresarABS . '*', GLOB_ONLYDIR);
+
 		$cisloListu = $_GET["p"];
 		if (isset($_GET["album"])){
-			$nazovAlbumu = $_GET["album"];	
+			$nazovAlbumu = $_GET["album"];
 			$adresarVSTUPalbum = $adresarFotogaleria . $nazovGalerie . "/" . $nazovAlbumu ;
 			$adresarVSTUPalbumHTML = $adresaFotogalerieHTML . $nazovGalerie . "/" . $nazovAlbumu . "/";
-			
+
 			$adresarRELscriptAlbum = $polohaSkriptu . $adresarVSTUPalbum;
 			$adresarABSalbum = folder_exist($adresarRELscriptAlbum);
 
 			if (FALSE == $adresarABSalbum) { redirect("/fotogaleria/" . $nazovGalerie );}
 
-			$XMLsuborRELscript = nazov_suboru($adresarRELscriptAlbum);
-			$XMLsuborABS = nazov_suboru($adresarABSalbum);
-			$XMLsuborVSTUP = nazov_suboru($adresarVSTUPalbum);
-			
 			include "sablony/jeden-album.php";			
 		} else {
 			include "sablony/zoznam-albumov-v-galerii.php";
@@ -112,6 +110,20 @@ function folder_exist($folder) {
         // Return canonicalized absolute pathname
         $path = str_replace("\\", "/",$path );
 		  $path = $path . '/';
+		return $path;
+    }
+
+    // Path/folder does not exist
+    return false;
+}
+
+function folder_exist2($folder) {
+    // Get canonicalized absolute pathname
+    $path = realpath('..' . $folder);
+    // If it exist, check if it's a directory
+    if($path !== false AND is_dir($path)){
+        // Return canonicalized absolute pathname
+        $path = str_replace("\\", "/",$path );
 		return $path;
     }
 

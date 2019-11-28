@@ -141,10 +141,12 @@ if (!isset($_GET['search']) or $_GET['search']=='') {
 		}
 
 		while($pole=mysqli_fetch_array($vysledok)){
-			$vysledkyVystup .= "\n\t\t<div class=\"card py-2 px-3 mb-2\">
-			<a class=\"h5\" href=\"" . $pole["link"] .  "\" title=\"" .$pole["title"]. "\" >" .$pole["nadpis"]."</a>
-			<cite class=\"font-weight-light text-success\">" . substr($pole["link"], 1) .  "</cite>
-			<span class=\"text-break\">" . substr($pole["obsah"], 0 , 140 ) . "&nbsp;...</span>";
+			$vysledkyVystup .= "\n\t\t<div class=\"card py-2 px-3 mb-2\">";
+			$vysledkyVystup .= "\n\t\t\t<a class=\"h5\" href=\"" . $pole["link"] .  "\"\n\t\t\t\t title=\"" . $pole["title"] . "\" >" . $pole["nadpis"] . "</a>";
+			$vysledkyVystup .= "\n\t\t\t<a class=\"text-decoration-none text-success\" href=\"" . $pole["link"] .  "\">\n\t\t\t\t" . substr($pole["link"], 1) .  "</a>";
+			$vysledkyVystup .= "\n\t\t\t<span class=\"text-break\">" . substr($pole["obsah"], 0 , 140 );
+			if (strlen($pole["obsah"]) >= 140 ){ $vysledkyVystup .= "&nbsp;..."; }
+			$vysledkyVystup .= "</span>";
 			$vysledkyVystup .= "\n\t\t</div>";
 		}
 		
@@ -203,7 +205,7 @@ if (!isset($_GET['search']) or $_GET['search']=='') {
 				return false;
 			}
 		}		
-	</script>	
+	</script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="/_javascripty/ie10-viewport-bug-workaround.js"></script>
 	<!-- END   - Individuálne skripty na konci stranky -->

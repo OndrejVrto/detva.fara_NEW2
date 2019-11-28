@@ -1,6 +1,6 @@
 <?php
+
 // nasledujúci kód prejde zakaždým všetky albumy v galérii a vytvorí im XML súbory aj zmenšeniny obrázkov
-	$zoznam_Adresarov = glob($adresarABS . '*', GLOB_ONLYDIR);
 	foreach($zoznam_Adresarov as $zoznam_adresarov_Galeria) {
 		$zoznam_adresarov_Galeria = str_replace($adresarABS, '', $zoznam_adresarov_Galeria);
 		
@@ -43,7 +43,7 @@
 			//OpravXML($XMLsuborRELscript);
 		}
 	}
-
+		
 // začiatok tvorby HTML
 	$pocetAdresarov = count($zoznam_Adresarov);
 	
@@ -59,14 +59,17 @@
 		}
 		
 	// vrchný pagination
-		$vystupHTML .=  pagination_vrto($cisloListu, $pocetStranok, $adresarVSTUP_html, '/', 'prve', false, 0 );	
+		$vystupHTML .=  pagination_vrto($cisloListu, $pocetStranok, $adresarVSTUP_html, '/', 'prve', false, 0, 4 );	
 		$vystupHTML .=	"\n\t\t\t\t" . '<div class="card-columns mb-n3">';
 		
 	// samotny zoznam albumov
 		if ($radenie_albumov == "A-Z"){
 			// klasické radenie albumov = od A-Z
 			$start = ( $cisloListu * $albumov_na_stranke ) - $albumov_na_stranke;
-			for( $i=$start; $i<$start + $albumov_na_stranke; $i++ ){
+			for( $i=$start; $i < $start + $albumov_na_stranke; $i++ ){
+				if ($i > sizeof($zoznam_Adresarov)-1) {
+					break;
+				}
 				$XMLsuborABS = nazov_suboru($zoznam_Adresarov[$i]);
 				$vystupHTML .=  print_album_card($XMLsuborABS, $nahodneFotky);
 			}
@@ -85,7 +88,7 @@
 
 	// spodný pagination
 		//$vystupHTML .=  pagination_vrto($aktivnaStranka, $pocetStran, $url_zaciatok, $url_koniec, $id, $opacneCislovanie = false, $velkost = 0 )
-		$vystupHTML .=  pagination_vrto($cisloListu, $pocetStranok, $adresarVSTUP_html, '/', 'druhe', false, 0 );	
+		$vystupHTML .=  pagination_vrto($cisloListu, $pocetStranok, $adresarVSTUP_html, '/', 'druhe', false, 0, 4 );	
 	}
 	
 	

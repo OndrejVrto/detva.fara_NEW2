@@ -25,7 +25,7 @@
 		// nastaví počty miniatúr vo fotogalérii
 		$albumov_na_stranke = 10;						// number of albums per page
 		$fotiek_na_stranke  = 20;						// number of images per page    
-		$radenie_albumov = "Z-A";						// radenie od A-Z alebo Z-A
+		$radenie_albumov = "A-Z";						// radenie od A-Z alebo Z-A
 		
 		// true - pri zobrazení zoznamu galérií vyberie do náhľadu jednu náhodnú fotku
 		$nahodneFotky = false;
