@@ -3,7 +3,7 @@
 // display pagination - počet stránok s rozdelením podľa mojich predstáv
 // funkciu navrhol Vrťo 12/2017
 //
-function pagination_vrto($aktivnaStranka, $pocetStran, $url_zaciatok, $url_koniec, $id, $opacneCislovanie = false, $velkost = 0 ) {
+function pagination_vrto($aktivnaStranka, $pocetStran, $url_zaciatok, $url_koniec, $id, $opacneCislovanie = false, $velkost = 0, $odsadenie = 4 ) {
 
 	//nahradenie medzier kvoli validite HTML kodu href
 	$url_zaciatok = str_replace(" ", '%20', $url_zaciatok);
@@ -38,7 +38,10 @@ function pagination_vrto($aktivnaStranka, $pocetStran, $url_zaciatok, $url_konie
 	if ($pocetStran > 1) {
 		
 		$vystup = '';
-		$zalomenie = "\n\t\t\t\t";
+		
+		$zalomenie = "\n";
+		for ($k = 1; $k <= $odsadenie; $k++) { $zalomenie .= "\t"; }
+		
 		$vystup .= $zalomenie . '<nav class="justify-content-center m-0 px-0" aria-label="Page navigation"' . $id . '>';
 		$vystup .= $zalomenie . "\t" . '<ul class="pagination' . $velkost . ' justify-content-center m-0 p-0">';
 

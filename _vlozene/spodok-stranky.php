@@ -46,8 +46,7 @@
 				$('select.form-control').removeClass('form-control').css('width', '100%')
 			}
 		})
-	</script>
-	<script>
+
 		// funkcie na presmerovanie stránky s vyhľadávačom
 		function SearchKlik(){
 			var input = document.getElementById("PoleSearch_1").value
@@ -64,35 +63,13 @@
 				var input = document.getElementById("PoleSearch_1").value
 				var ocistenyInput = input.replace(/\?/g, '');
 				if (ocistenyInput==="") {
-				window.location.replace('http://detva.fara.new/vyhladavanie');
-			} else{
-				window.location.replace('http://detva.fara.new/vyhladavanie/1/' + ocistenyInput);
+					window.location.replace('http://detva.fara.new/vyhladavanie');
+				} else{
+					window.location.replace('http://detva.fara.new/vyhladavanie/1/' + ocistenyInput);
 				}
 				return false;
 			}
 		}
-		function SearchKlik2(){
-			var input = document.getElementById("PoleSearch_2").value
-			var ocistenyInput = input.replace(/\?/g, '');
-			if (ocistenyInput==="") {
-				window.location.replace('http://detva.fara.new/vyhladavanie');
-			} else{
-				window.location.replace('http://detva.fara.new/vyhladavanie/1/' + ocistenyInput);
-			}
-		}
-		function SearchEnter2(e) {
-			// vykonaj len v prípade stlačenia ENTER
-			if (e.keyCode == 13) {
-				var input = document.getElementById("PoleSearch_2").value
-				var ocistenyInput = input.replace(/\?/g, '');
-				if (ocistenyInput==="") {
-				window.location.replace('http://detva.fara.new/vyhladavanie');
-			} else{
-				window.location.replace('http://detva.fara.new/vyhladavanie/1/' + ocistenyInput);
-				}
-				return false;
-			}
-		}		
 	</script>	
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="/_javascripty/ie10-viewport-bug-workaround.js"></script>

@@ -1,18 +1,13 @@
 <?php
 	// názov stránky v súbore: inicializacne-konstanty-stranok.php
 	$nazovVolajucejStranky = 'ostatne->vyhladavanie';
+	$pocetVysledkovHladania = 6;
 	
 	$path = $_SERVER['DOCUMENT_ROOT'];
 	include_once $path . "/_vlozene/header.php"; echo "\n";
-?>
-<!-- START - Špeciálne HEAD pre túto stránku -->
-<!-- END   - Špeciálne HEAD pre túto stránku -->
-<?php
-	include $path . "/_vlozene/vrch-stranky.php"; echo "\n";
 
 	// predvyplnenie poľa Input naposledy hľadanou hodnotou.
 	// poľe sa pre istotu ošetrí na html znaky
-
 	if (isset($_GET['search'])) {
 		$prevodni_tabulka_mala = Array('        '=>' ', '       '=>' ', '      '=>' ', '     '=>' ', '    '=>' ', '   '=>' ', '  '=>' ',); // medzery 8 zž 2 nahradiť 1
 		$hladanaHodnota = $_GET['search'];
@@ -20,49 +15,23 @@
 		$hladanaHodnota = htmlentities($hladanaHodnota);
 	} else { $hladanaHodnota = ''; }
 	$hladanaHodnota = "value=\"". $hladanaHodnota ."\"";
-?>
-			<form class="input-group input-group-lg m-auto p-4">
-				<input onkeypress="return SearchEnter2(event)" class="form-control"  type="search" name="search" id="PoleSearch_2" aria-label="Search"
-						<?php echo $hladanaHodnota;?>>  <!-- Naposledy hľadaná hodnota -->
-				<span class="input-group-append">
-					<button onclick="return SearchKlik2()" class="btn btn-warning" type="button" name="submit2" value="send" id="submit2"><i class="fa fa-search" aria-hidden="true"></i></button>
-				</span>
-			</form>
-			
-		<!--  Vzor -->
-	<!-- 	<div class="card py-2 px-3 mb-1">
-				<a class="h4" href="http://detva.fara.new" target="_blank">Farnosť Detva</a>
-				<cite class="font-weight-light text-success">detva.fara.new</cite>
-				<span class="text-break">Pôstna duchovná obnova vo farnosti <span class="font-weight-bold">Detva</span>. Plagát - Postna duchovná obnova v Detve 2017&nbsp;...</span>
-			</div>
-			<div class="card py-2 px-3 mb-1">
-				<a class="h4" href="http://detva.fara.new" target="_blank">Farnosť Detva</a>
-				<cite class="font-weight-light text-success">detva.fara.new</cite>
-				<span class="d-inline-block text-truncate">Pôstna duchovná obnova vo farnosti <em>Detva</em>. Plagát - Postna duchovná obnova v <em>Detve</em> 2017. Združenie apoštolov Božieho milosrdenstva Vás srdečne pozýva&nbsp;...</span>
-			</div>
-			<div class="card py-2 px-3 mb-1">
-				<a class="h4" href="http://detva.fara.new" target="_blank">Farnosť Detva</a>
-				<cite class="font-weight-light text-success">detva.fara.new</cite>
-				<span>Pôstna duchovná obnova vo farnosti <em>Detva</em>. Plagát - Postna duchovná obnova v <em>Detve</em> 2017. Združenie apoštolov Božieho milosrdenstva Vás srdečne pozýva&nbsp;...</span>
-			</div>		 -->
-		<!--  Vzor -->		
-<?php 
-// i pro multi-byte (napr. UTF-8)
-$prevodni_tabulka = Array(
-  'ä'=>'a', 'Ä'=>'A', 'á'=>'a', 'Á'=>'A', 'a'=>'a', 'A'=>'A', 'a'=>'a', 'A'=>'A', 'â'=>'a', 'Â'=>'A',
-  'č'=>'c', 'Č'=>'C', 'ć'=>'c', 'Ć'=>'C', 'ď'=>'d', 'Ď'=>'D', 'ě'=>'e', 'Ě'=>'E', 'é'=>'e', 'É'=>'E',
-  'ë'=>'e', 'Ë'=>'E', 'e'=>'e', 'E'=>'E', 'e'=>'e', 'E'=>'E', 'í'=>'i', 'Í'=>'I', 'i'=>'i', 'I'=>'I',
-  'i'=>'i', 'I'=>'I', 'î'=>'i', 'Î'=>'I', 'ľ'=>'l', 'Ľ'=>'L', 'ĺ'=>'l', 'Ĺ'=>'L', 'ń'=>'n', 'Ń'=>'N',
-  'ň'=>'n', 'Ň'=>'N', 'n'=>'n', 'N'=>'N', 'ó'=>'o', 'Ó'=>'O', 'ö'=>'o', 'Ö'=>'O', 'ô'=>'o', 'Ô'=>'O',
-  'o'=>'o', 'O'=>'O', 'o'=>'o', 'O'=>'O', 'ő'=>'o', 'Ő'=>'O', 'ř'=>'r', 'Ř'=>'R', 'ŕ'=>'r', 'Ŕ'=>'R',
-  'š'=>'s', 'Š'=>'S', 'ś'=>'s', 'Ś'=>'S', 'ť'=>'t', 'Ť'=>'T', 'ú'=>'u', 'Ú'=>'U', 'ů'=>'u', 'Ů'=>'U',
-  'ü'=>'u', 'Ü'=>'U', 'u'=>'u', 'U'=>'U', 'u'=>'u', 'U'=>'U', 'u'=>'u', 'U'=>'U', 'ý'=>'y', 'Ý'=>'Y',
-  'ž'=>'z', 'Ž'=>'Z', 'ź'=>'z', 'Ź'=>'Z', ','=>'',  '.'=>'-', '<'=>' ', '>'=>' ',
-  '        '=>' ', '       '=>' ', '      '=>' ', '     '=>' ', '    '=>' ', '   '=>' ', '  '=>' ',   // medzery 8 zž 2 nahradiť 1
-);
 
-$pocetVysledkovHladania = 8;
-
+// hlavný script	
+	// i pro multi-byte (napr. UTF-8)
+	$prevodni_tabulka = Array(
+		  'ä'=>'a', 'Ä'=>'A', 'á'=>'a', 'Á'=>'A', 'a'=>'a', 'A'=>'A', 'a'=>'a', 'A'=>'A', 'â'=>'a', 'Â'=>'A',
+		  'č'=>'c', 'Č'=>'C', 'ć'=>'c', 'Ć'=>'C', 'ď'=>'d', 'Ď'=>'D', 'ě'=>'e', 'Ě'=>'E', 'é'=>'e', 'É'=>'E',
+		  'ë'=>'e', 'Ë'=>'E', 'e'=>'e', 'E'=>'E', 'e'=>'e', 'E'=>'E', 'í'=>'i', 'Í'=>'I', 'i'=>'i', 'I'=>'I',
+		  'i'=>'i', 'I'=>'I', 'î'=>'i', 'Î'=>'I', 'ľ'=>'l', 'Ľ'=>'L', 'ĺ'=>'l', 'Ĺ'=>'L', 'ń'=>'n', 'Ń'=>'N',
+		  'ň'=>'n', 'Ň'=>'N', 'n'=>'n', 'N'=>'N', 'ó'=>'o', 'Ó'=>'O', 'ö'=>'o', 'Ö'=>'O', 'ô'=>'o', 'Ô'=>'O',
+		  'o'=>'o', 'O'=>'O', 'o'=>'o', 'O'=>'O', 'ő'=>'o', 'Ő'=>'O', 'ř'=>'r', 'Ř'=>'R', 'ŕ'=>'r', 'Ŕ'=>'R',
+		  'š'=>'s', 'Š'=>'S', 'ś'=>'s', 'Ś'=>'S', 'ť'=>'t', 'Ť'=>'T', 'ú'=>'u', 'Ú'=>'U', 'ů'=>'u', 'Ů'=>'U',
+		  'ü'=>'u', 'Ü'=>'U', 'u'=>'u', 'U'=>'U', 'u'=>'u', 'U'=>'U', 'u'=>'u', 'U'=>'U', 'ý'=>'y', 'Ý'=>'Y',
+		  'ž'=>'z', 'Ž'=>'Z', 'ź'=>'z', 'Ź'=>'Z', ','=>'',  '.'=>'-', '<'=>' ', '>'=>' ',
+		  '        '=>' ', '       '=>' ', '      '=>' ', '     '=>' ', '    '=>' ', '   '=>' ', '  '=>' ',   // medzery 8 zž 2 nahradiť 1
+	);
+	
+$vysledkyVystup = "";
 
 // Otestuje či je vložená nejaká hodnota v premennej "search"
 if (!isset($_GET['search']) or $_GET['search']=='') {
@@ -138,13 +107,15 @@ if (!isset($_GET['search']) or $_GET['search']=='') {
 	
 
 	if (mysqli_num_rows($vysledok)==0) {
-			  echo "\n\t\t\t<div class=\"card py-2 px-3 mb-2\">
-			  <span class=\"text-break\">Hľadaný výraz nepriniesol žiadne výsledky ...</span>";
-			 echo "\n\t\t\t</div>";		
+		$vysledkyVystup .= "\t\t\t\t". "<p class=\"mx-5 mb-3 mt-n3\">Hľadaný výraz nepriniesol žiadne výsledky ...</p>";
+		$vysledkyVystup .= "\n\t\t\t</div>";
+		$vysledkyVystup .= "\n\t\t</div>\n";
 	} else {
 
 		$pocetCelkovy = mysqli_num_rows($vysledok);
-		echo "\n\t\t\t". "<p class=\"mx-5 mb-3 mt-n3\">Približný počet výsledkov: <span class=\"font-weight-bold\">" . $pocetCelkovy ."</span></p>\n\t\t\t";
+		$vysledkyVystup .= "\t\t\t\t". "<p class=\"mx-5 mb-3 mt-n3\">Počet výsledkov: <span class=\"font-weight-bold\">" . $pocetCelkovy ."</span></p>";
+		$vysledkyVystup .= "\n\t\t\t</div>";
+		$vysledkyVystup .= "\n\t\t</div>\n";			
 		
 		$aktivnaStranka = htmlentities($link->real_escape_string($_GET['p']));
 		
@@ -170,53 +141,72 @@ if (!isset($_GET['search']) or $_GET['search']=='') {
 		}
 
 		while($pole=mysqli_fetch_array($vysledok)){
-				echo "\n\t\t\t<div class=\"card py-2 px-3 mb-2\">
-				<a class=\"h5\" href=\"" . $pole["link"] .  "\" title=\"" .$pole["title"]. "\" >" .$pole["nadpis"]."</a>
-				<cite class=\"font-weight-light text-success\">" . substr($pole["link"], 1) .  "</cite>
-				<span class=\"text-break\">" . substr($pole["obsah"], 0 , 140 ) . "&nbsp;...</span>";
-				echo "\n\t\t\t</div>";
+			$vysledkyVystup .= "\n\t\t<div class=\"card py-2 px-3 mb-2\">
+			<a class=\"h5\" href=\"" . $pole["link"] .  "\" title=\"" .$pole["title"]. "\" >" .$pole["nadpis"]."</a>
+			<cite class=\"font-weight-light text-success\">" . substr($pole["link"], 1) .  "</cite>
+			<span class=\"text-break\">" . substr($pole["obsah"], 0 , 140 ) . "&nbsp;...</span>";
+			$vysledkyVystup .= "\n\t\t</div>";
 		}
 		
 		// vloží pagination
 		include_once $path . "/_vlozene/funkcie-paginations.php";
-		echo pagination_vrto($aktivnaStranka, $pocetStran, $url_zaciatok, '/' . $hladanyRetazec0 , '', false, 0 );
+		$vysledkyVystup .= "\n\n\t\t<div class=\"container-fluid pt-4\">";
+		$vysledkyVystup .= pagination_vrto($aktivnaStranka, $pocetStran, $url_zaciatok, '/' . $hladanyRetazec0 , '', false, 0, 3 );
+		$vysledkyVystup .= "\t\t</div>\n";
 	}
 
-
-    // výpis výsledku 2
-/*      echo "\t\t<br><br>\n\t\t\t<table width=\"100%\" border=\"5\">
-          <thead>
-            <tr>
- 				<th>SCORE</th>
-				<th>BODY</th>
-				<th>POLOHA</th>				
-				<th>LINK</th>
-				<th>TITULOK</th>
-				<th>NADPIS</th>
-				<th>TEXT</th>
-            </tr>
-          </thead>
-          <tbody>";
-		 while($pole=mysqli_fetch_all($vysledok))
-		 {
-			  echo "\n\t\t\t<tr>
-				<td>" .$pole["score"]. "</td>
-				<td>" .$pole["count"]. "</td>
-				<td>" .$pole["poloha"]."</td>
-				<td>" .$pole["link"].  "</td>
-				<td>" .$pole["title"]. "</td>
-				<td>" .$pole["nadpis"]."</td>
-				<td>" .$pole["obsah"]. "</td>";
-			 echo "\n\t\t\t</tr>";
-		 }
-    echo "\n\t\t</tbody>\n\t</table>"; */
-
-	
 	MySQLi_Close($link);
 }
 ?>
-<?php include $path . "/_vlozene/spodok-stranky.php"; echo "\n";?>
-<!-- START - Individuálne skripty na konci stranky -->
-<!-- END   - Individuálne skripty na konci stranky -->
+</head>
+<body>
+
+	<div class="container"> <!-- START - Hlavný .container -->
+	
+		<div class="row align-items-center">
+			<div class="col-2 col-sm-1">
+				<a class="navbar-brand p-0 pl-lg-3 pr-lg-5 m-0" href="/"><img width="58" title="Erb mesta Detva" src="/_data/spolocne/Erb-mesta-Detva.png" alt="Erb mesta Detva. Tri smreky."/></a>
+			</div>
+			<div class="col">
+				<form class="input-group input-group-lg m-auto p-4">
+					<input onkeypress="return SearchEnter2(event)" class="form-control "  type="search" name="search" id="PoleSearch_2" aria-label="Search"
+						   <?php echo $hladanaHodnota;?>>  <!-- Naposledy hľadaná hodnota -->
+					<span class="input-group-append">
+					<button onclick="return SearchKlik2()" class="btn btn-warning" type="button" name="submit2" value="send" id="submit2"><i class="fa fa-search" aria-hidden="true"></i></button>
+					</span>
+				</form>
+<?php echo $vysledkyVystup; ?>
+
+	</div> <!-- END - Hlavný .container -->
+
+	<!-- START - Individuálne skripty na konci stranky -->
+	<script>
+		function SearchKlik2(){
+			var input = document.getElementById("PoleSearch_2").value
+			var ocistenyInput = input.replace(/\?/g, '');
+			if (ocistenyInput==="") {
+				window.location.replace('http://detva.fara.new/vyhladavanie');
+			} else{
+				window.location.replace('http://detva.fara.new/vyhladavanie/1/' + ocistenyInput);
+			}
+		}
+		function SearchEnter2(e) {
+			// vykonaj len v prípade stlačenia ENTER
+			if (e.keyCode == 13) {
+				var input = document.getElementById("PoleSearch_2").value
+				var ocistenyInput = input.replace(/\?/g, '');
+				if (ocistenyInput==="") {
+				window.location.replace('http://detva.fara.new/vyhladavanie');
+			} else{
+				window.location.replace('http://detva.fara.new/vyhladavanie/1/' + ocistenyInput);
+				}
+				return false;
+			}
+		}		
+	</script>	
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="/_javascripty/ie10-viewport-bug-workaround.js"></script>
+	<!-- END   - Individuálne skripty na konci stranky -->
+
 </body>
 </html>

@@ -10,7 +10,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="language" content="Slovak">
-	<!-- po vložení stránky na server zaregistruj stránku na Googliv v Bing-u
+	<!-- po vložení stránky na server zaregistruj stránku na Googli a v Bing-u
 	Návod je tu: https://kinsta.com/blog/google-site-verification/ -->
 	<!-- <meta name="google-site-verification" content="+nxGUDJ4QpAZ5l9Bsjdi102tLVC21AIh5d1Nl23908vVuFHs34="/> -->
 	<meta name="google" content="noimageindex, notranslate">
