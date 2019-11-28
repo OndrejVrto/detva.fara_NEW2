@@ -23,10 +23,6 @@
 		$Vpred = $zoznam_Adresarov[$key+1] . "/";
 	}
 	
-	$XMLsuborRELscript = nazov_suboru($adresarRELscriptAlbum);
-	$XMLsuborABS = nazov_suboru($adresarABSalbum);
-	$XMLsuborVSTUP = nazov_suboru($adresarVSTUPalbum);
-
 	if ( $Vzad != false ) {
 		$XMLsuborABSvzad = nazov_suboru($Vzad);	
 		$xmlVzad = new DOMDocument();
@@ -48,6 +44,11 @@
 	} else {
 		$xmlVpred = false;
 	}
+	
+
+	$XMLsuborRELscript = nazov_suboru($adresarRELscriptAlbum);
+	$XMLsuborABS = nazov_suboru($adresarABSalbum);
+	$XMLsuborVSTUP = nazov_suboru($adresarVSTUPalbum);
 	
 	$xml = new DOMDocument();
 	if (!file_exists($XMLsuborABS)) {
@@ -105,27 +106,29 @@ function print_hlavicka_albumu($xml, $xmlVzad, $xmlVpred){
 	$pracovny = '';
 	$zalomenie = "\n\t\t\t\t";
 	
-	//pracovne odkazy
-	$vzad = '/fotogaleria/2015/2017-06-27-Bozie-telo-2017/1/';
-	$vzadTitulok = 'Dozadu - Slávnosť Božieho tela';
-	$vpred = '/fotogaleria/2015/2015-01-13-Omsa-sv-Terezka/1/';
-	$vpredTitulok = 'Dopredu - Omša na sv. Terezku';
-	//pracovne odkazy
-	
 	if ($xmlVzad == false){
-		$tlacitkoDOPREDU = "<button type=\"button\" class=\"btn disabled w-10 btn-success border-success\">";		
+		$tlacitkoDOPREDU = "<button type=\"button\" class=\"btn w-10 btn-success border-success\">";		
+		$tlacitkoDOPREDU .= $zalomenie . "\t\t" . '<i class="fa fa-ban" aria-hidden="true"></i>';
+		$tlacitkoDOPREDU .= $zalomenie . "\t" . '</button>';
 	} else {
 		$vzad = $xmlVzad->getElementsByTagName( "LinkRewrite" )->item(0)->nodeValue . "/1/";
 		$vzadTitulok = 'Dozadu - ' . $xmlVzad->getElementsByTagName( "NazovAlbumu" )->item(0)->nodeValue;
 		$tlacitkoDOPREDU = "<button onclick=\"location.href = '" . $vzad . "';\" type=\"button\" class=\"btn w-10 btn-success border-success\" title=\"" . $vzadTitulok . '">';
+		$tlacitkoDOPREDU .= $zalomenie . "\t\t" . '<i class="fa fa-backward" aria-hidden="true"></i>';
+		$tlacitkoDOPREDU .= $zalomenie . "\t" . '</button>';
 	}
 	
 	if ($xmlVpred == false){
-		$tlacitkoDozadu = "<button type=\"button\" class=\"btn disabled w-10 btn-success border-success\">";
+		$tlacitkoDozadu = "<button type=\"button\" class=\"btn w-10 btn-success border-success\">";
+		$tlacitkoDozadu .= $zalomenie . "\t\t" . '<i class="fa fa-ban" aria-hidden="true"></i>';
+		$tlacitkoDozadu .= $zalomenie . "\t" . '</button>';
+
 	} else {
 		$vpred = $xmlVpred->getElementsByTagName( "LinkRewrite" )->item(0)->nodeValue . "/1/";
 		$vpredTitulok = 'Dopredu - ' . $xmlVpred->getElementsByTagName( "NazovAlbumu" )->item(0)->nodeValue;	
 		$tlacitkoDozadu = "<button onclick=\"location.href = '" . $vpred . "';\" type=\"button\" class=\"btn w-10 btn-success border-success\" title=\"" . $vpredTitulok . '">';
+		$tlacitkoDozadu .= $zalomenie . "\t\t" . '<i class="fa fa-forward" aria-hidden="true"></i>';
+		$tlacitkoDozadu .= $zalomenie . "\t" . '</button>';
 	}
 	
 	$titleALBUM = $xml->getElementsByTagName( "NazovAlbumu" )->item(0)->nodeValue;
@@ -142,8 +145,6 @@ function print_hlavicka_albumu($xml, $xmlVzad, $xmlVpred){
 	
 	$pracovny .= $zalomenie . '<div class="btn-group btn-block mw-100" id="HlavickaAlbumu">';
 	$pracovny .= $zalomenie . "\t" . $tlacitkoDOPREDU;
-	$pracovny .= $zalomenie . "\t\t" . '<i class="fa fa-backward" aria-hidden="true"></i>';
-	$pracovny .= $zalomenie . "\t" . '</button>';
 	$pracovny .= $zalomenie . "\t" . '<div class="card w-80 border-success">';	
 	$pracovny .= $zalomenie . "\t\t" . '<h5 class="card-header text-white bg-success text-center">' . $titleALBUM . '</h5>';	
 	$pracovny .= $zalomenie . "\t\t" . '<div class="card-body">';
@@ -158,8 +159,6 @@ function print_hlavicka_albumu($xml, $xmlVzad, $xmlVpred){
 	$pracovny .= $zalomenie . "\t\t" . '</div>';
 	$pracovny .= $zalomenie . "\t" . '</div>';	
 	$pracovny .= $zalomenie . "\t" . $tlacitkoDozadu;
-	$pracovny .= $zalomenie . "\t\t" . '<i class="fa fa-forward" aria-hidden="true"></i>';
-	$pracovny .= $zalomenie . "\t" . '</button>';
 	$pracovny .= $zalomenie . '</div>';
 	return $pracovny;
 }	
