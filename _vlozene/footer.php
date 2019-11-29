@@ -35,6 +35,11 @@
 			</blockquote>
 			<!-- END PHP - Myslienka -->
 			<div class="text-center">
+				<!-- START PHP - QR -->
+				<?php include $path . "/_vlozene/QR.php"; echo "\n"; ?>
+				<!-- END PHP - QR -->
+			</div>
+			<div class="text-center">
 				<!-- START PHP - Počítadlo -->
 				<i class="fa fa-line-chart fa-lg" aria-hidden="true">&nbsp;&nbsp;</i>
 				<?php include "pocitadlo.php"; ?><span title="Dnešný dátum: <?php echo $den; ?>"><strong>Návštevnosť dnes:&nbsp;&nbsp;</strong><?php echo $vysledokDnes; ?></span>
