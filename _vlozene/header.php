@@ -23,13 +23,14 @@
 	<meta name="description" content="<?php echo $popisStranky; ?>">
 	
 	<!--  Ikony stránky generované cez realfavicongenerator.net -->
-	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-	<link rel="manifest" href="/manifest.json">
-	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-	<meta name="msapplication-TileColor" content="#da532c">
-	<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/_ikony/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/_ikony/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/_ikony/favicon-16x16.png">
+	<link rel="manifest" href="/_ikony/site.webmanifest">
+	<link rel="mask-icon" href="/_ikony/safari-pinned-tab.svg" color="#5bbad5">
+	<link rel="shortcut icon" href="/_ikony/favicon.ico">
+	<meta name="msapplication-TileColor" content="#ffc40d">
+	<meta name="msapplication-config" content="/_ikony/browserconfig.xml">
 	<meta name="theme-color" content="#ffffff">
 	
 	<!--  Štýly stránky - hlavné-->

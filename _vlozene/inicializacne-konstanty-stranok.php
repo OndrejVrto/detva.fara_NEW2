@@ -150,7 +150,8 @@ $konstantyStranok = array(
 		"Hlavná Stránka" 					=>	"Farnosť Detva - oficiálna stránka farnosti aj dekanátu, aktuálne oznamy",
 		"Fotogaléria" 						=>	"Farnosť Detva - fotogaléria",   // POZOR špeciálny kód pri fotogalérii
 		"ostatne->Vsetky-otazky"			=>	"Farnosť Detva - zaujímavé otázky",
-		"ostatne->vyhladavanie"				=>	"Farnosť Detva - ",
+		"ostatne->vyhladavanie"				=>	"Farnosť Detva - Vyhľadávanie",
+		"vzor"								=>	"Farnosť Detva - Vzorová stránka",
 		
 		"farnost"							=>	"Farnosť Detva - kam ďalej?",
 		"farnost->liturgicke-oznamy"		=>	"Farnosť Detva - oficiálna stránka farnosti aj dekanátu, aktuálne oznamy",
@@ -221,7 +222,8 @@ $konstantyStranok = array(
 		"Hlavná Stránka" 					=>	"Farnosť Detva - hlavná stránka farnosti, hlavný obsah, kontakty, bohoslužby, aktuálne oznamy",
 		"Fotogaléria" 						=>	"Farnosť Detva - fotogaléria, albumy, obrázky kostolov a kaplniek",
 		"ostatne->Vsetky-otazky"			=>	"Farnosť Detva - zaujímavé otázky a odpovede na rôzne témy",
-		"ostatne->vyhladavanie"				=>	"",
+		"ostatne->vyhladavanie"				=>	"Farnosť Detva - vyhľadávanie na stránke",
+		"vzor"								=>	"Farnosť Detva - vzorová stránka pre potreby vývoja",
 
 		"farnost"							=>	"Krásna príroda, krásny kostol, krásne kríže, krásne kroje. Prídi sa presvedčiť aj sám.",
 		"farnost->liturgicke-oznamy"		=>	"Farnosť Detva - aktuálne oznamy",
@@ -294,6 +296,7 @@ $konstantyStranok = array(
 		"Fotogaléria" 						=>	"Fotogaléria",    // POZOR špeciálny kód pri fotogalérii
 		"ostatne->Vsetky-otazky"			=>	"Zaujímavé otázky",
 		"ostatne->vyhladavanie"				=>	"Vyhľadávanie ...",
+		"vzor"								=>	"Vzorová prázdna stránka",
 
 		"farnost"							=>	"Farnosť Detva",
 		"farnost->liturgicke-oznamy"		=>	"Litgurgické oznamy",
@@ -365,6 +368,7 @@ $konstantyStranok = array(
 		"Fotogaléria" 						=>	"Rôzny autori",
 		"ostatne->Vsetky-otazky"			=>	"Ing. Ondrej VRŤO",
 		"ostatne->vyhladavanie"				=>	"Ing. Ondrej VRŤO",
+		"vzor"								=>	"Ing. Ondrej VRŤO",
 
 		"farnost"							=>	"p. Dekan Sabol",
 		"farnost->liturgicke-oznamy"		=>	"p. Dekan Sabol",
@@ -436,6 +440,7 @@ $konstantyStranok = array(
 		"Fotogaléria" 						=>	false,
 		"ostatne->Vsetky-otazky"			=>	true,
 		"ostatne->vyhladavanie"				=>	false,
+		"vzor"								=>	false,
 
 		"farnost"							=>	true,
 		"farnost->liturgicke-oznamy"		=>	true,
@@ -507,6 +512,7 @@ $konstantyStranok = array(
 		"Fotogaléria" 						=>	false,
 		"ostatne->Vsetky-otazky"			=>	true,
 		"ostatne->vyhladavanie"				=>	false,
+		"vzor"								=>	false,
 
 		"farnost"							=>	true,
 		"farnost->liturgicke-oznamy"		=>	true,
@@ -579,6 +585,7 @@ $konstantyStranok = array(
 		"Fotogaléria" 						=>	false,
 		"ostatne->Vsetky-otazky"			=>	false,
 		"ostatne->vyhladavanie"				=>	false,
+		"vzor"								=>	false,
 
 		"farnost"							=>	false,
 		"farnost->liturgicke-oznamy"		=>	true,
@@ -651,6 +658,7 @@ $konstantyStranok = array(
 		"Fotogaléria" 						=>	false,
 		"ostatne->Vsetky-otazky"			=>	false,
 		"ostatne->vyhladavanie"				=>	false,
+		"vzor"								=>	false,
 
 		"farnost"							=>	false,		
 		"farnost->liturgicke-oznamy"		=>	'Liturgia',
@@ -727,6 +735,7 @@ $konstantyStranok = array(
 		"Fotogaléria" 						=>	false,
 		"ostatne->Vsetky-otazky"			=>	false,
 		"ostatne->vyhladavanie"				=>	false,
+		"vzor"								=>	'standard',
 
 		"farnost"							=>	array('001',),
 		"farnost->liturgicke-oznamy"		=>	array('002',),
@@ -798,6 +807,7 @@ $konstantyStranok = array(
 		"Fotogaléria" 						=>	false,
 		"ostatne->Vsetky-otazky"			=>	'standard',
 		"ostatne->vyhladavanie"				=>	false,
+		"vzor"								=>	'standard',
 		
 		"farnost"							=>	'standard',
 		"farnost->liturgicke-oznamy"		=>	array( array('CestaSuboru' => "rightPanel-panely.php", "Tlaciaren" => true, "PevnaVyska" => false, "Role" => false, "NazovPanelu" => 'Menu'),
@@ -872,6 +882,7 @@ $konstantyStranok = array(
 		"Fotogaléria" 						=>	true, // pri fotogalériách sa vkladá separátny kód
 		"ostatne->Vsetky-otazky"			=>	false,
 		"ostatne->vyhladavanie"				=>	false,
+		"vzor"								=>	false,
 
 		"farnost"							=>	array ( array("", "Farnosť")),
 		"farnost->liturgicke-oznamy"		=>	array ( array("/farnost", "Farnosť"),

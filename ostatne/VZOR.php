@@ -1,6 +1,6 @@
 <?php
 	// názov stránky v súbore: inicializacne-konstanty-stranok.php
-	$nazovVolajucejStranky = 'dekanat->';
+	$nazovVolajucejStranky = 'vzor';
 	
 	$path = $_SERVER['DOCUMENT_ROOT'];
 	include_once $path . "/_vlozene/header.php"; echo "\n";
