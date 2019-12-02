@@ -176,14 +176,14 @@ function print_foto_card($xml, $start, $ende ){
 		
 		//nahradí medzery v href - V HTML nie sú dovolené
 		$file1 = str_replace(" ", '%20', $linkNAobrazok . $fotkaSubor);
-		$pracovny .= $zalomenie . "\t" . '<a class="albumpix" href="' . $file1 . '" title="' . $fotkaPopisok . '">';
+		$pracovny .= $zalomenie . "\t" . '<a type="image/jpeg" class="albumpix" href="' . $file1 . '" title="' . $fotkaPopisok . '">';
 		$pracovny .= $zalomenie . "\t\t" . '<div class="card  border-success">';
 		
 		$fotkaALT = $xml->getElementsByTagName( "Fotka" )->item($i)->getElementsByTagName( "AlternativnyNazov" )->item(0)->nodeValue;
 		
 		//nahradí medzery v href - V HTML nie sú dovolené
 		$file2 = str_replace(" ", '%20', $linkNAthumb . $fotkaSubor);
-		$pracovny .= $zalomenie . "\t\t\t" . '<img class="card-img-top" src="' . $file2 . '" alt="' . $fotkaALT . '"/>';
+		$pracovny .= $zalomenie . "\t\t\t" . '<img class="card-img-top" src="' . $file2 . "\"\n\t\t\t\t\t\t\t\t alt=\"" . $fotkaALT . '"/>';
 		
 		if ($fotkaPopisok!=''){
 			$pracovny .= $zalomenie . "\t\t\t" . '<div class="card-body">';			

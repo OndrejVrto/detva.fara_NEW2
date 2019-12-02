@@ -91,7 +91,7 @@ if (!isset($_GET['search']) or $_GET['search']=='') {
 	//echo "Počet nájdených vyhovujúcich výsledkov A: <b>".mysqli_num_rows($vysledok)."</b><br>";
 	//echo "\n<br>\n";
 	if (mysqli_num_rows($vysledok)==0) {
-		$dotaz2 = "SELECT score_manualne as count, LOCATE(\"" . $hladanyRetazec0 . "\", obsah) as poloha, link, title, nadpis, obsah, ";
+		$dotaz2 = "SELECT subor, pripona, typ_suboru, score_manualne as count, LOCATE(\"" . $hladanyRetazec0 . "\", obsah) as poloha, link, title, nadpis, obsah, ";
 		$dotaz2 .= "(((LENGTH(obsah_upraveny) - LENGTH(REPLACE(obsah_upraveny, '" . $hladanyRetazec . "', '')))/LENGTH('" . $hladanyRetazec . "'))+";
 		$dotaz2 .= "((LENGTH(title_upraveny) - LENGTH(REPLACE(title_upraveny, '" . $hladanyRetazec . "', '')))/LENGTH('" . $hladanyRetazec . "'))*3 +";
 		$dotaz2 .= "((LENGTH(nadpis_upraveny) - LENGTH(REPLACE(nadpis_upraveny, '" . $hladanyRetazec . "', '')))/LENGTH('" . $hladanyRetazec . "'))*2 )*score_manualne AS score ";
@@ -141,10 +141,42 @@ if (!isset($_GET['search']) or $_GET['search']=='') {
 		}
 
 		while($pole=mysqli_fetch_array($vysledok)){
+			if ($pole["pripona"]==NULL){
+				$ikona = '';
+				$titulok = $pole["title"];
+			} else {
+				$titulok = urldecode ($pole["obsah"]);
+				$ikona = "<i class=\"fa ";
+				switch ($pole['pripona']) {
+					case "jpg": $ikona .= "fa-file-photo-o";		break;
+					case "bmp": 
+					case "gif": $ikona .= "fa-file-picture-o";      break;
+					case "pdf": $ikona .= "fa-file-pdf-o";          break;
+					case "xlsx": 
+					case "xls": $ikona .= "fa-file-excel-o";        break;
+					case "pptx":
+					case "ppt": $ikona .= "fa-file-powerpoint-o";   break;
+					case "wav":
+					case "mp4":
+					case "mp3": $ikona .= "fa-file-sound-o";        break;
+					case "csv";
+					case "txt": $ikona .= "fa-file-text-o";         break;
+					case "mpg";					
+					case "mov":					
+					case "avi": $ikona .= "fa-file-video-o";        break;
+					case "docx":
+					case "doc": $ikona .= "fa-file-word-o";         break;
+					case "rar":
+					case "zip": $ikona .= "fa-file-zip-o";          break;
+					default:  $ikona .= "fa-file-o";
+				}
+				$ikona .= " mr-2\" aria-hidden=\"true\"></i>";
+			}
+			
 			$vysledkyVystup .= "\n\t\t<div class=\"card py-2 px-3 mb-2\">";
-			$vysledkyVystup .= "\n\t\t\t<a class=\"h5\" href=\"" . $pole["link"] .  "\"\n\t\t\t\t title=\"" . $pole["title"] . "\" >" . $pole["nadpis"] . "</a>";
-			$vysledkyVystup .= "\n\t\t\t<a class=\"text-decoration-none text-success\" href=\"" . $pole["link"] .  "\">\n\t\t\t\t" . substr($pole["link"], 1) .  "</a>";
-			$vysledkyVystup .= "\n\t\t\t<span class=\"text-break\">" . substr($pole["obsah"], 0 , 140 );
+			$vysledkyVystup .= "\n\t\t\t<a class=\"h5\" href=\"" . $pole["link"] .  "\"\n\t\t\t\t title=\"" . $titulok . "\" >" . $ikona . urldecode ($pole["nadpis"]) . "</a>";
+			$vysledkyVystup .= "\n\t\t\t<a class=\"text-decoration-none text-success\" href=\"" . $pole["link"] .  "\">\n\t\t\t\t" . urldecode (substr($pole["link"], 1)) .  "</a>";
+			$vysledkyVystup .= "\n\t\t\t<span class=\"text-break\">" . urldecode (substr($pole["obsah"], 0 , 140 ));
 			if (strlen($pole["obsah"]) >= 140 ){ $vysledkyVystup .= "&nbsp;..."; }
 			$vysledkyVystup .= "</span>";
 			$vysledkyVystup .= "\n\t\t</div>";

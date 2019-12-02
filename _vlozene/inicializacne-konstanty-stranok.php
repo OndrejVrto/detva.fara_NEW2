@@ -583,7 +583,7 @@ $konstantyStranok = array(
 		"Čistá" 							=>	false,
 		"Hlavná Stránka" 					=>	true,
 		"Fotogaléria" 						=>	false,
-		"ostatne->Vsetky-otazky"			=>	false,
+		"ostatne->Vsetky-otazky"			=>	true,
 		"ostatne->vyhladavanie"				=>	false,
 		"vzor"								=>	false,
 
