@@ -7,6 +7,36 @@
 				<p class="meniny"><strong>Zajtra má meniny</strong><br><?php  echo $meniny_zajtra; ?></p>
 				<!-- END PHP - Meniny -->
 <?php
+break; case "Vyvoj":
+	// kod pre potreby vyvoja
+	$vlozka = "<span class=\"text-info font-weight-bold\">";
+	echo "\t\t\t\t";
+	echo '<h3>Pre potreby vývoja</h3>';
+	echo '<div class="mx-2 my-0 text-left text-monospace">';
+	echo $vlozka. "PHP_SELF:</span> " . $_SERVER['PHP_SELF'];
+	echo "<br>";
+/* 	if(isset($_SERVER['HTTP_REFERER'])) {
+		echo $vlozka. "HTTP_REFERER:</span> " .$_SERVER['HTTP_REFERER'];
+		echo "<br>";
+	} */
+	echo "<br>";
+	echo $vlozka. "SERVER_NAME:</span> " . $_SERVER['SERVER_NAME'];
+	echo "<br>";
+	echo $vlozka. "HTTP_HOST:</span> " . $_SERVER['HTTP_HOST'];
+	echo "<br><br>";
+	echo $vlozka. "SCRIPT_NAME:</span> " . $_SERVER['SCRIPT_NAME'];
+	echo "<br>";
+	echo $vlozka. "SCRIPT_FILENAME:</span> " . $_SERVER['SCRIPT_FILENAME'];
+	echo "<br><br>";
+	echo $vlozka. "QUERY_STRING:</span> " . $_SERVER['QUERY_STRING'];
+	echo "<br>";
+	echo $vlozka. "\$_GET p=</span> ";
+	if (isset($_GET["p"])){
+		echo $_GET["p"];
+	} else {
+		echo 'neexistuje';
+	}
+	echo "</div>\n";
 break; case "OsobneUdaje":
 ?>				
 				<h3>Ochrana osobných údajov</h3>

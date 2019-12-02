@@ -2,7 +2,7 @@
 <html lang="sk">
 	<head>
 		<meta charset="UTF-8">
-		<link rel="shortcut icon" href="/images/ikony/favicon-32x32.ico" sizes="32x32"/>
+		<link rel="shortcut icon" href="/_ikony/favicon.ico" sizes="32x32"/>
 		<title>Stránka nenájdená</title>
 	</head>
 
@@ -12,17 +12,20 @@
 				 background: -moz-linear-gradient(right,rgba(255,0,0,0),rgba(255,0,0,1)); /*Fx 3.6-15*/
 				 background: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1)); /*Standard*/;">
 
-		<h2 style="font-size: 32px;">Stránka nenájdená</h2>
-		<p>
-		Súbor alebo stránka, o ktorú ste požiadali, nebola na serveri nájdená.
-		<br>
-		<br>
-		Skúste ho nájsť z <strong><a style="font-size: 24px;" href="/index.php">hlavnej stránky</a></strong>
-		<br>
-		<br>
-		Kód chyby: <strong>404</strong><br>
-		Požadovaná stránka: <strong><script type="text/javascript">document.write(document.location)</script></strong><br><br>
-		Kontakt na správcu: <strong>ondej.vrto&#64;google.com</strong>
+		<h2 style="font-size: 32px;">Odkaz na stránku alebo súbor je chybný</h2>
+		
+		<p>	Kód chyby: <strong>404</strong><br>
+			Požadovaná stránka: <strong><script type="text/javascript">document.write(document.location)</script></strong>
+			<br><br>
+			Súbor alebo stránka, o ktorú ste požiadali, nebola na serveri nájdená.
+			<br>
+			Možno ste urobili preklep, a možno urobil preklep správca stránky. :)
+			<br><br>
+			Skúste to ešte raz z <strong><a style="font-size: 18px;" href="/">hlavnej stránky</a></strong>
+			<br>
+			alebo zo stránky <strong><a style="font-size: 18px;" href="/vyhladavanie">vyhľadávania</a></strong>
+			<br><br>
+			Ak neuspejete využite kontakt na správcu: <strong>ondej.vrto&#64;google.com</strong>
 		</p>
 	</body>
 </html>
