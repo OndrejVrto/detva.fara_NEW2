@@ -9,10 +9,10 @@
 <!-- End HEAD special -->
 <?php include $path . "/_vlozene/vrch-stranky.php"; echo "\n"; ?>
 
-<a href="/stranka-2z5" >2</a>
-<a href="/stranka-3z5" >3</a>
-<a href="/stranka-4z5" >4</a>
-<a href="/stranka-5z5" >5</a>
+<a href="/stranka-2" >2</a>
+<a href="/stranka-3" >3</a>
+<a href="/stranka-4" >4</a>
+<a href="/stranka-5" >5</a>
 
 <?php
 	// nastavenie vlastností pre "rýchlo" pridané správy načítavané zo súboru

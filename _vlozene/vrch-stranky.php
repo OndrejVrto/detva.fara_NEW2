@@ -22,6 +22,28 @@
 	} else {
 		echo "\t\t<main class=\"col-12 col-sm-12 col-md-7 col-lg-8 col-xl-8\" >\n";
 	}
+	
+	// kod pre potreby vyvoja
+	
+	echo $_SERVER['PHP_SELF'];
+	echo "<br>\n";
+	echo $_SERVER['SERVER_NAME'];
+	echo "<br>\n";
+	echo $_SERVER['HTTP_HOST'];
+	echo "<br>\n";
+	echo $_SERVER['HTTP_REFERER'];
+	echo "<br>\n";
+	echo $_SERVER['SCRIPT_NAME'];
+	echo "<br>\n";
+	echo $_SERVER['SCRIPT_FILENAME'];
+	echo "<br>\n";
+	echo $_SERVER['QUERY_STRING'];
+	echo "<br>\n p -> ";
+	if (isset($_GET["p"])){
+		echo $_GET["p"];
+	} else {
+		echo 'neexistuje';
+	}
 ?>
 
 			<!-- Nadpis stránky pre tlačiareň -->

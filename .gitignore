@@ -4,6 +4,7 @@
 *
 !*.php
 !_vlozene
+!_vlozene/QR
 ConnectMyAdmin.php
 !_css
 !common.css

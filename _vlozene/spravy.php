@@ -40,28 +40,7 @@
 	
 	<!-- START - Automaticky pridané správy -->
 <?php
-	// kod pre potreby vyvoja
-	
-/* 	echo $_SERVER['PHP_SELF'];
-	echo "<br>\n";
-	echo $_SERVER['SERVER_NAME'];
-	echo "<br>\n";
-	echo $_SERVER['HTTP_HOST'];
-	echo "<br>\n";
-	echo $_SERVER['HTTP_REFERER'];
-	echo "<br>\n";
-	echo $_SERVER['SCRIPT_NAME'];
-	echo "<br>\n";
-	echo $_SERVER['SCRIPT_FILENAME'];
-	echo "<br>\n";
-	echo $_SERVER['QUERY_STRING'];
-	echo "<br>\n p -> ";
-	if (isset($_GET["p"])){
-		echo $_GET["p"];
-	} else {
-		echo 'neexistuje';
-	} */
-	
+
 include_once("_vlozene/spravy-zoznam.php");
 /*echo "\n<br>",'<code>';
 echo htmlspecialchars(var_dump($spravy));

@@ -385,18 +385,18 @@ $dni=array (
 );
 
 $mesiac=array(
-	0	=>	"januára",
-	1	=>	"februára",
-	2	=>	"marca",
-	3	=>	"apríla",
-	4	=>	"mája",
-	5	=>	"júna",
-	6	=>	"júla",
-	7	=>	"augusta",
-	8	=>	"septembra",
-	9	=>	"októbera",
-	10	=>	"novembra",
-	11	=>	"decembra",
+	1	=>	"januára",
+	2	=>	"februára",
+	3	=>	"marca",
+	4	=>	"apríla",
+	5	=>	"mája",
+	6	=>	"júna",
+	7	=>	"júla",
+	8	=>	"augusta",
+	9	=>	"septembra",
+	10	=>	"októbera",
+	11	=>	"novembra",
+	12	=>	"decembra",
 );
 
 $datum=getdate();

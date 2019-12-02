@@ -9,16 +9,27 @@
 <?php
 break; case "OsobneUdaje":
 ?>				
-				<h2>Ochrana osobných údajov</h2>
+				<h3>Ochrana osobných údajov</h3>
 				<a target="_blank" href="https://gdpr.kbs.sk/"><img width="200" title="Kniha s kľúčom" src="/_data/spolocne/gdpr.jpg" alt="GDPR, Ochrana osobných údajov"/></a>
 <?php
 break; case "PochodZaZivot":
 ?>
 				<a href="http://www.pochodzazivot.sk/"><img src="/_data/spolocne/pochod-za-zivot.png" width="150" alt="Pochod za život" /></a>
 <?php
+break; case "Myslienka":
+include "myslienka.php";
+?>
+				<h3>Myšlienka dňa</h3>
+				<!-- START PHP - Myslienka -->
+				<blockquote class="lead myslienka">
+					<p class="mx-2 my-0 text-left"><?php echo $udaje["citat"]; ?></p>
+					<div class="text-right mx-2 my-0 blockquote-footer"><strong><?php echo $udaje["autor"]; ?></strong></div>
+				</blockquote>
+				<!-- END PHP - Myslienka -->
+<?php
 break; case "LinkBreviarBiblia": 
 ?>
-				<h2>Odkazy</h2>
+				<h3>Odkazy</h3>
 				<p class="text-left">
 					<a target="_blank" title="Liturgia hodín – denná modlitba rímskokatolíckej Cirkvi; modlia sa ju kňazi, rehoľníci a aj laici" href="http://breviar.sk/">
 					<img title="Liturgia hodín" alt="Liturgia hodín" src="/_data/spolocne/breviar.png">
@@ -38,17 +49,17 @@ break; case "LinkBreviarBiblia":
 <?php
 break; case "VyveskaOznamy":
 ?>
-				<h2>Výveska - oznamy</h2>
+				<h3>Výveska - oznamy</h3>
 				<!-- <iframe rel="nofollow" width="230" height="250" src="http://spravy.vyveska.sk/js?format=square&amp;numberOfPosts=8&amp;title=Spr%C3%A1vy&amp;speed=3&amp;mode=normal&amp;width=230"></iframe> -->
 <?php
 break; case "VyveskaAkcie":
 ?>
-				<h2>Výveska - akcie</h2>
+				<h3>Výveska - akcie</h3>
 				<!-- <iframe rel="nofollow" class="noScrolling" name="widget" src="http://widget.vyveska.sk/show-widget/?widgetId=203Poj"></iframe> -->
 <?php
 break; case "CitanieNaDnes":
 ?>
-				<h2>Čítanie na dnes</h2>
+				<h3>Čítanie na dnes</h3>
 				<!-- <a href="http://lc.christ-net.sk/"><img src="http://lc.christ-net.sk/?banner=2&colors=eeeeee;323232;323232;eeeeee" alt='Liturgické čítania na dnes'/></a> -->
 <?php
 break; case "Menu":

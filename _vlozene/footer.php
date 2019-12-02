@@ -26,15 +26,8 @@
 			</dl>
 			Viac nájdete v <a href="/farnost/liturgicke-oznamy-farnosti-detva" >liturgických oznamoch</a> na daný týždeň.
 		</section>
-     	<section class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
-			<h2 class="pt-3">Myšlienka dňa</h2>
-			<!-- START PHP - Myslienka --><?php include "myslienka.php"; echo "\n"; ?>
-			<blockquote class="lead myslienka">
-				<p class="mb-0"><?php echo $udaje["citat"]; ?></p>
-				<div class="blockquote-footer"><strong><?php echo $udaje["autor"]; ?></strong></div>
-			</blockquote>
-			<!-- END PHP - Myslienka -->
-			<div class="text-center">
+     	<section class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 align-self-end">
+			<div class="text-center m-4">
 				<!-- START PHP - QR -->
 				<?php include $path . "/_vlozene/QR.php"; echo "\n"; ?>
 				<!-- END PHP - QR -->
