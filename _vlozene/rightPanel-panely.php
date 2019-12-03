@@ -15,10 +15,8 @@ break; case "Vyvoj":
 	echo '<div class="mx-2 my-0 text-left text-monospace">';
 	echo $vlozka. "PHP_SELF:</span> " . $_SERVER['PHP_SELF'];
 	echo "<br>";
-/* 	if(isset($_SERVER['HTTP_REFERER'])) {
-		echo $vlozka. "HTTP_REFERER:</span> " .$_SERVER['HTTP_REFERER'];
-		echo "<br>";
-	} */
+	echo $vlozka. "REQUEST_URI:</span> " . $_SERVER['REQUEST_URI'];
+	echo "<br>";
 	echo "<br>";
 	echo $vlozka. "SERVER_NAME:</span> " . $_SERVER['SERVER_NAME'];
 	echo "<br>";

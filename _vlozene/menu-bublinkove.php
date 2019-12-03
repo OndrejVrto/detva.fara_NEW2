@@ -20,6 +20,9 @@
 		}
 		echo "</li>";
 	}
+	if ($pod_stranka>1){
+		echo "\n\t\t\t\t<li class=\"breadcrumb-item active\">List " .$pod_stranka. "</li>";
+	}
 	echo "\n\t\t\t</ol>\n";
 ?>
 			<!-- END Include - Bublinkové menu -->

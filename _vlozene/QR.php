@@ -12,6 +12,9 @@
 	$file = mb_ereg_replace("([^\w\s\d\-_~,;\[\]\(\).])", '-', $actual_link);
 	// Remove any runs of periods
 	$file = mb_ereg_replace("([\.]{2,})", '-', $file);
+	// nahradí tri pomlčky za podtržník
+	$file = mb_ereg_replace("([\-]{3,})", '_', $file);	
+	// doplní predponu a príponu SVG súboru s obrázkom QR kódu
 	$file = "QR_".$file.".svg";
 	
 	// Hľadá súbor SVG a ak ho nenájde tak vytvorí nový súbor SVG s QR kódom URL adresy
@@ -20,6 +23,10 @@
 		// PHP QR Code is open source (LGPL) library for generating QR Code
 		include_once $path . "/_vlozene/QR/qrlib.php";
 		//$svgCode = QRcode::svg($text, $elemId = false, $outFile = false, $level = QR_ECLEVEL_L, $width = false, $size = false, $margin = 4, $compress = false) 
+		// Úroveň: QR_ECLEVEL_L
+		// Úroveň: QR_ECLEVEL_M
+		// Úroveň: QR_ECLEVEL_Q
+		// Úroveň: QR_ECLEVEL_H
 		QRcode::svg($actual_link, $actual_link, $path.$tempDir.$file, QR_ECLEVEL_L, $width = 110, false , $margin = 0);
 	}
 

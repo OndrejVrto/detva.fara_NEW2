@@ -7,8 +7,12 @@
 ?>
 <!-- START - Špeciálne HEAD pre túto stránku -->
 <!-- END   - Špeciálne HEAD pre túto stránku -->
-<?php include $path . "/_vlozene/vrch-stranky.php"; echo "\n"; ?>
-			<div class="frantisekPage">
+<?php 
+	include $path . "/_vlozene/vrch-stranky.php"; 
+
+	switch ($pod_stranka) {
+	case 1:   // pod-stránka číslo 1
+?>			<div class="frantisekPage">
 			<h1>sv. František z Assisi</h1>
 				<p style="text-align: justify;">
 				<img style="float: left; margin-right: 15px; margin-top: 5px;" src="/farnost/data/svety-frantisek-z-assisi-patron-farnosti-detva/frantisek2.jpg" width="150" height="265" alt="svety frantisek obraz" />
@@ -36,6 +40,9 @@
 				Bol nesmierne štedrý k chudobným. To už otca znepokojovalo. Chronológia troch nasledujúcich udalostí nie je celkom istá. 
 				Boli to veľmi závažné momenty vo Františkovom živote.</p>
 				<br>
+<?php
+	break; case 2:   // pod-stránka číslo 2
+?>				
 				<p style="text-align: justify;">Roku 1206 vykonal František púť do Ríma, 
 				kde sa zamiešal v žobráckom šate medzi žobrákov a žobral. V bazilike sv. Petra 
 				vhodil do pokladnice všetky svoje peniaze, aby zahanbil pútnikov, čo tam dávali málo. 
@@ -73,6 +80,9 @@
 				Kým mnoho ľudí Františka po jeho obrátení považovalo prinajmenšom za veľkého čudáka, ak nie za blázna, boli iní, 
 				ktorí ho dobre pozorovali a rozoznali v ňom muža Božieho, ktorý ich priťahoval k nasledovaniu. 
 				Prvým Františkovým nasledovníkom bol bohatý a učený assiský občan Bernard z Quintavalle.
+<?php
+	break; case 3:   // pod-stránka číslo 3
+?>				
 				<img style="float: left; margin-right: 15px; margin-top: 5px;" src="/farnost/data/svety-frantisek-z-assisi-patron-farnosti-detva/upapeza.jpg" width="200" height="261" alt="svety frantisek u papeza"/>
 				Druhým bol učený kňaz Peter Cattani. Obidvaja rozdali chudobným všetok svoj majetok: jeden to mnoho, druhý to málo, 
 				čo mal. Pridali sa k Františkovi a začali bývať v chatrči pri Porciunkule. Tam sa k nim pripojil jednoduchý neučený 
@@ -92,7 +102,9 @@
 				o rúcajúcej sa Lateránskej bazilike, ktorú podoprel muž - František. Pápež Inocent III. ústne schválil prvú regulu 
 				16. apríla 1209. Táto regula sa však písomne nezachovala. František po zložení sľubu poslušnosti pápežovi bol ním 
 				poverený riadiť František u pápeža Inocenta III.bratov, žiť s nimi v úplnej chudobe a hlásať evanjelium.</p>
-				<br>
+<?php
+	break; case 4:   // pod-stránka číslo 4
+?>
 				<p style="text-align: justify;">Po návrate z Ríma bratia ďalej žili v Rivotorto. Bola to lokalita vzdialená od Assisi 
 				na pol hodiny cesty peši. Odtiaľ chodil František kázať do mesta. Kázal aj v katedrále San Rufino. Na jar roku 1211 ich 
 				sedliak surovo vyhnal z biednej stodoly, kde dovtedy bývali. František prešiel s bratmi do Assisi, kde im benediktíni 
@@ -133,6 +145,9 @@
 				Bola to turíčna kapitula 18. mája a trvala sedem dní. Zišlo sa 3000, podľa iných až 5000 bratov. 
 				Také množstvo nebolo možné ubytovať, preto sa ubytovali na lúke a spali pod holým nebom na rohožkách a na slame - 
 				preto “rohožková” kapitula. Obyvateľstvo bolo také nadšené, že im nanosilo proviantu viac, než mohli spotrebovať. 
+<?php
+	break; case 5:   // pod-stránka číslo 5
+?>				
 				Nič takého slávnostného ešte nevideli. Na kapitule predstavil František novú Regulu. Kapitula ju prijala, 
 				ale Svätá stolica ju neschválila. Preto sa volá “Regula non bullata” (RnB). František za pomoci kardinála Hugolína 
 				ju musel prepracovať. Dostala kratšiu, lepšiu juridickú formu, zodpovedajúcu kuriálnym predstavám. 
@@ -167,9 +182,10 @@
 				žiť. Keďže sa Františkovi očná choroba zhoršovala, kardinál Hugolín mu prikázal, aby sa išiel liečiť do Rieti 
 				k pápežskému lekárovi. František tam podstúpil bolestnú operáciu, ktorá však nemala žiaden úspech. Neúspešné boli 
 				aj iné všelijaké spôsoby liečenia. Tak prešla zima 1225/1226. Nastal posledný rok Františkovho života.</p>
-
 				<p style="text-align: center;"><strong><span style="font-size: 12pt;">“Vitaj, sestra smrť”</span></strong></p>
-
+<?php
+	break; case 6:   // pod-stránka číslo 6
+?>
 				<p style="text-align: justify;">
 				<img style="float: right; margin-left: 15px; margin-top: 10px;" src="/farnost/data/svety-frantisek-z-assisi-patron-farnosti-detva/assisi.jpg" width="200" height="150" alt="kostol v assisi" />
 				V apríli 1226 na pokyn kardinála Hugolína a brata Eliáša poslali Františka do Sieny k tamojším slávnym lekárom. Bolo to už zbytočné, ale František 
@@ -188,6 +204,11 @@
 				zázraky a svedectvá veriacich. Dňa 16. júla 1228 bola v Assisi slávnostná kanonizácia za prítomnosti pápeža, množstva 
 				kléru a ľudu. Na druhý deň položil pápež základný kameň pre chrám sv. Františka.</p>
 			</div>
+<?php
+	}
+	include $path . "/_vlozene/button-prev-next.php";
+	echo tlacitkaDopreduDozadu($aktualnaStranka = $pod_stranka, $maximumStranok = 6, $odsadenie = 3, $textVzad = 'Predchádzajúca stránka' , $textVpred = 'Nasledujúca stránka');
+?>
 <?php include $path . "/_vlozene/spodok-stranky.php"; echo "\n";?>
 <!-- START - Individuálne skripty na konci stranky -->
 <!-- END   - Individuálne skripty na konci stranky -->

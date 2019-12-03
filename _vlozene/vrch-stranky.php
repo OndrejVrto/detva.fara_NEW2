@@ -6,6 +6,14 @@
  	// echo PHP_EOL;
 	// include "menu-pracovne.php"; echo "\n" . PHP_EOL;
 	// vymazať po vyvoji
+
+	// v prípade ak na stránke existujú podstránky vytvorí premennú pre funkciu "tlacitkaDopreduDozadu"
+	// a zároveň slúži ako doplnok pre bublinkovú nápovedu
+	if (isset($_GET["p"])) {
+		$pod_stranka = $_GET["p"];
+	} else {
+		$pod_stranka = 1;
+	}
 	
 	$path = $_SERVER['DOCUMENT_ROOT'];	
 	echo PHP_EOL;
