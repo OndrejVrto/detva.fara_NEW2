@@ -19,7 +19,7 @@
 			
 			$zoznam_Galerii = str_replace($adresarABS, '', $zoznam_Galerii);
 
-			$vystupHTML .= $zalomenie . "\t" . "<div class=\"card mx-sm-0 border-primary\">";
+			$vystupHTML .= $zalomenie . "\t" . "<div class=\"zoznamGalerii card shadow mx-sm-0 border-primary\">";
 			
 			$ObrazokAlbumu = get_files($path . $adresarFotogaleria . $zoznam_Galerii);
 			
@@ -44,7 +44,7 @@
 
 			
 			if ($albumovVgalerii!==0){
-				$vystupHTML .= $zalomenie ."\t\t\t" . "<ol class=\"card-text pl-4\">";
+				$vystupHTML .= $zalomenie ."\t\t\t" . "<ol class=\"vsetkyGalerie card-text pl-4\">";
 				foreach($zoznam_Adresarov2 as $zoznam_Albumov_Galerii) {
 				
 					$XMLfilename = nazov_suboru($zoznam_Albumov_Galerii);
@@ -54,8 +54,8 @@
 						$xml->load( $XMLfilename );
 						$titleALBUM = $xml->getElementsByTagName( "NazovAlbumu" )->item(0)->nodeValue;
 						
-						$vystupHTML .= $zalomenie . "\t\t\t\t" . "<li class=\"vsetkyGalerie\" >" . "<a href=\"" . str_replace(" ", '%20', $xml->getElementsByTagName( "LinkRewrite" )->item(0)->nodeValue) . "/1/\">";
-						$vystupHTML .= $titleALBUM . "</a>". "</li>";;
+						$vystupHTML .= $zalomenie . "\t\t\t\t" . "<li><a href=\"" . str_replace(" ", '%20', $xml->getElementsByTagName( "LinkRewrite" )->item(0)->nodeValue) . "/1/\">";
+						$vystupHTML .= $titleALBUM . "</a></li>";;
 					
 					} else {
 						$path2 = array_filter(explode('/', $zoznam_Albumov_Galerii));

@@ -177,7 +177,7 @@ function print_foto_card($xml, $start, $ende ){
 		//nahradí medzery v href - V HTML nie sú dovolené
 		$file1 = str_replace(" ", '%20', $linkNAobrazok . $fotkaSubor);
 		$pracovny .= $zalomenie . "\t" . '<a type="image/jpeg" class="albumpix" href="' . $file1 . '" title="' . $fotkaPopisok . '">';
-		$pracovny .= $zalomenie . "\t\t" . '<div class="card  border-success">';
+		$pracovny .= $zalomenie . "\t\t" . '<div class="card shadow border-success">';
 		
 		$fotkaALT = $xml->getElementsByTagName( "Fotka" )->item($i)->getElementsByTagName( "AlternativnyNazov" )->item(0)->nodeValue;
 		

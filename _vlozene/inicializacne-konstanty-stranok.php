@@ -68,7 +68,7 @@ $menuHlavne = array (
 		16	=> array ("farnost->knazi-vo-farnosti"			,""					,"/farnost/knazi-posobiaci-vo-farnosti-detva"				,"Kňazi pôsobiaci vo farnosti"),
 		17	=> array ("farnost->knazi-z-nasho-kraja"		,"text-danger"		,"/farnost/knazi-pochadzajuci-z-nasho-kraja"				,"Kňazi pochádzajúci z farnosti"),
 		18	=> "separator",
-		19	=> array ("farnost->kontakt-farsky-urad"		,"text-danger"		,"/farnost/kontakt-farsky-urad-detva"						,"Kontakt"),
+		19	=> array ("farnost->kontakt-farsky-urad"		,""					,"/farnost/kontakt-farsky-urad-detva"						,"Kontakt"),
 	),                                                            
 
 	"Spoločenstvá" => array (

@@ -5,6 +5,9 @@
 !*.php
 !_vlozene
 !_vlozene/QR
+!*.scss
+!_scss
+!_scss/*
 ConnectMyAdmin.php
 !_css
 !common.css
