@@ -36,6 +36,17 @@
 					<span class="card-text float-right">12.05.2017</span>
 				</div>
 			</article>
+			
+			<article class="card border border-danger my-3" role="region">
+				<h1 class="bg-success text-center">Odber krvi na Detvianskej fare</h1>
+				<img class="center-block img-thumbnail" style="float: left; margin-right: 20px" src="/_aktuality/2016-2Q/odber-krvi1.jpg" width="120" class="img-thumbnail" alt="Kvapka krvi" />
+				<p style="min-height: 110px;" class="text-justify">
+					<a href="http://www.ntssr.sk/kde-darovat-krv/banska-bystrica" >Transfúzna  stanica v Banskej Bystrici</a> v spolupráci s farským  úradom  v Detve a 
+					<a href="http://www.ozfrantisek.sk/" >Občianským  združením  František</a> organizuje <strong>odber krvi</strong> dobrovoľných darcov krvi, ktorý sa uskutoční 
+					<br><br><strong>v piatok 1. apríla v zasadačke <a href="/farnost/kontakt-farsky-urad-detva.php" >farského úradu</a> od 8.00 – 10.00 hod</strong>
+					<br><br><a href="http://www.ntssr.sk/o-darovani-krvi/predtym-ako-darujete-svoju-krv" >Viac o darovaní krvi ...</a>
+				</p>
+			</article>
 	<!-- END - Ručne pridané správy -->
 	
 	<!-- START - Automaticky pridané správy -->
@@ -130,7 +141,7 @@ for ($x=0; $x<=$pocetPrvkov-1 ;$x++){
 <!-- ZALOHA - start -->
 		
 			
-			<!--<article class="card text-left" role="region">
+			<article class="card text-left" role="region">
 				<h1 class="bg-success text-center">Odber krvi na Detvianskej fare</h1>
 				<img class="center-block img-thumbnail" style="float: left; margin-right: 20px" src="/_aktuality/2016-2Q/odber-krvi1.jpg" width="120" class="img-thumbnail" alt="Kvapka krvi" />
 				<p style="min-height: 110px;" class="text-justify">
@@ -239,5 +250,5 @@ for ($x=0; $x<=$pocetPrvkov-1 ;$x++){
 			<article class="card" role="region">
 				<p><a href="/farnost/liturgicke-oznamy-farnosti-detva" >Oznamy nájdete v menu - Farnosť -> Liturgické Oznamy</a></p>
 				<p><a href="/farnost/liturgicke-oznamy-farnosti-detva">Rozpisy služieb lektorov nájdete v menu - Farnosť -> Liturgické Oznamy</a></p>
-			</article>-->
+			</article>
 <!-- ZALOHA end -->

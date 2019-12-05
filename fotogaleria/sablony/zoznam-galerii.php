@@ -36,7 +36,7 @@
 			$zoznam_Adresarov2 = glob($adresarABS2 . '*', GLOB_ONLYDIR);
 			$albumovVgalerii = count($zoznam_Adresarov2);
 
-			$vystupHTML .= $zalomenie . "\t\t" . "<div class=\"card-body\">";
+			$vystupHTML .= $zalomenie . "\t\t" . "<div class=\"card-body px-2 py-3\">";
 			$vystupHTML .= $zalomenie . "\t\t\t" . "<a href=\"" . str_replace(" ", '%20', $adresaFotogalerieHTML . $zoznam_Galerii) . "/1/\">";
 			$vystupHTML .= $zalomenie . "\t\t\t\t" . "<h5 class=\"card-title text-center\">" . $zoznam_Galerii . "</h5>";
 			$vystupHTML .= $zalomenie . "\t\t\t\t" . "<h6 class=\"card-subtitle text-center mb-2 text-muted\">" . $albumovVgalerii . GramatikaAlbumy($albumovVgalerii) . "</h6>";

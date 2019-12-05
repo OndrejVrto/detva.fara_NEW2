@@ -116,7 +116,7 @@ function print_album_card($XMLfiles, $nahodneFotky = false){
 	$titulnaFotkaPopisok = $xml->getElementsByTagName( "AlternativnyNazovAlbum" )->item(0)->nodeValue;
 	
 	$pracovny .= $zalomenie . "\t\t\t" . '<img class="card-img-top" src="' . str_replace(" ", '%20', $titulnaFotkaLink) . '" alt="' . $titulnaFotkaPopisok . '"/>';
-	$pracovny .= $zalomenie . "\t\t\t" . '<div class="card-body">';
+	$pracovny .= $zalomenie . "\t\t\t" . '<div class="card-body p-3">';
 	
 	$titleALBUM = $xml->getElementsByTagName( "NazovAlbumu" )->item(0)->nodeValue;
 	$pracovny .= $zalomenie . "\t\t\t\t" . '<h5 class="card-title">' . $titleALBUM . '</h5>';

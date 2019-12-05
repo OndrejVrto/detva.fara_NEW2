@@ -147,7 +147,7 @@ function print_hlavicka_albumu($xml, $xmlVzad, $xmlVpred){
 	$pracovny .= $zalomenie . "\t" . $tlacitkoDOPREDU;
 	$pracovny .= $zalomenie . "\t" . '<div class="card w-80 border-success rounded-0">';	
 	$pracovny .= $zalomenie . "\t\t" . '<h5 class="card-header text-white bg-success text-center rounded-0">' . $titleALBUM . '</h5>';	
-	$pracovny .= $zalomenie . "\t\t" . '<div class="card-body">';
+	$pracovny .= $zalomenie . "\t\t" . '<div class="card-body p-3">';
 	$pracovny .= $zalomenie . "\t\t\t" . '<p class="card-text">' . $titulokAlbumu . '</p>';
 	$pracovny .= $zalomenie . "\t\t\t" . '<p class="card-text d-flex justify-content-between flex-wrap">';
 	
@@ -186,7 +186,7 @@ function print_foto_card($xml, $start, $ende ){
 		$pracovny .= $zalomenie . "\t\t\t" . '<img class="card-img-top" src="' . $file2 . "\"\n\t\t\t\t\t\t\t\t alt=\"" . $fotkaALT . '"/>';
 		
 		if ($fotkaPopisok!=''){
-			$pracovny .= $zalomenie . "\t\t\t" . '<div class="card-body">';			
+			$pracovny .= $zalomenie . "\t\t\t" . '<div class="card-body p-3">';			
 			$pracovny .= $zalomenie . "\t\t\t\t" . '<p class="card-text">' . $fotkaPopisok . '</p>';
 			$pracovny .= $zalomenie . "\t\t\t" . '</div>';	
 		}
