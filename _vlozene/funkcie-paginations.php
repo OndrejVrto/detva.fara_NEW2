@@ -21,6 +21,10 @@ function pagination_vrto($aktivnaStranka, $pocetStran, $url_zaciatok, $url_konie
         break;
 	}
 	if ($id!="") {
+		$idtrieda = '';
+		if	($id=='prve') {$idtrieda = " pb-3";}
+		if	($id=='druhe') {$idtrieda = " pt-3";}
+		
 		$id = htmlspecialchars($id);
 		$id = str_replace(array("'", '"'), array("\\'", "\\\""), $id);
 		$id = ' id="' .  $id . '"';
@@ -42,7 +46,7 @@ function pagination_vrto($aktivnaStranka, $pocetStran, $url_zaciatok, $url_konie
 		$zalomenie = "\n";
 		for ($k = 1; $k <= $odsadenie; $k++) { $zalomenie .= "\t"; }
 		
-		$vystup .= $zalomenie . '<nav class="justify-content-center m-0 px-0" aria-label="Page navigation"' . $id . '>';
+		$vystup .= $zalomenie . '<nav class="justify-content-center m-0 px-0' .$idtrieda. '" aria-label="Page navigation"' . $id . '>';
 		$vystup .= $zalomenie . "\t" . '<ul class="pagination' . $velkost . ' justify-content-center m-0 p-0">';
 
 		If ($opacneCislovanie==false){

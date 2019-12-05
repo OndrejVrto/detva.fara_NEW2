@@ -1,8 +1,8 @@
-<footer class="container px-4" >
+<footer class="container px-4 rounded-top" >
 	<div class="row">
-		<section class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4">
+		<div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4">
 			<h2 class="pt-3">Kontakt</h2>
-			<address>
+			<address class="mb-0">
 				<i class="fa fa-map-marker fa-lg" aria-hidden="true"></i><br>
 				<strong>Rímsko-katolícky farský úrad sv. Františka Assiského</strong><br>
 				Partizánska ul. 64<br>
@@ -13,20 +13,20 @@
 				<a href="mailto:">detva&#64;fara.sk</a><br>
 				<a href="mailto:">rkfudt&#64;stonline.sk</a><br>
 			</address>
-		</section>
-		<section class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-4">
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-4">
 			<h2 class="pt-3">Bohoslužby</h2>
 			<dl class="">
 				<dt><strong>Pondelok - Sobota</strong></dt>
-				<dd>Farský kostol - 6:30, 17:30</dd>
-				<dd>Kláštor - 7:00</dd>	
+				<dd class="ml-3">Farský kostol - 6:30, 17:30</dd>
+				<dd class="ml-3">Kláštor - 7:00</dd>	
 				<dt><strong>Nedeľa</strong></dt>
-				<dd>Farský kostol - 7:45, 9:00, 10:30, 17:30</dd>
-				<dd>Kláštor - 7:30</dd>
+				<dd class="ml-3">Farský kostol - 7:45, 9:00, 10:30, 17:30</dd>
+				<dd class="ml-3">Kláštor - 7:30</dd>
 			</dl>
 			Viac nájdete v <a href="/farnost/liturgicke-oznamy-farnosti-detva" >liturgických oznamoch</a> na daný týždeň.
-		</section>
-     	<section class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 align-self-end">
+		</div>
+     	<div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 align-self-end">
 			<div class="text-center m-4">
 				<!-- START PHP - QR -->
 				<?php include $path . "/_vlozene/QR.php"; echo "\n"; ?>
@@ -41,6 +41,6 @@
 				<p class="text-center" id="copyright">Copyright <i class="fa fa-copyright" aria-hidden="true"></i> 2017-<?php echo date("Y"); ?> Farský úrad Detva</p>
 				<!-- END PHP - Počítadlo -->
 			</div>
-		</section>
+		</div>
 	</div>
 </footer>

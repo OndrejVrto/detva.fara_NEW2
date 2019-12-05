@@ -12,7 +12,7 @@
 
 	switch ($pod_stranka) {
 	case 1:   // pod-stránka číslo 1
-?>			<div class="frantisekPage">
+?>
 			<h1>sv. František z Assisi</h1>
 				<p style="text-align: justify;">
 				<img style="float: left; margin-right: 15px; margin-top: 5px;" src="/farnost/data/svety-frantisek-z-assisi-patron-farnosti-detva/frantisek2.jpg" width="150" height="265" alt="svety frantisek obraz" />
@@ -203,11 +203,11 @@
 				1227 bol už pápežom veľký priateľ Františka kardinál Hugolín, ako pápež Gregor IX. Skúmali a preverovali sa početné 
 				zázraky a svedectvá veriacich. Dňa 16. júla 1228 bola v Assisi slávnostná kanonizácia za prítomnosti pápeža, množstva 
 				kléru a ľudu. Na druhý deň položil pápež základný kameň pre chrám sv. Františka.</p>
-			</div>
+			
 <?php
 	}
 	include $path . "/_vlozene/button-prev-next.php";
-	echo tlacitkaDopreduDozadu($aktualnaStranka = $pod_stranka, $maximumStranok = 6, $odsadenie = 3, $textVzad = 'Predchádzajúca stránka' , $textVpred = 'Nasledujúca stránka');
+	echo tlacitkaDopreduDozadu($aktualnaStranka = $pod_stranka, $maximumStranok = 6, $odsadenie = 3, $textVzad = 'Naspäť' , $textVpred = 'Ďalej');
 ?>
 <?php include $path . "/_vlozene/spodok-stranky.php"; echo "\n";?>
 <!-- START - Individuálne skripty na konci stranky -->

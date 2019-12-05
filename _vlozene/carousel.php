@@ -32,9 +32,9 @@
 		// 1 = Jeden stabilný obrázok
 		case 1:
 		$nahodnyObrazok = str_pad(rand(1, $fileCount), $digits, '0', STR_PAD_LEFT);
-		echo "<div class=\"carousel slide d-print-none pt-3\" role=\"banner\">\n\t";
+		echo "<div class=\"carousel slide d-print-none pt-3 mx-auto position-relative\" role=\"banner\">\n\t";
 		echo "<div class=\"carousel active\">\n\t\t";
-		echo "<img class=\"d-block w-100\" alt=\"Carousel - Náhodný obrázok\"\n\t\t\t";
+		echo "<img class=\"d-block w-100\" alt=\"\"\n\t\t\t";
 			echo "src=\"" . str_replace(" ", '%20', $cesta ."1200x300/". $NazovSuboru . $nahodnyObrazok . $pripona) ."\"\n\t\t\t";
 			echo "srcset=\"" . str_replace(" ", '%20', $cesta ."0600x150/". $NazovSuboru . $nahodnyObrazok . $pripona) ." 600w,\n\t\t\t\t\t";
 			echo str_replace(" ", '%20', $cesta ."1200x300/". $NazovSuboru . $nahodnyObrazok . $pripona) ." 1200w,\n\t\t\t\t\t";
@@ -60,7 +60,7 @@ function CarouselPohyblivy ($vstupnePoleCarousel, $cisielok, $cesta, $NazovSubor
 	$pocetObrazkov = count($vstupnePoleCarousel);
 	$caruselAktivny = rand(1,$pocetObrazkov);
 	
-	echo "<div id=\"myCarousel\" class=\"carousel slide d-print-none pt-3\" data-ride=\"carousel\" role=\"banner\">\n\t";
+	echo "<div id=\"myCarousel\" class=\"carousel slide d-print-none pt-3 mx-auto position-relative\" data-ride=\"carousel\" role=\"banner\">\n\t";
 	echo "<!-- Indicators -->\n\t";
 	echo "<ol class=\"carousel-indicators\">\n";
 	
@@ -84,7 +84,7 @@ function CarouselPohyblivy ($vstupnePoleCarousel, $cisielok, $cesta, $NazovSubor
 		echo "<div class=\"carousel-item";
 		if ($pocitadlo==$caruselAktivny) { echo " active"; }
 		echo "\">\n\t\t\t";
-		echo "<img class=\"d-block w-100\" alt=\"slide". $pocitadlo ."\"\n\t\t\t\t";
+		echo "<img class=\"d-block w-100\" alt=\"\"\n\t\t\t\t";
 			echo "src=\"" . str_replace(" ", '%20', $cesta ."1200x300/". $NazovSuboru . $ObrazokCislo2 . $pripona) . "\"\n\t\t\t\t";
 			echo "srcset=\"" . str_replace(" ", '%20', $cesta ."0600x150/". $NazovSuboru . $ObrazokCislo2 . $pripona) ." 600w,\n\t\t\t\t\t\t";
 			echo str_replace(" ", '%20', $cesta ."1200x300/". $NazovSuboru . $ObrazokCislo2 . $pripona) ." 1200w,\n\t\t\t\t\t\t";
@@ -98,11 +98,11 @@ function CarouselPohyblivy ($vstupnePoleCarousel, $cisielok, $cesta, $NazovSubor
 	echo"\n\t<!-- Left and right controls -->";
 	echo"\n\t<a class=\"carousel-control-prev\" href=\"#myCarousel\" role=\"button\" data-slide=\"prev\">";
 	echo"\n\t\t<span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"></span>";
-	echo"\n\t\t<span class=\"sr-only\">Naspäť</span>";
+	echo"\n\t\t<span class=\"sr-only\">Predchádzajúci obrázok</span>";
 	echo"\n\t</a>";
 	echo"\n\t<a class=\"carousel-control-next\" href=\"#myCarousel\" role=\"button\" data-slide=\"next\">";
 	echo"\n\t\t<span class=\"carousel-control-next-icon\" aria-hidden=\"true\"></span>";
-	echo"\n\t\t<span class=\"sr-only\">Ďalej</span>";
+	echo"\n\t\t<span class=\"sr-only\">Nasledujúci obrázok</span>";
 	echo"\n\t</a>";
 	echo "\n</div>\n";
 }

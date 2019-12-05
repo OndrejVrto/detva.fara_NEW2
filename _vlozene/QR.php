@@ -30,4 +30,4 @@
 		QRcode::svg($actual_link, $actual_link, $path.$tempDir.$file, QR_ECLEVEL_L, $width = 110, false , $margin = 0);
 	}
 
-    echo "<img width=\"110\" title=\"QR kód tejto stránky.\" src=\"".$tempDir.$file."\" alt=\"QR kód tejto stránky.\"/>";	
+    echo "<img width=\"110\" title=\"QR kód tejto stránky.\" src=\"".$tempDir.$file."\" alt=\"\"/>";	

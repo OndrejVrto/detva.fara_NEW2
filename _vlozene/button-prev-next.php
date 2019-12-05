@@ -11,14 +11,14 @@ function tlacitkaDopreduDozadu ($aktualnaStranka, $maximumStranok, $odsadenie = 
 	$pracovna .= $posun . '<div class="btn-toolbar justify-content-between" role="toolbar">';
 	
 	if ($aktualnaStranka>1) {
-		$pracovna .= $posun . "\t" . '<a class="btn btn-outline-primary ml-5" href="' .$aktualnaURL."/".($aktualnaStranka-1)."/". '" role="button">' .$textVzad. '</a>';
+		$pracovna .= $posun . "\t" . '<a class="btn btn-outline-primary ml-0 ml-sm-5" href="' .$aktualnaURL."/".($aktualnaStranka-1)."/". '" role="button">' .$textVzad. '</a>';
 	} else {
-		$pracovna .= $posun . "\t" . '<a class="btn btn-outline-primary ml-5 disabled" tabindex="-1" aria-disabled="true" role="button">' .$textVzad. '</a>';
+		$pracovna .= $posun . "\t" . '<a class="btn btn-outline-primary ml-0 ml-sm-5 disabled" tabindex="-1" aria-disabled="true" role="button">' .$textVzad. '</a>';
 	}
 	if ($maximumStranok>1 and $maximumStranok != $aktualnaStranka) {
-		$pracovna .= $posun . "\t" .'<a class="btn btn-outline-primary mr-5" href="' .$aktualnaURL."/".($aktualnaStranka+1)."/". '" role="button">' .$textVpred. '</a>';
+		$pracovna .= $posun . "\t" .'<a class="btn btn-outline-primary mr-0 mr-sm-5" href="' .$aktualnaURL."/".($aktualnaStranka+1)."/". '" role="button">' .$textVpred. '</a>';
 	} else {
-		$pracovna .= $posun . "\t" . '<a class="btn btn-outline-primary mr-5 disabled" tabindex="-1" aria-disabled="true" role="button">' .$textVpred. '</a>';
+		$pracovna .= $posun . "\t" . '<a class="btn btn-outline-primary mr-0 mr-sm-5 disabled" tabindex="-1" aria-disabled="true" role="button">' .$textVpred. '</a>';
 	}	
 
 	$pracovna .= $posun . '</div>';

@@ -8,9 +8,9 @@ if ($PravyPanelZlozenie == false) {
 		$PravyPanelZlozenie = $PravyPanelStandard;
 	}
 	foreach ($PravyPanelZlozenie as $PanelID) {
-		echo "\n\t\t\t<div class=\"rightOznamy ";
+		echo "\n\t\t\t<div class=\"vedlajsiObsah text-center border rounded p-3 my-3";
 		if ($PanelID['Tlaciaren'] == false) {
-			echo " hidden-print";
+			echo " d-print-none";
 		}
 		echo "\"";
 		if ($PanelID['PevnaVyska'] !== false) {

@@ -1,4 +1,10 @@
 
+<?php
+	switch ($nazovVolajucejStranky) {
+		case "Hlavná Stránka": break;
+		default: echo "\t\t". '</div> <!-- END - Obsah stránky -->';
+	}
+?>
 <!-- END MAIN - Hlavný obsah stránky
 =============================================================================================================================== -->
 

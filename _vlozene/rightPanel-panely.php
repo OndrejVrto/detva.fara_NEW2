@@ -2,9 +2,9 @@
 			case "Meniny":
 ?>
 				<!-- START PHP - Meniny --><?php $path = $_SERVER['DOCUMENT_ROOT']; include_once $path . "/_vlozene/meniny.php"; echo "\n"; ?>
-				<p class="meniny"><strong>Dnes je</strong><br><?php  echo $dneska; ?></p>
-				<p class="meniny"><strong>Meniny má</strong><br><?php  echo $meniny_dnes; ?></p>
-				<p class="meniny"><strong>Zajtra má meniny</strong><br><?php  echo $meniny_zajtra; ?></p>
+				<p class="mx-2"><strong>Dnes je</strong><br><?php  echo $dneska; ?></p>
+				<p class="mx-2"><strong>Meniny má</strong><br><?php  echo $meniny_dnes; ?></p>
+				<p class="mx-2"><strong>Zajtra má meniny</strong><br><?php  echo $meniny_zajtra; ?></p>
 				<!-- END PHP - Meniny -->
 <?php
 break; case "Vyvoj":
@@ -49,7 +49,7 @@ include "myslienka.php";
 ?>
 				<h3>Myšlienka dňa</h3>
 				<!-- START PHP - Myslienka -->
-				<blockquote class="lead myslienka">
+				<blockquote class="blockquote m-0">
 					<p class="mx-2 my-0 text-left"><?php echo $udaje["citat"]; ?></p>
 					<div class="text-right mx-2 my-0 blockquote-footer"><strong><?php echo $udaje["autor"]; ?></strong></div>
 				</blockquote>

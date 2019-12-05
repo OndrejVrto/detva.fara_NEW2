@@ -1,7 +1,8 @@
 			<!-- START Include - Často kladené otázky -->			
+			<div class="d-print-none">
 			<hr>
-			<h2>Často kladené otázky</h2>
-			<div class="well text-left">
+				<h2>Často kladené otázky</h2>
+				<div class="vedlajsiObsah text-left border rounded p-3 my-3">
 <?php
 
 /* // možnosti
@@ -78,14 +79,14 @@ function vypisKodNaOtazky($otazky, $zoznam, $pocetOpakovani){
 
 	for ($x=0; $x<=$pocetOpakovani-1 ;$x++){
 		$idOtazky = $otazky[$x];
-		echo "\t\t\t\t<div class=\"d-inline\"><strong>";
+		echo "\t\t\t\t\t<div class=\"d-inline\"><strong>";
 		echo $zoznam[$idOtazky[0]][$idOtazky[1]]["Otazka"];
 		echo "</strong></div><br>";
-		echo "\n\t\t\t\t<div class=\"d-inline\">";
+		echo "\n\t\t\t\t\t<div class=\"d-inline\">";
 		echo $zoznam[$idOtazky[0]][$idOtazky[1]]["Odpoved"];
 		
 		if (array_key_exists("Odkaz",$zoznam[$idOtazky[0]][$idOtazky[1]])) {  
-			echo "\n\t\t\t\t<a href=\"" .  str_replace(" ", '%20', $zoznam[$idOtazky[0]][$idOtazky[1]]["Odkaz"]) . "\"";
+			echo "\n\t\t\t\t\t<a href=\"" .  str_replace(" ", '%20', $zoznam[$idOtazky[0]][$idOtazky[1]]["Odkaz"]) . "\"";
 			if (array_key_exists("Titulok",$zoznam[$idOtazky[0]][$idOtazky[1]])) {
 				echo " title=\"" . $zoznam[$idOtazky[0]][$idOtazky[1]]["Titulok"] . "\""; 
 			}
@@ -97,13 +98,14 @@ function vypisKodNaOtazky($otazky, $zoznam, $pocetOpakovani){
 		}
 		echo "</div>";		
 		if ($x!==$pocetOpakovani-1){
-			echo "\n\t\t\t\t\t<br><hr>\n";
+			echo "\n\t\t\t\t\t\t<br><hr>\n";
 		} else {
-			echo "\n\t\t\t\t\t<br><br>\n";
+			echo "\n\t\t\t\t\t\t<br><br>\n";
 		}
 	}
 }
 ?>
-				<p class="text-secondary pt-0 pb-0 mb-0 text-right"><a href="/ostatne/casto-kladene-otazky-spolu" title="Stránka so všetkými otázkami"><small>Otázky zo všetkých kategórií</small></a></p>
+					<p class="text-secondary pt-0 pb-0 mb-0 text-right"><a href="/ostatne/casto-kladene-otazky-spolu" title="Stránka so všetkými otázkami"><small>Otázky zo všetkých kategórií</small></a></p>
+				</div>
 			</div>
 			<!-- START Include - Často kladené otázky -->

@@ -34,7 +34,7 @@
 
 			<!-- Nadpis stránky pre tlačiareň -->
 			<div class="d-none d-print-block mt-4 text-center" ID="NadpisTlac">
-				<h2><?php echo $nadpisStrankyPreTlac; ?></h2>
+				<h1><?php echo $nadpisStrankyPreTlac; ?></h1>
 			</div>
 <?php
 	if ($bublinkoveMenu !== false) {	
@@ -53,7 +53,14 @@
 ?>
 
 		<!-- Blok "ExportSearch" obaľuje obsah v ktorom je možné vyhľadávať nástrojom na vyhľadávanie v pravom hornom rohu stránky -->
-		<div class="container pr-0 pl-0" ID="ExportSearch">
+		<div ID="ExportSearch">
 
 <!-- START MAIN - Hlavný obsah stránky
 =============================================================================================================================== -->
+<?php  
+	switch ($nazovVolajucejStranky) {
+		case "Hlavná Stránka": break;
+		case "Fotogaléria": echo "\t\t". '<div class="gallery border rounded m-auto p-3" role="img">  <!-- START - Obsah stránky -->'; break;
+		default: echo "\t\t". '<div class="hlavnyobsah border rounded p-3 d-block">  <!-- START - Obsah stránky -->';
+	}
+	echo "\n";

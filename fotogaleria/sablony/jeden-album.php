@@ -143,10 +143,10 @@ function print_hlavicka_albumu($xml, $xmlVzad, $xmlVpred){
 	$datumAlbumu = $datumDEN . $datumMES . $datumROK;
 
 	
-	$pracovny .= $zalomenie . '<div class="btn-group btn-block mw-100" id="HlavickaAlbumu">';
+	$pracovny .= $zalomenie . '<div class="btn-group btn-block mw-100 mb-3">';
 	$pracovny .= $zalomenie . "\t" . $tlacitkoDOPREDU;
-	$pracovny .= $zalomenie . "\t" . '<div class="card w-80 border-success">';	
-	$pracovny .= $zalomenie . "\t\t" . '<h5 class="card-header text-white bg-success text-center">' . $titleALBUM . '</h5>';	
+	$pracovny .= $zalomenie . "\t" . '<div class="card w-80 border-success rounded-0">';	
+	$pracovny .= $zalomenie . "\t\t" . '<h5 class="card-header text-white bg-success text-center rounded-0">' . $titleALBUM . '</h5>';	
 	$pracovny .= $zalomenie . "\t\t" . '<div class="card-body">';
 	$pracovny .= $zalomenie . "\t\t\t" . '<p class="card-text">' . $titulokAlbumu . '</p>';
 	$pracovny .= $zalomenie . "\t\t\t" . '<p class="card-text d-flex justify-content-between flex-wrap">';
