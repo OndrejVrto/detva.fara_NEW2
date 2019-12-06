@@ -1,28 +1,34 @@
 
+<!-- ============================================================================================================================== -->
 <?php
 	switch ($nazovVolajucejStranky) {
 		case "Hlavná Stránka": break;
-		default: echo "\t\t". '</div> <!-- END - Obsah stránky -->';
+		default: echo "\t\t</div>\n";
 	}
 ?>
-<!-- END MAIN - Hlavný obsah stránky
-=============================================================================================================================== -->
+<!-- END MAIN - Hlavný obsah stránky -->
 
-		</div>  <!-- END - container "ExportSearch" na vyhľadávanie -->
+		</div>
+		<!-- END - container "ExportSearch" na vyhľadávanie -->
 
 <?php if ($otazkyOFF !== false) {include "casto-kladene-otazky.php"; echo "\n";}; ?>
 
-		</main>  <!-- END - hlavný stĺpec -->
+		</main>
+		<!-- END - hlavný stĺpec -->
 		
 <?php include "rightPanel.php"; echo "\n"; ?>
 
-	</div> <!-- END - Hlavný .row -->
+	</div>
+	<!-- END - Hlavný .row -->
 	
-	<div class="row">  <!-- START - Kotva na návrat na začiatok stránky -->
+	<!-- START - Kotva na návrat na začiatok stránky -->
+	<div class="row">
 		<a href="#top" class="mx-auto"><i class="fa fa-chevron-up fa-2x" aria-hidden="true"></i></a>
-	</div>             <!-- END - Kotva na návrat na začiatok stránky -->
+	</div>
+	<!-- END - Kotva na návrat na začiatok stránky -->
 
-</div> <!-- END - Hlavný .container -->
+</div>
+<!-- END - Hlavný .container -->
 
 <!-- START Include - Footer -->
 <?php include "footer.php"; echo "\n"; ?>

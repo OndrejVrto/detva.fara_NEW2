@@ -20,7 +20,9 @@
 	include_once $path . "/_vlozene/menu.php"; echo "\n" . PHP_EOL;
 	if ($caruselOFF != false) {include_once $path . "/_vlozene/carousel.php"; echo "\n" . PHP_EOL;};
 ?>
+<!-- START - Hlavný .container -->
 <div class="container">
+	<!-- START - Hlavný .row -->
 	<div class="row">
 
 		<!-- Hlavné rozdelenie GRIDu stránky -->
@@ -55,12 +57,14 @@
 		<!-- Blok "ExportSearch" obaľuje obsah v ktorom je možné vyhľadávať nástrojom na vyhľadávanie v pravom hornom rohu stránky -->
 		<div ID="ExportSearch">
 
-<!-- START MAIN - Hlavný obsah stránky
-=============================================================================================================================== -->
+<!-- START MAIN - Hlavný obsah stránky -->
 <?php  
 	switch ($nazovVolajucejStranky) {
 		case "Hlavná Stránka": break;
 		case "Fotogaléria": echo "\t\t". '<div class="gallery border rounded m-auto p-3" role="img">  <!-- START - Obsah stránky -->'; break;
-		default: echo "\t\t". '<div class="hlavnyobsah border rounded p-3 d-block">  <!-- START - Obsah stránky -->';
+		default: echo "\t\t". '<div class="hlavnyobsah border rounded p-3 d-block">';
 	}
 	echo "\n";
+?>
+<!-- =============================================================================================================================== -->
+

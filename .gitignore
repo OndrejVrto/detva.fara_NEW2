@@ -9,7 +9,7 @@
 #*.css
 
 !_scss
-!_scss/*
+!_scss/**/*
 
 !_vlozene
 !_vlozene/QR
