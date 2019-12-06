@@ -34,9 +34,10 @@
 	<meta name="theme-color" content="#ffffff">
 	
 	<!--  Štýly stránky - hlavné-->
-	<link rel="stylesheet" type="text/css" href="/_fonty/FontAwesome/css/font-awesome.css">
-	<link rel="stylesheet" type="text/css" href="/_css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="/_css/common.css">
+	<link rel="stylesheet" type="text/css" href="/_fonty/FontAwesome/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="/_css/detva-fara-custom.css">
+	<!-- <link rel="stylesheet" type="text/css" href="/_css/bootstrap.css"> -->
+	<!-- <link rel="stylesheet" type="text/css" href="/_css/common.css"> -->
 	
 	 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

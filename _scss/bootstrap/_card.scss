@@ -250,13 +250,6 @@
       width: 100%; // Don't let their width change
     }
   }
-  
-  @include media-breakpoint-only(lg) {
-    column-count: 3;
-  }
-  @include media-breakpoint-only(xl) {
-    column-count: 4;
-  }
 }
 
 

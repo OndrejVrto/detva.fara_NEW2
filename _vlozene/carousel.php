@@ -32,9 +32,9 @@
 		// 1 = Jeden stabilný obrázok
 		case 1:
 		$nahodnyObrazok = str_pad(rand(1, $fileCount), $digits, '0', STR_PAD_LEFT);
-		echo "<div class=\"carousel slide d-print-none pt-3 mx-auto position-relative\" role=\"banner\">\n\t";
+		echo "<div class=\"carousel slide d-print-none pt-3 mx-auto\" role=\"banner\">\n\t";
 		echo "<div class=\"carousel active\">\n\t\t";
-		echo "<img class=\"d-block w-100\" alt=\"\"\n\t\t\t";
+		echo "<img class=\"d-block rounded w-100\" alt=\"\"\n\t\t\t";
 			echo "src=\"" . str_replace(" ", '%20', $cesta ."1200x300/". $NazovSuboru . $nahodnyObrazok . $pripona) ."\"\n\t\t\t";
 			echo "srcset=\"" . str_replace(" ", '%20', $cesta ."0600x150/". $NazovSuboru . $nahodnyObrazok . $pripona) ." 600w,\n\t\t\t\t\t";
 			echo str_replace(" ", '%20', $cesta ."1200x300/". $NazovSuboru . $nahodnyObrazok . $pripona) ." 1200w,\n\t\t\t\t\t";
@@ -84,7 +84,7 @@ function CarouselPohyblivy ($vstupnePoleCarousel, $cisielok, $cesta, $NazovSubor
 		echo "<div class=\"carousel-item";
 		if ($pocitadlo==$caruselAktivny) { echo " active"; }
 		echo "\">\n\t\t\t";
-		echo "<img class=\"d-block w-100\" alt=\"\"\n\t\t\t\t";
+		echo "<img class=\"d-block rounded w-100\" alt=\"\"\n\t\t\t\t";
 			echo "src=\"" . str_replace(" ", '%20', $cesta ."1200x300/". $NazovSuboru . $ObrazokCislo2 . $pripona) . "\"\n\t\t\t\t";
 			echo "srcset=\"" . str_replace(" ", '%20', $cesta ."0600x150/". $NazovSuboru . $ObrazokCislo2 . $pripona) ." 600w,\n\t\t\t\t\t\t";
 			echo str_replace(" ", '%20', $cesta ."1200x300/". $NazovSuboru . $ObrazokCislo2 . $pripona) ." 1200w,\n\t\t\t\t\t\t";

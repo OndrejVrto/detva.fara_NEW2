@@ -123,7 +123,7 @@ $enable-hover-media-query:                    false !default; // Deprecated, no 
 $enable-grid-classes:                         true !default;
 $enable-pointer-cursor-for-buttons:           true !default;
 $enable-print-styles:                         true !default;
-$enable-responsive-font-sizes:                true !default;
+$enable-responsive-font-sizes:                false !default;
 $enable-validation-icons:                     true !default;
 $enable-deprecation-messages:                 true !default;
 
@@ -154,25 +154,9 @@ $sizes: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
 $sizes: map-merge(
   (
-    5: 5%,
-	10: 10%,
-	15: 15%,
-	20: 20%,
-	25: 25%,
-	30: 30%,
-	35: 35%,
-	40: 40%,
-	45: 45%,
+    25: 25%,
     50: 50%,
-	55: 55%,
-	60: 60%,
-	65: 65%,
-	70: 70%,
-	75: 75%,
-	80: 80%,
-	85: 85%,
-	90: 90%,
-	95: 95%,
+    75: 75%,
     100: 100%,
     auto: auto
   ),
@@ -861,7 +845,7 @@ $card-img-overlay-padding:          1.25rem !default;
 $card-group-margin:                 $grid-gutter-width / 2 !default;
 $card-deck-margin:                  $card-group-margin !default;
 
-$card-columns-count:                2 !default;
+$card-columns-count:                3 !default;
 $card-columns-gap:                  1.25rem !default;
 $card-columns-margin:               $card-spacer-y !default;
 
