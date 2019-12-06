@@ -101,7 +101,7 @@ function print_album_card($XMLfiles, $nahodneFotky = false){
 	$xml->load( $XMLfiles );
 	
 	$pracovny .= $zalomenie . "\t" . '<a href="' . str_replace(" ", '%20', $xml->getElementsByTagName( "LinkRewrite" )->item(0)->nodeValue) . '/1/">';
-	$pracovny .= $zalomenie . "\t\t" . '<div class="card shadow mx-sm-0 border-primary">';
+	$pracovny .= $zalomenie . "\t\t" . '<div class="card shadow border-primary">';
 	
 	if ($nahodneFotky){
 		$pocetFotiek = $xml->getElementsByTagName( "PocetFotiek" )->item(0)->nodeValue;

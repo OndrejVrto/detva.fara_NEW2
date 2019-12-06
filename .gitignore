@@ -1,37 +1,41 @@
 # Ignore list
-# najskor som zakazal vsetko a potom som povolil len to co som potreboval
+# najskor som zakazal vsetko
 
 *
+
+#  a potom som povolil len to co som potreboval
 !*.php
-!_vlozene
-!_vlozene/QR
 !*.scss
+#*.css
+
 !_scss
 !_scss/*
-ConnectMyAdmin.php
-!_css
-!common.css
-!folio-gallery.css
+
+!_vlozene
+!_vlozene/QR
+
 !dekanat
 !farnost
 !fotogaleria
 !liturgia
-!spolocenstva
 !ostatne
+!spolocenstva
+
 !dekanat/*.php
 !farnost/*.php
 !fotogaleria/**/*
 !liturgia/*.php
-!spolocenstva/*.php
 !ostatne/*.php
-adminer.php
+!spolocenstva/*.php
+
 !.gitignore
 !.htaccess
-!css
-!*.css
+
 #!_fotoalbumy
 #!_fotoalbumy/*/
 #!_fotoalbumy/*/*/
 #!_fotoalbumy/**/*.xml
-adminer.css
 
+# nakoniec som zakázal jednotlivé súbory ktoré nechcem zverejňovať
+adminer.php
+ConnectMyAdmin.php
