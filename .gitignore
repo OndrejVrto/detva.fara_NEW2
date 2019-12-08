@@ -20,6 +20,7 @@
 !liturgia
 !ostatne
 !spolocenstva
+!spravy-a-aktuality
 
 !dekanat/*.php
 !farnost/*.php
@@ -27,6 +28,7 @@
 !liturgia/*.php
 !ostatne/*.php
 !spolocenstva/*.php
+!spravy-a-aktuality/*.php
 
 !.gitignore
 !.htaccess

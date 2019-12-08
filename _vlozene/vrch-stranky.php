@@ -61,10 +61,8 @@
 <?php  
 	switch ($nazovVolajucejStranky) {
 		case "Hlavná Stránka": break;
-		case "Fotogaléria": echo "\t\t". '<div class="gallery border rounded m-auto p-3" role="img">  <!-- START - Obsah stránky -->'; break;
-		default: echo "\t\t". '<div class="hlavnyobsah border rounded p-3 d-block">';
+		case "Fotogaléria": echo "\t\t". '<div class="gallery border rounded m-auto p-3" role="img">  <!-- START - Obsah stránky -->'."\n"; break;
+		default: echo "\t\t". '<div class="hlavnyobsah border rounded p-3 d-block">'."\n";
 	}
-	echo "\n";
 ?>
 <!-- =============================================================================================================================== -->
-

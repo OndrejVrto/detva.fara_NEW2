@@ -29,6 +29,7 @@ function pagination_vrto($aktivnaStranka, $pocetStran, $url_zaciatok, $url_konie
 		$id = str_replace(array("'", '"'), array("\\'", "\\\""), $id);
 		$id = ' id="' .  $id . '"';
 	} else {
+		$idtrieda = '';
 		$id = "";
 	}
 

@@ -10,8 +10,7 @@
 
 		</div>
 		<!-- END - container "ExportSearch" na vyhľadávanie -->
-
-<?php if ($otazkyOFF !== false) {include "casto-kladene-otazky.php"; echo "\n";}; ?>
+<?php if ($otazkyOFF !== false) {echo PHP_EOL; include "casto-kladene-otazky.php"; echo PHP_EOL;}; ?>
 
 		</main>
 		<!-- END - hlavný stĺpec -->
