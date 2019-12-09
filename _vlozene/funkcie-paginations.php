@@ -3,7 +3,7 @@
 // display pagination - počet stránok s rozdelením podľa mojich predstáv
 // funkciu navrhol Vrťo 12/2017
 //
-function pagination_vrto($aktivnaStranka, $pocetStran, $url_zaciatok, $url_koniec, $id, $opacneCislovanie = false, $velkost = 0, $odsadenie = 4 ) {
+function pagination_vrto($aktivnaStranka, $pocetStran, $url_zaciatok, $url_koniec, $id, $opacneCislovanie = false, $velkost = 0, $odsadenie = 4, $urlPrazdne = false ) {
 
 	//nahradenie medzier kvoli validite HTML kodu href
 	$url_zaciatok = str_replace(" ", '%20', $url_zaciatok);
@@ -125,6 +125,11 @@ function pagination_vrto($aktivnaStranka, $pocetStran, $url_zaciatok, $url_konie
 				$vystup .= $zalomenie . "\t\t" . '<li class="page-item"><a class="page-link" href="'. $url_zaciatok . $pocetStran . $url_koniec .'">'. $pocetStran .'</a></li>';	
 				$vystup .= $zalomenie . "\t\t" . '<li class="page-item"><a class="page-link" href="'. $url_zaciatok . $dalsia_Stranka . $url_koniec . '" aria-label="Next"><i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>';
 			}
+			
+			if ($urlPrazdne == true) {
+				$vystup = str_replace('href="'. $url_zaciatok . '1' . $url_koniec .'"', 'href="/"', $vystup);
+			}
+			
 		} else {
 			// vytvorenie opačného poradia stran
 			if ($aktivnaStranka == $pocetStran) {
@@ -196,6 +201,10 @@ function pagination_vrto($aktivnaStranka, $pocetStran, $url_zaciatok, $url_konie
 				$dalsia_Stranka = $aktivnaStranka - 1;
 				$vystup .= $zalomenie . "\t\t" . '<li class="page-item"><a class="page-link" href="'. $url_zaciatok . '1' . $url_koniec .'">'. $pocetStran .'</a></li>';	
 				$vystup .= $zalomenie . "\t\t" . '<li class="page-item"><a class="page-link" href="'. $url_zaciatok . $dalsia_Stranka . $url_koniec . '" aria-label="Next"><i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>';
+			}
+			
+			if ($urlPrazdne == true) {
+				$vystup = str_replace('href="'. $url_zaciatok . $pocetStran . $url_koniec .'"', 'href="/"', $vystup);
 			}
 		}
 		

@@ -61,5 +61,5 @@
 	// vytvorí pagination
 	include_once $path . "/_vlozene/funkcie-paginations.php";
 	echo PHP_EOL ."\t". '<!-- START - Paginations -->';
-	echo pagination_vrto($cisloListu, $pocetStranok, $adresarVSTUPalbumHTML, '', '' , true, 0, 3 );
+	echo pagination_vrto($cisloListu, $pocetStranok, $adresarVSTUPalbumHTML, '', '' , true, 0, 3, true );
 	echo "\t". '<!-- START - Paginations -->';
