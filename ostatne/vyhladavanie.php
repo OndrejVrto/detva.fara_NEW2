@@ -199,7 +199,7 @@ if (!isset($_GET['search']) or $_GET['search']=='') {
 	
 		<div class="row align-items-center">
 			<div class="col-2 col-sm-1">
-				<a class="navbar-brand p-0 pl-lg-3 pr-lg-5 m-0" href="/"><img width="58" title="Erb mesta Detva" src="/_data/spolocne/Erb-mesta-Detva.png" alt="Erb mesta Detva. Tri smreky."/></a>
+				<a class="navbar-brand p-0 ml-lg-3 mr-lg-5 m-0" href="/"><img width="58" title="Erb mesta Detva" src="/_data/spolocne/Erb-mesta-Detva.png" alt="Erb mesta Detva. Tri smreky."/></a>
 			</div>
 			<div class="col">
 				<form class="input-group input-group-lg m-auto p-4">

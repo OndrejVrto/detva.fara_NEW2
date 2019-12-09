@@ -20,13 +20,13 @@
 // kod načíta všetky súbory v adresári dáta a vytvorí k nim hypertextové odkazy
 // pre vloženie nového oznamu stačí tento vložiť do tohto adresára
 
-if ($handle = opendir($path . '/_data/oznamy/')) {
+if ($handle = opendir($path . '/_spravy/oznamy-pdf/')) {
 	$blacklist = array('.', '..', 'lektori', 'oznamy', 'archiv');
 	while (false !== ($file = readdir($handle))) {
 		if (!in_array($file, $blacklist)) {
 			$meno = substr($file, 0, strlen($file)-4);
 			$file = str_replace(" ", '%20', $file);
-			echo "\t\t\t\t\t\t<a target=\"_blank\" href=\"/_data/oznamy/$file\">$meno</a><br>\n";
+			echo "\t\t\t\t\t\t<a target=\"_blank\" href=\"/_spravy/oznamy-pdf/$file\">$meno</a><br>\n";
 		}
 	}
 	closedir($handle);
@@ -44,14 +44,14 @@ if ($handle = opendir($path . '/_data/oznamy/')) {
 					<div class="panel-body">
 						<!-- START PHP - Linky na súbory -->
 <?php
-if ($handle = opendir($path . '/_data/lektori/')) {
+if ($handle = opendir($path . '/_spravy/lektori/')) {
 	$blacklist = array('.', '..', 'lektori','oznamy', 'archiv');
 
 	while (false !== ($file = readdir($handle))) {
 		if (!in_array($file, $blacklist)) {
 			$meno = substr($file, 0, strlen($file)-4);
 			$file = str_replace(" ", '%20', $file);
-			echo "\t\t\t\t\t\t<a target=\"_blank\" href=\"/_data/lektori/$file\">$meno</a><br>\n";
+			echo "\t\t\t\t\t\t<a target=\"_blank\" href=\"/_spravy/lektori/$file\">$meno</a><br>\n";
 		}
 	}
 	closedir($handle);

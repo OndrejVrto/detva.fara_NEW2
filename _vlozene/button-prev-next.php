@@ -10,8 +10,10 @@ function tlacitkaDopreduDozadu ($aktualnaStranka, $maximumStranok, $odsadenie = 
 	$pracovna = $posun . '<!-- START - Tlačítka Dopredu a Dozadu  -->';
 	$pracovna .= $posun . '<div class="btn-toolbar justify-content-between" role="toolbar">';
 	
-	if ($aktualnaStranka>1) {
+	if ($aktualnaStranka>2) {
 		$pracovna .= $posun . "\t" . '<a class="btn btn-outline-primary ml-0 ml-sm-5" href="' .$aktualnaURL."/".($aktualnaStranka-1)."/". '" role="button">' .$textVzad. '</a>';
+	} elseif($aktualnaStranka==2){
+				$pracovna .= $posun . "\t" . '<a class="btn btn-outline-primary ml-0 ml-sm-5" href="' .$aktualnaURL. '" role="button">' .$textVzad. '</a>';
 	} else {
 		$pracovna .= $posun . "\t" . '<a class="btn btn-outline-primary ml-0 ml-sm-5 disabled" tabindex="-1" aria-disabled="true" role="button">' .$textVzad. '</a>';
 	}

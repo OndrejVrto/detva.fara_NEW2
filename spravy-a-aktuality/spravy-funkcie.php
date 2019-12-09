@@ -4,17 +4,17 @@ function nacitatTextak (){
 	
 	global $path;
 	$pracovny ='';
-	$odsadenie = "\t\t\t\t";
+	$odsadenie = "\t\t\t\t\t";
 	
 	if ($handle = opendir($path . '/_spravy/oznamy-txt/')) {
 		$blacklist = array('.', '..');
 		while (false !== ($file = readdir($handle))) {
 			if (!in_array($file, $blacklist)) {
 
-				$subor = file_get_contents($path . '/_spravy/oznamy-txt/'.$file);
+				$subor = htmlspecialchars(file_get_contents($path . '/_spravy/oznamy-txt/'.$file));
 				
 				$pracovny .= $odsadenie."<li>";
-				$pracovny .= preg_replace("/[\r\n]+|[\r]+|[\n]+/", "</li>\n".$odsadenie."<li>", $subor);
+				$pracovny .= preg_replace("/[\r\n]+|[\r]+|[\n]+/", "</li>\n\t".$odsadenie."<hr class=\"my-1\">\n".$odsadenie."<li>", $subor);
 				$pracovny .= "</li>";
 			}
 		}
