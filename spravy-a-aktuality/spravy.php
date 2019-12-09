@@ -18,12 +18,6 @@
 		"Čierna" 	=> array("dark",		"text-white"),
 	);
 
-	if (!isset($_GET["p"])){
-		$cisloListu = 1;
-	} else {
-		$cisloListu = $_GET["p"];
-	}
-
 	// vloží triedu funkcií správ
 	include_once $path . "/spravy-a-aktuality/spravy-funkcie.php";
 
@@ -31,6 +25,12 @@
 	include_once $path . "/spravy-a-aktuality/spravy-archiv.php";
 	$pocetSpravCelkovo = max(count($spravyArchiv),1);
 	$pocetStranok = ceil($pocetSpravCelkovo/$pocetSprav);
+
+	if (!isset($_GET["p"])){
+		$cisloListu = $pocetStranok;
+	} else {
+		$cisloListu = $_GET["p"];
+	}
 
 	if ($pocetStranok == $cisloListu){
 		// Naimportuje správy z txt súboru na prvú stránku

@@ -58,7 +58,7 @@ function petickaSpravy ($meno = '', $datum = '', $odsadenie = 2, $cisloSpravy = 
 	$pracovny .= PHP_EOL .$zalomenie."\t\t\t". '<span class="card-text float-right">' . $datum. '</span>';	
 	$pracovny .= PHP_EOL .$zalomenie."\t\t". '</div>';	
 	$pracovny .= PHP_EOL .$zalomenie."\t". '</article>';
-	$pracovny .= PHP_EOL .$zalomenie. '<!-- Správa č. ' .$cisloSpravy. ' -->' ."\n";	
+	$pracovny .= PHP_EOL .$zalomenie. '<!-- Správa č. ' .$cisloSpravy. ' -->';	
 	
 	return $pracovny;
 }

@@ -75,7 +75,7 @@
 				<span class="h4 align-middle">&nbsp;&nbsp;Menu</span>
 			</button>
 			<!-- <a class="navbar-brand my-2 py-0 ml-2 mr-4 mr-xl-5" href="/">Farnosť Detva</a> -->
-			<a class="navbar-brand p-0 pl-lg-3 pr-lg-5 m-0" href="/"><img width="40" title="Erb mesta Detva. Tri zelené smreky." src="/_data/spolocne/Erb-mesta-Detva.png" alt=""/></a>
+			<a class="navbar-brand p-0 ml-lg-3 mr-lg-5 m-0" href="/"><img width="40" title="Erb mesta Detva. Tri zelené smreky." src="/_data/spolocne/Erb-mesta-Detva.png" alt=""/></a>
 			<div id="navbarNavDropdown" class="collapse navbar-collapse" >
 				<ul class="navbar-nav">
 					<li class="nav-item dropdown mr-lg-1">
