@@ -1,5 +1,34 @@
 <?php switch ($PanelID['NazovPanelu']) {
-			case "Meniny":
+			case "Oznamy-TXT":
+?>				 <div class="position-static">
+					<h3>Aktuálne oznamy</h3>
+					<p>Liturgicke oznamy 22.02.2016 - 28.02.2016</p>
+					<!-- Button trigger modal -->
+					<div class="text-center">
+						<button type="button" class="btn btn-warning w-100" data-toggle="modal" data-target="#exampleModal">Rozbaliť ...</button>
+					</div>
+					<!-- Modal -->
+					<div class="modal fade text-left" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					  <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+						<div class="modal-content">
+						  <div class="modal-header">
+							<h3 class="modal-title" id="exampleModalLabel">Aktuálne farské oznamy</h3>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							  <span aria-hidden="true">&times;</span>
+							</button>
+						  </div>
+						  <div class="modal-body">
+								<ul class="list-unstyled">
+<?php	echo nacitatTextak()[0];?>			
+								</ul>
+								<a target="_blank" href="/_spravy/oznamy-pdf/Liturgicke%20oznamy%2022.02.2016%20-%2028.02.2016.pdf">Kompletné liturgicke oznamy v pdf</a><br>
+						  </div>
+						</div>
+					  </div>
+					</div>
+				</div>
+<?php	
+break; case "Meniny":
 ?>
 				<!-- START PHP - Meniny --><?php $path = $_SERVER['DOCUMENT_ROOT']; include_once $path . "/_vlozene/meniny.php"; echo "\n"; ?>
 				<p class="mx-2"><strong>Dnes je</strong><br><?php  echo $dneska; ?></p>
@@ -38,11 +67,11 @@ break; case "Vyvoj":
 break; case "OsobneUdaje":
 ?>				
 				<h3>Ochrana osobných údajov</h3>
-				<a target="_blank" href="https://gdpr.kbs.sk/"><img width="200" title="Kniha s kľúčom" src="/_data/spolocne/gdpr.jpg" alt="GDPR, Ochrana osobných údajov"/></a>
+				<a target="_blank" href="https://gdpr.kbs.sk/"><img height="100" title="GDPR, Ochrana osobných údajov" src="/_data/spolocne/gdpr.svg" alt="GDPR, Ochrana osobných údajov"/></a>
 <?php
 break; case "PochodZaZivot":
 ?>
-				<a href="http://www.pochodzazivot.sk/"><img src="/_data/spolocne/pochod-za-zivot.png" width="150" alt="Pochod za život" /></a>
+				<a href="http://www.pochodzazivot.sk/"><img src="/_data/spolocne/pochod-za-zivot-2019.svg" height="150" title="Pochod za život 2019" alt="Pochod za život" /></a>
 <?php
 break; case "Myslienka":
 include "myslienka.php";
