@@ -21,11 +21,11 @@ include_once("vedeli-ste-ze-zoznam.php");
 	echo $vedeliSteZe_zoznam[$nahodnaZaujimavost]["Zaujimavost"];
 		
 	if (array_key_exists("Odkaz",$vedeliSteZe_zoznam[$nahodnaZaujimavost])) {  
-		echo "\n\t\t\t\t<a href=\"" .  str_replace(" ", '%20', $vedeliSteZe_zoznam[$nahodnaZaujimavost]["Odkaz"]) . "\"";
+		echo "\n\t\t\t\t&nbsp;&nbsp;<a href=\"" .  str_replace(" ", '%20', $vedeliSteZe_zoznam[$nahodnaZaujimavost]["Odkaz"]) . "\"";
 		if (array_key_exists("Titulok", $vedeliSteZe_zoznam[$nahodnaZaujimavost])) {
 			echo " title=\"" . $vedeliSteZe_zoznam[$nahodnaZaujimavost]["Titulok"] . "\"";
 		}
-		echo ">&nbsp;&nbsp;Čítajte ďalej ...</a>";
+		echo ">Čítajte ďalej ...</a>";
 	}
 
 	echo "\n\t\t\t</div>\n";
