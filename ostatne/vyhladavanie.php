@@ -206,7 +206,7 @@ if (!isset($_GET['search']) or $_GET['search']=='') {
 					<input onkeypress="return SearchEnter2(event)" class="form-control "  type="search" name="search" id="PoleSearch_2" aria-label="Search"
 						   <?php echo $hladanaHodnota;?>>  <!-- Naposledy hľadaná hodnota -->
 					<span class="input-group-append">
-					<button onclick="return SearchKlik2()" class="btn btn-warning" type="button" name="submit2" value="send" id="submit2"><i class="fa fa-search" aria-hidden="true"></i></button>
+					<button onclick="return SearchKlik2()" class="btn btn-warning" type="button" name="submit2" value="send" id="submit2"><i class="fas fa-search" aria-hidden="true"></i></button>
 					</span>
 				</form>
 <?php echo $vysledkyVystup; ?>
