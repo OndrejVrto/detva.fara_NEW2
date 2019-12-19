@@ -52,11 +52,11 @@ function pagination_vrto($aktivnaStranka, $pocetStran, $url_zaciatok, $url_konie
 
 		If ($opacneCislovanie==false){
 			if ($aktivnaStranka == 1) {
-				$vystup .= $zalomenie . "\t\t" . '<li class="page-item disabled"><a class="page-link" href="#" aria-label="Previous"><i class="fa fa-chevron-left" aria-hidden="true"></i></a></li>';
+				$vystup .= $zalomenie . "\t\t" . '<li class="page-item disabled"><a class="page-link" href="#" aria-label="Previous"><i class="fas fa-chevron-left" aria-hidden="true"></i></a></li>';
 				$vystup .= $zalomenie . "\t\t" . '<li class="page-item active"><a class="page-link" href="'. $url_zaciatok . '1' . $url_koniec .'">1<span class="sr-only">(aktívna)</span></a></li>';
 			} else {
 				$predchadzajuca_Stranka = $aktivnaStranka - 1;			
-				$vystup .= $zalomenie . "\t\t" . '<li class="page-item"><a class="page-link" href="'. $url_zaciatok . $predchadzajuca_Stranka . $url_koniec .'" aria-label="Previous"><i class="fa fa-chevron-left" aria-hidden="true"></i></a></li>';
+				$vystup .= $zalomenie . "\t\t" . '<li class="page-item"><a class="page-link" href="'. $url_zaciatok . $predchadzajuca_Stranka . $url_koniec .'" aria-label="Previous"><i class="fas fa-chevron-left" aria-hidden="true"></i></a></li>';
 				$vystup .= $zalomenie . "\t\t" . '<li class="page-item"><a class="page-link" href="'. $url_zaciatok . '1' . $url_koniec .'">1</a></li>';			
 			}
 			
@@ -119,11 +119,11 @@ function pagination_vrto($aktivnaStranka, $pocetStran, $url_zaciatok, $url_konie
 
 			if ($aktivnaStranka == $pocetStran) {
 				$vystup .= $zalomenie . "\t\t" . '<li class="page-item active"><a class="page-link" href="'. $url_zaciatok . $pocetStran . $url_koniec .'">'. $pocetStran .'<span class="sr-only">(aktívna)</span></a></li>';
-				$vystup .= $zalomenie . "\t\t" . '<li class="page-item disabled"><a class="page-link" href="#" aria-label="Next"><i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>';
+				$vystup .= $zalomenie . "\t\t" . '<li class="page-item disabled"><a class="page-link" href="#" aria-label="Next"><i class="fas fa-chevron-right" aria-hidden="true"></i></a></li>';
 			} else {
 				$dalsia_Stranka = $aktivnaStranka + 1;
 				$vystup .= $zalomenie . "\t\t" . '<li class="page-item"><a class="page-link" href="'. $url_zaciatok . $pocetStran . $url_koniec .'">'. $pocetStran .'</a></li>';	
-				$vystup .= $zalomenie . "\t\t" . '<li class="page-item"><a class="page-link" href="'. $url_zaciatok . $dalsia_Stranka . $url_koniec . '" aria-label="Next"><i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>';
+				$vystup .= $zalomenie . "\t\t" . '<li class="page-item"><a class="page-link" href="'. $url_zaciatok . $dalsia_Stranka . $url_koniec . '" aria-label="Next"><i class="fas fa-chevron-right" aria-hidden="true"></i></a></li>';
 			}
 			
 			if ($urlPrazdne == true) {
@@ -133,11 +133,11 @@ function pagination_vrto($aktivnaStranka, $pocetStran, $url_zaciatok, $url_konie
 		} else {
 			// vytvorenie opačného poradia stran
 			if ($aktivnaStranka == $pocetStran) {
-				$vystup .= $zalomenie . "\t\t" . '<li class="page-item disabled"><a class="page-link" href="#" aria-label="Previous"><i class="fa fa-chevron-left" aria-hidden="true"></i></a></li>';
+				$vystup .= $zalomenie . "\t\t" . '<li class="page-item disabled"><a class="page-link" href="#" aria-label="Previous"><i class="fas fa-chevron-left" aria-hidden="true"></i></a></li>';
 				$vystup .= $zalomenie . "\t\t" . '<li class="page-item active"><a class="page-link" href="'. $url_zaciatok . $pocetStran . $url_koniec .'">1<span class="sr-only">(aktívna)</span></a></li>';
 			} else {
 				$predchadzajuca_Stranka = ($aktivnaStranka + 1);
-				$vystup .= $zalomenie . "\t\t" . '<li class="page-item"><a class="page-link" href="'. $url_zaciatok . $predchadzajuca_Stranka . $url_koniec .'" aria-label="Previous"><i class="fa fa-chevron-left" aria-hidden="true"></i></a></li>';
+				$vystup .= $zalomenie . "\t\t" . '<li class="page-item"><a class="page-link" href="'. $url_zaciatok . $predchadzajuca_Stranka . $url_koniec .'" aria-label="Previous"><i class="fas fa-chevron-left" aria-hidden="true"></i></a></li>';
 				$vystup .= $zalomenie . "\t\t" . '<li class="page-item"><a class="page-link" href="'. $url_zaciatok . $pocetStran . $url_koniec .'">1</a></li>';			
 			}
 			if ($pocetStran > 7) {
@@ -196,11 +196,11 @@ function pagination_vrto($aktivnaStranka, $pocetStran, $url_zaciatok, $url_konie
 			}
 			if ($aktivnaStranka == 1) {
 				$vystup .= $zalomenie . "\t\t" . '<li class="page-item active"><a class="page-link" href="'. $url_zaciatok . '1' . $url_koniec .'">'. $pocetStran .'<span class="sr-only">(aktívna)</span></a></li>';
-				$vystup .= $zalomenie . "\t\t" . '<li class="page-item disabled"><a class="page-link" href="#" aria-label="Next"><i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>';
+				$vystup .= $zalomenie . "\t\t" . '<li class="page-item disabled"><a class="page-link" href="#" aria-label="Next"><i class="fas fa-chevron-right" aria-hidden="true"></i></a></li>';
 			} else {
 				$dalsia_Stranka = $aktivnaStranka - 1;
 				$vystup .= $zalomenie . "\t\t" . '<li class="page-item"><a class="page-link" href="'. $url_zaciatok . '1' . $url_koniec .'">'. $pocetStran .'</a></li>';	
-				$vystup .= $zalomenie . "\t\t" . '<li class="page-item"><a class="page-link" href="'. $url_zaciatok . $dalsia_Stranka . $url_koniec . '" aria-label="Next"><i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>';
+				$vystup .= $zalomenie . "\t\t" . '<li class="page-item"><a class="page-link" href="'. $url_zaciatok . $dalsia_Stranka . $url_koniec . '" aria-label="Next"><i class="fas fa-chevron-right" aria-hidden="true"></i></a></li>';
 			}
 			
 			if ($urlPrazdne == true) {

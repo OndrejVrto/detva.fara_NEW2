@@ -34,10 +34,14 @@
 	<meta name="theme-color" content="#ffffff">
 	
 	<!--  Štýly stránky - hlavné-->
-	<link rel="stylesheet" type="text/css" href="/_fonty/FontAwesome/css/fontawesome.css">
-	<link rel="stylesheet" type="text/css" href="/_fonty/FontAwesome/css/solid.css">	
-	<link rel="stylesheet" type="text/css" href="/_fonty/FontAwesome/css/regular.css">	
-	<link rel="stylesheet" type="text/css" href="/_css/detva-fara-custom.css">
+	<!--  Ikony -->
+	<link rel="stylesheet" type="text/css" href="/_css/FontAwesome/css/fontawesome.css">
+	<link rel="stylesheet" type="text/css" href="/_css/FontAwesome/css/solid.css">	
+	<link rel="stylesheet" type="text/css" href="/_css/FontAwesome/css/regular.css">	
+	<!--  Vzhľady -->
+	<link href="/_css/detva-fara-custom.css" rel="stylesheet" type="text/css" title="Základný štýl">
+	<link href="/_css/detva-fara-flatly.css" rel="alternate stylesheet" type="text/css" title="Flatly">
+	<link href="/_css/detva-fara-sandstone.css" rel="alternate stylesheet" type="text/css" title="Sandstone">
 	
 	 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

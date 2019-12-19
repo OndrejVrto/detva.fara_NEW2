@@ -19,7 +19,11 @@
 						  </div>
 						  <div class="modal-body">
 								<ul class="list-unstyled">
-<?php	echo nacitatTextak()[0];?>			
+<?php	
+	// vloží triedu funkcií správ
+	include_once $path . "/spravy-a-aktuality/spravy-funkcie.php";
+	echo nacitatTextak()[0];
+?>
 								</ul>
 								<a target="_blank" href="/_spravy/oznamy-pdf/Liturgicke%20oznamy%2022.02.2016%20-%2028.02.2016.pdf">Kompletné liturgicke oznamy v pdf</a><br>
 						  </div>

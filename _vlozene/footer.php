@@ -3,7 +3,7 @@
 		<div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 py-2">
 			<h2 class="pt-2">Kontakt</h2>
 			<address class="mb-0">
-				<i class="fas fa-map-marker-alt fa-lg" aria-hidden="true"></i><br>
+				<i class="far fa-address-card fa-lg" aria-hidden="true"></i><br>
 				<strong>Rímsko-katolícky farský úrad sv. Františka Assiského</strong><br>
 				Partizánska ul. 64<br>
 				962 12&nbsp;&nbsp;&nbsp;Detva<br>

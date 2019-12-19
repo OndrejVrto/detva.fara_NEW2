@@ -2,7 +2,7 @@
 *    Rozšírenie CSS Bootstrap - Ondrej Vrťo - detva.fara.sk
 */
 // Include téma Bootswatch - variables
-//@import "../bootswatch/flatly/variables";
+@import "../bootswatch/flatly/variables";
 
 // Prepísanie pôvodných hodnôt Bootstrap + BootsWatch mojimi hodnotami
 @import "variables-moje";
@@ -18,4 +18,4 @@
 /*
 *    Rozšírenie CSS Bootstrap o tému BootsWatch - Ondrej Vrťo - detva.fara.sk
 */
-//@import "../bootswatch/flatly/bootswatch";
+@import "../bootswatch/flatly/bootswatch";
