@@ -42,7 +42,9 @@
 	<link href="/_css/detva-fara-custom.css" rel="stylesheet" type="text/css" title="Základný štýl">
 	<link href="/_css/detva-fara-flatly.css" rel="alternate stylesheet" type="text/css" title="Flatly">
 	<link href="/_css/detva-fara-sandstone.css" rel="alternate stylesheet" type="text/css" title="Sandstone">
-	
+	<!--  Animácie -->
+	<link rel="stylesheet" type="text/css" href="/_css/animate.min.css">
+		
 	 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	 <!--[if lt IE 9]>

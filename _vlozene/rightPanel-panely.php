@@ -44,7 +44,7 @@ break; case "Vyvoj":
 	// kod pre potreby vyvoja
 	$vlozka = "<span class=\"text-info font-weight-bold\">";
 	echo "\t\t\t\t";
-	echo '<h3>Pre potreby vývoja</h3>';
+	echo '<h3 class="animated infinite pulse delay-2s">Pre potreby vývoja</h3>';
 	echo '<div class="mx-2 my-0 text-left text-monospace">';
 	echo $vlozka. "PHP_SELF:</span> " . $_SERVER['PHP_SELF'];
 	echo "<br>";
